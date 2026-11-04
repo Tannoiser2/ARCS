@@ -192,6 +192,26 @@ func pulisci() -> void:
 		c.queue_free()
 	plancia = null
 
+## Agente: icona della miniatura fornita dall'utente, con il numero se più di uno.
+func icona_agente(colore: String, d := 20.0, n := 1) -> Control:
+	var box := Control.new()
+	box.custom_minimum_size = Vector2(d, d)
+	box.size = Vector2(d, d)
+	var path := "res://assets/ui/agente_%s.png" % colore
+	if not ResourceLoader.exists(path):
+		return pallino(Dati.TINTA.get(colore, Color.GRAY), d, str(n) if n > 1 else "")
+	var t := immagine(path, d, d)
+	t.size = Vector2(d, d)
+	t.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	box.add_child(t)
+	if n > 1:
+		var l := etichetta(str(n), F_NERO, int(d * 0.55), Color(1, 1, 1))
+		l.add_theme_constant_override("outline_size", 4)
+		l.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+		l.position = Vector2(d * 0.62, d * 0.35)
+		box.add_child(l)
+	return box
+
 func pallino(col: Color, d := 14.0, testo := "") -> PanelContainer:
 	var p := PanelContainer.new()
 	var s := stile(col, Color(0, 0, 0, 0.7), 1, int(d / 2))
@@ -1274,20 +1294,20 @@ func _plancia_giocatore(i: int) -> Control:
 		box.add_child(ia_)
 	# Oltraggio: un agente sull'icona della risorsa
 	for t in g["oltraggio"]:
-		var ag := pallino(col, 10)
-		ag.position = Vector2(0.236 * PB_W - 5, PB_OLTRAGGIO[t] * PB_H - 5)
+		var ag := icona_agente(g["colore"], 15)
+		ag.position = Vector2(0.236 * PB_W - 7, PB_OLTRAGGIO[t] * PB_H - 8)
 		ag.tooltip_text = "Oltraggio " + Dati.NOME_RISORSA[t]
 		box.add_child(ag)
 	# Trofei e Prigionieri
 	_pezzi_in_riquadro(box, g["trofei"].map(func(x): return int(x["g"])), Rect2(0.47 * PB_W, 0.47 * PB_H, 0.24 * PB_W, 0.46 * PB_H), "Trofei")
-	_pezzi_in_riquadro(box, g["prigionieri"], Rect2(0.765 * PB_W, 0.47 * PB_H, 0.18 * PB_W, 0.46 * PB_H), "Prigionieri")
+	_pezzi_in_riquadro(box, g["prigionieri"], Rect2(0.765 * PB_W, 0.47 * PB_H, 0.18 * PB_W, 0.46 * PB_H), "Prigionieri", true)
 	if m.bonus_citta(i) > 0:
 		var b := etichetta("+%d" % m.bonus_citta(i), F_NERO, 14, C_ORO_CHIARO)
 		b.position = Vector2(0.83 * PB_W, 0.02 * PB_H)
 		box.add_child(b)
 	return box
 
-func _pezzi_in_riquadro(box: Control, chi: Array, r: Rect2, cosa: String) -> void:
+func _pezzi_in_riquadro(box: Control, chi: Array, r: Rect2, cosa: String, agenti := false) -> void:
 	if chi.is_empty():
 		return
 	var conta := {}
@@ -1301,7 +1321,10 @@ func _pezzi_in_riquadro(box: Control, chi: Array, r: Rect2, cosa: String) -> voi
 	fl.tooltip_text = "%s: %d" % [cosa, chi.size()]
 	for j in conta:
 		var c: Color = Dati.TINTA[m.s["g"][j]["colore"]] if j < m.s["g"].size() else Color(0.6, 0.6, 0.6)
-		fl.add_child(pallino(c, 15, str(conta[j])))
+		if agenti and j < m.s["g"].size():
+			fl.add_child(icona_agente(m.s["g"][j]["colore"], 20, conta[j]))
+		else:
+			fl.add_child(pallino(c, 15, str(conta[j])))
 	box.add_child(fl)
 
 func _nome_carta(c: String) -> String:
@@ -1339,7 +1362,7 @@ func _aggiorna_corte() -> void:
 		for i in m.s["n"]:
 			var n: int = slot["ag"][i]
 			if n > 0:
-				ag.add_child(pallino(Dati.TINTA[m.s["g"][i]["colore"]], 18, str(n)))
+				ag.add_child(icona_agente(m.s["g"][i]["colore"], 24, n))
 		v.add_child(ag)
 		corte_box.add_child(v)
 	titolo_corte.text = "LA CORTE   (mazzo %d, scarti %d)" % [m.s["mazzo_corte"].size(), m.s["scarti_corte"].size()]
