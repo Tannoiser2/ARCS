@@ -1,0 +1,3554 @@
+{
+"334_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "334_00.jpg",
+"dup": null
+},
+"333_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "333_00.jpg",
+"dup": null
+},
+"332_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "332_00.jpg",
+"dup": null
+},
+"335_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "335_00.jpg",
+"dup": null
+},
+"350_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "350_00.jpg",
+"dup": null
+},
+"364_07": {
+"nick": "SILVER TONGUES",
+"set": "Campaign Court",
+"fronte": "364_07.jpg",
+"dup": null
+},
+"364_00": {
+"nick": "MINING INTEREST",
+"set": "Campaign Court",
+"fronte": "364_00.jpg",
+"dup": null
+},
+"364_04": {
+"nick": "SKIRMISHERS",
+"set": "Campaign Court",
+"fronte": "364_04.jpg",
+"dup": null
+},
+"364_09": {
+"nick": "ELDER BROKER",
+"set": "Campaign Court",
+"fronte": "364_09.jpg",
+"dup": null
+},
+"364_03": {
+"nick": "SHIPPING INTEREST",
+"set": "Campaign Court",
+"fronte": "364_03.jpg",
+"dup": null
+},
+"364_02": {
+"nick": "GATEKEEPERS",
+"set": "Campaign Court",
+"fronte": "364_02.jpg",
+"dup": null
+},
+"364_01": {
+"nick": "CONSTRUCTION UNION",
+"set": "Campaign Court",
+"fronte": "364_01.jpg",
+"dup": null
+},
+"364_08": {
+"nick": "SWORN GUARDIANS",
+"set": "Campaign Court",
+"fronte": "364_08.jpg",
+"dup": null
+},
+"364_06": {
+"nick": "LATTICE SPIES",
+"set": "Campaign Court",
+"fronte": "364_06.jpg",
+"dup": null
+},
+"364_05": {
+"nick": "ARMS UNION",
+"set": "Campaign Court",
+"fronte": "364_05.jpg",
+"dup": null
+},
+"364_12": {
+"nick": "DIPLOMATIC FIASCO",
+"set": "Campaign Court",
+"fronte": "364_12.jpg",
+"dup": null
+},
+"364_10": {
+"nick": "POPULIST DEMANDS",
+"set": "Campaign Court",
+"fronte": "364_10.jpg",
+"dup": null
+},
+"364_11": {
+"nick": "COUNCIL INTRIGUE",
+"set": "Campaign Court",
+"fronte": "364_11.jpg",
+"dup": null
+},
+"458_00": {
+"nick": "BREAKING THE FAITH",
+"set": "BELIEVER",
+"fronte": "458_00.jpg",
+"dup": null,
+"retro": "458_00_r.jpg",
+"dup_r": null
+},
+"458_01": {
+"nick": "DOMINANT FAITH",
+"set": "BELIEVER",
+"fronte": "458_01.jpg",
+"dup": null,
+"retro": "458_01_r.jpg",
+"dup_r": null
+},
+"458_02": {
+"nick": "",
+"set": "BELIEVER",
+"fronte": "458_02.jpg",
+"dup": null,
+"retro": "458_02_r.jpg",
+"dup_r": null
+},
+"458_03": {
+"nick": "REPRESSED FAITH",
+"set": "BELIEVER",
+"fronte": "458_03.jpg",
+"dup": null,
+"retro": "458_03_r.jpg",
+"dup_r": null
+},
+"458_04": {
+"nick": "SET LAY DOCTRINE",
+"set": "BELIEVER",
+"fronte": "458_04.jpg",
+"dup": null,
+"retro": "458_04_r.jpg",
+"dup_r": null
+},
+"458_05": {
+"nick": "SECRET ORDER",
+"set": "BELIEVER",
+"fronte": "458_05.jpg",
+"dup": null,
+"retro": "458_05_r.jpg",
+"dup_r": null
+},
+"458_06": {
+"nick": "THE PROPHET",
+"set": "BELIEVER",
+"fronte": "458_06.jpg",
+"dup": null,
+"retro": "458_06_r.jpg",
+"dup_r": null
+},
+"458_07": {
+"nick": "",
+"set": "BELIEVER",
+"fronte": "458_07.jpg",
+"dup": null,
+"retro": "458_07_r.jpg",
+"dup_r": null
+},
+"458_08": {
+"nick": "DOCTRINAL FAITH",
+"set": "BELIEVER",
+"fronte": "458_08.jpg",
+"dup": null,
+"retro": "458_08_r.jpg",
+"dup_r": null
+},
+"458_09": {
+"nick": "",
+"set": "BELIEVER",
+"fronte": "458_09.jpg",
+"dup": null,
+"retro": "458_09_r.jpg",
+"dup_r": null
+},
+"458_10": {
+"nick": "SET DOCTRINE",
+"set": "BELIEVER",
+"fronte": "458_10.jpg",
+"dup": null,
+"retro": "458_10_r.jpg",
+"dup_r": null
+},
+"458_11": {
+"nick": "",
+"set": "BELIEVER",
+"fronte": "458_11.jpg",
+"dup": null,
+"retro": "458_11_r.jpg",
+"dup_r": null
+},
+"458_12": {
+"nick": "SECRET ORDER",
+"set": "BELIEVER",
+"fronte": "458_12.jpg",
+"dup": null,
+"retro": "458_12_r.jpg",
+"dup_r": null
+},
+"458_13": {
+"nick": "THE PRODIGAL ONE",
+"set": "BELIEVER",
+"fronte": "458_13.jpg",
+"dup": null,
+"retro": "458_13_r.jpg",
+"dup_r": null
+},
+"458_14": {
+"nick": "PLOT TO KIDNAP",
+"set": "BELIEVER",
+"fronte": "458_14.jpg",
+"dup": null,
+"retro": "458_14_r.jpg",
+"dup_r": null
+},
+"458_15": {
+"nick": "THE YOUNG LIGHT",
+"set": "BELIEVER",
+"fronte": "458_15.jpg",
+"dup": null,
+"retro": "458_15_r.jpg",
+"dup_r": null
+},
+"458_16": {
+"nick": "",
+"set": "BELIEVER",
+"fronte": "458_16.jpg",
+"dup": null,
+"retro": "458_16_r.jpg",
+"dup_r": null
+},
+"458_17": {
+"nick": "PLURALISTIC FAITH",
+"set": "BELIEVER",
+"fronte": "458_17.jpg",
+"dup": null,
+"retro": "458_17_r.jpg",
+"dup_r": null
+},
+"458_18": {
+"nick": "FAITHFUL CARDS",
+"set": "BELIEVER",
+"fronte": "458_18.jpg",
+"dup": null,
+"retro": "458_18_r.jpg",
+"dup_r": null
+},
+"478_12": {
+"nick": "",
+"set": "Flagships",
+"fronte": "478_12.jpg",
+"dup": null,
+"retro": "478_12_r.jpg",
+"dup_r": null
+},
+"478_11": {
+"nick": "",
+"set": "Flagships",
+"fronte": "478_11.jpg",
+"dup": null,
+"retro": "478_11_r.jpg",
+"dup_r": null
+},
+"478_10": {
+"nick": "",
+"set": "Flagships",
+"fronte": "478_10.jpg",
+"dup": null,
+"retro": "478_10_r.jpg",
+"dup_r": null
+},
+"478_09": {
+"nick": "",
+"set": "Flagships",
+"fronte": "478_09.jpg",
+"dup": null,
+"retro": "478_09_r.jpg",
+"dup_r": null
+},
+"383_00": {
+"nick": "",
+"set": "Flagships",
+"fronte": "383_00.jpg",
+"dup": null
+},
+"463_00": {
+"nick": "GOVERN WITH AUTHORITY",
+"set": "STEWARD",
+"fronte": "463_00.jpg",
+"dup": null,
+"retro": "463_00_r.jpg",
+"dup_r": null
+},
+"463_01": {
+"nick": "GOVERN WITH AUTHORITY",
+"set": "STEWARD",
+"fronte": "463_01.jpg",
+"dup": null,
+"retro": "463_01_r.jpg",
+"dup_r": null
+},
+"463_02": {
+"nick": "GOVERN WITH AUTHORITY",
+"set": "STEWARD",
+"fronte": "463_02.jpg",
+"dup": null,
+"retro": "463_02_r.jpg",
+"dup_r": null
+},
+"463_03": {
+"nick": "IMPERIAL SPONSOR",
+"set": "STEWARD",
+"fronte": "463_03.jpg",
+"dup": null,
+"retro": "463_03_r.jpg",
+"dup_r": "463_01_r"
+},
+"463_04": {
+"nick": "",
+"set": "STEWARD",
+"fronte": "463_04.jpg",
+"dup": null,
+"retro": "463_04_r.jpg",
+"dup_r": null
+},
+"463_05": {
+"nick": "LESSER REGENT",
+"set": "STEWARD",
+"fronte": "463_05.jpg",
+"dup": null,
+"retro": "463_05_r.jpg",
+"dup_r": null
+},
+"463_06": {
+"nick": "LESSER REGENT",
+"set": "STEWARD",
+"fronte": "463_06.jpg",
+"dup": null,
+"retro": "463_06_r.jpg",
+"dup_r": null
+},
+"463_07": {
+"nick": "IMPERIAL DEFECTORS",
+"set": "STEWARD",
+"fronte": "463_07.jpg",
+"dup": null,
+"retro": "463_07_r.jpg",
+"dup_r": null
+},
+"463_08": {
+"nick": "IMPERIAL DEFECTORS",
+"set": "STEWARD",
+"fronte": "463_08.jpg",
+"dup": null,
+"retro": "463_08_r.jpg",
+"dup_r": null
+},
+"463_09": {
+"nick": "GALACTIC BARDS",
+"set": "STEWARD",
+"fronte": "463_09.jpg",
+"dup": null,
+"retro": "463_09_r.jpg",
+"dup_r": null
+},
+"463_10": {
+"nick": "COUNCIL INSIDERS",
+"set": "STEWARD",
+"fronte": "463_10.jpg",
+"dup": null,
+"retro": "463_10_r.jpg",
+"dup_r": null
+},
+"463_11": {
+"nick": "NAVY REPRISAL",
+"set": "STEWARD",
+"fronte": "463_11.jpg",
+"dup": null,
+"retro": "463_11_r.jpg",
+"dup_r": null
+},
+"463_12": {
+"nick": "",
+"set": "STEWARD",
+"fronte": "463_12.jpg",
+"dup": null,
+"retro": "463_12_r.jpg",
+"dup_r": null
+},
+"463_13": {
+"nick": "IMPERIAL QUORUM",
+"set": "STEWARD",
+"fronte": "463_13.jpg",
+"dup": null,
+"retro": "463_13_r.jpg",
+"dup_r": null
+},
+"463_14": {
+"nick": "",
+"set": "STEWARD",
+"fronte": "463_14.jpg",
+"dup": null,
+"retro": "463_14_r.jpg",
+"dup_r": null
+},
+"463_15": {
+"nick": "LESSER REGENT",
+"set": "STEWARD",
+"fronte": "463_15.jpg",
+"dup": null,
+"retro": "463_15_r.jpg",
+"dup_r": null
+},
+"463_16": {
+"nick": "LESSER REGENT",
+"set": "STEWARD",
+"fronte": "463_16.jpg",
+"dup": null,
+"retro": "463_16_r.jpg",
+"dup_r": null
+},
+"463_17": {
+"nick": "EMPIRE FALLS",
+"set": "STEWARD",
+"fronte": "463_17.jpg",
+"dup": null,
+"retro": "463_17_r.jpg",
+"dup_r": null
+},
+"463_18": {
+"nick": "IMPERIAL PROTECTORS",
+"set": "STEWARD",
+"fronte": "463_18.jpg",
+"dup": null,
+"retro": "463_18_r.jpg",
+"dup_r": null
+},
+"463_19": {
+"nick": "HUNTER SQUADS",
+"set": "STEWARD",
+"fronte": "463_19.jpg",
+"dup": null,
+"retro": "463_19_r.jpg",
+"dup_r": null
+},
+"463_20": {
+"nick": "TAX COLLECTORS",
+"set": "STEWARD",
+"fronte": "463_20.jpg",
+"dup": null,
+"retro": "463_20_r.jpg",
+"dup_r": null
+},
+"463_21": {
+"nick": "COUNCIL INTRIGUE",
+"set": "STEWARD",
+"fronte": "463_21.jpg",
+"dup": null,
+"retro": "463_21_r.jpg",
+"dup_r": null
+},
+"463_22": {
+"nick": "",
+"set": "STEWARD",
+"fronte": "463_22.jpg",
+"dup": null,
+"retro": "463_22_r.jpg",
+"dup_r": null
+},
+"463_23": {
+"nick": "DEALMAKERS",
+"set": "STEWARD",
+"fronte": "463_23.jpg",
+"dup": null,
+"retro": "463_23_r.jpg",
+"dup_r": null
+},
+"463_24": {
+"nick": "IMPERIAL AUTHORITY",
+"set": "STEWARD",
+"fronte": "463_24.jpg",
+"dup": null,
+"retro": "463_24_r.jpg",
+"dup_r": null
+},
+"463_25": {
+"nick": "",
+"set": "STEWARD",
+"fronte": "463_25.jpg",
+"dup": null,
+"retro": "463_25_r.jpg",
+"dup_r": null
+},
+"427_00": {
+"nick": "CLOSED & OPEN ECONOMY",
+"set": "MAGNATE",
+"fronte": "427_00.jpg",
+"dup": null,
+"retro": "427_00_r.jpg",
+"dup_r": null
+},
+"427_01": {
+"nick": "ECONOMY",
+"set": "MAGNATE",
+"fronte": "427_01.jpg",
+"dup": null,
+"retro": "427_01_r.jpg",
+"dup_r": null
+},
+"427_02": {
+"nick": "",
+"set": "MAGNATE",
+"fronte": "427_02.jpg",
+"dup": null,
+"retro": "427_02_r.jpg",
+"dup_r": null
+},
+"427_03": {
+"nick": "EXTORTION",
+"set": "MAGNATE",
+"fronte": "427_03.jpg",
+"dup": null,
+"retro": "427_03_r.jpg",
+"dup_r": null
+},
+"427_04": {
+"nick": "EXTORTION",
+"set": "MAGNATE",
+"fronte": "427_04.jpg",
+"dup": null,
+"retro": "427_04_r.jpg",
+"dup_r": null
+},
+"427_05": {
+"nick": "PROSPECTORS",
+"set": "MAGNATE",
+"fronte": "427_05.jpg",
+"dup": null,
+"retro": "427_05_r.jpg",
+"dup_r": null
+},
+"427_06": {
+"nick": "",
+"set": "MAGNATE",
+"fronte": "427_06.jpg",
+"dup": null,
+"retro": "427_06_r.jpg",
+"dup_r": null
+},
+"427_07": {
+"nick": "WAR PROFITEERING",
+"set": "MAGNATE",
+"fronte": "427_07.jpg",
+"dup": null,
+"retro": "427_07_r.jpg",
+"dup_r": null
+},
+"427_08": {
+"nick": "MONOPOLY CONSENT",
+"set": "MAGNATE",
+"fronte": "427_08.jpg",
+"dup": null,
+"retro": "427_08_r.jpg",
+"dup_r": null
+},
+"427_09": {
+"nick": "GAIN MONOPOLIES",
+"set": "MAGNATE",
+"fronte": "427_09.jpg",
+"dup": null,
+"retro": "427_09_r.jpg",
+"dup_r": null
+},
+"427_10": {
+"nick": "WEAPON MONOPOLY",
+"set": "MAGNATE",
+"fronte": "427_10.jpg",
+"dup": null,
+"retro": "427_10_r.jpg",
+"dup_r": null
+},
+"427_11": {
+"nick": "PSIONIC MONOPOLY",
+"set": "MAGNATE",
+"fronte": "427_11.jpg",
+"dup": null,
+"retro": "427_11_r.jpg",
+"dup_r": null
+},
+"427_12": {
+"nick": "RELIC MONOPOLY",
+"set": "MAGNATE",
+"fronte": "427_12.jpg",
+"dup": null,
+"retro": "427_12_r.jpg",
+"dup_r": null
+},
+"427_13": {
+"nick": "FUEL MONOPOLY",
+"set": "MAGNATE",
+"fronte": "427_13.jpg",
+"dup": null,
+"retro": "427_13_r.jpg",
+"dup_r": null
+},
+"427_14": {
+"nick": "MATERIAL MONOPOLY",
+"set": "MAGNATE",
+"fronte": "427_14.jpg",
+"dup": null,
+"retro": "427_14_r.jpg",
+"dup_r": null
+},
+"427_15": {
+"nick": "",
+"set": "MAGNATE",
+"fronte": "427_15.jpg",
+"dup": null,
+"retro": "427_15_r.jpg",
+"dup_r": null
+},
+"427_16": {
+"nick": "RELIC CARTEL",
+"set": "MAGNATE",
+"fronte": "427_16.jpg",
+"dup": null,
+"retro": "427_16_r.jpg",
+"dup_r": null
+},
+"427_17": {
+"nick": "PSIONIC CARTEL",
+"set": "MAGNATE",
+"fronte": "427_17.jpg",
+"dup": null,
+"retro": "427_17_r.jpg",
+"dup_r": null
+},
+"427_18": {
+"nick": "WEAPON CARTEL",
+"set": "MAGNATE",
+"fronte": "427_18.jpg",
+"dup": null,
+"retro": "427_18_r.jpg",
+"dup_r": null
+},
+"427_19": {
+"nick": "FUEL CARTEL",
+"set": "MAGNATE",
+"fronte": "427_19.jpg",
+"dup": null,
+"retro": "427_19_r.jpg",
+"dup_r": null
+},
+"427_20": {
+"nick": "MATERIAL CARTEL",
+"set": "MAGNATE",
+"fronte": "427_20.jpg",
+"dup": null,
+"retro": "427_20_r.jpg",
+"dup_r": null
+},
+"427_21": {
+"nick": "PRISON WARDENS",
+"set": "MAGNATE",
+"fronte": "427_21.jpg",
+"dup": null,
+"retro": "427_21_r.jpg",
+"dup_r": null
+},
+"427_22": {
+"nick": "RELIC FENCE",
+"set": "MAGNATE",
+"fronte": "427_22.jpg",
+"dup": null,
+"retro": "427_22_r.jpg",
+"dup_r": null
+},
+"427_23": {
+"nick": "ELDER BROKER",
+"set": "MAGNATE",
+"fronte": "427_23.jpg",
+"dup": null,
+"retro": "427_23_r.jpg",
+"dup_r": null
+},
+"427_24": {
+"nick": "",
+"set": "MAGNATE",
+"fronte": "427_24.jpg",
+"dup": null,
+"retro": "427_24_r.jpg",
+"dup_r": null
+},
+"427_25": {
+"nick": "MERCHANT LEAGUE",
+"set": "MAGNATE",
+"fronte": "427_25.jpg",
+"dup": null,
+"retro": "427_25_r.jpg",
+"dup_r": null
+},
+"427_26": {
+"nick": "",
+"set": "MAGNATE",
+"fronte": "427_26.jpg",
+"dup": null,
+"retro": "427_26_r.jpg",
+"dup_r": null
+},
+"429_00": {
+"nick": "GOLEMS SATE THEIR APPETITE",
+"set": "CARETAKER",
+"fronte": "429_00.jpg",
+"dup": null,
+"retro": "429_00_r.jpg",
+"dup_r": null
+},
+"429_01": {
+"nick": "",
+"set": "CARETAKER",
+"fronte": "429_01.jpg",
+"dup": null,
+"retro": "429_01_r.jpg",
+"dup_r": null
+},
+"429_02": {
+"nick": "GOLEM WORSHIP",
+"set": "CARETAKER",
+"fronte": "429_02.jpg",
+"dup": null,
+"retro": "429_02_r.jpg",
+"dup_r": null
+},
+"429_03": {
+"nick": "GOLEM WORSHIP",
+"set": "CARETAKER",
+"fronte": "429_03.jpg",
+"dup": null,
+"retro": "429_03_r.jpg",
+"dup_r": null
+},
+"429_04": {
+"nick": "GOLEM WORSHIP",
+"set": "CARETAKER",
+"fronte": "429_04.jpg",
+"dup": null,
+"retro": "429_04_r.jpg",
+"dup_r": null
+},
+"429_05": {
+"nick": "",
+"set": "CARETAKER",
+"fronte": "429_05.jpg",
+"dup": null,
+"retro": "429_05_r.jpg",
+"dup_r": null
+},
+"429_06": {
+"nick": "Action Card",
+"set": "CARETAKER",
+"fronte": "429_06.jpg",
+"dup": null,
+"retro": "429_06_r.jpg",
+"dup_r": null
+},
+"429_07": {
+"nick": "KNOWLEDGE SET FREE",
+"set": "CARETAKER",
+"fronte": "429_07.jpg",
+"dup": null,
+"retro": "429_07_r.jpg",
+"dup_r": null
+},
+"429_08": {
+"nick": "LIBRARIANS",
+"set": "CARETAKER",
+"fronte": "429_08.jpg",
+"dup": null,
+"retro": "429_08_r.jpg",
+"dup_r": null
+},
+"429_09": {
+"nick": "",
+"set": "CARETAKER",
+"fronte": "429_09.jpg",
+"dup": null,
+"retro": "429_09_r.jpg",
+"dup_r": null
+},
+"429_10": {
+"nick": "UNSTABLE WARRIOR",
+"set": "CARETAKER",
+"fronte": "429_10.jpg",
+"dup": null,
+"retro": "429_10_r.jpg",
+"dup_r": null
+},
+"429_11": {
+"nick": "UNSTABLE PROTECTOR",
+"set": "CARETAKER",
+"fronte": "429_11.jpg",
+"dup": null,
+"retro": "429_11_r.jpg",
+"dup_r": null
+},
+"429_12": {
+"nick": "UNSTABLE SEEKER",
+"set": "CARETAKER",
+"fronte": "429_12.jpg",
+"dup": null,
+"retro": "429_12_r.jpg",
+"dup_r": null
+},
+"429_13": {
+"nick": "UNSTABLE HARVESTER",
+"set": "CARETAKER",
+"fronte": "429_13.jpg",
+"dup": null,
+"retro": "429_13_r.jpg",
+"dup_r": null
+},
+"429_14": {
+"nick": "",
+"set": "CARETAKER",
+"fronte": "429_14.jpg",
+"dup": null,
+"retro": "429_14_r.jpg",
+"dup_r": null
+},
+"429_15": {
+"nick": "GOLEM ACTIONS",
+"set": "CARETAKER",
+"fronte": "429_15.jpg",
+"dup": null,
+"retro": "429_15_r.jpg",
+"dup_r": null
+},
+"429_16": {
+"nick": "GOLEMS",
+"set": "CARETAKER",
+"fronte": "429_16.jpg",
+"dup": null,
+"retro": "429_16_r.jpg",
+"dup_r": null
+},
+"429_17": {
+"nick": "STONE-SPEAKERS",
+"set": "CARETAKER",
+"fronte": "429_17.jpg",
+"dup": null,
+"retro": "429_17_r.jpg",
+"dup_r": null
+},
+"429_18": {
+"nick": "GOLEM HEARTH",
+"set": "CARETAKER",
+"fronte": "429_18.jpg",
+"dup": null,
+"retro": "429_18_r.jpg",
+"dup_r": null
+},
+"429_19": {
+"nick": "GOLEM BEACON",
+"set": "CARETAKER",
+"fronte": "429_19.jpg",
+"dup": null,
+"retro": "429_19_r.jpg",
+"dup_r": null
+},
+"429_20": {
+"nick": "",
+"set": "CARETAKER",
+"fronte": "429_20.jpg",
+"dup": null,
+"retro": "429_20_r.jpg",
+"dup_r": null
+},
+"477_00": {
+"nick": "SOWER OF DIVISION",
+"set": "PARTISAN",
+"fronte": "477_00.jpg",
+"dup": null,
+"retro": "477_00_r.jpg",
+"dup_r": null
+},
+"477_01": {
+"nick": "",
+"set": "PARTISAN",
+"fronte": "477_01.jpg",
+"dup": null,
+"retro": "477_01_r.jpg",
+"dup_r": null
+},
+"477_02": {
+"nick": "ARMS UNION",
+"set": "PARTISAN",
+"fronte": "477_02.jpg",
+"dup": null,
+"retro": "477_02_r.jpg",
+"dup_r": null
+},
+"477_03": {
+"nick": "SPACING UNION",
+"set": "PARTISAN",
+"fronte": "477_03.jpg",
+"dup": null,
+"retro": "477_03_r.jpg",
+"dup_r": null
+},
+"477_04": {
+"nick": "TERROR STRIKE",
+"set": "PARTISAN",
+"fronte": "477_04.jpg",
+"dup": null,
+"retro": "477_04_r.jpg",
+"dup_r": null
+},
+"477_05": {
+"nick": "TERROR STRIKE",
+"set": "PARTISAN",
+"fronte": "477_05.jpg",
+"dup": null,
+"retro": "477_05_r.jpg",
+"dup_r": null
+},
+"477_06": {
+"nick": "GUILDS DECRY TERROR",
+"set": "PARTISAN",
+"fronte": "477_06.jpg",
+"dup": null,
+"retro": "477_06_r.jpg",
+"dup_r": null
+},
+"477_07": {
+"nick": "",
+"set": "PARTISAN",
+"fronte": "477_07.jpg",
+"dup": null,
+"retro": "477_07_r.jpg",
+"dup_r": null
+},
+"477_08": {
+"nick": "PEOPLE'S HERO",
+"set": "PARTISAN",
+"fronte": "477_08.jpg",
+"dup": null,
+"retro": "477_08_r.jpg",
+"dup_r": null
+},
+"477_09": {
+"nick": "PARTISAN SEIZING",
+"set": "PARTISAN",
+"fronte": "477_09.jpg",
+"dup": null,
+"retro": "477_09_r.jpg",
+"dup_r": null
+},
+"477_10": {
+"nick": "",
+"set": "PARTISAN",
+"fronte": "477_10.jpg",
+"dup": null,
+"retro": "477_10_r.jpg",
+"dup_r": null
+},
+"477_11": {
+"nick": "OUTRAGE SPREADS",
+"set": "PARTISAN",
+"fronte": "477_11.jpg",
+"dup": null,
+"retro": "477_11_r.jpg",
+"dup_r": null
+},
+"477_12": {
+"nick": "OUTRAGE SPREADS",
+"set": "PARTISAN",
+"fronte": "477_12.jpg",
+"dup": null,
+"retro": "477_12_r.jpg",
+"dup_r": null
+},
+"477_13": {
+"nick": "ARMS UNION",
+"set": "PARTISAN",
+"fronte": "477_13.jpg",
+"dup": null,
+"retro": "477_13_r.jpg",
+"dup_r": null
+},
+"477_14": {
+"nick": "SPACING UNION",
+"set": "PARTISAN",
+"fronte": "477_14.jpg",
+"dup": null,
+"retro": "477_14_r.jpg",
+"dup_r": null
+},
+"477_15": {
+"nick": "GALACTIC BARDS",
+"set": "PARTISAN",
+"fronte": "477_15.jpg",
+"dup": null,
+"retro": "477_15_r.jpg",
+"dup_r": null
+},
+"477_16": {
+"nick": "LOYAL KEEPERS",
+"set": "PARTISAN",
+"fronte": "477_16.jpg",
+"dup": null,
+"retro": "477_16_r.jpg",
+"dup_r": null
+},
+"477_17": {
+"nick": "LOYAL EMPATHS",
+"set": "PARTISAN",
+"fronte": "477_17.jpg",
+"dup": null,
+"retro": "477_17_r.jpg",
+"dup_r": null
+},
+"477_18": {
+"nick": "LOYAL MARINES",
+"set": "PARTISAN",
+"fronte": "477_18.jpg",
+"dup": null,
+"retro": "477_18_r.jpg",
+"dup_r": null
+},
+"477_19": {
+"nick": "LOYAL PILOTS",
+"set": "PARTISAN",
+"fronte": "477_19.jpg",
+"dup": null,
+"retro": "477_19_r.jpg",
+"dup_r": null
+},
+"477_20": {
+"nick": "LOYAL ENGINEERS",
+"set": "PARTISAN",
+"fronte": "477_20.jpg",
+"dup": null,
+"retro": "477_20_r.jpg",
+"dup_r": null
+},
+"477_21": {
+"nick": "",
+"set": "PARTISAN",
+"fronte": "477_21.jpg",
+"dup": null,
+"retro": "477_21_r.jpg",
+"dup_r": null
+},
+"477_22": {
+"nick": "PARTISAN SEIZING",
+"set": "PARTISAN",
+"fronte": "477_22.jpg",
+"dup": null,
+"retro": "477_22_r.jpg",
+"dup_r": null
+},
+"477_23": {
+"nick": "INFORMANTS",
+"set": "PARTISAN",
+"fronte": "477_23.jpg",
+"dup": null,
+"retro": "477_23_r.jpg",
+"dup_r": null
+},
+"477_24": {
+"nick": "",
+"set": "PARTISAN",
+"fronte": "477_24.jpg",
+"dup": null,
+"retro": "477_24_r.jpg",
+"dup_r": null
+},
+"428_00": {
+"nick": "GUILD SUPREMACY",
+"set": "ADVOCATE",
+"fronte": "428_00.jpg",
+"dup": null,
+"retro": "428_00_r.jpg",
+"dup_r": null
+},
+"428_01": {
+"nick": "GUILD SUPREMACY",
+"set": "ADVOCATE",
+"fronte": "428_01.jpg",
+"dup": null,
+"retro": "428_01_r.jpg",
+"dup_r": null
+},
+"428_02": {
+"nick": "GUILD LOYALTY",
+"set": "ADVOCATE",
+"fronte": "428_02.jpg",
+"dup": null,
+"retro": "428_02_r.jpg",
+"dup_r": null
+},
+"428_03": {
+"nick": "",
+"set": "ADVOCATE",
+"fronte": "428_03.jpg",
+"dup": null,
+"retro": "428_03_r.jpg",
+"dup_r": null
+},
+"428_04": {
+"nick": "GUILDS WITHDRAW",
+"set": "ADVOCATE",
+"fronte": "428_04.jpg",
+"dup": null,
+"retro": "428_04_r.jpg",
+"dup_r": null
+},
+"428_05": {
+"nick": "PSIONIC GUILDMASTERS",
+"set": "ADVOCATE",
+"fronte": "428_05.jpg",
+"dup": null,
+"retro": "428_05_r.jpg",
+"dup_r": null
+},
+"428_06": {
+"nick": "RELIC GUILDMASTERS",
+"set": "ADVOCATE",
+"fronte": "428_06.jpg",
+"dup": null,
+"retro": "428_06_r.jpg",
+"dup_r": null
+},
+"428_07": {
+"nick": "WEAPONS GUILDMASTERS",
+"set": "ADVOCATE",
+"fronte": "428_07.jpg",
+"dup": null,
+"retro": "428_07_r.jpg",
+"dup_r": null
+},
+"428_08": {
+"nick": "FUEL GUILDMASTERS",
+"set": "ADVOCATE",
+"fronte": "428_08.jpg",
+"dup": null,
+"retro": "428_08_r.jpg",
+"dup_r": null
+},
+"428_09": {
+"nick": "MATERIAL GUILDMASTERS",
+"set": "ADVOCATE",
+"fronte": "428_09.jpg",
+"dup": null,
+"retro": "428_09_r.jpg",
+"dup_r": null
+},
+"428_10": {
+"nick": "GUILD FAIR",
+"set": "ADVOCATE",
+"fronte": "428_10.jpg",
+"dup": null,
+"retro": "428_10_r.jpg",
+"dup_r": null
+},
+"428_11": {
+"nick": "",
+"set": "ADVOCATE",
+"fronte": "428_11.jpg",
+"dup": null,
+"retro": "428_11_r.jpg",
+"dup_r": null
+},
+"428_12": {
+"nick": "GUILD NEGOTIATIONS",
+"set": "ADVOCATE",
+"fronte": "428_12.jpg",
+"dup": null,
+"retro": "428_12_r.jpg",
+"dup_r": null
+},
+"428_13": {
+"nick": "ADVOCATE'S DEMAND",
+"set": "ADVOCATE",
+"fronte": "428_13.jpg",
+"dup": null,
+"retro": "428_13_r.jpg",
+"dup_r": null
+},
+"428_14": {
+"nick": "",
+"set": "ADVOCATE",
+"fronte": "428_14.jpg",
+"dup": null,
+"retro": "428_14_r.jpg",
+"dup_r": null
+},
+"428_15": {
+"nick": "GUILD STRUGGLE",
+"set": "ADVOCATE",
+"fronte": "428_15.jpg",
+"dup": null,
+"retro": "428_15_r.jpg",
+"dup_r": null
+},
+"428_16": {
+"nick": "DIPLOMATIC FIASCO",
+"set": "ADVOCATE",
+"fronte": "428_16.jpg",
+"dup": null,
+"retro": "428_16_r.jpg",
+"dup_r": null
+},
+"428_17": {
+"nick": "PSIONIC LIAISONS",
+"set": "ADVOCATE",
+"fronte": "428_17.jpg",
+"dup": null,
+"retro": "428_17_r.jpg",
+"dup_r": null
+},
+"428_18": {
+"nick": "RELIC LIAISONS",
+"set": "ADVOCATE",
+"fronte": "428_18.jpg",
+"dup": null,
+"retro": "428_18_r.jpg",
+"dup_r": null
+},
+"428_19": {
+"nick": "WEAPONS LIAISONS",
+"set": "ADVOCATE",
+"fronte": "428_19.jpg",
+"dup": null,
+"retro": "428_19_r.jpg",
+"dup_r": null
+},
+"428_20": {
+"nick": "FUEL LIAISONS",
+"set": "ADVOCATE",
+"fronte": "428_20.jpg",
+"dup": null,
+"retro": "428_20_r.jpg",
+"dup_r": null
+},
+"428_21": {
+"nick": "MATERIAL LIAISONS",
+"set": "ADVOCATE",
+"fronte": "428_21.jpg",
+"dup": null,
+"retro": "428_21_r.jpg",
+"dup_r": null
+},
+"428_22": {
+"nick": "",
+"set": "ADVOCATE",
+"fronte": "428_22.jpg",
+"dup": null,
+"retro": "428_22_r.jpg",
+"dup_r": null
+},
+"428_23": {
+"nick": "GUILD OVERSEERS",
+"set": "ADVOCATE",
+"fronte": "428_23.jpg",
+"dup": null,
+"retro": "428_23_r.jpg",
+"dup_r": null
+},
+"428_24": {
+"nick": "GUILD INVESTIGATORS",
+"set": "ADVOCATE",
+"fronte": "428_24.jpg",
+"dup": null,
+"retro": "428_24_r.jpg",
+"dup_r": null
+},
+"428_25": {
+"nick": "",
+"set": "ADVOCATE",
+"fronte": "428_25.jpg",
+"dup": null,
+"retro": "428_25_r.jpg",
+"dup_r": null
+},
+"479_00": {
+"nick": "MARTIAL LAW",
+"set": "ADMIRAL",
+"fronte": "479_00.jpg",
+"dup": null,
+"retro": "479_00_r.jpg",
+"dup_r": null
+},
+"479_01": {
+"nick": "MARTIAL LAW",
+"set": "ADMIRAL",
+"fronte": "479_01.jpg",
+"dup": null,
+"retro": "479_01_r.jpg",
+"dup_r": null
+},
+"479_02": {
+"nick": "",
+"set": "ADMIRAL",
+"fronte": "479_02.jpg",
+"dup": null,
+"retro": "479_02_r.jpg",
+"dup_r": null
+},
+"479_03": {
+"nick": "MASS UPRISING",
+"set": "ADMIRAL",
+"fronte": "479_03.jpg",
+"dup": null,
+"retro": "479_03_r.jpg",
+"dup_r": null
+},
+"479_04": {
+"nick": "MASS UPRISING",
+"set": "ADMIRAL",
+"fronte": "479_04.jpg",
+"dup": null,
+"retro": "479_04_r.jpg",
+"dup_r": null
+},
+"479_05": {
+"nick": "IMPERIAL DEFECTORS",
+"set": "ADMIRAL",
+"fronte": "479_05.jpg",
+"dup": null,
+"retro": "479_05_r.jpg",
+"dup_r": null
+},
+"479_06": {
+"nick": "IMPERIAL DEFECTORS",
+"set": "ADMIRAL",
+"fronte": "479_06.jpg",
+"dup": null,
+"retro": "479_06_r.jpg",
+"dup_r": null
+},
+"479_07": {
+"nick": "",
+"set": "ADMIRAL",
+"fronte": "479_07.jpg",
+"dup": null,
+"retro": "479_07_r.jpg",
+"dup_r": null
+},
+"479_08": {
+"nick": "COMMAND CHAOS",
+"set": "ADMIRAL",
+"fronte": "479_08.jpg",
+"dup": null,
+"retro": "479_08_r.jpg",
+"dup_r": null
+},
+"479_09": {
+"nick": "",
+"set": "ADMIRAL",
+"fronte": "479_09.jpg",
+"dup": null,
+"retro": "479_09_r.jpg",
+"dup_r": null
+},
+"479_10": {
+"nick": "IMPERIAL DEFECTORS",
+"set": "ADMIRAL",
+"fronte": "479_10.jpg",
+"dup": null,
+"retro": "479_10_r.jpg",
+"dup_r": null
+},
+"479_11": {
+"nick": "IMPERIAL DEFECTORS",
+"set": "ADMIRAL",
+"fronte": "479_11.jpg",
+"dup": null,
+"retro": "479_11_r.jpg",
+"dup_r": null
+},
+"479_12": {
+"nick": "COURT ENFORCERS",
+"set": "ADMIRAL",
+"fronte": "479_12.jpg",
+"dup": null,
+"retro": "479_12_r.jpg",
+"dup_r": null
+},
+"479_13": {
+"nick": "COURT ENFORCERS",
+"set": "ADMIRAL",
+"fronte": "479_13.jpg",
+"dup": null,
+"retro": "479_13_r.jpg",
+"dup_r": null
+},
+"479_14": {
+"nick": "ROGUE ADMIRALS",
+"set": "ADMIRAL",
+"fronte": "479_14.jpg",
+"dup": null,
+"retro": "479_14_r.jpg",
+"dup_r": null
+},
+"479_15": {
+"nick": "ROGUE ADMIRALS",
+"set": "ADMIRAL",
+"fronte": "479_15.jpg",
+"dup": null,
+"retro": "479_15_r.jpg",
+"dup_r": null
+},
+"479_16": {
+"nick": "HONOR GUARD",
+"set": "ADMIRAL",
+"fronte": "479_16.jpg",
+"dup": null,
+"retro": "479_16_r.jpg",
+"dup_r": null
+},
+"479_17": {
+"nick": "",
+"set": "ADMIRAL",
+"fronte": "479_17.jpg",
+"dup": null,
+"retro": "479_17_r.jpg",
+"dup_r": null
+},
+"479_18": {
+"nick": "USE IMPERIAL FOUNDRIES",
+"set": "ADMIRAL",
+"fronte": "479_18.jpg",
+"dup": null,
+"retro": "479_18_r.jpg",
+"dup_r": null
+},
+"479_19": {
+"nick": "IMPERIAL OFFICERS",
+"set": "ADMIRAL",
+"fronte": "479_19.jpg",
+"dup": null,
+"retro": "479_19_r.jpg",
+"dup_r": null
+},
+"479_20": {
+"nick": "",
+"set": "ADMIRAL",
+"fronte": "479_20.jpg",
+"dup": null,
+"retro": "479_20_r.jpg",
+"dup_r": null
+},
+"471_00": {
+"nick": "FREEDOM FIGHTERS",
+"set": "FOUNDER",
+"fronte": "471_00.jpg",
+"dup": null,
+"retro": "471_00_r.jpg",
+"dup_r": null
+},
+"471_01": {
+"nick": "MASS CALL FOR ARMISTICE",
+"set": "FOUNDER",
+"fronte": "471_01.jpg",
+"dup": null,
+"retro": "471_01_r.jpg",
+"dup_r": null
+},
+"471_02": {
+"nick": "",
+"set": "FOUNDER",
+"fronte": "471_02.jpg",
+"dup": null,
+"retro": "471_02_r.jpg",
+"dup_r": null
+},
+"471_03": {
+"nick": "SPIRIT OF FREEDOM",
+"set": "FOUNDER",
+"fronte": "471_03.jpg",
+"dup": null,
+"retro": "471_03_r.jpg",
+"dup_r": null
+},
+"471_04": {
+"nick": "",
+"set": "FOUNDER",
+"fronte": "471_04.jpg",
+"dup": null,
+"retro": "471_04_r.jpg",
+"dup_r": null
+},
+"471_05": {
+"nick": "COMMONWEALTH MEMBERSHIP",
+"set": "FOUNDER",
+"fronte": "471_05.jpg",
+"dup": null,
+"retro": "471_05_r.jpg",
+"dup_r": null
+},
+"471_06": {
+"nick": "MEMBER OF THE COMMONWEALTH",
+"set": "FOUNDER",
+"fronte": "471_06.jpg",
+"dup": null,
+"retro": "471_06_r.jpg",
+"dup_r": null
+},
+"471_07": {
+"nick": "MEMBER OF THE COMMONWEALTH",
+"set": "FOUNDER",
+"fronte": "471_07.jpg",
+"dup": null,
+"retro": "471_07_r.jpg",
+"dup_r": null
+},
+"471_08": {
+"nick": "MEMBER OF THE COMMONWEALTH",
+"set": "FOUNDER",
+"fronte": "471_08.jpg",
+"dup": null,
+"retro": "471_08_r.jpg",
+"dup_r": null
+},
+"471_09": {
+"nick": "MEMBER OF THE COMMONWEALTH",
+"set": "FOUNDER",
+"fronte": "471_09.jpg",
+"dup": null,
+"retro": "471_09_r.jpg",
+"dup_r": null
+},
+"471_10": {
+"nick": "ARMISTICE",
+"set": "FOUNDER",
+"fronte": "471_10.jpg",
+"dup": null,
+"retro": "471_10_r.jpg",
+"dup_r": null
+},
+"471_11": {
+"nick": "ARMISTICE",
+"set": "FOUNDER",
+"fronte": "471_11.jpg",
+"dup": null,
+"retro": "471_11_r.jpg",
+"dup_r": null
+},
+"471_12": {
+"nick": "CALL FOR ARMISTICE",
+"set": "FOUNDER",
+"fronte": "471_12.jpg",
+"dup": null,
+"retro": "471_12_r.jpg",
+"dup_r": null
+},
+"471_13": {
+"nick": "COMMONWEALTH AMBITION",
+"set": "FOUNDER",
+"fronte": "471_13.jpg",
+"dup": null,
+"retro": "471_13_r.jpg",
+"dup_r": null
+},
+"471_14": {
+"nick": "FOUNDER OF THE COMMONWEALTH",
+"set": "FOUNDER",
+"fronte": "471_14.jpg",
+"dup": null,
+"retro": "471_14_r.jpg",
+"dup_r": null
+},
+"471_15": {
+"nick": "",
+"set": "FOUNDER",
+"fronte": "471_15.jpg",
+"dup": null,
+"retro": "471_15_r.jpg",
+"dup_r": null
+},
+"471_16": {
+"nick": "ADMIN UNION",
+"set": "FOUNDER",
+"fronte": "471_16.jpg",
+"dup": null,
+"retro": "471_16_r.jpg",
+"dup_r": null
+},
+"471_17": {
+"nick": "ADMIN UNION",
+"set": "FOUNDER",
+"fronte": "471_17.jpg",
+"dup": null,
+"retro": "471_17_r.jpg",
+"dup_r": null
+},
+"471_18": {
+"nick": "CONSTRUCTION UNION",
+"set": "FOUNDER",
+"fronte": "471_18.jpg",
+"dup": null,
+"retro": "471_18_r.jpg",
+"dup_r": null
+},
+"471_19": {
+"nick": "CONSTRUCTION UNION",
+"set": "FOUNDER",
+"fronte": "471_19.jpg",
+"dup": null,
+"retro": "471_19_r.jpg",
+"dup_r": null
+},
+"471_20": {
+"nick": "POLITICAL INTRIGUE",
+"set": "FOUNDER",
+"fronte": "471_20.jpg",
+"dup": null,
+"retro": "471_20_r.jpg",
+"dup_r": null
+},
+"471_21": {
+"nick": "POLITICAL INTRIGUE",
+"set": "FOUNDER",
+"fronte": "471_21.jpg",
+"dup": null,
+"retro": "471_21_r.jpg",
+"dup_r": null
+},
+"471_22": {
+"nick": "POLITICAL INTRIGUE",
+"set": "FOUNDER",
+"fronte": "471_22.jpg",
+"dup": null,
+"retro": "471_22_r.jpg",
+"dup_r": null
+},
+"471_23": {
+"nick": "BOOK OF LIBERATION",
+"set": "FOUNDER",
+"fronte": "471_23.jpg",
+"dup": null,
+"retro": "471_23_r.jpg",
+"dup_r": null
+},
+"471_24": {
+"nick": "",
+"set": "FOUNDER",
+"fronte": "471_24.jpg",
+"dup": null,
+"retro": "471_24_r.jpg",
+"dup_r": null
+},
+"471_25": {
+"nick": "PARADE FLEETS",
+"set": "FOUNDER",
+"fronte": "471_25.jpg",
+"dup": null,
+"retro": "471_25_r.jpg",
+"dup_r": null
+},
+"471_26": {
+"nick": "",
+"set": "FOUNDER",
+"fronte": "471_26.jpg",
+"dup": null,
+"retro": "471_26_r.jpg",
+"dup_r": null
+},
+"487_00": {
+"nick": "SHARING RUMORS",
+"set": "PIRATE",
+"fronte": "487_00.jpg",
+"dup": null,
+"retro": "487_00_r.jpg",
+"dup_r": null
+},
+"487_01": {
+"nick": "RUMORS OF THE HAVEN",
+"set": "PIRATE",
+"fronte": "487_01.jpg",
+"dup": null,
+"retro": "487_01_r.jpg",
+"dup_r": null
+},
+"487_02": {
+"nick": "RUMORS SPREAD",
+"set": "PIRATE",
+"fronte": "487_02.jpg",
+"dup": null,
+"retro": "487_02_r.jpg",
+"dup_r": null
+},
+"487_03": {
+"nick": "RUMORS SPREAD",
+"set": "PIRATE",
+"fronte": "487_03.jpg",
+"dup": null,
+"retro": "487_03_r.jpg",
+"dup_r": "487_01_r"
+},
+"487_04": {
+"nick": "",
+"set": "PIRATE",
+"fronte": "487_04.jpg",
+"dup": null,
+"retro": "487_04_r.jpg",
+"dup_r": null
+},
+"487_05": {
+"nick": "SILVER-TONGUES",
+"set": "PIRATE",
+"fronte": "487_05.jpg",
+"dup": null,
+"retro": "487_05_r.jpg",
+"dup_r": null
+},
+"487_06": {
+"nick": "CALL TO ACTION",
+"set": "PIRATE",
+"fronte": "487_06.jpg",
+"dup": null,
+"retro": "487_06_r.jpg",
+"dup_r": null
+},
+"487_07": {
+"nick": "PIRATE SMUGGLERS",
+"set": "PIRATE",
+"fronte": "487_07.jpg",
+"dup": null,
+"retro": "487_07_r.jpg",
+"dup_r": null
+},
+"487_08": {
+"nick": "",
+"set": "PIRATE",
+"fronte": "487_08.jpg",
+"dup": null,
+"retro": "487_08_r.jpg",
+"dup_r": null
+},
+"487_09": {
+"nick": "PIRATE FLEET",
+"set": "PIRATE",
+"fronte": "487_09.jpg",
+"dup": null,
+"retro": "487_09_r.jpg",
+"dup_r": null
+},
+"487_10": {
+"nick": "PIRATE HOARD",
+"set": "PIRATE",
+"fronte": "487_10.jpg",
+"dup": null,
+"retro": "487_10_r.jpg",
+"dup_r": "487_08_r"
+},
+"487_11": {
+"nick": "",
+"set": "PIRATE",
+"fronte": "487_11.jpg",
+"dup": null,
+"retro": "487_11_r.jpg",
+"dup_r": null
+},
+"475_00": {
+"nick": "",
+"set": "PLANET BREAKER",
+"fronte": "475_00.jpg",
+"dup": null,
+"retro": "475_00_r.jpg",
+"dup_r": null
+},
+"475_01": {
+"nick": "PLANET-EATER LOOSE",
+"set": "PLANET BREAKER",
+"fronte": "475_01.jpg",
+"dup": null,
+"retro": "475_01_r.jpg",
+"dup_r": null
+},
+"475_02": {
+"nick": "",
+"set": "PLANET BREAKER",
+"fronte": "475_02.jpg",
+"dup": null,
+"retro": "475_02_r.jpg",
+"dup_r": null
+},
+"475_03": {
+"nick": "HEARTWORLD REFUGEES",
+"set": "PLANET BREAKER",
+"fronte": "475_03.jpg",
+"dup": null,
+"retro": "475_03_r.jpg",
+"dup_r": null
+},
+"475_04": {
+"nick": "LOSTWORLD REFUGEES",
+"set": "PLANET BREAKER",
+"fronte": "475_04.jpg",
+"dup": null,
+"retro": "475_04_r.jpg",
+"dup_r": null
+},
+"475_05": {
+"nick": "DEADWORLD REFUGEES",
+"set": "PLANET BREAKER",
+"fronte": "475_05.jpg",
+"dup": null,
+"retro": "475_05_r.jpg",
+"dup_r": null
+},
+"475_06": {
+"nick": "BLAZEWORLD REFUGEES",
+"set": "PLANET BREAKER",
+"fronte": "475_06.jpg",
+"dup": null,
+"retro": "475_06_r.jpg",
+"dup_r": null
+},
+"475_07": {
+"nick": "FORGEWORLD REFUGEES",
+"set": "PLANET BREAKER",
+"fronte": "475_07.jpg",
+"dup": null,
+"retro": "475_07_r.jpg",
+"dup_r": null
+},
+"475_08": {
+"nick": "PLANET HAMMER",
+"set": "PLANET BREAKER",
+"fronte": "475_08.jpg",
+"dup": null,
+"retro": "475_08_r.jpg",
+"dup_r": null
+},
+"475_09": {
+"nick": "HAMMER FRAGMENTS / BREAKING WORLDS",
+"set": "PLANET BREAKER",
+"fronte": "475_09.jpg",
+"dup": null,
+"retro": "475_09_r.jpg",
+"dup_r": null
+},
+"475_10": {
+"nick": "SYCOPHANTS",
+"set": "PLANET BREAKER",
+"fronte": "475_10.jpg",
+"dup": null,
+"retro": "475_10_r.jpg",
+"dup_r": null
+},
+"475_11": {
+"nick": "",
+"set": "PLANET BREAKER",
+"fronte": "475_11.jpg",
+"dup": null,
+"retro": "475_11_r.jpg",
+"dup_r": null
+},
+"472_00": {
+"nick": "REBUKE OF THE EMPATHS",
+"set": "PACIFIST",
+"fronte": "472_00.jpg",
+"dup": null,
+"retro": "472_00_r.jpg",
+"dup_r": null
+},
+"472_01": {
+"nick": "RECONCILE WITH THE OUTRAGED",
+"set": "PACIFIST",
+"fronte": "472_01.jpg",
+"dup": null,
+"retro": "472_01_r.jpg",
+"dup_r": null
+},
+"472_02": {
+"nick": "EMPATHY FOR ALL",
+"set": "PACIFIST",
+"fronte": "472_02.jpg",
+"dup": null,
+"retro": "472_02_r.jpg",
+"dup_r": null
+},
+"472_03": {
+"nick": "EMPATHY FOR ALL",
+"set": "PACIFIST",
+"fronte": "472_03.jpg",
+"dup": null,
+"retro": "472_03_r.jpg",
+"dup_r": "472_01_r"
+},
+"472_04": {
+"nick": "",
+"set": "PACIFIST",
+"fronte": "472_04.jpg",
+"dup": null,
+"retro": "472_04_r.jpg",
+"dup_r": null
+},
+"472_05": {
+"nick": "ITINERANT EMPATHS",
+"set": "PACIFIST",
+"fronte": "472_05.jpg",
+"dup": null,
+"retro": "472_05_r.jpg",
+"dup_r": null
+},
+"472_06": {
+"nick": "ITINERANT EMPATHS",
+"set": "PACIFIST",
+"fronte": "472_06.jpg",
+"dup": null,
+"retro": "472_06_r.jpg",
+"dup_r": null
+},
+"472_07": {
+"nick": "PSIONIC LIAISONS",
+"set": "PACIFIST",
+"fronte": "472_07.jpg",
+"dup": null,
+"retro": "472_07_r.jpg",
+"dup_r": null
+},
+"472_08": {
+"nick": "",
+"set": "PACIFIST",
+"fronte": "472_08.jpg",
+"dup": null,
+"retro": "472_08_r.jpg",
+"dup_r": null
+},
+"472_09": {
+"nick": "WELL OF EMPATHY",
+"set": "PACIFIST",
+"fronte": "472_09.jpg",
+"dup": null,
+"retro": "472_09_r.jpg",
+"dup_r": null
+},
+"472_10": {
+"nick": "WITNESSES",
+"set": "PACIFIST",
+"fronte": "472_10.jpg",
+"dup": null,
+"retro": "472_10_r.jpg",
+"dup_r": "472_08_r"
+},
+"472_11": {
+"nick": "",
+"set": "PACIFIST",
+"fronte": "472_11.jpg",
+"dup": null,
+"retro": "472_11_r.jpg",
+"dup_r": null
+},
+"436_00": {
+"nick": "BLIGHT HUNGER",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_00.jpg",
+"dup": null,
+"retro": "436_00_r.jpg",
+"dup_r": null
+},
+"436_01": {
+"nick": "",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_01.jpg",
+"dup": null,
+"retro": "436_01_r.jpg",
+"dup_r": null
+},
+"436_02": {
+"nick": "BLIGHT LOOMS",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_02.jpg",
+"dup": null,
+"retro": "436_02_r.jpg",
+"dup_r": null
+},
+"436_03": {
+"nick": "BLIGHT PANIC",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_03.jpg",
+"dup": null,
+"retro": "436_03_r.jpg",
+"dup_r": null
+},
+"436_04": {
+"nick": "BLIGHT PURGE",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_04.jpg",
+"dup": null,
+"retro": "436_04_r.jpg",
+"dup_r": null
+},
+"436_05": {
+"nick": "BLIGHT PURGE",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_05.jpg",
+"dup": null,
+"retro": "436_05_r.jpg",
+"dup_r": null
+},
+"436_06": {
+"nick": "BLIGHT PURGE",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_06.jpg",
+"dup": null,
+"retro": "436_06_r.jpg",
+"dup_r": null
+},
+"436_07": {
+"nick": "BLIGHT REAPERS",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_07.jpg",
+"dup": null,
+"retro": "436_07_r.jpg",
+"dup_r": null
+},
+"436_08": {
+"nick": "BLIGHT HUNTERS",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_08.jpg",
+"dup": null,
+"retro": "436_08_r.jpg",
+"dup_r": null
+},
+"436_09": {
+"nick": "BLIGHT FURY",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_09.jpg",
+"dup": null,
+"retro": "436_09_r.jpg",
+"dup_r": null
+},
+"436_10": {
+"nick": "",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_10.jpg",
+"dup": null,
+"retro": "436_10_r.jpg",
+"dup_r": null
+},
+"436_11": {
+"nick": "SPORE SHIPS",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_11.jpg",
+"dup": null,
+"retro": "436_11_r.jpg",
+"dup_r": null
+},
+"436_12": {
+"nick": "",
+"set": "BLIGHT SPEAKER",
+"fronte": "436_12.jpg",
+"dup": null,
+"retro": "436_12_r.jpg",
+"dup_r": null
+},
+"467_00": {
+"nick": "HAPPY HOSTS",
+"set": "HEGEMON",
+"fronte": "467_00.jpg",
+"dup": null,
+"retro": "467_00_r.jpg",
+"dup_r": null
+},
+"467_01": {
+"nick": "",
+"set": "HEGEMON",
+"fronte": "467_01.jpg",
+"dup": null,
+"retro": "467_01_r.jpg",
+"dup_r": null
+},
+"467_02": {
+"nick": "AGAINST HEGEMONY",
+"set": "HEGEMON",
+"fronte": "467_02.jpg",
+"dup": null,
+"retro": "467_02_r.jpg",
+"dup_r": null
+},
+"467_03": {
+"nick": "AGAINST HEGEMONY",
+"set": "HEGEMON",
+"fronte": "467_03.jpg",
+"dup": null,
+"retro": "467_03_r.jpg",
+"dup_r": null
+},
+"467_04": {
+"nick": "PRISON WARDENS",
+"set": "HEGEMON",
+"fronte": "467_04.jpg",
+"dup": null,
+"retro": "467_04_r.jpg",
+"dup_r": null
+},
+"467_05": {
+"nick": "PRISON WARDENS",
+"set": "HEGEMON",
+"fronte": "467_05.jpg",
+"dup": null,
+"retro": "467_05_r.jpg",
+"dup_r": null
+},
+"467_06": {
+"nick": "MIND MANAGERS",
+"set": "HEGEMON",
+"fronte": "467_06.jpg",
+"dup": null,
+"retro": "467_06_r.jpg",
+"dup_r": null
+},
+"467_07": {
+"nick": "",
+"set": "HEGEMON",
+"fronte": "467_07.jpg",
+"dup": null,
+"retro": "467_07_r.jpg",
+"dup_r": null
+},
+"467_08": {
+"nick": "SONG OF THE BANNER",
+"set": "HEGEMON",
+"fronte": "467_08.jpg",
+"dup": null,
+"retro": "467_08_r.jpg",
+"dup_r": null
+},
+"467_09": {
+"nick": "BANNERS OF HEGEMONY",
+"set": "HEGEMON",
+"fronte": "467_09.jpg",
+"dup": null,
+"retro": "467_09_r.jpg",
+"dup_r": null
+},
+"467_10": {
+"nick": "PLANTING BANNERS",
+"set": "HEGEMON",
+"fronte": "467_10.jpg",
+"dup": null,
+"retro": "467_10_r.jpg",
+"dup_r": null
+},
+"467_11": {
+"nick": "",
+"set": "HEGEMON",
+"fronte": "467_11.jpg",
+"dup": null,
+"retro": "467_11_r.jpg",
+"dup_r": null
+},
+"433_00": {
+"nick": "SEEK THE PORTAL",
+"set": "PATHFINDER",
+"fronte": "433_00.jpg",
+"dup": null,
+"retro": "433_00_r.jpg",
+"dup_r": null
+},
+"433_01": {
+"nick": "SEEK THE PORTAL",
+"set": "PATHFINDER",
+"fronte": "433_01.jpg",
+"dup": null,
+"retro": "433_01_r.jpg",
+"dup_r": null
+},
+"433_02": {
+"nick": "SEEK THE PORTAL",
+"set": "PATHFINDER",
+"fronte": "433_02.jpg",
+"dup": null,
+"retro": "433_02_r.jpg",
+"dup_r": null
+},
+"433_03": {
+"nick": "PILGRIMS",
+"set": "PATHFINDER",
+"fronte": "433_03.jpg",
+"dup": null,
+"retro": "433_03_r.jpg",
+"dup_r": null
+},
+"433_04": {
+"nick": "",
+"set": "PATHFINDER",
+"fronte": "433_04.jpg",
+"dup": null,
+"retro": "433_04_r.jpg",
+"dup_r": null
+},
+"433_05": {
+"nick": "PORTAL SEEKERS",
+"set": "PATHFINDER",
+"fronte": "433_05.jpg",
+"dup": null,
+"retro": "433_05_r.jpg",
+"dup_r": null
+},
+"433_06": {
+"nick": "CALL TO PILGRIMAGE",
+"set": "PATHFINDER",
+"fronte": "433_06.jpg",
+"dup": null,
+"retro": "433_06_r.jpg",
+"dup_r": null
+},
+"433_07": {
+"nick": "",
+"set": "PATHFINDER",
+"fronte": "433_07.jpg",
+"dup": null,
+"retro": "433_07_r.jpg",
+"dup_r": null
+},
+"433_08": {
+"nick": "CLUES TO THE PORTAL",
+"set": "PATHFINDER",
+"fronte": "433_08.jpg",
+"dup": null,
+"retro": "433_08_r.jpg",
+"dup_r": null
+},
+"433_09": {
+"nick": "UNCOVERING CLUES",
+"set": "PATHFINDER",
+"fronte": "433_09.jpg",
+"dup": null,
+"retro": "433_09_r.jpg",
+"dup_r": null
+},
+"433_10": {
+"nick": "",
+"set": "PATHFINDER",
+"fronte": "433_10.jpg",
+"dup": null,
+"retro": "433_10_r.jpg",
+"dup_r": null
+},
+"442_00": {
+"nick": "PEACE ACCORDS",
+"set": "PEACEKEEPER",
+"fronte": "442_00.jpg",
+"dup": null,
+"retro": "442_00_r.jpg",
+"dup_r": null
+},
+"442_01": {
+"nick": "PEACE DIVIDENDS",
+"set": "PEACEKEEPER",
+"fronte": "442_01.jpg",
+"dup": null,
+"retro": "442_01_r.jpg",
+"dup_r": null
+},
+"442_02": {
+"nick": "EMPIRE BALKS AT PEACE",
+"set": "PEACEKEEPER",
+"fronte": "442_02.jpg",
+"dup": null,
+"retro": "442_02_r.jpg",
+"dup_r": null
+},
+"442_03": {
+"nick": "CEASEFIRES",
+"set": "PEACEKEEPER",
+"fronte": "442_03.jpg",
+"dup": null,
+"retro": "442_03_r.jpg",
+"dup_r": null
+},
+"442_04": {
+"nick": "",
+"set": "PEACEKEEPER",
+"fronte": "442_04.jpg",
+"dup": null,
+"retro": "442_04_r.jpg",
+"dup_r": null
+},
+"442_05": {
+"nick": "ARMS INTEREST",
+"set": "PEACEKEEPER",
+"fronte": "442_05.jpg",
+"dup": null,
+"retro": "442_05_r.jpg",
+"dup_r": null
+},
+"442_06": {
+"nick": "ARMS INTEREST",
+"set": "PEACEKEEPER",
+"fronte": "442_06.jpg",
+"dup": null,
+"retro": "442_06_r.jpg",
+"dup_r": null
+},
+"442_07": {
+"nick": "",
+"set": "PEACEKEEPER",
+"fronte": "442_07.jpg",
+"dup": null,
+"retro": "442_07_r.jpg",
+"dup_r": null
+},
+"442_08": {
+"nick": "ARSENAL KEEPERS",
+"set": "PEACEKEEPER",
+"fronte": "442_08.jpg",
+"dup": null,
+"retro": "442_08_r.jpg",
+"dup_r": null
+},
+"442_09": {
+"nick": "OATH OF PEACE",
+"set": "PEACEKEEPER",
+"fronte": "442_09.jpg",
+"dup": null,
+"retro": "442_09_r.jpg",
+"dup_r": null
+},
+"442_10": {
+"nick": "",
+"set": "PEACEKEEPER",
+"fronte": "442_10.jpg",
+"dup": null,
+"retro": "442_10_r.jpg",
+"dup_r": null
+},
+"488_00": {
+"nick": "LORDS GAIN POWER",
+"set": "WARDEN",
+"fronte": "488_00.jpg",
+"dup": null,
+"retro": "488_00_r.jpg",
+"dup_r": null
+},
+"488_01": {
+"nick": "FEUDAL COURTS",
+"set": "WARDEN",
+"fronte": "488_01.jpg",
+"dup": null,
+"retro": "488_01_r.jpg",
+"dup_r": null
+},
+"488_02": {
+"nick": "",
+"set": "WARDEN",
+"fronte": "488_02.jpg",
+"dup": null,
+"retro": "488_02_r.jpg",
+"dup_r": null
+},
+"488_03": {
+"nick": "SWORN GUARDIANS",
+"set": "WARDEN",
+"fronte": "488_03.jpg",
+"dup": null,
+"retro": "488_03_r.jpg",
+"dup_r": null
+},
+"488_04": {
+"nick": "SKIRMISHERS",
+"set": "WARDEN",
+"fronte": "488_04.jpg",
+"dup": null,
+"retro": "488_04_r.jpg",
+"dup_r": null
+},
+"488_05": {
+"nick": "FEAST DAY",
+"set": "WARDEN",
+"fronte": "488_05.jpg",
+"dup": null,
+"retro": "488_05_r.jpg",
+"dup_r": null
+},
+"488_06": {
+"nick": "FEAST DAY",
+"set": "WARDEN",
+"fronte": "488_06.jpg",
+"dup": null,
+"retro": "488_06_r.jpg",
+"dup_r": null
+},
+"488_07": {
+"nick": "WARDEN'S LEVY",
+"set": "WARDEN",
+"fronte": "488_07.jpg",
+"dup": null,
+"retro": "488_07_r.jpg",
+"dup_r": null
+},
+"488_08": {
+"nick": "",
+"set": "WARDEN",
+"fronte": "488_08.jpg",
+"dup": null,
+"retro": "488_08_r.jpg",
+"dup_r": null
+},
+"488_09": {
+"nick": "FEUDAL LAW",
+"set": "WARDEN",
+"fronte": "488_09.jpg",
+"dup": null,
+"retro": "488_09_r.jpg",
+"dup_r": null
+},
+"488_10": {
+"nick": "SEATS AND FIEFS",
+"set": "WARDEN",
+"fronte": "488_10.jpg",
+"dup": null,
+"retro": "488_10_r.jpg",
+"dup_r": null
+},
+"488_11": {
+"nick": "LORD OF THE 6TH CLUSTER",
+"set": "WARDEN",
+"fronte": "488_11.jpg",
+"dup": null,
+"retro": "488_11_r.jpg",
+"dup_r": null
+},
+"488_12": {
+"nick": "LORD OF THE 5TH CLUSTER",
+"set": "WARDEN",
+"fronte": "488_12.jpg",
+"dup": null,
+"retro": "488_12_r.jpg",
+"dup_r": null
+},
+"488_13": {
+"nick": "LORD OF THE 4TH CLUSTER",
+"set": "WARDEN",
+"fronte": "488_13.jpg",
+"dup": null,
+"retro": "488_13_r.jpg",
+"dup_r": null
+},
+"488_14": {
+"nick": "LORD OF THE 3RD CLUSTER",
+"set": "WARDEN",
+"fronte": "488_14.jpg",
+"dup": null,
+"retro": "488_14_r.jpg",
+"dup_r": null
+},
+"488_15": {
+"nick": "LORD OF THE 2ND CLUSTER",
+"set": "WARDEN",
+"fronte": "488_15.jpg",
+"dup": null,
+"retro": "488_15_r.jpg",
+"dup_r": null
+},
+"488_16": {
+"nick": "LORD OF THE 1ST CLUSTER",
+"set": "WARDEN",
+"fronte": "488_16.jpg",
+"dup": null,
+"retro": "488_16_r.jpg",
+"dup_r": null
+},
+"488_17": {
+"nick": "CLAIMS OF NOBILITY",
+"set": "WARDEN",
+"fronte": "488_17.jpg",
+"dup": null,
+"retro": "488_17_r.jpg",
+"dup_r": "488_15_r"
+},
+"488_18": {
+"nick": "",
+"set": "WARDEN",
+"fronte": "488_18.jpg",
+"dup": null,
+"retro": "488_18_r.jpg",
+"dup_r": null
+},
+"468_00": {
+"nick": "CAPTIVE RELEASE",
+"set": "SURVIVALIST",
+"fronte": "468_00.jpg",
+"dup": null,
+"retro": "468_00_r.jpg",
+"dup_r": null
+},
+"468_01": {
+"nick": "BUNKERS",
+"set": "SURVIVALIST",
+"fronte": "468_01.jpg",
+"dup": null,
+"retro": "468_01_r.jpg",
+"dup_r": null
+},
+"468_02": {
+"nick": "BUILDING BUNKERS",
+"set": "SURVIVALIST",
+"fronte": "468_02.jpg",
+"dup": null,
+"retro": "468_02_r.jpg",
+"dup_r": null
+},
+"468_03": {
+"nick": "VOW OF SURVIVAL",
+"set": "SURVIVALIST",
+"fronte": "468_03.jpg",
+"dup": null,
+"retro": "468_03_r.jpg",
+"dup_r": null
+},
+"468_04": {
+"nick": "",
+"set": "SURVIVALIST",
+"fronte": "468_04.jpg",
+"dup": null,
+"retro": "468_04_r.jpg",
+"dup_r": null
+},
+"444_00": {
+"nick": "RELIC FENCE",
+"set": "REDEEMER",
+"fronte": "444_00.jpg",
+"dup": null,
+"retro": "444_00_r.jpg",
+"dup_r": null
+},
+"444_01": {
+"nick": "REBUKE OF THE KEEPERS",
+"set": "REDEEMER",
+"fronte": "444_01.jpg",
+"dup": null,
+"retro": "444_01_r.jpg",
+"dup_r": null
+},
+"444_02": {
+"nick": "IRE OF THE KEEPERS",
+"set": "REDEEMER",
+"fronte": "444_02.jpg",
+"dup": null,
+"retro": "444_02_r.jpg",
+"dup_r": null
+},
+"444_03": {
+"nick": "",
+"set": "REDEEMER",
+"fronte": "444_03.jpg",
+"dup": null,
+"retro": "444_03_r.jpg",
+"dup_r": null
+},
+"473_00": {
+"nick": "EDENGUARD AMBITION",
+"set": "GUARDIAN",
+"fronte": "473_00.jpg",
+"dup": null,
+"retro": "473_00_r.jpg",
+"dup_r": null
+},
+"473_01": {
+"nick": "IRE OF THE TYCOONS",
+"set": "GUARDIAN",
+"fronte": "473_01.jpg",
+"dup": null,
+"retro": "473_01_r.jpg",
+"dup_r": null
+},
+"473_02": {
+"nick": "GREEN VAULT",
+"set": "GUARDIAN",
+"fronte": "473_02.jpg",
+"dup": null,
+"retro": "473_02_r.jpg",
+"dup_r": null
+},
+"473_03": {
+"nick": "",
+"set": "GUARDIAN",
+"fronte": "473_03.jpg",
+"dup": null,
+"retro": "473_03_r.jpg",
+"dup_r": null
+},
+"446_00": {
+"nick": "BLIGHTKIN AMBITION",
+"set": "NATURALIST",
+"fronte": "446_00.jpg",
+"dup": null,
+"retro": "446_00_r.jpg",
+"dup_r": null
+},
+"446_01": {
+"nick": "SPORE GUIDES",
+"set": "NATURALIST",
+"fronte": "446_01.jpg",
+"dup": null,
+"retro": "446_01_r.jpg",
+"dup_r": null
+},
+"446_02": {
+"nick": "BLIGHT SOCIETY",
+"set": "NATURALIST",
+"fronte": "446_02.jpg",
+"dup": null,
+"retro": "446_02_r.jpg",
+"dup_r": null
+},
+"446_03": {
+"nick": "",
+"set": "NATURALIST",
+"fronte": "446_03.jpg",
+"dup": null,
+"retro": "446_03_r.jpg",
+"dup_r": null
+},
+"450_00": {
+"nick": "REACH REJECTS OVERLORD",
+"set": "OVERLORD",
+"fronte": "450_00.jpg",
+"dup": null,
+"retro": "450_00_r.jpg",
+"dup_r": null
+},
+"450_01": {
+"nick": "SYCOPHANTS",
+"set": "OVERLORD",
+"fronte": "450_01.jpg",
+"dup": null,
+"retro": "450_01_r.jpg",
+"dup_r": null
+},
+"450_02": {
+"nick": "",
+"set": "OVERLORD",
+"fronte": "450_02.jpg",
+"dup": null,
+"retro": "450_02_r.jpg",
+"dup_r": null
+},
+"456_00": {
+"nick": "PASSAGE STORMS",
+"set": "GATE WRAITH",
+"fronte": "456_00.jpg",
+"dup": null,
+"retro": "456_00_r.jpg",
+"dup_r": null
+},
+"456_01": {
+"nick": "PASSAGES & THE TWISTED PASSAGE",
+"set": "GATE WRAITH",
+"fronte": "456_01.jpg",
+"dup": null,
+"retro": "456_01_r.jpg",
+"dup_r": null
+},
+"456_02": {
+"nick": "THE DEAD LIVE",
+"set": "GATE WRAITH",
+"fronte": "456_02.jpg",
+"dup": null,
+"retro": "456_02_r.jpg",
+"dup_r": null
+},
+"456_03": {
+"nick": "BREAKING GATES & PLACING PASSAGES",
+"set": "GATE WRAITH",
+"fronte": "456_03.jpg",
+"dup": null,
+"retro": "456_03_r.jpg",
+"dup_r": null
+},
+"456_04": {
+"nick": "CATAPULT OVERDRIVE",
+"set": "GATE WRAITH",
+"fronte": "456_04.jpg",
+"dup": null,
+"retro": "456_04_r.jpg",
+"dup_r": null
+},
+"456_05": {
+"nick": "",
+"set": "GATE WRAITH",
+"fronte": "456_05.jpg",
+"dup": null,
+"retro": "456_05_r.jpg",
+"dup_r": null
+},
+"474_00": {
+"nick": "FOILING CONSPIRACIES",
+"set": "CONSPIRATOR",
+"fronte": "474_00.jpg",
+"dup": null,
+"retro": "474_00_r.jpg",
+"dup_r": null
+},
+"474_01": {
+"nick": "SCORING CONSPIRACIES",
+"set": "CONSPIRATOR",
+"fronte": "474_01.jpg",
+"dup": null,
+"retro": "474_01_r.jpg",
+"dup_r": null
+},
+"474_02": {
+"nick": "CONSPIRACIES",
+"set": "CONSPIRATOR",
+"fronte": "474_02.jpg",
+"dup": null,
+"retro": "474_02_r.jpg",
+"dup_r": null
+},
+"474_03": {
+"nick": "FARSEERS",
+"set": "CONSPIRATOR",
+"fronte": "474_03.jpg",
+"dup": null,
+"retro": "474_03_r.jpg",
+"dup_r": null
+},
+"474_04": {
+"nick": "",
+"set": "CONSPIRATOR",
+"fronte": "474_04.jpg",
+"dup": null,
+"retro": "474_04_r.jpg",
+"dup_r": null
+},
+"449_00": {
+"nick": "JUDGE SETS AGENDA",
+"set": "JUDGE",
+"fronte": "449_00.jpg",
+"dup": null,
+"retro": "449_00_r.jpg",
+"dup_r": null
+},
+"449_01": {
+"nick": "JUDGE'S CHOSEN",
+"set": "JUDGE",
+"fronte": "449_01.jpg",
+"dup": null,
+"retro": "449_01_r.jpg",
+"dup_r": null
+},
+"449_02": {
+"nick": "THE ARBITER",
+"set": "JUDGE",
+"fronte": "449_02.jpg",
+"dup": null,
+"retro": "449_02_r.jpg",
+"dup_r": null
+},
+"449_03": {
+"nick": "VOW OF FAIRNESS",
+"set": "JUDGE",
+"fronte": "449_03.jpg",
+"dup": null,
+"retro": "449_03_r.jpg",
+"dup_r": null
+},
+"449_04": {
+"nick": "",
+"set": "JUDGE",
+"fronte": "449_04.jpg",
+"dup": null,
+"retro": "449_04_r.jpg",
+"dup_r": null
+},
+"480_00": {
+"nick": "Control",
+"set": "(sciolte)",
+"fronte": "480_00.jpg",
+"dup": null
+},
+"216_03": {
+"nick": "ADVOCATE",
+"set": "A plots",
+"fronte": "216_03.jpg",
+"dup": null,
+"retro": "216_03_r.jpg",
+"dup_r": null
+},
+"216_01": {
+"nick": "FOUNDER",
+"set": "A plots",
+"fronte": "216_01.jpg",
+"dup": null,
+"retro": "216_01_r.jpg",
+"dup_r": null
+},
+"216_00": {
+"nick": "STEWARD",
+"set": "A plots",
+"fronte": "216_00.jpg",
+"dup": null,
+"retro": "216_00_r.jpg",
+"dup_r": null
+},
+"216_02": {
+"nick": "MAGNATE",
+"set": "A plots",
+"fronte": "216_02.jpg",
+"dup": null,
+"retro": "216_02_r.jpg",
+"dup_r": null
+},
+"216_04": {
+"nick": "CARETAKER",
+"set": "A plots",
+"fronte": "216_04.jpg",
+"dup": null,
+"retro": "216_04_r.jpg",
+"dup_r": null
+},
+"216_05": {
+"nick": "PARTISAN",
+"set": "A plots",
+"fronte": "216_05.jpg",
+"dup": null,
+"retro": "216_05_r.jpg",
+"dup_r": null
+},
+"216_06": {
+"nick": "ADMIRAL",
+"set": "A plots",
+"fronte": "216_06.jpg",
+"dup": null,
+"retro": "216_06_r.jpg",
+"dup_r": null
+},
+"216_07": {
+"nick": "BELIEVER",
+"set": "A plots",
+"fronte": "216_07.jpg",
+"dup": null,
+"retro": "216_07_r.jpg",
+"dup_r": null
+},
+"217_08": {
+"nick": "PATHFINDER",
+"set": "B Plots",
+"fronte": "217_08.jpg",
+"dup": null,
+"retro": "217_08_r.jpg",
+"dup_r": null
+},
+"217_09": {
+"nick": "HEGEMON",
+"set": "B Plots",
+"fronte": "217_09.jpg",
+"dup": null,
+"retro": "217_09_r.jpg",
+"dup_r": null
+},
+"217_10": {
+"nick": "PLANET BREAKER",
+"set": "B Plots",
+"fronte": "217_10.jpg",
+"dup": null,
+"retro": "217_10_r.jpg",
+"dup_r": null
+},
+"217_11": {
+"nick": "PIRATE",
+"set": "B Plots",
+"fronte": "217_11.jpg",
+"dup": null,
+"retro": "217_11_r.jpg",
+"dup_r": null
+},
+"217_12": {
+"nick": "BLIGHT SPEAKER",
+"set": "B Plots",
+"fronte": "217_12.jpg",
+"dup": null,
+"retro": "217_12_r.jpg",
+"dup_r": null
+},
+"217_13": {
+"nick": "PACIFIST",
+"set": "B Plots",
+"fronte": "217_13.jpg",
+"dup": null,
+"retro": "217_13_r.jpg",
+"dup_r": null
+},
+"217_14": {
+"nick": "PEACEKEEPER",
+"set": "B Plots",
+"fronte": "217_14.jpg",
+"dup": null,
+"retro": "217_14_r.jpg",
+"dup_r": null
+},
+"217_15": {
+"nick": "WARDEN",
+"set": "B Plots",
+"fronte": "217_15.jpg",
+"dup": null,
+"retro": "217_15_r.jpg",
+"dup_r": null
+},
+"218_23": {
+"nick": "JUDGE",
+"set": "C Plots",
+"fronte": "218_23.jpg",
+"dup": null,
+"retro": "218_23_r.jpg",
+"dup_r": null
+},
+"218_22": {
+"nick": "CONSPIRATOR",
+"set": "C Plots",
+"fronte": "218_22.jpg",
+"dup": null,
+"retro": "218_22_r.jpg",
+"dup_r": null
+},
+"218_21": {
+"nick": "GATE WRAITH",
+"set": "C Plots",
+"fronte": "218_21.jpg",
+"dup": null,
+"retro": "218_21_r.jpg",
+"dup_r": null
+},
+"218_20": {
+"nick": "NATURALIST",
+"set": "C Plots",
+"fronte": "218_20.jpg",
+"dup": null,
+"retro": "218_20_r.jpg",
+"dup_r": null
+},
+"218_19": {
+"nick": "GUARDIAN",
+"set": "C Plots",
+"fronte": "218_19.jpg",
+"dup": null,
+"retro": "218_19_r.jpg",
+"dup_r": null
+},
+"218_18": {
+"nick": "REDEEMER",
+"set": "C Plots",
+"fronte": "218_18.jpg",
+"dup": null,
+"retro": "218_18_r.jpg",
+"dup_r": null
+},
+"218_17": {
+"nick": "SURVIVALIST",
+"set": "C Plots",
+"fronte": "218_17.jpg",
+"dup": null,
+"retro": "218_17_r.jpg",
+"dup_r": null
+},
+"218_16": {
+"nick": "OVERLORD",
+"set": "C Plots",
+"fronte": "218_16.jpg",
+"dup": null,
+"retro": "218_16_r.jpg",
+"dup_r": null
+},
+"478_04": {
+"nick": "GOVERN THE IMPERIAL REACH",
+"set": "Deck",
+"fronte": "478_04.jpg",
+"dup": null,
+"retro": "478_04_r.jpg",
+"dup_r": null
+},
+"478_03": {
+"nick": "GOVERN THE IMPERIAL REACH",
+"set": "Deck",
+"fronte": "478_03.jpg",
+"dup": null,
+"retro": "478_03_r.jpg",
+"dup_r": null
+},
+"478_02": {
+"nick": "GOVERN THE IMPERIAL REACH",
+"set": "Deck",
+"fronte": "478_02.jpg",
+"dup": null,
+"retro": "478_02_r.jpg",
+"dup_r": null
+},
+"972_01": {
+"nick": "GUILD ENVOYS DEPART",
+"set": "(sciolte)",
+"fronte": "972_01.jpg",
+"dup": null,
+"retro": "972_01_r.jpg",
+"dup_r": null
+},
+"973_00": {
+"nick": "IMPERIAL COUNCIL",
+"set": "(sciolte)",
+"fronte": "973_00.jpg",
+"dup": null,
+"retro": "973_00_r.jpg",
+"dup_r": null
+},
+"478_06": {
+"nick": "IMPERIAL REGENT / OUTLAW",
+"set": "Deck",
+"fronte": "478_06.jpg",
+"dup": null,
+"retro": "478_06_r.jpg",
+"dup_r": null
+},
+"478_08": {
+"nick": "IMPERIAL REGENT / OUTLAW",
+"set": "Deck",
+"fronte": "478_08.jpg",
+"dup": null,
+"retro": "478_08_r.jpg",
+"dup_r": null
+},
+"478_07": {
+"nick": "IMPERIAL REGENT / OUTLAW",
+"set": "Deck",
+"fronte": "478_07.jpg",
+"dup": null,
+"retro": "478_07_r.jpg",
+"dup_r": null
+},
+"478_05": {
+"nick": "IMPERIAL REGENT / OUTLAW",
+"set": "Deck",
+"fronte": "478_05.jpg",
+"dup": null,
+"retro": "478_05_r.jpg",
+"dup_r": null
+},
+"309_30": {
+"nick": "Action Card",
+"set": "Event Deck",
+"fronte": "309_30.jpg",
+"dup": null
+},
+"309_29": {
+"nick": "Action Card",
+"set": "Event Deck",
+"fronte": "309_29.jpg",
+"dup": null
+},
+"309_28": {
+"nick": "Action Card",
+"set": "Event Deck",
+"fronte": "309_28.jpg",
+"dup": null
+},
+"481_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "481_00.jpg",
+"dup": null
+},
+"483_00": {
+"nick": "Setup",
+"set": "(sciolte)",
+"fronte": "483_00.jpg",
+"dup": null
+},
+"482_00": {
+"nick": "Court Discard Backer",
+"set": "(sciolte)",
+"fronte": "482_00.jpg",
+"dup": null
+},
+"486_00": {
+"nick": "Court Deck Backer",
+"set": "(sciolte)",
+"fronte": "486_00.jpg",
+"dup": null
+},
+"752_00": {
+"nick": "",
+"set": "(sciolte)",
+"fronte": "752_00.jpg",
+"dup": null
+},
+"754_03": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "754_03.jpg",
+"dup": null,
+"retro": "754_03_r.jpg",
+"dup_r": null
+},
+"754_01": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "754_01.jpg",
+"dup": null,
+"retro": "754_01_r.jpg",
+"dup_r": null
+},
+"754_02": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "754_02.jpg",
+"dup": null,
+"retro": "754_02_r.jpg",
+"dup_r": null
+},
+"754_00": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "754_00.jpg",
+"dup": null,
+"retro": "754_00_r.jpg",
+"dup_r": null
+},
+"754_04": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "754_04.jpg",
+"dup": null,
+"retro": "754_04_r.jpg",
+"dup_r": null
+},
+"509_00": {
+"nick": "Material Smugglers",
+"set": "Deck",
+"fronte": "509_00.jpg",
+"dup": null
+},
+"509_01": {
+"nick": "Tycoon Insiders",
+"set": "Deck",
+"fronte": "509_01.jpg",
+"dup": null
+},
+"509_02": {
+"nick": "Material Contracts",
+"set": "Deck",
+"fronte": "509_02.jpg",
+"dup": null
+},
+"509_03": {
+"nick": "Fixer Crew",
+"set": "Deck",
+"fronte": "509_03.jpg",
+"dup": null
+},
+"509_04": {
+"nick": "Warrant Officer",
+"set": "Deck",
+"fronte": "509_04.jpg",
+"dup": null
+},
+"509_05": {
+"nick": "Fuel Smugglers",
+"set": "Deck",
+"fronte": "509_05.jpg",
+"dup": null
+},
+"509_06": {
+"nick": "Fuel Contracts",
+"set": "Deck",
+"fronte": "509_06.jpg",
+"dup": null
+},
+"509_07": {
+"nick": "Trading Partner",
+"set": "Deck",
+"fronte": "509_07.jpg",
+"dup": null
+},
+"509_08": {
+"nick": "Logistics Chief",
+"set": "Deck",
+"fronte": "509_08.jpg",
+"dup": null
+},
+"509_09": {
+"nick": "Crack Pilots",
+"set": "Deck",
+"fronte": "509_09.jpg",
+"dup": null
+},
+"509_10": {
+"nick": "Underworld Goons",
+"set": "Deck",
+"fronte": "509_10.jpg",
+"dup": null
+},
+"509_11": {
+"nick": "Court Sergeant",
+"set": "Deck",
+"fronte": "509_11.jpg",
+"dup": null
+},
+"509_12": {
+"nick": "Mercenary Outfit",
+"set": "Deck",
+"fronte": "509_12.jpg",
+"dup": null
+},
+"509_13": {
+"nick": "Data Eater",
+"set": "Deck",
+"fronte": "509_13.jpg",
+"dup": null
+},
+"509_14": {
+"nick": "Labor Gangs",
+"set": "Deck",
+"fronte": "509_14.jpg",
+"dup": null
+},
+"509_15": {
+"nick": "Court Whisperers",
+"set": "Deck",
+"fronte": "509_15.jpg",
+"dup": null
+},
+"509_16": {
+"nick": "Sympathy Corps",
+"set": "Deck",
+"fronte": "509_16.jpg",
+"dup": null
+},
+"509_17": {
+"nick": "Brainwasher",
+"set": "Deck",
+"fronte": "509_17.jpg",
+"dup": null
+},
+"509_18": {
+"nick": "Bliss Monger",
+"set": "Deck",
+"fronte": "509_18.jpg",
+"dup": null
+},
+"509_19": {
+"nick": "Voiec of Triumph",
+"set": "Deck",
+"fronte": "509_19.jpg",
+"dup": null
+},
+"509_20": {
+"nick": "Seekers",
+"set": "Deck",
+"fronte": "509_20.jpg",
+"dup": null
+},
+"509_21": {
+"nick": "Parade-Masters",
+"set": "Deck",
+"fronte": "509_21.jpg",
+"dup": null
+},
+"509_22": {
+"nick": "Supplicants",
+"set": "Deck",
+"fronte": "509_22.jpg",
+"dup": null
+},
+"509_23": {
+"nick": "Highborn",
+"set": "Deck",
+"fronte": "509_23.jpg",
+"dup": null
+},
+"509_24": {
+"nick": "Auditors",
+"set": "Deck",
+"fronte": "509_24.jpg",
+"dup": null
+},
+"509_25": {
+"nick": "War Propaganda",
+"set": "Deck",
+"fronte": "509_25.jpg",
+"dup": null
+},
+"509_26": {
+"nick": "Peace Talks",
+"set": "Deck",
+"fronte": "509_26.jpg",
+"dup": null
+},
+"509_27": {
+"nick": "Tax Riots",
+"set": "Deck",
+"fronte": "509_27.jpg",
+"dup": null
+},
+"509_30": {
+"nick": "Keepers' Jubilee",
+"set": "Deck",
+"fronte": "509_30.jpg",
+"dup": null
+},
+"509_28": {
+"nick": "Starport Strikes",
+"set": "Deck",
+"fronte": "509_28.jpg",
+"dup": null
+},
+"509_29": {
+"nick": "Days of Humility",
+"set": "Deck",
+"fronte": "509_29.jpg",
+"dup": null
+},
+"519_04": {
+"nick": "Oracle",
+"set": "Deck",
+"fronte": "519_04.jpg",
+"dup": null
+},
+"519_06": {
+"nick": "Saint",
+"set": "Deck",
+"fronte": "519_06.jpg",
+"dup": null
+},
+"519_00": {
+"nick": "Imperator",
+"set": "Deck",
+"fronte": "519_00.jpg",
+"dup": null
+},
+"519_01": {
+"nick": "Poet",
+"set": "Deck",
+"fronte": "519_01.jpg",
+"dup": null
+},
+"519_02": {
+"nick": "Diplomat",
+"set": "Deck",
+"fronte": "519_02.jpg",
+"dup": null
+},
+"519_05": {
+"nick": "Brainbox",
+"set": "Deck",
+"fronte": "519_05.jpg",
+"dup": null
+},
+"519_03": {
+"nick": "Scavenger",
+"set": "Deck",
+"fronte": "519_03.jpg",
+"dup": null
+},
+"519_07": {
+"nick": "Politico",
+"set": "Deck",
+"fronte": "519_07.jpg",
+"dup": null
+},
+"519_08": {
+"nick": "Lightbringer",
+"set": "Deck",
+"fronte": "519_08.jpg",
+"dup": null
+},
+"519_11": {
+"nick": "Edenlord",
+"set": "Deck",
+"fronte": "519_11.jpg",
+"dup": null
+},
+"519_09": {
+"nick": "Firebrand",
+"set": "Deck",
+"fronte": "519_09.jpg",
+"dup": null
+},
+"519_10": {
+"nick": "Profiteer",
+"set": "Deck",
+"fronte": "519_10.jpg",
+"dup": null
+},
+"485_09": {
+"nick": "The Twisted Passage",
+"set": "Deck",
+"fronte": "485_09.jpg",
+"dup": null
+},
+"515_17": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_17.jpg",
+"dup": null,
+"retro": "515_17_r.jpg",
+"dup_r": null
+},
+"515_16": {
+"nick": "Relic Cartel",
+"set": "Deck",
+"fronte": "515_16.jpg",
+"dup": null,
+"retro": "515_16_r.jpg",
+"dup_r": null
+},
+"515_15": {
+"nick": "Psionic Cartel",
+"set": "Deck",
+"fronte": "515_15.jpg",
+"dup": null,
+"retro": "515_15_r.jpg",
+"dup_r": null
+},
+"515_14": {
+"nick": "Weapon Cartel",
+"set": "Deck",
+"fronte": "515_14.jpg",
+"dup": null,
+"retro": "515_14_r.jpg",
+"dup_r": null
+},
+"515_13": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_13.jpg",
+"dup": null,
+"retro": "515_13_r.jpg",
+"dup_r": null
+},
+"515_12": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_12.jpg",
+"dup": null,
+"retro": "515_12_r.jpg",
+"dup_r": null
+},
+"515_11": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_11.jpg",
+"dup": null,
+"retro": "515_11_r.jpg",
+"dup_r": null
+},
+"515_10": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_10.jpg",
+"dup": null,
+"retro": "515_10_r.jpg",
+"dup_r": null
+},
+"515_09": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_09.jpg",
+"dup": null,
+"retro": "515_09_r.jpg",
+"dup_r": null
+},
+"515_08": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_08.jpg",
+"dup": null,
+"retro": "515_08_r.jpg",
+"dup_r": null
+},
+"515_07": {
+"nick": "",
+"set": "Deck",
+"fronte": "515_07.jpg",
+"dup": null,
+"retro": "515_07_r.jpg",
+"dup_r": null
+},
+"515_06": {
+"nick": "Last Testament",
+"set": "Deck",
+"fronte": "515_06.jpg",
+"dup": null,
+"retro": "515_06_r.jpg",
+"dup_r": null
+},
+"515_05": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "515_05.jpg",
+"dup": null,
+"retro": "515_05_r.jpg",
+"dup_r": null
+},
+"515_04": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "515_04.jpg",
+"dup": null,
+"retro": "515_04_r.jpg",
+"dup_r": null
+},
+"515_03": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "515_03.jpg",
+"dup": null,
+"retro": "515_03_r.jpg",
+"dup_r": null
+},
+"515_02": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "515_02.jpg",
+"dup": null,
+"retro": "515_02_r.jpg",
+"dup_r": null
+},
+"515_01": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "515_01.jpg",
+"dup": null,
+"retro": "515_01_r.jpg",
+"dup_r": null
+},
+"515_00": {
+"nick": "Action Card",
+"set": "Deck",
+"fronte": "515_00.jpg",
+"dup": null,
+"retro": "515_00_r.jpg",
+"dup_r": null
+}
+}

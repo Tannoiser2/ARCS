@@ -1,0 +1,248 @@
+{
+"463_00.jpg": {
+"g": [
+"GOVERNARE CON AUTORITÀ",
+"UNA POLITICA DI PACE",
+null,
+"1. *Riscuotere il Tributo:* prendi 1 Reliquia o Psicoenergia da ogni Reggente, anche da te, e da ogni Fuorilegge con una città Leale o un'Ammiraglia controllata dall'Impero. Mettila nel Tesoro Imperiale sulla tua tessera Primo Reggente.",
+"Se non ne hanno, prendi 1 agente dalla loro riserva come Favore. Se un Reggente non ha agenti, puoi renderlo Fuorilegge.",
+"2. *Azione Imperiale:* ogni Reggente ottiene il doppio del Potere bonus delle città per i suoi spazi città scoperti."
+]
+},
+"463_01.jpg": {
+"g": [
+"GOVERNARE CON AUTORITÀ",
+"UNA POLITICA DI ESCALATION",
+"1. *Riscuotere il Tributo:* prendi 1 Armi, Carburante o Materiale da ogni Reggente, anche da te, e da ogni Fuorilegge con una città Leale o un'Ammiraglia controllata dall'Impero. Mettilo nel Tesoro Imperiale sulla tua tessera Primo Reggente.",
+"Se non ne hanno, prendi 1 agente dalla loro riserva come Favore. Se un Reggente non ha agenti, puoi renderlo Fuorilegge.",
+"2. *Azione Imperiale:* posiziona 4 navi Imperiali integre in un sistema controllato dall'Impero. Se non ce ne sono, posizionale in uno spazioporto Leale."
+]
+},
+"463_02.jpg": {
+"g": [
+"GOVERNARE CON AUTORITÀ",
+"UNA POLITICA DI GUERRA",
+"NON IMPERIALI NÉ REGGENTI",
+"1. *Riscuotere il Tributo:* prendi 1 Trofeo o Prigioniero, ma non pezzi Imperiali o di Reggenti, da ogni Reggente Rivale e da ogni Fuorilegge con una città Leale o un'Ammiraglia controllata dall'Impero. Se non ne hanno, prendi 1 agente dalla loro riserva come Favore. Se un Reggente non ha agenti, puoi renderlo Fuorilegge.",
+"",
+"2. *Azione Imperiale:* dai 1 Armi e 1 risorsa qualsiasi dalla riserva a ogni Reggente. Se la riserva è vuota, dalle dal Tesoro Imperiale."
+]
+},
+"463_03.jpg": {
+"g": [
+"Il Primo Reggente deve mettere il segnalino Sponsorizzato su un riquadro Ambizione non dichiarata.",
+"",
+"_(Se è già stato messo, può lasciarlo sul riquadro attuale.)_",
+"Poi può aggiungere 1 sua risorsa al Tesoro Imperiale.",
+"Quando un giocatore *dichiara* l'ambizione Sponsorizzata, deve prendere 1 risorsa dal Tesoro Imperiale, ottenere il Potere del secondo posto del segnalino Ambizione posizionato e rimettere il segnalino Sponsorizzato sulla tessera Primo Reggente. Se è un Fuorilegge, diventa Reggente."
+],
+"titolo": "SPONSOR IMPERIALE",
+"titolo_box": [
+128,
+10,
+600,
+150
+]
+},
+"463_04.jpg": {
+"g": [
+"1. Aggiungi Sponsor Imperiale (23) al",
+"libretto delle regole.",
+"2. Metti il segnalino Sponsorizzato sulla tessera Primo Reggente.",
+"3. Elimina le 3 carte Governare l'Orlo Imperiale (01-03) dal libretto delle regole e aggiungi le 3 carte Governare con Autorità (24-26).",
+"",
+"4. Il Primo Reggente sceglie quale carta Governare con Autorità mettere in cima alla pila. _Spiegate che ora i Fuorilegge sono soggetti al Tributo Imperiale se l'Impero controlla una loro città o Ammiraglia._",
+"_Gira questa carta._"
+],
+"fascia": "SINISCALCO - ATTO III"
+},
+"463_04_r.jpg": {
+"g": [
+"Radicare l'Impero nell'Orlo",
+"Sei un Reggente e l'Impero controlla tutte le città dei Fuorilegge, oppure non ci sono Fuorilegge.",
+"Sei il Primo Reggente e il Tesoro Imperiale ha più risorse del numero del Capitolo in corso."
+],
+"fascia": "SINISCALCO - ATTO III"
+},
+"463_05.jpg": {
+"g": [
+"REGGENTE MINORE",
+"*Preludio:* puoi scartare questa carta per dichiarare una qualsiasi ambizione."
+]
+},
+"463_06.jpg": {
+"g": [
+"REGGENTE MINORE",
+"*Preludio:* puoi scartare questa carta per dichiarare una qualsiasi ambizione."
+]
+},
+"463_15.jpg": {
+"g": [
+"REGGENTE MINORE",
+"*Preludio:* puoi scartare questa carta per dichiarare una qualsiasi ambizione."
+]
+},
+"463_16.jpg": {
+"g": [
+"REGGENTE MINORE",
+"*Preludio:* puoi scartare questa carta per dichiarare una qualsiasi ambizione."
+]
+},
+"463_07.jpg": {
+"g": [
+"DISERTORI IMPERIALI",
+"*Crisi:* nel settore tirato, sostituisci tutte le navi Imperiali con navi del Fuorilegge che viene prima in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi risolvere la Crisi in un settore qualsiasi. Seppellisci o scarta questa carta."
+]
+},
+"463_08.jpg": {
+"g": [
+"DISERTORI IMPERIALI",
+"*Crisi:* nel settore tirato, sostituisci tutte le navi Imperiali con navi del Fuorilegge che viene prima in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi risolvere la Crisi in un settore qualsiasi. Seppellisci o scarta questa carta."
+]
+},
+"463_09.jpg": {
+"g": [
+"BARDI GALATTICI",
+"Quando Superi o Cambi, prima di svolgere *qualsiasi* azione, puoi dichiarare l'ambizione della carta giocata se in questo round non è ancora stata dichiarata un'ambizione. Non posizionare il segnalino Zero."
+]
+},
+"463_10.jpg": {
+"g": [
+"CONFIDENTI DEL CONSIGLIO",
+"Quando *acquisisci* una carta Gilda, puoi girare il Consiglio Imperiale su In Sessione oppure puoi *influenzare* il Consiglio Imperiale se è già In Sessione."
+]
+},
+"463_11.jpg": {
+"g": [
+"*RAPPRESAGLIA DELLA FLOTTA* / *Crisi:* ogni nave Imperiale colpisce 1 nave di ogni Fuorilegge nel suo sistema, prima quelle integre. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi risolvere la Crisi in un settore a tua scelta, oppure colpire tutte le navi Imperiali in un settore a tua scelta. Seppellisci questa carta."
+]
+},
+"463_12.jpg": {
+"g": [
+"ATTENDI L'INTERVALLO PER RISOLVERLA",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi Rappresaglia della Flotta (15), Confidenti del Consiglio (16) e Bardi Galattici (17) al mazzo Corte.",
+"2. Elimina i 2 Disertori Imperiali (18-19) e 2 Reggenti Minori (20-22).",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Elimina Rappresaglia della Flotta (15), Confidenti del Consiglio (16) e Bardi Galattici (17).",
+"2. Aggiungi i 2 Disertori Imperiali (18-19) e 2 Reggenti Minori (20-22) al mazzo Corte."
+]
+},
+"463_13.jpg": {
+"g": [
+"",
+"Risolvi gli effetti dell'Editto 03 (Governare l'Orlo Imperiale, oppure Governare con Autorità nell'Atto III) come segue, poi salta l'Editto 03. *Primo, Riscuotere il Tributo:* il Primo Reggente riscuote il Tributo.",
+"*Secondo, Agire:* il Reggente con più spazioporti costruiti può svolgere l'Azione Imperiale. In caso di pareggio, salta questo passo.",
+"*Terzo, Cambiare Politica:* il Reggente con più città costruite può cambiare la Politica dell'Editto 03. In caso di pareggio, salta questo passo.",
+"_Nel contare spazioporti e città costruiti si includono anche quelli sulle plance delle Ammiraglie._"
+],
+"titolo": "QUORUM IMPERIALE",
+"titolo_box": [
+128,
+12,
+600,
+100
+]
+},
+"463_14.jpg": {
+"g": [
+"1. Aggiungi Quorum Imperiale (13) agli Editti.",
+null,
+"_Gira questa carta._",
+null
+],
+"fascia": "SINISCALCO - ATTO II"
+},
+"463_14_r.jpg": {
+"g": [
+null,
+"Espandere l'Impero",
+"Alla fine di ogni capitolo, se sei il Primo Reggente, avanza di 1 per ogni settore in cui l'Impero controlla almeno un sistema.",
+"*Garantire il Tributo all'Imperatore* / Alla fine di ogni capitolo, avanza di 1 per ogni risorsa nel Tesoro Imperiale del Primo Reggente.",
+"_Avanzi in questo modo anche se non sei il Primo Reggente._"
+],
+"fascia": "SINISCALCO - ATTO II"
+},
+"463_17.jpg": {
+"g": [
+"L'IMPERO CADE",
+"*Crisi:* se è uscito il simbolo A, tutti i Reggenti diventano Fuorilegge, colpisci ogni nave Imperiale sulla mappa e scarta questa carta.",
+"*Appena Acquisita:* puoi prendere da qui i tuoi agenti Leali e metterli su altre carte della Corte. Seppellisci questa carta."
+]
+},
+"463_18.jpg": {
+"g": [
+"PROTETTORI IMPERIALI",
+"Le Crisi della Piaga non avvengono nei sistemi controllati dall'Impero. _(Cioè nei sistemi con almeno una nave Imperiale integra.)_"
+]
+},
+"463_19.jpg": {
+"g": [
+"SQUADRE DI CACCIATORI",
+"Quando attacchi un Fuorilegge in *combattimento*, puoi ritirare dadi Assalto fino al totale delle tue risorse e carte Armi.",
+"*Preludio:* puoi scartare questa carta per posizionare 3 navi in un sistema che controlli."
+]
+},
+"463_20.jpg": {
+"g": [
+"ESATTORI",
+"_Seppellisci questa carta se sei un Fuorilegge._",
+"Quando *tassi* la città di un Fuorilegge, puoi prendere la risorsa dalla sua plancia giocatore."
+]
+},
+"463_21.jpg": {
+"g": [
+"INTRIGO A CORTE",
+"*Crisi:* gira il Consiglio Imperiale su In Sessione. Sposta su di esso gli agenti presenti qui. Seppellisci questa carta.",
+"*Appena Acquisita:* gira il Consiglio Imperiale su In Sessione. Puoi spostare i tuoi agenti Leali da qui su altre carte della Corte _(anche sul Consiglio)_. Seppellisci questa carta."
+]
+},
+"463_22.jpg": {
+"g": [
+"ATTENDI L'INTERVALLO PER RISOLVERLA",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi Intrigo a Corte (05), Esattori (06) e Squadre di Cacciatori (07) al mazzo Corte.",
+"2. Aggiungi Protettori Imperiali (08) al libretto delle regole. _Spiegala a tutti._",
+"3. Elimina L'Impero Cade (09) e 2 Reggenti Minori (10-11). / *Se non hai completato il tuo obiettivo:*",
+"1. Elimina Intrigo a Corte (05), Esattori (06), Squadre di Cacciatori (07) e Protettori Imperiali (08).",
+"2. Aggiungi L'Impero Cade (09) e 2 Reggenti Minori (10-11) al mazzo Corte.",
+"3. Aggiungi Mediatori (03) al mazzo Corte."
+]
+},
+"463_23.jpg": {
+"g": [
+"MEDIATORI",
+"*Contrattare (Acquisire):* scegli una carta della Corte che un Rivale potrebbe acquisire. La acquisisce, ma restituisce gli agenti che catturerebbe.",
+"Tu Influenzi una volta per ogni agente che aveva sulla carta, poi Acquisisci una volta."
+]
+},
+"463_24.jpg": {
+"g": [
+"AUTORITÀ IMPERIALE",
+"_Seppellisci questa carta se sei un Fuorilegge._",
+"Puoi *tassare* qualsiasi città controllata dall'Impero come se fosse Leale, ignorando le Leggi della Presenza e della Tregua dell'Impero. _(Non catturi agenti.)_"
+]
+},
+"463_25.jpg": {
+"g": [
+"1. Prendi Autorità Imperiale (02) e Mediatori (03).",
+"",
+"2. Prendi la tessera Primo Reggente.",
+"_Gira questa carta._",
+null,
+""
+],
+"fascia": "SINISCALCO - ATTO I"
+},
+"463_25_r.jpg": {
+"g": [
+"*Consolidare il Potere Imperiale* / Ogni volta che vinci un'ambizione mentre sei il Primo Reggente, avanza di 1 per ogni Potere che ne ottieni.",
+null,
+"_Conta anche il Potere bonus degli spazi città scoperti sulla tua plancia. Per esempio, se ottieni 5 Potere vincendo un'ambizione e 5 Potere bonus delle città, avanza il tuo segnalino obiettivo di 10 spazi._"
+],
+"fascia": "SINISCALCO - ATTO I"
+}
+}
