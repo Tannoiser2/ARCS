@@ -69,8 +69,9 @@ def token(testo):
                 stile = ('b' if stile != 'b' else 'n') if c == '*' else ('i' if stile != 'i' else 'n')
                 s = stile
             chiudi = None
-            while w and w[-1] in '*_':
-                chiudi = w[-1]; w = w[:-1]
+            m = re.match(r'^(.*?)([*_]+)([.,;:!?)]*)$', w)
+            if m and m.group(1):
+                chiudi = m.group(2); w = m.group(1) + m.group(3)
             out.append((w, s))
             if chiudi:
                 stile = 'n'
@@ -333,7 +334,7 @@ def rendi(f, trad, dest):
         y = y0b + (max(0, ((y1b - y0b) - alt) / 2) - size * 0.1 if tit else 0)
         for riga in righe:
             lw = larghezza_riga(fnt, riga)
-            ox = (x0b + x1b) / 2 - lw / 2 if (tit or ex.get('centra')) else x0b
+            ox = (x0b + x1b) / 2 - lw / 2 if ((tit and not ex.get('sinistra')) or ex.get('centra')) else x0b
             for w, st, x in riga:
                 if tit:
                     dt.text((ox + x, y), w, font=fnt[st], fill=col, stroke_width=max(1, int(size / 24)), stroke_fill=col)
