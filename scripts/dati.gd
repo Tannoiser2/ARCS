@@ -34,7 +34,8 @@ const COSTO_SPAZIO := [3, 1, 1, 2, 1, 3]
 const COLORI := ["bianco", "giallo", "verde", "rosso"]
 const NOME_COLORE := {"bianco": "Bianco", "giallo": "Giallo", "verde": "Turchese", "rosso": "Rosso"}
 const TINTA := {"bianco": Color(0.92, 0.90, 0.86), "giallo": Color(0.96, 0.74, 0.18), "verde": Color(0.20, 0.72, 0.74),
-	"rosso": Color(0.86, 0.22, 0.20)}
+	"rosso": Color(0.86, 0.22, 0.20), "impero": Color(0.52, 0.48, 0.66), "piaga": Color(0.42, 0.70, 0.22),
+	"liberi": Color(0.80, 0.72, 0.56)}
 const TTS_COLORE := {"bianco": "White", "giallo": "Yellow", "verde": "Teal", "rosso": "Red"}
 
 # ---------------- mappa ----------------
@@ -63,13 +64,13 @@ const POS := {
 	"6a": Vector2(250, 360), "6b": Vector2(200, 190), "6c": Vector2(390, 135)}
 ## Spazi Edificio (triangoli) disegnati sulla mappa.
 const POS_EDIFICI := {
-	"1a": [Vector2(580, 110), Vector2(640, 95)], "1b": [Vector2(785, 110)],
-	"1c": [Vector2(955, 78), Vector2(1005, 125)], "2a": [Vector2(1090, 235)], "2b": [Vector2(1250, 330)],
-	"2c": [Vector2(1155, 465), Vector2(1210, 505)], "3a": [Vector2(1178, 605)], "3b": [Vector2(1005, 672)],
-	"3c": [Vector2(995, 860), Vector2(1050, 825)], "4a": [Vector2(775, 800), Vector2(830, 850)],
-	"4b": [Vector2(575, 850), Vector2(625, 885)], "4c": [Vector2(430, 820)], "5a": [Vector2(150, 785)],
-	"5b": [Vector2(240, 595)], "5c": [Vector2(75, 510), Vector2(125, 470)], "6a": [Vector2(245, 365)],
-	"6b": [Vector2(170, 205), Vector2(225, 165)], "6c": [Vector2(380, 125)]}
+	"1a": [Vector2(580, 127), Vector2(642, 99)], "1b": [Vector2(787, 121)],
+	"1c": [Vector2(954, 86), Vector2(1008, 129)], "2a": [Vector2(1097, 243)], "2b": [Vector2(1256, 340)],
+	"2c": [Vector2(1154, 480), Vector2(1210, 510)], "3a": [Vector2(1192, 612)], "3b": [Vector2(1008, 678)],
+	"3c": [Vector2(1000, 873), Vector2(1053, 832)], "4a": [Vector2(785, 812), Vector2(838, 852)],
+	"4b": [Vector2(586, 859), Vector2(638, 899)], "4c": [Vector2(436, 830)], "5a": [Vector2(152, 791)],
+	"5b": [Vector2(248, 599)], "5c": [Vector2(82, 518), Vector2(135, 478)], "6a": [Vector2(246, 374)],
+	"6b": [Vector2(176, 216), Vector2(229, 175)], "6c": [Vector2(380, 129)]}
 ## La mappa ritagliata copre x 900..6100 e y 0..3600 dell'immagine originale; le coordinate sopra sono
 ## in pixel di un'anteprima 1400x1000 di x 900..6100, y 0..3720.
 static func uv(p: Vector2) -> Vector2:

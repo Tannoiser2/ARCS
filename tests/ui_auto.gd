@@ -11,6 +11,7 @@ func _init() -> void:
 	main.scelta_n = 3
 	main.scelta_umani = [true, false, true, false]
 	main.scelta_leader = args.size() > 1 and args[1] == "leader"
+	main.scelta_campagna = args.size() > 1 and args[1] == "campagna"
 	main._avvia_locale()
 	main.velocita = 200.0
 	var ia := IA.new()

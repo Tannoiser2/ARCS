@@ -17,6 +17,7 @@ func _init() -> void:
 	main.scelta_n = 4 if nome != "due" else 2
 	main.scelta_umani = [true, false, false, false]
 	main.scelta_leader = nome == "leader"
+	main.scelta_campagna = nome == "campagna"
 	main._avvia_locale()
 	main.velocita = 50.0
 	# l'IA gioca anche per il giocatore umano fino al punto richiesto
@@ -33,7 +34,9 @@ func _init() -> void:
 	_scatta(nome)
 	if args.size() > 2:
 		main.plancia.dist = float(args[2])
-		main.plancia.pitch = -52.0
+		main.plancia.pitch = -40.0
+		if args.size() > 3:
+			main.plancia.centro = main.plancia.pos(args[3])
 		main.plancia._aggiorna_camera()
 		await _attendi(20)
 		_scatta(nome + "_vicino")

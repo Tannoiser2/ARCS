@@ -1,0 +1,2296 @@
+{
+ "334_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "334_00"
+ },
+ "333_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "334_00"
+ },
+ "332_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "332_00"
+ },
+ "335_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "332_00"
+ },
+ "350_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "350_00"
+ },
+ "364_07": {
+  "set": "Campaign Court",
+  "nome": "SILVER TONGUES",
+  "fronte": "364_07"
+ },
+ "364_00": {
+  "set": "Campaign Court",
+  "nome": "MINING INTEREST",
+  "fronte": "364_00"
+ },
+ "364_04": {
+  "set": "Campaign Court",
+  "nome": "SKIRMISHERS",
+  "fronte": "364_04"
+ },
+ "364_09": {
+  "set": "Campaign Court",
+  "nome": "ELDER BROKER",
+  "fronte": "364_09"
+ },
+ "364_03": {
+  "set": "Campaign Court",
+  "nome": "SHIPPING INTEREST",
+  "fronte": "364_03"
+ },
+ "364_02": {
+  "set": "Campaign Court",
+  "nome": "GATEKEEPERS",
+  "fronte": "364_02"
+ },
+ "364_01": {
+  "set": "Campaign Court",
+  "nome": "CONSTRUCTION UNION",
+  "fronte": "364_01"
+ },
+ "364_08": {
+  "set": "Campaign Court",
+  "nome": "SWORN GUARDIANS",
+  "fronte": "364_08"
+ },
+ "364_06": {
+  "set": "Campaign Court",
+  "nome": "LATTICE SPIES",
+  "fronte": "364_06"
+ },
+ "364_05": {
+  "set": "Campaign Court",
+  "nome": "ARMS UNION",
+  "fronte": "364_05"
+ },
+ "364_12": {
+  "set": "Campaign Court",
+  "nome": "DIPLOMATIC FIASCO",
+  "fronte": "364_12"
+ },
+ "364_10": {
+  "set": "Campaign Court",
+  "nome": "POPULIST DEMANDS",
+  "fronte": "364_10"
+ },
+ "364_11": {
+  "set": "Campaign Court",
+  "nome": "COUNCIL INTRIGUE",
+  "fronte": "364_11"
+ },
+ "458_00": {
+  "set": "BELIEVER",
+  "nome": "BREAKING THE FAITH",
+  "fronte": "458_00",
+  "retro": "458_00_r"
+ },
+ "458_01": {
+  "set": "BELIEVER",
+  "nome": "DOMINANT FAITH",
+  "fronte": "458_01",
+  "retro": "458_01_r"
+ },
+ "458_02": {
+  "set": "BELIEVER",
+  "nome": "",
+  "fronte": "458_02",
+  "retro": "458_02_r"
+ },
+ "458_03": {
+  "set": "BELIEVER",
+  "nome": "REPRESSED FAITH",
+  "fronte": "458_03",
+  "retro": "458_01_r"
+ },
+ "458_04": {
+  "set": "BELIEVER",
+  "nome": "SET LAY DOCTRINE",
+  "fronte": "458_04",
+  "retro": "458_01_r"
+ },
+ "458_05": {
+  "set": "BELIEVER",
+  "nome": "SECRET ORDER",
+  "fronte": "458_05",
+  "retro": "458_01_r"
+ },
+ "458_06": {
+  "set": "BELIEVER",
+  "nome": "THE PROPHET",
+  "fronte": "458_06",
+  "retro": "458_01_r"
+ },
+ "458_07": {
+  "set": "BELIEVER",
+  "nome": "",
+  "fronte": "458_07",
+  "retro": "458_07_r"
+ },
+ "458_08": {
+  "set": "BELIEVER",
+  "nome": "DOCTRINAL FAITH",
+  "fronte": "458_08",
+  "retro": "458_08_r"
+ },
+ "458_09": {
+  "set": "BELIEVER",
+  "nome": "",
+  "fronte": "458_09",
+  "retro": "458_09_r"
+ },
+ "458_10": {
+  "set": "BELIEVER",
+  "nome": "SET DOCTRINE",
+  "fronte": "458_10",
+  "retro": "458_08_r"
+ },
+ "458_11": {
+  "set": "BELIEVER",
+  "nome": "",
+  "fronte": "458_11",
+  "retro": "458_11_r"
+ },
+ "458_12": {
+  "set": "BELIEVER",
+  "nome": "SECRET ORDER",
+  "fronte": "458_12",
+  "retro": "458_08_r"
+ },
+ "458_13": {
+  "set": "BELIEVER",
+  "nome": "THE PRODIGAL ONE",
+  "fronte": "458_13",
+  "retro": "458_08_r"
+ },
+ "458_14": {
+  "set": "BELIEVER",
+  "nome": "PLOT TO KIDNAP",
+  "fronte": "458_14",
+  "retro": "458_07_r"
+ },
+ "458_15": {
+  "set": "BELIEVER",
+  "nome": "THE YOUNG LIGHT",
+  "fronte": "458_15",
+  "retro": "458_08_r"
+ },
+ "458_16": {
+  "set": "BELIEVER",
+  "nome": "",
+  "fronte": "458_16",
+  "retro": "458_08_r"
+ },
+ "458_17": {
+  "set": "BELIEVER",
+  "nome": "PLURALISTIC FAITH",
+  "fronte": "458_17",
+  "retro": "458_08_r"
+ },
+ "458_18": {
+  "set": "BELIEVER",
+  "nome": "FAITHFUL CARDS",
+  "fronte": "458_18",
+  "retro": "458_08_r"
+ },
+ "478_12": {
+  "set": "Flagships",
+  "nome": "",
+  "fronte": "478_12",
+  "retro": "478_12_r"
+ },
+ "478_11": {
+  "set": "Flagships",
+  "nome": "",
+  "fronte": "478_12",
+  "retro": "478_12_r"
+ },
+ "478_10": {
+  "set": "Flagships",
+  "nome": "",
+  "fronte": "478_12",
+  "retro": "478_12_r"
+ },
+ "478_09": {
+  "set": "Flagships",
+  "nome": "",
+  "fronte": "478_09",
+  "retro": "478_09_r"
+ },
+ "383_00": {
+  "set": "Flagships",
+  "nome": "",
+  "fronte": "383_00"
+ },
+ "463_00": {
+  "set": "STEWARD",
+  "nome": "GOVERN WITH AUTHORITY",
+  "fronte": "463_00",
+  "retro": "463_00_r"
+ },
+ "463_01": {
+  "set": "STEWARD",
+  "nome": "GOVERN WITH AUTHORITY",
+  "fronte": "463_01",
+  "retro": "463_01_r"
+ },
+ "463_02": {
+  "set": "STEWARD",
+  "nome": "GOVERN WITH AUTHORITY",
+  "fronte": "463_02",
+  "retro": "463_01_r"
+ },
+ "463_03": {
+  "set": "STEWARD",
+  "nome": "IMPERIAL SPONSOR",
+  "fronte": "463_03"
+ },
+ "463_04": {
+  "set": "STEWARD",
+  "nome": "",
+  "fronte": "463_04",
+  "retro": "463_04_r"
+ },
+ "463_05": {
+  "set": "STEWARD",
+  "nome": "LESSER REGENT",
+  "fronte": "463_05",
+  "retro": "463_01_r"
+ },
+ "463_06": {
+  "set": "STEWARD",
+  "nome": "LESSER REGENT",
+  "fronte": "463_06",
+  "retro": "463_01_r"
+ },
+ "463_07": {
+  "set": "STEWARD",
+  "nome": "IMPERIAL DEFECTORS",
+  "fronte": "463_07",
+  "retro": "463_07_r"
+ },
+ "463_08": {
+  "set": "STEWARD",
+  "nome": "IMPERIAL DEFECTORS",
+  "fronte": "463_07",
+  "retro": "463_08_r"
+ },
+ "463_09": {
+  "set": "STEWARD",
+  "nome": "GALACTIC BARDS",
+  "fronte": "463_09",
+  "retro": "463_08_r"
+ },
+ "463_10": {
+  "set": "STEWARD",
+  "nome": "COUNCIL INSIDERS",
+  "fronte": "463_10",
+  "retro": "463_08_r"
+ },
+ "463_11": {
+  "set": "STEWARD",
+  "nome": "NAVY REPRISAL",
+  "fronte": "463_11",
+  "retro": "463_08_r"
+ },
+ "463_12": {
+  "set": "STEWARD",
+  "nome": "",
+  "fronte": "463_12",
+  "retro": "463_08_r"
+ },
+ "463_13": {
+  "set": "STEWARD",
+  "nome": "IMPERIAL QUORUM",
+  "fronte": "463_13",
+  "retro": "463_08_r"
+ },
+ "463_14": {
+  "set": "STEWARD",
+  "nome": "",
+  "fronte": "463_14",
+  "retro": "463_14_r"
+ },
+ "463_15": {
+  "set": "STEWARD",
+  "nome": "LESSER REGENT",
+  "fronte": "463_15",
+  "retro": "463_08_r"
+ },
+ "463_16": {
+  "set": "STEWARD",
+  "nome": "LESSER REGENT",
+  "fronte": "463_16",
+  "retro": "463_08_r"
+ },
+ "463_17": {
+  "set": "STEWARD",
+  "nome": "EMPIRE FALLS",
+  "fronte": "463_17",
+  "retro": "463_08_r"
+ },
+ "463_18": {
+  "set": "STEWARD",
+  "nome": "IMPERIAL PROTECTORS",
+  "fronte": "463_18",
+  "retro": "463_08_r"
+ },
+ "463_19": {
+  "set": "STEWARD",
+  "nome": "HUNTER SQUADS",
+  "fronte": "463_19",
+  "retro": "463_08_r"
+ },
+ "463_20": {
+  "set": "STEWARD",
+  "nome": "TAX COLLECTORS",
+  "fronte": "463_20",
+  "retro": "463_08_r"
+ },
+ "463_21": {
+  "set": "STEWARD",
+  "nome": "COUNCIL INTRIGUE",
+  "fronte": "463_21",
+  "retro": "463_07_r"
+ },
+ "463_22": {
+  "set": "STEWARD",
+  "nome": "",
+  "fronte": "463_22",
+  "retro": "463_08_r"
+ },
+ "463_23": {
+  "set": "STEWARD",
+  "nome": "DEALMAKERS",
+  "fronte": "463_23",
+  "retro": "463_08_r"
+ },
+ "463_24": {
+  "set": "STEWARD",
+  "nome": "IMPERIAL AUTHORITY",
+  "fronte": "463_24",
+  "retro": "463_08_r"
+ },
+ "463_25": {
+  "set": "STEWARD",
+  "nome": "",
+  "fronte": "463_25",
+  "retro": "463_25_r"
+ },
+ "427_00": {
+  "set": "MAGNATE",
+  "nome": "CLOSED & OPEN ECONOMY",
+  "fronte": "427_00",
+  "retro": "427_00_r"
+ },
+ "427_01": {
+  "set": "MAGNATE",
+  "nome": "ECONOMY",
+  "fronte": "427_01",
+  "retro": "427_01_r"
+ },
+ "427_02": {
+  "set": "MAGNATE",
+  "nome": "",
+  "fronte": "427_02",
+  "retro": "427_02_r"
+ },
+ "427_03": {
+  "set": "MAGNATE",
+  "nome": "EXTORTION",
+  "fronte": "427_03",
+  "retro": "427_03_r"
+ },
+ "427_04": {
+  "set": "MAGNATE",
+  "nome": "EXTORTION",
+  "fronte": "427_04",
+  "retro": "427_03_r"
+ },
+ "427_05": {
+  "set": "MAGNATE",
+  "nome": "PROSPECTORS",
+  "fronte": "427_05",
+  "retro": "427_03_r"
+ },
+ "427_06": {
+  "set": "MAGNATE",
+  "nome": "",
+  "fronte": "427_06",
+  "retro": "427_03_r"
+ },
+ "427_07": {
+  "set": "MAGNATE",
+  "nome": "WAR PROFITEERING",
+  "fronte": "427_07",
+  "retro": "427_07_r"
+ },
+ "427_08": {
+  "set": "MAGNATE",
+  "nome": "MONOPOLY CONSENT",
+  "fronte": "427_08",
+  "retro": "427_08_r"
+ },
+ "427_09": {
+  "set": "MAGNATE",
+  "nome": "GAIN MONOPOLIES",
+  "fronte": "427_09",
+  "retro": "427_08_r"
+ },
+ "427_10": {
+  "set": "MAGNATE",
+  "nome": "WEAPON MONOPOLY",
+  "fronte": "427_10",
+  "retro": "427_08_r"
+ },
+ "427_11": {
+  "set": "MAGNATE",
+  "nome": "PSIONIC MONOPOLY",
+  "fronte": "427_11",
+  "retro": "427_08_r"
+ },
+ "427_12": {
+  "set": "MAGNATE",
+  "nome": "RELIC MONOPOLY",
+  "fronte": "427_12",
+  "retro": "427_08_r"
+ },
+ "427_13": {
+  "set": "MAGNATE",
+  "nome": "FUEL MONOPOLY",
+  "fronte": "427_13",
+  "retro": "427_08_r"
+ },
+ "427_14": {
+  "set": "MAGNATE",
+  "nome": "MATERIAL MONOPOLY",
+  "fronte": "427_14",
+  "retro": "427_07_r"
+ },
+ "427_15": {
+  "set": "MAGNATE",
+  "nome": "",
+  "fronte": "427_15",
+  "retro": "427_15_r"
+ },
+ "427_16": {
+  "set": "MAGNATE",
+  "nome": "RELIC CARTEL",
+  "fronte": "427_16",
+  "retro": "427_08_r"
+ },
+ "427_17": {
+  "set": "MAGNATE",
+  "nome": "PSIONIC CARTEL",
+  "fronte": "427_17",
+  "retro": "427_08_r"
+ },
+ "427_18": {
+  "set": "MAGNATE",
+  "nome": "WEAPON CARTEL",
+  "fronte": "427_18",
+  "retro": "427_08_r"
+ },
+ "427_19": {
+  "set": "MAGNATE",
+  "nome": "FUEL CARTEL",
+  "fronte": "427_19",
+  "retro": "427_08_r"
+ },
+ "427_20": {
+  "set": "MAGNATE",
+  "nome": "MATERIAL CARTEL",
+  "fronte": "427_20",
+  "retro": "427_08_r"
+ },
+ "427_21": {
+  "set": "MAGNATE",
+  "nome": "PRISON WARDENS",
+  "fronte": "427_21",
+  "retro": "427_07_r"
+ },
+ "427_22": {
+  "set": "MAGNATE",
+  "nome": "RELIC FENCE",
+  "fronte": "427_22",
+  "retro": "427_08_r"
+ },
+ "427_23": {
+  "set": "MAGNATE",
+  "nome": "ELDER BROKER",
+  "fronte": "427_23",
+  "retro": "427_08_r"
+ },
+ "427_24": {
+  "set": "MAGNATE",
+  "nome": "",
+  "fronte": "427_24",
+  "retro": "427_08_r"
+ },
+ "427_25": {
+  "set": "MAGNATE",
+  "nome": "MERCHANT LEAGUE",
+  "fronte": "427_25",
+  "retro": "427_08_r"
+ },
+ "427_26": {
+  "set": "MAGNATE",
+  "nome": "",
+  "fronte": "427_26",
+  "retro": "427_26_r"
+ },
+ "429_00": {
+  "set": "CARETAKER",
+  "nome": "GOLEMS SATE THEIR APPETITE",
+  "fronte": "429_00",
+  "retro": "429_00_r"
+ },
+ "429_01": {
+  "set": "CARETAKER",
+  "nome": "",
+  "fronte": "429_01",
+  "retro": "429_01_r"
+ },
+ "429_02": {
+  "set": "CARETAKER",
+  "nome": "GOLEM WORSHIP",
+  "fronte": "429_02",
+  "retro": "429_02_r"
+ },
+ "429_03": {
+  "set": "CARETAKER",
+  "nome": "GOLEM WORSHIP",
+  "fronte": "429_02",
+  "retro": "429_02_r"
+ },
+ "429_04": {
+  "set": "CARETAKER",
+  "nome": "GOLEM WORSHIP",
+  "fronte": "429_04",
+  "retro": "429_02_r"
+ },
+ "429_05": {
+  "set": "CARETAKER",
+  "nome": "",
+  "fronte": "429_05",
+  "retro": "429_02_r"
+ },
+ "429_06": {
+  "set": "CARETAKER",
+  "nome": "Action Card",
+  "fronte": "429_06",
+  "retro": "429_02_r"
+ },
+ "429_07": {
+  "set": "CARETAKER",
+  "nome": "KNOWLEDGE SET FREE",
+  "fronte": "429_07",
+  "retro": "429_07_r"
+ },
+ "429_08": {
+  "set": "CARETAKER",
+  "nome": "LIBRARIANS",
+  "fronte": "429_08",
+  "retro": "429_08_r"
+ },
+ "429_09": {
+  "set": "CARETAKER",
+  "nome": "",
+  "fronte": "429_09",
+  "retro": "429_09_r"
+ },
+ "429_10": {
+  "set": "CARETAKER",
+  "nome": "UNSTABLE WARRIOR",
+  "fronte": "429_10",
+  "retro": "429_08_r"
+ },
+ "429_11": {
+  "set": "CARETAKER",
+  "nome": "UNSTABLE PROTECTOR",
+  "fronte": "429_11",
+  "retro": "429_08_r"
+ },
+ "429_12": {
+  "set": "CARETAKER",
+  "nome": "UNSTABLE SEEKER",
+  "fronte": "429_12",
+  "retro": "429_08_r"
+ },
+ "429_13": {
+  "set": "CARETAKER",
+  "nome": "UNSTABLE HARVESTER",
+  "fronte": "429_13",
+  "retro": "429_08_r"
+ },
+ "429_14": {
+  "set": "CARETAKER",
+  "nome": "",
+  "fronte": "429_14",
+  "retro": "429_07_r"
+ },
+ "429_15": {
+  "set": "CARETAKER",
+  "nome": "GOLEM ACTIONS",
+  "fronte": "429_15",
+  "retro": "429_08_r"
+ },
+ "429_16": {
+  "set": "CARETAKER",
+  "nome": "GOLEMS",
+  "fronte": "429_16",
+  "retro": "429_08_r"
+ },
+ "429_17": {
+  "set": "CARETAKER",
+  "nome": "STONE-SPEAKERS",
+  "fronte": "429_17",
+  "retro": "429_08_r"
+ },
+ "429_18": {
+  "set": "CARETAKER",
+  "nome": "GOLEM HEARTH",
+  "fronte": "429_18",
+  "retro": "429_08_r"
+ },
+ "429_19": {
+  "set": "CARETAKER",
+  "nome": "GOLEM BEACON",
+  "fronte": "429_19",
+  "retro": "429_08_r"
+ },
+ "429_20": {
+  "set": "CARETAKER",
+  "nome": "",
+  "fronte": "429_20",
+  "retro": "429_20_r"
+ },
+ "477_00": {
+  "set": "PARTISAN",
+  "nome": "SOWER OF DIVISION",
+  "fronte": "477_00",
+  "retro": "477_00_r"
+ },
+ "477_01": {
+  "set": "PARTISAN",
+  "nome": "",
+  "fronte": "477_01",
+  "retro": "477_01_r"
+ },
+ "477_02": {
+  "set": "PARTISAN",
+  "nome": "ARMS UNION",
+  "fronte": "477_02",
+  "retro": "477_02_r"
+ },
+ "477_03": {
+  "set": "PARTISAN",
+  "nome": "SPACING UNION",
+  "fronte": "477_03",
+  "retro": "477_02_r"
+ },
+ "477_04": {
+  "set": "PARTISAN",
+  "nome": "TERROR STRIKE",
+  "fronte": "477_04",
+  "retro": "477_02_r"
+ },
+ "477_05": {
+  "set": "PARTISAN",
+  "nome": "TERROR STRIKE",
+  "fronte": "477_05",
+  "retro": "477_02_r"
+ },
+ "477_06": {
+  "set": "PARTISAN",
+  "nome": "GUILDS DECRY TERROR",
+  "fronte": "477_06",
+  "retro": "477_02_r"
+ },
+ "477_07": {
+  "set": "PARTISAN",
+  "nome": "",
+  "fronte": "477_07",
+  "retro": "477_07_r"
+ },
+ "477_08": {
+  "set": "PARTISAN",
+  "nome": "PEOPLE'S HERO",
+  "fronte": "477_08",
+  "retro": "477_08_r"
+ },
+ "477_09": {
+  "set": "PARTISAN",
+  "nome": "PARTISAN SEIZING",
+  "fronte": "477_09",
+  "retro": "477_08_r"
+ },
+ "477_10": {
+  "set": "PARTISAN",
+  "nome": "",
+  "fronte": "477_10",
+  "retro": "477_10_r"
+ },
+ "477_11": {
+  "set": "PARTISAN",
+  "nome": "OUTRAGE SPREADS",
+  "fronte": "477_11",
+  "retro": "477_08_r"
+ },
+ "477_12": {
+  "set": "PARTISAN",
+  "nome": "OUTRAGE SPREADS",
+  "fronte": "477_12",
+  "retro": "477_08_r"
+ },
+ "477_13": {
+  "set": "PARTISAN",
+  "nome": "ARMS UNION",
+  "fronte": "477_13",
+  "retro": "477_08_r"
+ },
+ "477_14": {
+  "set": "PARTISAN",
+  "nome": "SPACING UNION",
+  "fronte": "477_14",
+  "retro": "477_07_r"
+ },
+ "477_15": {
+  "set": "PARTISAN",
+  "nome": "GALACTIC BARDS",
+  "fronte": "477_15",
+  "retro": "477_08_r"
+ },
+ "477_16": {
+  "set": "PARTISAN",
+  "nome": "LOYAL KEEPERS",
+  "fronte": "477_16",
+  "retro": "477_08_r"
+ },
+ "477_17": {
+  "set": "PARTISAN",
+  "nome": "LOYAL EMPATHS",
+  "fronte": "477_17",
+  "retro": "477_08_r"
+ },
+ "477_18": {
+  "set": "PARTISAN",
+  "nome": "LOYAL MARINES",
+  "fronte": "477_18",
+  "retro": "477_08_r"
+ },
+ "477_19": {
+  "set": "PARTISAN",
+  "nome": "LOYAL PILOTS",
+  "fronte": "477_19",
+  "retro": "477_08_r"
+ },
+ "477_20": {
+  "set": "PARTISAN",
+  "nome": "LOYAL ENGINEERS",
+  "fronte": "477_20",
+  "retro": "477_08_r"
+ },
+ "477_21": {
+  "set": "PARTISAN",
+  "nome": "",
+  "fronte": "477_21",
+  "retro": "477_07_r"
+ },
+ "477_22": {
+  "set": "PARTISAN",
+  "nome": "PARTISAN SEIZING",
+  "fronte": "477_22",
+  "retro": "477_08_r"
+ },
+ "477_23": {
+  "set": "PARTISAN",
+  "nome": "INFORMANTS",
+  "fronte": "477_23",
+  "retro": "477_08_r"
+ },
+ "477_24": {
+  "set": "PARTISAN",
+  "nome": "",
+  "fronte": "477_24",
+  "retro": "477_24_r"
+ },
+ "428_00": {
+  "set": "ADVOCATE",
+  "nome": "GUILD SUPREMACY",
+  "fronte": "428_00",
+  "retro": "428_00_r"
+ },
+ "428_01": {
+  "set": "ADVOCATE",
+  "nome": "GUILD SUPREMACY",
+  "fronte": "428_01",
+  "retro": "428_01_r"
+ },
+ "428_02": {
+  "set": "ADVOCATE",
+  "nome": "GUILD LOYALTY",
+  "fronte": "428_02",
+  "retro": "428_01_r"
+ },
+ "428_03": {
+  "set": "ADVOCATE",
+  "nome": "",
+  "fronte": "428_03",
+  "retro": "428_03_r"
+ },
+ "428_04": {
+  "set": "ADVOCATE",
+  "nome": "GUILDS WITHDRAW",
+  "fronte": "428_04",
+  "retro": "428_01_r"
+ },
+ "428_05": {
+  "set": "ADVOCATE",
+  "nome": "PSIONIC GUILDMASTERS",
+  "fronte": "428_05",
+  "retro": "428_01_r"
+ },
+ "428_06": {
+  "set": "ADVOCATE",
+  "nome": "RELIC GUILDMASTERS",
+  "fronte": "428_06",
+  "retro": "428_01_r"
+ },
+ "428_07": {
+  "set": "ADVOCATE",
+  "nome": "WEAPONS GUILDMASTERS",
+  "fronte": "428_07",
+  "retro": "428_07_r"
+ },
+ "428_08": {
+  "set": "ADVOCATE",
+  "nome": "FUEL GUILDMASTERS",
+  "fronte": "428_08",
+  "retro": "428_08_r"
+ },
+ "428_09": {
+  "set": "ADVOCATE",
+  "nome": "MATERIAL GUILDMASTERS",
+  "fronte": "428_09",
+  "retro": "428_08_r"
+ },
+ "428_10": {
+  "set": "ADVOCATE",
+  "nome": "GUILD FAIR",
+  "fronte": "428_10",
+  "retro": "428_08_r"
+ },
+ "428_11": {
+  "set": "ADVOCATE",
+  "nome": "",
+  "fronte": "428_11",
+  "retro": "428_08_r"
+ },
+ "428_12": {
+  "set": "ADVOCATE",
+  "nome": "GUILD NEGOTIATIONS",
+  "fronte": "428_12",
+  "retro": "428_08_r"
+ },
+ "428_13": {
+  "set": "ADVOCATE",
+  "nome": "ADVOCATE'S DEMAND",
+  "fronte": "428_13",
+  "retro": "428_08_r"
+ },
+ "428_14": {
+  "set": "ADVOCATE",
+  "nome": "",
+  "fronte": "428_14",
+  "retro": "428_14_r"
+ },
+ "428_15": {
+  "set": "ADVOCATE",
+  "nome": "GUILD STRUGGLE",
+  "fronte": "428_15",
+  "retro": "428_08_r"
+ },
+ "428_16": {
+  "set": "ADVOCATE",
+  "nome": "DIPLOMATIC FIASCO",
+  "fronte": "428_16",
+  "retro": "428_08_r"
+ },
+ "428_17": {
+  "set": "ADVOCATE",
+  "nome": "PSIONIC LIAISONS",
+  "fronte": "428_17",
+  "retro": "428_08_r"
+ },
+ "428_18": {
+  "set": "ADVOCATE",
+  "nome": "RELIC LIAISONS",
+  "fronte": "428_18",
+  "retro": "428_08_r"
+ },
+ "428_19": {
+  "set": "ADVOCATE",
+  "nome": "WEAPONS LIAISONS",
+  "fronte": "428_19",
+  "retro": "428_08_r"
+ },
+ "428_20": {
+  "set": "ADVOCATE",
+  "nome": "FUEL LIAISONS",
+  "fronte": "428_20",
+  "retro": "428_08_r"
+ },
+ "428_21": {
+  "set": "ADVOCATE",
+  "nome": "MATERIAL LIAISONS",
+  "fronte": "428_21",
+  "retro": "428_07_r"
+ },
+ "428_22": {
+  "set": "ADVOCATE",
+  "nome": "",
+  "fronte": "428_22",
+  "retro": "428_08_r"
+ },
+ "428_23": {
+  "set": "ADVOCATE",
+  "nome": "GUILD OVERSEERS",
+  "fronte": "428_23",
+  "retro": "428_08_r"
+ },
+ "428_24": {
+  "set": "ADVOCATE",
+  "nome": "GUILD INVESTIGATORS",
+  "fronte": "428_24",
+  "retro": "428_08_r"
+ },
+ "428_25": {
+  "set": "ADVOCATE",
+  "nome": "",
+  "fronte": "428_25",
+  "retro": "428_25_r"
+ },
+ "479_00": {
+  "set": "ADMIRAL",
+  "nome": "MARTIAL LAW",
+  "fronte": "479_00",
+  "retro": "479_00_r"
+ },
+ "479_01": {
+  "set": "ADMIRAL",
+  "nome": "MARTIAL LAW",
+  "fronte": "479_01",
+  "retro": "479_01_r"
+ },
+ "479_02": {
+  "set": "ADMIRAL",
+  "nome": "",
+  "fronte": "479_02",
+  "retro": "479_02_r"
+ },
+ "479_03": {
+  "set": "ADMIRAL",
+  "nome": "MASS UPRISING",
+  "fronte": "479_03",
+  "retro": "479_01_r"
+ },
+ "479_04": {
+  "set": "ADMIRAL",
+  "nome": "MASS UPRISING",
+  "fronte": "479_04",
+  "retro": "479_01_r"
+ },
+ "479_05": {
+  "set": "ADMIRAL",
+  "nome": "IMPERIAL DEFECTORS",
+  "fronte": "479_05",
+  "retro": "479_01_r"
+ },
+ "479_06": {
+  "set": "ADMIRAL",
+  "nome": "IMPERIAL DEFECTORS",
+  "fronte": "479_06",
+  "retro": "479_01_r"
+ },
+ "479_07": {
+  "set": "ADMIRAL",
+  "nome": "",
+  "fronte": "479_07",
+  "retro": "479_07_r"
+ },
+ "479_08": {
+  "set": "ADMIRAL",
+  "nome": "COMMAND CHAOS",
+  "fronte": "479_08",
+  "retro": "479_08_r"
+ },
+ "479_09": {
+  "set": "ADMIRAL",
+  "nome": "",
+  "fronte": "479_09",
+  "retro": "479_09_r"
+ },
+ "479_10": {
+  "set": "ADMIRAL",
+  "nome": "IMPERIAL DEFECTORS",
+  "fronte": "479_10",
+  "retro": "479_08_r"
+ },
+ "479_11": {
+  "set": "ADMIRAL",
+  "nome": "IMPERIAL DEFECTORS",
+  "fronte": "479_06",
+  "retro": "479_08_r"
+ },
+ "479_12": {
+  "set": "ADMIRAL",
+  "nome": "COURT ENFORCERS",
+  "fronte": "479_12",
+  "retro": "479_08_r"
+ },
+ "479_13": {
+  "set": "ADMIRAL",
+  "nome": "COURT ENFORCERS",
+  "fronte": "479_13",
+  "retro": "479_08_r"
+ },
+ "479_14": {
+  "set": "ADMIRAL",
+  "nome": "ROGUE ADMIRALS",
+  "fronte": "479_14",
+  "retro": "479_07_r"
+ },
+ "479_15": {
+  "set": "ADMIRAL",
+  "nome": "ROGUE ADMIRALS",
+  "fronte": "479_15",
+  "retro": "479_08_r"
+ },
+ "479_16": {
+  "set": "ADMIRAL",
+  "nome": "HONOR GUARD",
+  "fronte": "479_16",
+  "retro": "479_08_r"
+ },
+ "479_17": {
+  "set": "ADMIRAL",
+  "nome": "",
+  "fronte": "479_17",
+  "retro": "479_08_r"
+ },
+ "479_18": {
+  "set": "ADMIRAL",
+  "nome": "USE IMPERIAL FOUNDRIES",
+  "fronte": "479_18",
+  "retro": "479_08_r"
+ },
+ "479_19": {
+  "set": "ADMIRAL",
+  "nome": "IMPERIAL OFFICERS",
+  "fronte": "479_19",
+  "retro": "479_08_r"
+ },
+ "479_20": {
+  "set": "ADMIRAL",
+  "nome": "",
+  "fronte": "479_20",
+  "retro": "479_20_r"
+ },
+ "471_00": {
+  "set": "FOUNDER",
+  "nome": "FREEDOM FIGHTERS",
+  "fronte": "471_00",
+  "retro": "471_00_r"
+ },
+ "471_01": {
+  "set": "FOUNDER",
+  "nome": "MASS CALL FOR ARMISTICE",
+  "fronte": "471_01",
+  "retro": "471_01_r"
+ },
+ "471_02": {
+  "set": "FOUNDER",
+  "nome": "",
+  "fronte": "471_02",
+  "retro": "471_02_r"
+ },
+ "471_03": {
+  "set": "FOUNDER",
+  "nome": "SPIRIT OF FREEDOM",
+  "fronte": "471_03",
+  "retro": "471_01_r"
+ },
+ "471_04": {
+  "set": "FOUNDER",
+  "nome": "",
+  "fronte": "471_04",
+  "retro": "471_01_r"
+ },
+ "471_05": {
+  "set": "FOUNDER",
+  "nome": "COMMONWEALTH MEMBERSHIP",
+  "fronte": "471_05",
+  "retro": "471_01_r"
+ },
+ "471_06": {
+  "set": "FOUNDER",
+  "nome": "MEMBER OF THE COMMONWEALTH",
+  "fronte": "471_06",
+  "retro": "471_01_r"
+ },
+ "471_07": {
+  "set": "FOUNDER",
+  "nome": "MEMBER OF THE COMMONWEALTH",
+  "fronte": "471_07",
+  "retro": "471_07_r"
+ },
+ "471_08": {
+  "set": "FOUNDER",
+  "nome": "MEMBER OF THE COMMONWEALTH",
+  "fronte": "471_07",
+  "retro": "471_08_r"
+ },
+ "471_09": {
+  "set": "FOUNDER",
+  "nome": "MEMBER OF THE COMMONWEALTH",
+  "fronte": "471_09",
+  "retro": "471_08_r"
+ },
+ "471_10": {
+  "set": "FOUNDER",
+  "nome": "ARMISTICE",
+  "fronte": "471_10",
+  "retro": "471_08_r"
+ },
+ "471_11": {
+  "set": "FOUNDER",
+  "nome": "ARMISTICE",
+  "fronte": "471_10",
+  "retro": "471_08_r"
+ },
+ "471_12": {
+  "set": "FOUNDER",
+  "nome": "CALL FOR ARMISTICE",
+  "fronte": "471_12",
+  "retro": "471_08_r"
+ },
+ "471_13": {
+  "set": "FOUNDER",
+  "nome": "COMMONWEALTH AMBITION",
+  "fronte": "471_13",
+  "retro": "471_08_r"
+ },
+ "471_14": {
+  "set": "FOUNDER",
+  "nome": "FOUNDER OF THE COMMONWEALTH",
+  "fronte": "471_14",
+  "retro": "471_07_r"
+ },
+ "471_15": {
+  "set": "FOUNDER",
+  "nome": "",
+  "fronte": "471_15",
+  "retro": "471_15_r"
+ },
+ "471_16": {
+  "set": "FOUNDER",
+  "nome": "ADMIN UNION",
+  "fronte": "471_16",
+  "retro": "471_08_r"
+ },
+ "471_17": {
+  "set": "FOUNDER",
+  "nome": "ADMIN UNION",
+  "fronte": "471_16",
+  "retro": "471_08_r"
+ },
+ "471_18": {
+  "set": "FOUNDER",
+  "nome": "CONSTRUCTION UNION",
+  "fronte": "471_18",
+  "retro": "471_08_r"
+ },
+ "471_19": {
+  "set": "FOUNDER",
+  "nome": "CONSTRUCTION UNION",
+  "fronte": "471_19",
+  "retro": "471_08_r"
+ },
+ "471_20": {
+  "set": "FOUNDER",
+  "nome": "POLITICAL INTRIGUE",
+  "fronte": "471_20",
+  "retro": "471_08_r"
+ },
+ "471_21": {
+  "set": "FOUNDER",
+  "nome": "POLITICAL INTRIGUE",
+  "fronte": "471_21",
+  "retro": "471_07_r"
+ },
+ "471_22": {
+  "set": "FOUNDER",
+  "nome": "POLITICAL INTRIGUE",
+  "fronte": "471_22",
+  "retro": "471_08_r"
+ },
+ "471_23": {
+  "set": "FOUNDER",
+  "nome": "BOOK OF LIBERATION",
+  "fronte": "471_23",
+  "retro": "471_08_r"
+ },
+ "471_24": {
+  "set": "FOUNDER",
+  "nome": "",
+  "fronte": "471_24",
+  "retro": "471_08_r"
+ },
+ "471_25": {
+  "set": "FOUNDER",
+  "nome": "PARADE FLEETS",
+  "fronte": "471_25",
+  "retro": "471_08_r"
+ },
+ "471_26": {
+  "set": "FOUNDER",
+  "nome": "",
+  "fronte": "471_26",
+  "retro": "471_26_r"
+ },
+ "487_00": {
+  "set": "PIRATE",
+  "nome": "SHARING RUMORS",
+  "fronte": "487_00",
+  "retro": "487_00_r"
+ },
+ "487_01": {
+  "set": "PIRATE",
+  "nome": "RUMORS OF THE HAVEN",
+  "fronte": "487_01",
+  "retro": "487_01_r"
+ },
+ "487_02": {
+  "set": "PIRATE",
+  "nome": "RUMORS SPREAD",
+  "fronte": "487_02",
+  "retro": "487_01_r"
+ },
+ "487_03": {
+  "set": "PIRATE",
+  "nome": "RUMORS SPREAD",
+  "fronte": "487_03"
+ },
+ "487_04": {
+  "set": "PIRATE",
+  "nome": "",
+  "fronte": "487_04",
+  "retro": "487_04_r"
+ },
+ "487_05": {
+  "set": "PIRATE",
+  "nome": "SILVER-TONGUES",
+  "fronte": "487_05",
+  "retro": "487_01_r"
+ },
+ "487_06": {
+  "set": "PIRATE",
+  "nome": "CALL TO ACTION",
+  "fronte": "487_06",
+  "retro": "487_01_r"
+ },
+ "487_07": {
+  "set": "PIRATE",
+  "nome": "PIRATE SMUGGLERS",
+  "fronte": "487_07",
+  "retro": "487_07_r"
+ },
+ "487_08": {
+  "set": "PIRATE",
+  "nome": "",
+  "fronte": "487_08",
+  "retro": "487_08_r"
+ },
+ "487_09": {
+  "set": "PIRATE",
+  "nome": "PIRATE FLEET",
+  "fronte": "487_09",
+  "retro": "487_08_r"
+ },
+ "487_10": {
+  "set": "PIRATE",
+  "nome": "PIRATE HOARD",
+  "fronte": "487_10"
+ },
+ "487_11": {
+  "set": "PIRATE",
+  "nome": "",
+  "fronte": "487_11",
+  "retro": "487_11_r"
+ },
+ "475_00": {
+  "set": "PLANET BREAKER",
+  "nome": "",
+  "fronte": "475_00",
+  "retro": "475_00_r"
+ },
+ "475_01": {
+  "set": "PLANET BREAKER",
+  "nome": "PLANET-EATER LOOSE",
+  "fronte": "475_01",
+  "retro": "475_01_r"
+ },
+ "475_02": {
+  "set": "PLANET BREAKER",
+  "nome": "",
+  "fronte": "475_02",
+  "retro": "475_01_r"
+ },
+ "475_03": {
+  "set": "PLANET BREAKER",
+  "nome": "HEARTWORLD REFUGEES",
+  "fronte": "475_03",
+  "retro": "475_01_r"
+ },
+ "475_04": {
+  "set": "PLANET BREAKER",
+  "nome": "LOSTWORLD REFUGEES",
+  "fronte": "475_04",
+  "retro": "475_01_r"
+ },
+ "475_05": {
+  "set": "PLANET BREAKER",
+  "nome": "DEADWORLD REFUGEES",
+  "fronte": "475_05",
+  "retro": "475_01_r"
+ },
+ "475_06": {
+  "set": "PLANET BREAKER",
+  "nome": "BLAZEWORLD REFUGEES",
+  "fronte": "475_06",
+  "retro": "475_01_r"
+ },
+ "475_07": {
+  "set": "PLANET BREAKER",
+  "nome": "FORGEWORLD REFUGEES",
+  "fronte": "475_07",
+  "retro": "475_01_r"
+ },
+ "475_08": {
+  "set": "PLANET BREAKER",
+  "nome": "PLANET HAMMER",
+  "fronte": "475_08",
+  "retro": "475_01_r"
+ },
+ "475_09": {
+  "set": "PLANET BREAKER",
+  "nome": "HAMMER FRAGMENTS / BREAKING WORLDS",
+  "fronte": "475_09",
+  "retro": "475_09_r"
+ },
+ "475_10": {
+  "set": "PLANET BREAKER",
+  "nome": "SYCOPHANTS",
+  "fronte": "475_10",
+  "retro": "475_01_r"
+ },
+ "475_11": {
+  "set": "PLANET BREAKER",
+  "nome": "",
+  "fronte": "475_11",
+  "retro": "475_11_r"
+ },
+ "472_00": {
+  "set": "PACIFIST",
+  "nome": "REBUKE OF THE EMPATHS",
+  "fronte": "472_00",
+  "retro": "472_00_r"
+ },
+ "472_01": {
+  "set": "PACIFIST",
+  "nome": "RECONCILE WITH THE OUTRAGED",
+  "fronte": "472_01",
+  "retro": "472_01_r"
+ },
+ "472_02": {
+  "set": "PACIFIST",
+  "nome": "EMPATHY FOR ALL",
+  "fronte": "472_02",
+  "retro": "472_01_r"
+ },
+ "472_03": {
+  "set": "PACIFIST",
+  "nome": "EMPATHY FOR ALL",
+  "fronte": "472_03"
+ },
+ "472_04": {
+  "set": "PACIFIST",
+  "nome": "",
+  "fronte": "472_04",
+  "retro": "472_04_r"
+ },
+ "472_05": {
+  "set": "PACIFIST",
+  "nome": "ITINERANT EMPATHS",
+  "fronte": "472_05",
+  "retro": "472_01_r"
+ },
+ "472_06": {
+  "set": "PACIFIST",
+  "nome": "ITINERANT EMPATHS",
+  "fronte": "472_05",
+  "retro": "472_01_r"
+ },
+ "472_07": {
+  "set": "PACIFIST",
+  "nome": "PSIONIC LIAISONS",
+  "fronte": "472_07",
+  "retro": "472_07_r"
+ },
+ "472_08": {
+  "set": "PACIFIST",
+  "nome": "",
+  "fronte": "472_08",
+  "retro": "472_08_r"
+ },
+ "472_09": {
+  "set": "PACIFIST",
+  "nome": "WELL OF EMPATHY",
+  "fronte": "472_09",
+  "retro": "472_08_r"
+ },
+ "472_10": {
+  "set": "PACIFIST",
+  "nome": "WITNESSES",
+  "fronte": "472_10"
+ },
+ "472_11": {
+  "set": "PACIFIST",
+  "nome": "",
+  "fronte": "472_11",
+  "retro": "472_11_r"
+ },
+ "436_00": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT HUNGER",
+  "fronte": "436_00",
+  "retro": "436_00_r"
+ },
+ "436_01": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "",
+  "fronte": "436_01",
+  "retro": "436_01_r"
+ },
+ "436_02": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT LOOMS",
+  "fronte": "436_02",
+  "retro": "436_02_r"
+ },
+ "436_03": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT PANIC",
+  "fronte": "436_03",
+  "retro": "436_02_r"
+ },
+ "436_04": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT PURGE",
+  "fronte": "436_04",
+  "retro": "436_02_r"
+ },
+ "436_05": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT PURGE",
+  "fronte": "436_05",
+  "retro": "436_02_r"
+ },
+ "436_06": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT PURGE",
+  "fronte": "436_06",
+  "retro": "436_02_r"
+ },
+ "436_07": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT REAPERS",
+  "fronte": "436_07",
+  "retro": "436_07_r"
+ },
+ "436_08": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT HUNTERS",
+  "fronte": "436_08",
+  "retro": "436_08_r"
+ },
+ "436_09": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "BLIGHT FURY",
+  "fronte": "436_09",
+  "retro": "436_08_r"
+ },
+ "436_10": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "",
+  "fronte": "436_10",
+  "retro": "436_08_r"
+ },
+ "436_11": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "SPORE SHIPS",
+  "fronte": "436_11",
+  "retro": "436_08_r"
+ },
+ "436_12": {
+  "set": "BLIGHT SPEAKER",
+  "nome": "",
+  "fronte": "436_12",
+  "retro": "436_12_r"
+ },
+ "467_00": {
+  "set": "HEGEMON",
+  "nome": "HAPPY HOSTS",
+  "fronte": "467_00",
+  "retro": "467_00_r"
+ },
+ "467_01": {
+  "set": "HEGEMON",
+  "nome": "",
+  "fronte": "467_01",
+  "retro": "467_01_r"
+ },
+ "467_02": {
+  "set": "HEGEMON",
+  "nome": "AGAINST HEGEMONY",
+  "fronte": "467_02",
+  "retro": "467_02_r"
+ },
+ "467_03": {
+  "set": "HEGEMON",
+  "nome": "AGAINST HEGEMONY",
+  "fronte": "467_02",
+  "retro": "467_02_r"
+ },
+ "467_04": {
+  "set": "HEGEMON",
+  "nome": "PRISON WARDENS",
+  "fronte": "467_04",
+  "retro": "467_02_r"
+ },
+ "467_05": {
+  "set": "HEGEMON",
+  "nome": "PRISON WARDENS",
+  "fronte": "467_05",
+  "retro": "467_02_r"
+ },
+ "467_06": {
+  "set": "HEGEMON",
+  "nome": "MIND MANAGERS",
+  "fronte": "467_06",
+  "retro": "467_02_r"
+ },
+ "467_07": {
+  "set": "HEGEMON",
+  "nome": "",
+  "fronte": "467_07",
+  "retro": "467_07_r"
+ },
+ "467_08": {
+  "set": "HEGEMON",
+  "nome": "SONG OF THE BANNER",
+  "fronte": "467_08",
+  "retro": "467_08_r"
+ },
+ "467_09": {
+  "set": "HEGEMON",
+  "nome": "BANNERS OF HEGEMONY",
+  "fronte": "467_09",
+  "retro": "467_08_r"
+ },
+ "467_10": {
+  "set": "HEGEMON",
+  "nome": "PLANTING BANNERS",
+  "fronte": "467_10",
+  "retro": "467_08_r"
+ },
+ "467_11": {
+  "set": "HEGEMON",
+  "nome": "",
+  "fronte": "467_11",
+  "retro": "467_11_r"
+ },
+ "433_00": {
+  "set": "PATHFINDER",
+  "nome": "SEEK THE PORTAL",
+  "fronte": "433_00",
+  "retro": "433_00_r"
+ },
+ "433_01": {
+  "set": "PATHFINDER",
+  "nome": "SEEK THE PORTAL",
+  "fronte": "433_00",
+  "retro": "433_01_r"
+ },
+ "433_02": {
+  "set": "PATHFINDER",
+  "nome": "SEEK THE PORTAL",
+  "fronte": "433_00",
+  "retro": "433_01_r"
+ },
+ "433_03": {
+  "set": "PATHFINDER",
+  "nome": "PILGRIMS",
+  "fronte": "433_03",
+  "retro": "433_01_r"
+ },
+ "433_04": {
+  "set": "PATHFINDER",
+  "nome": "",
+  "fronte": "433_04",
+  "retro": "433_04_r"
+ },
+ "433_05": {
+  "set": "PATHFINDER",
+  "nome": "PORTAL SEEKERS",
+  "fronte": "433_05",
+  "retro": "433_01_r"
+ },
+ "433_06": {
+  "set": "PATHFINDER",
+  "nome": "CALL TO PILGRIMAGE",
+  "fronte": "433_06",
+  "retro": "433_01_r"
+ },
+ "433_07": {
+  "set": "PATHFINDER",
+  "nome": "",
+  "fronte": "433_07",
+  "retro": "433_07_r"
+ },
+ "433_08": {
+  "set": "PATHFINDER",
+  "nome": "CLUES TO THE PORTAL",
+  "fronte": "433_08",
+  "retro": "433_08_r"
+ },
+ "433_09": {
+  "set": "PATHFINDER",
+  "nome": "UNCOVERING CLUES",
+  "fronte": "433_09",
+  "retro": "433_08_r"
+ },
+ "433_10": {
+  "set": "PATHFINDER",
+  "nome": "",
+  "fronte": "433_10",
+  "retro": "433_10_r"
+ },
+ "442_00": {
+  "set": "PEACEKEEPER",
+  "nome": "PEACE ACCORDS",
+  "fronte": "442_00",
+  "retro": "442_00_r"
+ },
+ "442_01": {
+  "set": "PEACEKEEPER",
+  "nome": "PEACE DIVIDENDS",
+  "fronte": "442_01",
+  "retro": "442_01_r"
+ },
+ "442_02": {
+  "set": "PEACEKEEPER",
+  "nome": "EMPIRE BALKS AT PEACE",
+  "fronte": "442_02",
+  "retro": "442_01_r"
+ },
+ "442_03": {
+  "set": "PEACEKEEPER",
+  "nome": "CEASEFIRES",
+  "fronte": "442_03",
+  "retro": "442_01_r"
+ },
+ "442_04": {
+  "set": "PEACEKEEPER",
+  "nome": "",
+  "fronte": "442_04",
+  "retro": "442_04_r"
+ },
+ "442_05": {
+  "set": "PEACEKEEPER",
+  "nome": "ARMS INTEREST",
+  "fronte": "442_05",
+  "retro": "442_01_r"
+ },
+ "442_06": {
+  "set": "PEACEKEEPER",
+  "nome": "ARMS INTEREST",
+  "fronte": "442_06",
+  "retro": "442_01_r"
+ },
+ "442_07": {
+  "set": "PEACEKEEPER",
+  "nome": "",
+  "fronte": "442_07",
+  "retro": "442_07_r"
+ },
+ "442_08": {
+  "set": "PEACEKEEPER",
+  "nome": "ARSENAL KEEPERS",
+  "fronte": "442_08",
+  "retro": "442_08_r"
+ },
+ "442_09": {
+  "set": "PEACEKEEPER",
+  "nome": "OATH OF PEACE",
+  "fronte": "442_09",
+  "retro": "442_08_r"
+ },
+ "442_10": {
+  "set": "PEACEKEEPER",
+  "nome": "",
+  "fronte": "442_10",
+  "retro": "442_10_r"
+ },
+ "488_00": {
+  "set": "WARDEN",
+  "nome": "LORDS GAIN POWER",
+  "fronte": "488_00",
+  "retro": "488_00_r"
+ },
+ "488_01": {
+  "set": "WARDEN",
+  "nome": "FEUDAL COURTS",
+  "fronte": "488_01",
+  "retro": "488_01_r"
+ },
+ "488_02": {
+  "set": "WARDEN",
+  "nome": "",
+  "fronte": "488_02",
+  "retro": "488_02_r"
+ },
+ "488_03": {
+  "set": "WARDEN",
+  "nome": "SWORN GUARDIANS",
+  "fronte": "488_03",
+  "retro": "488_01_r"
+ },
+ "488_04": {
+  "set": "WARDEN",
+  "nome": "SKIRMISHERS",
+  "fronte": "488_04",
+  "retro": "488_01_r"
+ },
+ "488_05": {
+  "set": "WARDEN",
+  "nome": "FEAST DAY",
+  "fronte": "488_05",
+  "retro": "488_01_r"
+ },
+ "488_06": {
+  "set": "WARDEN",
+  "nome": "FEAST DAY",
+  "fronte": "488_06",
+  "retro": "488_01_r"
+ },
+ "488_07": {
+  "set": "WARDEN",
+  "nome": "WARDEN'S LEVY",
+  "fronte": "488_07",
+  "retro": "488_07_r"
+ },
+ "488_08": {
+  "set": "WARDEN",
+  "nome": "",
+  "fronte": "488_08",
+  "retro": "488_08_r"
+ },
+ "488_09": {
+  "set": "WARDEN",
+  "nome": "FEUDAL LAW",
+  "fronte": "488_09",
+  "retro": "488_08_r"
+ },
+ "488_10": {
+  "set": "WARDEN",
+  "nome": "SEATS AND FIEFS",
+  "fronte": "488_10",
+  "retro": "488_08_r"
+ },
+ "488_11": {
+  "set": "WARDEN",
+  "nome": "LORD OF THE 6TH CLUSTER",
+  "fronte": "488_11",
+  "retro": "488_08_r"
+ },
+ "488_12": {
+  "set": "WARDEN",
+  "nome": "LORD OF THE 5TH CLUSTER",
+  "fronte": "488_12",
+  "retro": "488_08_r"
+ },
+ "488_13": {
+  "set": "WARDEN",
+  "nome": "LORD OF THE 4TH CLUSTER",
+  "fronte": "488_13",
+  "retro": "488_08_r"
+ },
+ "488_14": {
+  "set": "WARDEN",
+  "nome": "LORD OF THE 3RD CLUSTER",
+  "fronte": "488_14",
+  "retro": "488_07_r"
+ },
+ "488_15": {
+  "set": "WARDEN",
+  "nome": "LORD OF THE 2ND CLUSTER",
+  "fronte": "488_15",
+  "retro": "488_08_r"
+ },
+ "488_16": {
+  "set": "WARDEN",
+  "nome": "LORD OF THE 1ST CLUSTER",
+  "fronte": "488_16",
+  "retro": "488_08_r"
+ },
+ "488_17": {
+  "set": "WARDEN",
+  "nome": "CLAIMS OF NOBILITY",
+  "fronte": "488_17"
+ },
+ "488_18": {
+  "set": "WARDEN",
+  "nome": "",
+  "fronte": "488_18",
+  "retro": "488_18_r"
+ },
+ "468_00": {
+  "set": "SURVIVALIST",
+  "nome": "CAPTIVE RELEASE",
+  "fronte": "468_00",
+  "retro": "468_00_r"
+ },
+ "468_01": {
+  "set": "SURVIVALIST",
+  "nome": "BUNKERS",
+  "fronte": "468_01",
+  "retro": "468_01_r"
+ },
+ "468_02": {
+  "set": "SURVIVALIST",
+  "nome": "BUILDING BUNKERS",
+  "fronte": "468_02",
+  "retro": "468_01_r"
+ },
+ "468_03": {
+  "set": "SURVIVALIST",
+  "nome": "VOW OF SURVIVAL",
+  "fronte": "468_03",
+  "retro": "468_01_r"
+ },
+ "468_04": {
+  "set": "SURVIVALIST",
+  "nome": "",
+  "fronte": "468_04",
+  "retro": "468_04_r"
+ },
+ "444_00": {
+  "set": "REDEEMER",
+  "nome": "RELIC FENCE",
+  "fronte": "444_00",
+  "retro": "444_00_r"
+ },
+ "444_01": {
+  "set": "REDEEMER",
+  "nome": "REBUKE OF THE KEEPERS",
+  "fronte": "444_01",
+  "retro": "444_01_r"
+ },
+ "444_02": {
+  "set": "REDEEMER",
+  "nome": "IRE OF THE KEEPERS",
+  "fronte": "444_02",
+  "retro": "444_01_r"
+ },
+ "444_03": {
+  "set": "REDEEMER",
+  "nome": "",
+  "fronte": "444_03",
+  "retro": "444_03_r"
+ },
+ "473_00": {
+  "set": "GUARDIAN",
+  "nome": "EDENGUARD AMBITION",
+  "fronte": "473_00",
+  "retro": "473_00_r"
+ },
+ "473_01": {
+  "set": "GUARDIAN",
+  "nome": "IRE OF THE TYCOONS",
+  "fronte": "473_01",
+  "retro": "473_01_r"
+ },
+ "473_02": {
+  "set": "GUARDIAN",
+  "nome": "GREEN VAULT",
+  "fronte": "473_02",
+  "retro": "473_01_r"
+ },
+ "473_03": {
+  "set": "GUARDIAN",
+  "nome": "",
+  "fronte": "473_03",
+  "retro": "473_03_r"
+ },
+ "446_00": {
+  "set": "NATURALIST",
+  "nome": "BLIGHTKIN AMBITION",
+  "fronte": "446_00",
+  "retro": "446_00_r"
+ },
+ "446_01": {
+  "set": "NATURALIST",
+  "nome": "SPORE GUIDES",
+  "fronte": "446_01",
+  "retro": "446_01_r"
+ },
+ "446_02": {
+  "set": "NATURALIST",
+  "nome": "BLIGHT SOCIETY",
+  "fronte": "446_02",
+  "retro": "446_01_r"
+ },
+ "446_03": {
+  "set": "NATURALIST",
+  "nome": "",
+  "fronte": "446_03",
+  "retro": "446_03_r"
+ },
+ "450_00": {
+  "set": "OVERLORD",
+  "nome": "REACH REJECTS OVERLORD",
+  "fronte": "450_00",
+  "retro": "450_00_r"
+ },
+ "450_01": {
+  "set": "OVERLORD",
+  "nome": "SYCOPHANTS",
+  "fronte": "450_01",
+  "retro": "450_01_r"
+ },
+ "450_02": {
+  "set": "OVERLORD",
+  "nome": "",
+  "fronte": "450_02",
+  "retro": "450_02_r"
+ },
+ "456_00": {
+  "set": "GATE WRAITH",
+  "nome": "PASSAGE STORMS",
+  "fronte": "456_00",
+  "retro": "456_00_r"
+ },
+ "456_01": {
+  "set": "GATE WRAITH",
+  "nome": "PASSAGES & THE TWISTED PASSAGE",
+  "fronte": "456_01",
+  "retro": "456_01_r"
+ },
+ "456_02": {
+  "set": "GATE WRAITH",
+  "nome": "THE DEAD LIVE",
+  "fronte": "456_02",
+  "retro": "456_01_r"
+ },
+ "456_03": {
+  "set": "GATE WRAITH",
+  "nome": "BREAKING GATES & PLACING PASSAGES",
+  "fronte": "456_03",
+  "retro": "456_01_r"
+ },
+ "456_04": {
+  "set": "GATE WRAITH",
+  "nome": "CATAPULT OVERDRIVE",
+  "fronte": "456_04",
+  "retro": "456_04_r"
+ },
+ "456_05": {
+  "set": "GATE WRAITH",
+  "nome": "",
+  "fronte": "456_05",
+  "retro": "456_05_r"
+ },
+ "474_00": {
+  "set": "CONSPIRATOR",
+  "nome": "FOILING CONSPIRACIES",
+  "fronte": "474_00",
+  "retro": "474_00_r"
+ },
+ "474_01": {
+  "set": "CONSPIRATOR",
+  "nome": "SCORING CONSPIRACIES",
+  "fronte": "474_01",
+  "retro": "474_01_r"
+ },
+ "474_02": {
+  "set": "CONSPIRATOR",
+  "nome": "CONSPIRACIES",
+  "fronte": "474_02",
+  "retro": "474_01_r"
+ },
+ "474_03": {
+  "set": "CONSPIRATOR",
+  "nome": "FARSEERS",
+  "fronte": "474_03",
+  "retro": "474_01_r"
+ },
+ "474_04": {
+  "set": "CONSPIRATOR",
+  "nome": "",
+  "fronte": "474_04",
+  "retro": "474_04_r"
+ },
+ "449_00": {
+  "set": "JUDGE",
+  "nome": "JUDGE SETS AGENDA",
+  "fronte": "449_00",
+  "retro": "449_00_r"
+ },
+ "449_01": {
+  "set": "JUDGE",
+  "nome": "JUDGE'S CHOSEN",
+  "fronte": "449_01",
+  "retro": "449_01_r"
+ },
+ "449_02": {
+  "set": "JUDGE",
+  "nome": "THE ARBITER",
+  "fronte": "449_02",
+  "retro": "449_01_r"
+ },
+ "449_03": {
+  "set": "JUDGE",
+  "nome": "VOW OF FAIRNESS",
+  "fronte": "449_03",
+  "retro": "449_01_r"
+ },
+ "449_04": {
+  "set": "JUDGE",
+  "nome": "",
+  "fronte": "449_04",
+  "retro": "449_04_r"
+ },
+ "480_00": {
+  "set": "(sciolte)",
+  "nome": "Control",
+  "fronte": "480_00"
+ },
+ "216_03": {
+  "set": "A plots",
+  "nome": "ADVOCATE",
+  "fronte": "216_03",
+  "retro": "216_03_r"
+ },
+ "216_01": {
+  "set": "A plots",
+  "nome": "FOUNDER",
+  "fronte": "216_01",
+  "retro": "216_01_r"
+ },
+ "216_00": {
+  "set": "A plots",
+  "nome": "STEWARD",
+  "fronte": "216_00",
+  "retro": "216_01_r"
+ },
+ "216_02": {
+  "set": "A plots",
+  "nome": "MAGNATE",
+  "fronte": "216_02",
+  "retro": "216_03_r"
+ },
+ "216_04": {
+  "set": "A plots",
+  "nome": "CARETAKER",
+  "fronte": "216_04",
+  "retro": "216_03_r"
+ },
+ "216_05": {
+  "set": "A plots",
+  "nome": "PARTISAN",
+  "fronte": "216_05",
+  "retro": "216_03_r"
+ },
+ "216_06": {
+  "set": "A plots",
+  "nome": "ADMIRAL",
+  "fronte": "216_06",
+  "retro": "216_03_r"
+ },
+ "216_07": {
+  "set": "A plots",
+  "nome": "BELIEVER",
+  "fronte": "216_07",
+  "retro": "216_01_r"
+ },
+ "217_08": {
+  "set": "B Plots",
+  "nome": "PATHFINDER",
+  "fronte": "217_08",
+  "retro": "217_08_r"
+ },
+ "217_09": {
+  "set": "B Plots",
+  "nome": "HEGEMON",
+  "fronte": "217_09",
+  "retro": "217_09_r"
+ },
+ "217_10": {
+  "set": "B Plots",
+  "nome": "PLANET BREAKER",
+  "fronte": "217_10",
+  "retro": "217_09_r"
+ },
+ "217_11": {
+  "set": "B Plots",
+  "nome": "PIRATE",
+  "fronte": "217_11",
+  "retro": "217_09_r"
+ },
+ "217_12": {
+  "set": "B Plots",
+  "nome": "BLIGHT SPEAKER",
+  "fronte": "217_12",
+  "retro": "217_09_r"
+ },
+ "217_13": {
+  "set": "B Plots",
+  "nome": "PACIFIST",
+  "fronte": "217_13",
+  "retro": "217_09_r"
+ },
+ "217_14": {
+  "set": "B Plots",
+  "nome": "PEACEKEEPER",
+  "fronte": "217_14",
+  "retro": "217_08_r"
+ },
+ "217_15": {
+  "set": "B Plots",
+  "nome": "WARDEN",
+  "fronte": "217_15",
+  "retro": "217_08_r"
+ },
+ "218_23": {
+  "set": "C Plots",
+  "nome": "JUDGE",
+  "fronte": "218_23",
+  "retro": "218_23_r"
+ },
+ "218_22": {
+  "set": "C Plots",
+  "nome": "CONSPIRATOR",
+  "fronte": "218_22",
+  "retro": "218_22_r"
+ },
+ "218_21": {
+  "set": "C Plots",
+  "nome": "GATE WRAITH",
+  "fronte": "218_21",
+  "retro": "218_22_r"
+ },
+ "218_20": {
+  "set": "C Plots",
+  "nome": "NATURALIST",
+  "fronte": "218_20",
+  "retro": "218_23_r"
+ },
+ "218_19": {
+  "set": "C Plots",
+  "nome": "GUARDIAN",
+  "fronte": "218_19",
+  "retro": "218_23_r"
+ },
+ "218_18": {
+  "set": "C Plots",
+  "nome": "REDEEMER",
+  "fronte": "218_18",
+  "retro": "218_23_r"
+ },
+ "218_17": {
+  "set": "C Plots",
+  "nome": "SURVIVALIST",
+  "fronte": "218_17",
+  "retro": "218_23_r"
+ },
+ "218_16": {
+  "set": "C Plots",
+  "nome": "OVERLORD",
+  "fronte": "218_16",
+  "retro": "218_23_r"
+ },
+ "972_01": {
+  "set": "(sciolte)",
+  "nome": "GUILD ENVOYS DEPART",
+  "fronte": "972_01",
+  "retro": "972_01_r"
+ },
+ "973_00": {
+  "set": "(sciolte)",
+  "nome": "IMPERIAL COUNCIL",
+  "fronte": "973_00",
+  "retro": "973_00_r"
+ },
+ "309_30": {
+  "set": "Event Deck",
+  "nome": "Action Card",
+  "fronte": "309_30"
+ },
+ "309_29": {
+  "set": "Event Deck",
+  "nome": "Action Card",
+  "fronte": "309_30"
+ },
+ "309_28": {
+  "set": "Event Deck",
+  "nome": "Action Card",
+  "fronte": "309_30"
+ },
+ "481_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "481_00"
+ },
+ "483_00": {
+  "set": "(sciolte)",
+  "nome": "Setup",
+  "fronte": "483_00"
+ },
+ "482_00": {
+  "set": "(sciolte)",
+  "nome": "Court Discard Backer",
+  "fronte": "482_00"
+ },
+ "486_00": {
+  "set": "(sciolte)",
+  "nome": "Court Deck Backer",
+  "fronte": "486_00"
+ },
+ "752_00": {
+  "set": "(sciolte)",
+  "nome": "",
+  "fronte": "752_00"
+ }
+}

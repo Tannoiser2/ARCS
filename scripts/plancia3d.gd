@@ -23,6 +23,8 @@ var trascina := false
 var sposta := false
 var ultimo_mouse := Vector2.ZERO
 var mesh_nave: Mesh
+var mesh_citta: Mesh
+var mesh_porto: Mesh
 var mesh_nave_danno: Mesh
 var mat_nave := {}
 var mat_danno := {}
@@ -101,9 +103,11 @@ func _ready() -> void:
 func _prepara_modelli() -> void:
 	mesh_nave = _prima_mesh(load("res://assets/3d/nave.glb"))
 	mesh_nave_danno = _prima_mesh(load("res://assets/3d/nave_danno.glb"))
+	mesh_citta = _prima_mesh(load("res://assets/3d/citta.glb"))
+	mesh_porto = _prima_mesh(load("res://assets/3d/porto.glb"))
 	var tex_n := _tex(mesh_nave)
 	var tex_d := _tex(mesh_nave_danno)
-	for c in Dati.COLORI:
+	for c in Dati.COLORI + ["impero", "piaga", "liberi"]:
 		var col: Color = Dati.TINTA[c]
 		var a := StandardMaterial3D.new()
 		a.albedo_texture = tex_n
@@ -260,7 +264,7 @@ func aggiorna(motore: Motore) -> void:
 	for c in pezzi.get_children():
 		c.queue_free()
 	var colori: Array = []
-	for i in m.s["n"]:
+	for i in m.s["g"].size():
 		colori.append(m.s["g"][i]["colore"])
 	for id in m.s["mappa"]:
 		if not m.in_gioco(id):
@@ -353,6 +357,9 @@ func _offset(k: int, tot: int) -> Vector3:
 	return Vector3((c - (cols - 1) * 0.5) * 0.3, 0, r * 0.24 - 0.14)
 
 func _nave(p: Vector3, colore: String, danno: bool, _i: int, _id: String) -> void:
+	if colore == "piaga":
+		_piaga(p, danno)
+		return
 	var n := MeshInstance3D.new()
 	n.mesh = mesh_nave_danno if danno else mesh_nave
 	n.material_override = mat_danno[colore] if danno else mat_nave[colore]
@@ -374,6 +381,36 @@ func _nave(p: Vector3, colore: String, danno: bool, _i: int, _id: String) -> voi
 		fiamma.position = Vector3(0.45, 0.17, 0)
 		n.add_child(fiamma)
 
+## La Piaga: un grumo organico con spine; danneggiata è più scura e afflosciata.
+func _piaga(p: Vector3, danno: bool) -> void:
+	var nodo := Node3D.new()
+	nodo.position = p + Vector3(0, 0.1 if not danno else 0.06, 0)
+	pezzi.add_child(nodo)
+	var mt := StandardMaterial3D.new()
+	mt.albedo_color = Dati.TINTA["piaga"].darkened(0.45 if danno else 0.0)
+	mt.roughness = 0.35
+	mt.emission_enabled = not danno
+	mt.emission = Color(0.4, 0.9, 0.2) * 0.35
+	var corpo := MeshInstance3D.new()
+	var sf := SphereMesh.new()
+	sf.radius = 0.13
+	sf.height = 0.2 if not danno else 0.13
+	corpo.mesh = sf
+	corpo.material_override = mt
+	nodo.add_child(corpo)
+	for k in 7:
+		var sp := MeshInstance3D.new()
+		var co := CylinderMesh.new()
+		co.top_radius = 0.0
+		co.bottom_radius = 0.035
+		co.height = 0.16 if not danno else 0.09
+		sp.mesh = co
+		sp.material_override = mt
+		var ang := TAU * k / 7.0
+		sp.position = Vector3(cos(ang) * 0.1, 0.03, sin(ang) * 0.1)
+		sp.rotation = Vector3(sin(ang) * 0.9, 0, -cos(ang) * 0.9)
+		nodo.add_child(sp)
+
 func _prisma(colore: Material, h: float, lato: float) -> MeshInstance3D:
 	var mi := MeshInstance3D.new()
 	var pr := CylinderMesh.new()
@@ -386,72 +423,26 @@ func _prisma(colore: Material, h: float, lato: float) -> MeshInstance3D:
 	return mi
 
 func _citta(p: Vector3, colore: String, danno: bool) -> void:
-	var nodo := Node3D.new()
-	nodo.position = p
-	pezzi.add_child(nodo)
-	var mat: StandardMaterial3D = mat_citta[colore]
-	if danno:
-		mat = mat.duplicate()
-		mat.albedo_color = mat.albedo_color.darkened(0.55)
-		mat.emission = Color(0.9, 0.25, 0.05) * 0.4
-	var base := _prisma(mat, 0.09, 0.2)
-	base.position.y = 0.045
-	base.rotation_degrees.y = 180
-	nodo.add_child(base)
-	# torri
-	var alt := [0.22, 0.32, 0.18]
-	for k in 3:
-		var tor := MeshInstance3D.new()
-		var bx := BoxMesh.new()
-		bx.size = Vector3(0.05, alt[k], 0.05)
-		tor.mesh = bx
-		tor.material_override = mat
-		tor.position = Vector3((k - 1) * 0.07, 0.09 + alt[k] * 0.5, 0.02 - absf(k - 1) * 0.03)
-		nodo.add_child(tor)
-	nodo.scale = Vector3.ONE * 1.35
+	_edificio(mesh_citta, mat_citta[colore], p, danno)
 
 func _porto(p: Vector3, colore: String, danno: bool) -> void:
-	var nodo := Node3D.new()
-	nodo.position = p
-	pezzi.add_child(nodo)
-	var mat: StandardMaterial3D = mat_porto[colore]
+	_edificio(mesh_porto, mat_porto[colore], p, danno)
+
+## Miniature di città e spazioporti (modelli forniti dall'utente), tinte del colore del giocatore.
+func _edificio(mesh: Mesh, base_mat: StandardMaterial3D, p: Vector3, danno: bool) -> void:
+	var mat := base_mat
 	if danno:
-		mat = mat.duplicate()
+		mat = base_mat.duplicate()
 		mat.albedo_color = mat.albedo_color.darkened(0.55)
-	var base := _prisma(mat, 0.07, 0.2)
-	base.position.y = 0.035
-	base.rotation_degrees.y = 180
-	nodo.add_child(base)
-	var anello := MeshInstance3D.new()
-	var tor := TorusMesh.new()
-	tor.inner_radius = 0.09
-	tor.outer_radius = 0.13
-	anello.mesh = tor
-	anello.material_override = mat
-	anello.position.y = 0.19
-	anello.rotation_degrees = Vector3(70, 0, 0)
-	nodo.add_child(anello)
-	var asta := MeshInstance3D.new()
-	var cy := CylinderMesh.new()
-	cy.top_radius = 0.015
-	cy.bottom_radius = 0.02
-	cy.height = 0.16
-	asta.mesh = cy
-	asta.material_override = mat
-	asta.position.y = 0.1
-	nodo.add_child(asta)
-	var faro := MeshInstance3D.new()
-	var fs := SphereMesh.new()
-	fs.radius = 0.03
-	fs.height = 0.06
-	faro.mesh = fs
-	var fm := StandardMaterial3D.new()
-	fm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	fm.albedo_color = (Color(0.45, 0.8, 1.0) if not danno else Color(1.0, 0.35, 0.1)) * 2.5
-	faro.material_override = fm
-	faro.position.y = 0.19
-	nodo.add_child(faro)
-	nodo.scale = Vector3.ONE * 1.35
+		mat.emission_enabled = true
+		mat.emission = Color(0.9, 0.25, 0.05) * 0.4
+	var mi := MeshInstance3D.new()
+	mi.mesh = mesh
+	mi.material_override = mat
+	mi.scale = Vector3.ONE * 0.021
+	mi.position = p
+	mi.rotation_degrees = Vector3(0 if not danno else 8, 180, 0 if not danno else -6)
+	pezzi.add_child(mi)
 
 func _etichetta_3d(p: Vector3, testo: String, col: Color) -> void:
 	var l := Label3D.new()
@@ -530,8 +521,10 @@ func effetto(e: Dictionary, colori: Array) -> void:
 			_scintille(p + Vector3(0, 0.3, 0), Color(1.0, 0.3, 0.2), 30 + int(e.get("colpi", 0)) * 15, 0.9)
 		"carta":
 			var c: String = e.get("c", "")
-			if c != "":
+			if c != "" and Dati.COLORE_SEME.has(Dati.seme(c)):
 				_bagliore_mappa(Dati.COLORE_SEME[Dati.seme(c)])
+			elif c != "":
+				_bagliore_mappa(Color(0.75, 0.6, 1.0))
 		"ambizione":
 			_bagliore_mappa(Color(1.0, 0.8, 0.3))
 		"oltraggio":

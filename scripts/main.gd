@@ -114,7 +114,9 @@ func pannello(bg := C_SPAZIO, bordo := C_ORO * Color(1, 1, 1, 0.55)) -> PanelCon
 
 func immagine(path: String, w: float, h: float) -> TextureRect:
 	var t := TextureRect.new()
-	if ResourceLoader.exists(path):
+	if path.begins_with("camp:"):
+		_texture_campagna(path.substr(5), t)
+	elif ResourceLoader.exists(path):
 		t.texture = load(path)
 	t.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	t.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -122,7 +124,66 @@ func immagine(path: String, w: float, h: float) -> TextureRect:
 	return t
 
 func img_carta(c: String) -> String:
+	if Dati.is_evento(c):
+		return img_camp("309_28")
+	match c:
+		"consiglio":
+			var deciso: bool = m != null and m.s.has("camp") and m.s["camp"]["consiglio"] == "deciso"
+			return img_camp("973_00", deciso)
+		"x11": return img_camp("364_11")
+		"x12": return img_camp("364_12")
+	if c.length() == 6 and c[3] == "_":
+		return img_camp(c)
 	return "res://assets/carte/%s.webp" % c
+
+var elenco_camp := {}
+
+## Percorso «camp:» dell'immagine di una carta della campagna (fronte o retro, senza doppioni).
+func img_camp(id: String, retro := false) -> String:
+	if elenco_camp.is_empty():
+		var f := FileAccess.open("res://assets/dati/carte_campagna.json", FileAccess.READ)
+		if f != null:
+			var d = JSON.parse_string(f.get_as_text())
+			if d is Dictionary:
+				elenco_camp = d
+	var e: Dictionary = elenco_camp.get(id, {})
+	return "camp:" + str(e.get("retro" if retro else "fronte", id + ("_r" if retro else "")))
+
+# ---------------------------------------------------------------- immagini della campagna
+## Le carte della campagna non sono nel pacchetto: si scaricano dal sito quando servono.
+var cache_camp := {}
+var attese_camp := {}
+
+func _texture_campagna(nome: String, t: TextureRect) -> void:
+	if cache_camp.has(nome):
+		t.texture = cache_camp[nome]
+		return
+	if attese_camp.has(nome):
+		attese_camp[nome].append(weakref(t))
+		return
+	attese_camp[nome] = [weakref(t)]
+	if OS.has_feature("web"):
+		var base = JavaScriptBridge.eval("location.href.replace(/[?#].*$/, '').replace(/[^/]*$/, '')")
+		var req := HTTPRequest.new()
+		add_child(req)
+		req.request_completed.connect(func(_r, codice, _h, corpo: PackedByteArray):
+			var img := Image.new()
+			if codice == 200 and img.load_webp_from_buffer(corpo) == OK:
+				_texture_pronta(nome, ImageTexture.create_from_image(img))
+			req.queue_free())
+		req.request(str(base) + "campagna/img/%s.webp" % nome)
+	else:
+		var img := Image.new()
+		if img.load(ProjectSettings.globalize_path("res://campagna/img/%s.webp" % nome)) == OK:
+			_texture_pronta(nome, ImageTexture.create_from_image(img))
+
+func _texture_pronta(nome: String, tex: Texture2D) -> void:
+	cache_camp[nome] = tex
+	for w in attese_camp.get(nome, []):
+		var t = w.get_ref()
+		if t != null:
+			t.texture = tex
+	attese_camp.erase(nome)
 
 func pulisci() -> void:
 	in_partita = false
@@ -191,6 +252,7 @@ var scelta_nomi := ["Tu", "Rivale 1", "Rivale 2", "Rivale 3"]
 var scelta_leader := false
 var scelta_prep := -1
 var scelta_facile := false
+var scelta_campagna := false
 
 func _menu_nuova() -> void:
 	pulisci()
@@ -237,6 +299,13 @@ func _menu_nuova() -> void:
 	lb.add_theme_font_size_override("font_size", 17)
 	lb.toggled.connect(func(x): scelta_leader = x)
 	v.add_child(lb)
+	var cb := CheckBox.new()
+	cb.text = "Campagna «L'Orlo Infestato» (Atto I: Impero, Piaga, Eventi, Consiglio Imperiale)"
+	cb.button_pressed = scelta_campagna
+	cb.add_theme_font_override("font", F_TESTO)
+	cb.add_theme_font_size_override("font_size", 17)
+	cb.toggled.connect(func(x): scelta_campagna = x)
+	v.add_child(cb)
 	var fb := CheckBox.new()
 	fb.text = "IA più indulgente"
 	fb.button_pressed = scelta_facile
@@ -266,7 +335,7 @@ func _menu_nuova() -> void:
 
 func _avvia_locale() -> void:
 	online = false
-	m = Motore.new()
+	m = MotoreCampagna.new() if scelta_campagna else Motore.new()
 	var ia_flags := []
 	posti = []
 	for i in scelta_n:
@@ -274,7 +343,7 @@ func _avvia_locale() -> void:
 		posti.append(0 if scelta_umani[i] else -1)
 	var seme := int(Time.get_unix_time_from_system() * 1000.0) % 1000000007
 	m.nuova_partita({"n": scelta_n, "nomi": scelta_nomi.slice(0, scelta_n), "ia": ia_flags, "leader": scelta_leader,
-		"seme": seme, "prep": scelta_prep, "facile": scelta_facile})
+		"seme": seme, "prep": scelta_prep, "facile": scelta_facile, "campagna": scelta_campagna})
 	m.s["posti"] = posti.duplicate()
 	ia = IA.new()
 	ia.facile = scelta_facile
@@ -294,7 +363,7 @@ func _menu_continua() -> void:
 		_avviso("Nessuna partita salvata.")
 		return
 	online = false
-	m = Motore.new()
+	m = MotoreCampagna.new() if st.has("camp") else Motore.new()
 	m.carica(st)
 	posti = m.s.get("posti", [])
 	if posti.size() != m.s["n"]:
@@ -383,7 +452,7 @@ func _menu_online() -> void:
 	on_nome.text = str(net.load_session().get("name", "Comandante"))
 	on_nome.max_length = 18
 	r1.add_child(on_nome)
-	v.add_child(etichetta("Stanza per %d giocatori%s" % [scelta_n, ", con Leader & Lore" if scelta_leader else ""], F_TESTO, 16))
+	v.add_child(etichetta("Stanza per %d giocatori%s%s" % [scelta_n, ", con Leader & Lore" if scelta_leader else "", ", campagna Atto I" if scelta_campagna else ""], F_TESTO, 16))
 	v.add_child(bottone("CREA UNA STANZA", _online_crea, Color(0.3, 0.16, 0.06), 20))
 	var r2 := HBoxContainer.new()
 	v.add_child(r2)
@@ -407,7 +476,7 @@ func _menu_online() -> void:
 func _online_crea() -> void:
 	on_stato.text = "Creo la stanza..."
 	net._save({"name": on_nome.text})
-	var cfg := {"n": scelta_n, "leader": scelta_leader, "prep": scelta_prep}
+	var cfg := {"n": scelta_n, "leader": scelta_leader, "prep": scelta_prep, "campagna": scelta_campagna}
 	var c := await net.create_room(on_nome.text, cfg)
 	if c == "":
 		on_stato.text = "Non riesco a creare la stanza: " + net.last_error
@@ -479,7 +548,7 @@ func _online_inizia() -> void:
 			seat_arr.append(-1)
 			nomi.append("IA %d" % (k + 1))
 	var game := {"n": n, "seat": seat_arr, "nomi": nomi, "seme": int(Time.get_unix_time_from_system()) % 1000000,
-		"leader": bool(cfg.get("leader", false)), "prep": int(cfg.get("prep", -1))}
+		"leader": bool(cfg.get("leader", false)), "prep": int(cfg.get("prep", -1)), "campagna": bool(cfg.get("campagna", false))}
 	if not await net.start_room(codice, game):
 		on_stato.text = "Non riesco a iniziare: " + net.last_error
 		return
@@ -498,9 +567,10 @@ func _avvia_da_stanza(room: Dictionary) -> void:
 	for k in n:
 		posti.append(int(game["seat"][k]))
 		ia_flags.append(int(game["seat"][k]) < 0)
-	m = Motore.new()
+	var camp := bool(game.get("campagna", false))
+	m = MotoreCampagna.new() if camp else Motore.new()
 	m.nuova_partita({"n": n, "nomi": game["nomi"], "ia": ia_flags, "leader": bool(game["leader"]), "seme": int(game["seme"]),
-		"prep": int(game["prep"])})
+		"prep": int(game["prep"]), "campagna": camp})
 	ia = IA.new()
 	# si rigiocano le decisioni già prese: chi rientra ritrova la partita al punto giusto
 	var log := await net.get_decisions(codice, 0)
@@ -1064,7 +1134,7 @@ func _aggiorna_top() -> void:
 		var w := VBoxContainer.new()
 		var path := img_carta(gg["c"]) if gg["su"] else "res://assets/carte/retro_azione.webp"
 		var im := immagine(path, 40, 56)
-		im.tooltip_text = "%s: %s" % [m.s["g"][gg["g"]]["nome"], {"guida": "Guida", "supera": "Supera", "cambia": "Cambia", "copia": "Copia", "sottrai": "sottrae l'iniziativa"}[gg["modo"]]]
+		im.tooltip_text = "%s: %s" % [m.s["g"][gg["g"]]["nome"], {"guida": "Guida", "supera": "Supera", "cambia": "Cambia", "copia": "Copia", "sottrai": "sottrae l'iniziativa", "evento": "Evento"}[gg["modo"]]]
 		if gg["su"]:
 			im.gui_input.connect(_clic_zoom.bind(path))
 		w.add_child(im)
@@ -1098,6 +1168,20 @@ func _aggiorna_giocatori() -> void:
 			r.add_child(etichetta("INIZIATIVA", F_NERO, 12, C_ORO_CHIARO))
 		r.add_child(etichetta("%d" % g["potere"], F_NERO, 22, C_ORO_CHIARO))
 		v.add_child(r)
+		if m.s.has("camp"):
+			var cp: Dictionary = m.s["camp"]
+			var titolo: String = "REGGENTE" if cp["titolo"][i] == "reggente" else "FUORILEGGE"
+			if int(cp["primo"]) == i:
+				titolo = "PRIMO REGGENTE"
+			var favori := 0
+			for x in cp["favori"][i].values():
+				favori += int(x)
+			var rt := HBoxContainer.new()
+			rt.add_theme_constant_override("separation", 8)
+			rt.add_child(etichetta(titolo, F_TITOLO, 13, Color(0.75, 0.7, 0.95) if cp["titolo"][i] == "reggente" else Color(0.95, 0.5, 0.4)))
+			if favori > 0:
+				rt.add_child(etichetta("Favori %d" % favori, F_TESTO, 13, C_SPENTO))
+			v.add_child(rt)
 		# risorse
 		var rr := HBoxContainer.new()
 		rr.add_theme_constant_override("separation", 2)
@@ -1241,6 +1325,14 @@ func _aggiorna_ambizioni() -> void:
 			var vs := m.valore_segnalino(k)
 			disp.add_child(_segnalino(vs, m.s["segnalini"][k]["girato"]))
 	r0.add_child(disp)
+	if m.s.has("camp"):
+		var cp: Dictionary = m.s["camp"]
+		var t := "Atto %s, capitolo %d di 3. Politica: %s. Consiglio: %s. Tesoro Imperiale: %d" % [
+			["I", "II", "III"][int(cp["atto"]) - 1], m.s["capitolo"], MotoreCampagna.NOME_POLITICA[cp["politica"]],
+			"In Sessione" if cp["consiglio"] == "sessione" else "Deliberato", cp["tesoro"].size()]
+		var lc := etichetta(t, F_TESTO, 13, Color(0.8, 0.76, 0.95))
+		lc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		amb_box.add_child(lc)
 	amb_box.add_child(r0)
 	for amb in Dati.AMBIZIONI:
 		var r := HBoxContainer.new()
