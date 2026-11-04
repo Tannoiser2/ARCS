@@ -1,0 +1,214 @@
+{
+"436_00.jpg": {
+"g": [
+"FAME DELLA PIAGA",
+"Metti su questa carta i pezzi (anche i tuoi) distrutti da una Crisi della Piaga. _(Contano per una delle tue grandi ambizioni.)_",
+"Dopo il calcolo del punteggio, rimetti nelle riserve tutti i pezzi di questa carta."
+]
+},
+"436_01.jpg": {
+"g": [
+"1. Prendi Fame della Piaga (13).",
+"_Gira questa carta._"
+],
+"fascia": "VOCE DELLA PIAGA - ATTO III"
+},
+"436_01_r.jpg": {
+"g": [
+"Ingozzare la Piaga di Corpi",
+"Nessun Rivale vince l'ambizione Generale.",
+"Fame della Piaga ha più pezzi del numero del Capitolo in corso.",
+null
+],
+"fascia": "VOCE DELLA PIAGA - ATTO III"
+},
+"436_02.jpg": {
+"g": [
+"LA PIAGA INCOMBE",
+"*Crisi:* ripara tutta la Piaga nell'ammasso tirato. Metti 1 Piaga danneggiata su ogni pianeta del simbolo tirato senza Piaga. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi distruggere tutta la Piaga danneggiata in un ammasso con pezzi Leali. Seppellisci questa carta."
+]
+},
+"436_03.jpg": {
+"g": [
+"PANICO DA PIAGA",
+"*Crisi:* in ordine di turno, ogni giocatore deve ritirare 1 agente Leale dalla Corte per ogni Piaga su un suo edificio Leale o sulla sua Ammiraglia. Seppellisci questa carta.",
+"*Appena Acquisita:* distruggi tutta la Piaga danneggiata in un ammasso con pezzi Leali, prendendola come Trofei. Seppellisci questa carta."
+]
+},
+"436_04.jpg": {
+"g": [
+"EPURAZIONE DELLA PIAGA",
+"*Crisi:* ogni giocatore ottiene 2 Potere per ogni Trofeo di Piaga che ha. Seppellisci questa carta.",
+"*Appena Acquisita:* ottieni 2 Potere per ogni tuo Trofeo di Piaga. Rimetti nella riserva tutti i Trofei di Piaga dei Rivali. Scarta questa carta."
+],
+"extra": [
+{
+"box": [
+56,
+398,
+320,
+448
+],
+"t": ""
+}
+]
+},
+"436_05.jpg": {
+"g": [
+"EPURAZIONE DELLA PIAGA",
+null,
+null
+],
+"extra": [
+{
+"box": [
+58,
+155,
+676,
+242
+],
+"t": "*Crisi:* ogni giocatore ottiene 2 Potere per ogni Trofeo di Piaga che ha. Seppellisci questa carta.",
+"size": 32
+},
+{
+"box": [
+58,
+268,
+676,
+440
+],
+"t": "*Appena Acquisita:* ottieni 2 Potere per ogni tuo Trofeo di Piaga. Rimetti nella riserva tutti i Trofei di Piaga dei Rivali. Scarta questa carta.",
+"size": 32
+}
+]
+},
+"436_06.jpg": {
+"g": [
+"EPURAZIONE DELLA PIAGA",
+null
+],
+"extra": [
+{
+"box": [
+58,
+155,
+676,
+242
+],
+"t": "*Crisi:* ogni giocatore ottiene 2 Potere per ogni Trofeo di Piaga che ha. Seppellisci questa carta.",
+"size": 32
+},
+{
+"box": [
+58,
+268,
+676,
+440
+],
+"t": "*Appena Acquisita:* ottieni 2 Potere per ogni tuo Trofeo di Piaga. Rimetti nella riserva tutti i Trofei di Piaga dei Rivali. Scarta questa carta.",
+"size": 32
+}
+]
+},
+"436_07.jpg": {
+"g": [
+"MIETITORI DELLA PIAGA",
+"*Raccogliere (Tassare):* distruggi 1 Piaga danneggiata in un sistema che controlli. _(Non prenderla come Trofeo.)_ Ottieni 1 risorsa del pianeta di quel sistema, o 1 risorsa qualsiasi se è un portale."
+]
+},
+"436_08.jpg": {
+"g": [
+"CACCIATORI DELLA PIAGA",
+"Quando attacchi in battaglia, puoi danneggiare e distruggere la Piaga infliggendo solo 1 colpo (invece di 2)."
+]
+},
+"436_09.jpg": {
+"g": [
+"FURIA DELLA PIAGA",
+null,
+"Puoi muovere e riparare la Piaga che controlli. _(Non può fare movimenti Catapulta. Non è Leale.)_ / *Ira (Combattere):* tira il dado numerico. Per ogni Psicoenergia che spendi, cambia il risultato di 1 (dopo il \"6\" viene \"1\" e viceversa). Avviene una Crisi della Piaga in ogni sistema dell'ammasso tirato."
+]
+},
+"436_10.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi Furia della Piaga (04).",
+"2. Aggiungi Cacciatori della Piaga (05), Mietitori della Piaga (06) e le 3 carte Epurazione della Piaga (07-09) al mazzo Corte.",
+"3. Elimina Panico da Piaga (10) e La Piaga Incombe (11).",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina Furia della Piaga (04), Cacciatori della Piaga (05), Mietitori della Piaga (06) e 2 carte Epurazione della Piaga (07-08). / 2. Aggiungi 1 carta Epurazione della Piaga (09), Panico da Piaga (10) e La Piaga Incombe (11) al mazzo Corte."
+]
+},
+"436_11.jpg": {
+"g": [
+"NAVI SPORA",
+"Quando svolgi un movimento Catapulta, la Piaga non lo interrompe più.",
+"*Generare (Costruire):* danneggia 1 Piaga integra che controlli per mettere 1 Piaga danneggiata nello stesso sistema."
+]
+},
+"436_12.jpg": {
+"g": [
+"1. Prendi Navi Spora (02).",
+"2. Elimina 2 navi Leali dalla tua riserva o dalla mappa.",
+"3. *Rifornisci la tua flotta:* se sulla mappa hai meno di 8 navi Leali, metti 1 nave alla volta in qualsiasi sistema finché non hai 8 navi Leali sulla mappa.",
+"_Gira questa carta._",
+null
+],
+"fascia": "VOCE DELLA PIAGA - ATTO II"
+},
+"436_12_r.jpg": {
+"g": [
+"",
+null,
+null,
+null,
+null,
+null
+],
+"fascia": "VOCE DELLA PIAGA - ATTO II",
+"extra": [
+{
+"box": [
+146,
+200,
+545,
+233
+],
+"t": "Contattare un'Intelligenza Antica",
+"centra": true,
+"size": 25
+},
+{
+"box": [
+146,
+248,
+545,
+344
+],
+"t": "Ogni volta che vinci un'ambizione, avanza di 1 per ogni Piaga nei sistemi con navi Leali.",
+"size": 25
+},
+{
+"box": [
+146,
+366,
+545,
+400
+],
+"t": "Diffondere le Spore di Nuova Vita",
+"centra": true,
+"size": 25
+},
+{
+"box": [
+146,
+414,
+555,
+510
+],
+"t": "Avanza di 1 ogni volta che metti Piaga sulla mappa usando la tua carta Navi Spora.",
+"size": 25
+}
+]
+}
+}

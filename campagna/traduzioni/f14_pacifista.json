@@ -1,0 +1,198 @@
+{
+"472_00.jpg": {
+"g": [
+"Se Empate è dichiarata, ogni giocatore scarta tutte le risorse dei suoi tipi di Oltraggio, e ogni giocatore senza Oltraggio Psicoenergia ottiene 1 Psicoenergia.",
+"_Non scartare le carte Gilda né le risorse congelate, come il Materiale e il Carburante tenuti nei Prigionieri per il Guardiano, o le risorse sulla Lega Mercantile per il Magnate._"
+],
+"titolo": "RIMPROVERO DEGLI EMPATI",
+"titolo_box": [
+170,
+50,
+736,
+200
+],
+"titolo_col": [
+250,
+245,
+240
+]
+},
+"472_01.jpg": {
+"g": [
+"RICONCILIARSI CON GLI OLTRAGGIATI",
+"*Nei Vertici puoi svolgere una nuova azione di Trattativa, Perdonare:* / prendi l'Oltraggio di un Rivale come Favore.",
+"Nel Richiamo all'Ordine, chi ha convocato il Vertice può Perdonare un Rivale senza il suo consenso dandogli una Psicoenergia.",
+"_Il Rivale deve poter tenere la Psicoenergia. Chi ha convocato il Vertice può restituire subito questo Favore._",
+null
+],
+"extra": [
+{
+"box": [
+56,
+720,
+505,
+900
+],
+"t": "_Se il Monopolio della Psicoenergia è in gioco, chi ha il Monopolio deve dare il consenso a cedere la Psicoenergia._",
+"size": 34
+}
+]
+},
+"472_02.jpg": {
+"g": [
+"EMPATIA PER TUTTI",
+"_Infila questa carta in parte sotto l'area delle carte giocate della mappa._",
+"Quando un giocatore danneggia qualcosa su un pianeta che corrisponde a una risorsa che possiede, Reca Oltraggio del tipo di quel pianeta.",
+"_In battaglia, risolvi questo alla fine dell'assegnazione dei colpi e prima della razzia._"
+]
+},
+"472_03.jpg": {
+"g": [
+"EMPATIA PER TUTTI",
+"",
+"_Nelle battaglie, risolvi questo alla fine dell'assegnazione dei colpi e prima della razzia._"
+],
+"extra": [
+{
+"box": [
+58,
+232,
+612,
+428
+],
+"t": "Quando un giocatore danneggia qualcosa su un pianeta che corrisponde a una risorsa che possiede, Reca Oltraggio del tipo di quel pianeta.",
+"size": 38
+}
+]
+},
+"472_04.jpg": {
+"g": [
+"1. Aggiungi Empatia per Tutti al libretto delle regole (13). _Spiegala a tutti._",
+"2. Come promemoria, infila la seconda copia di Empatia per Tutti (14) nell'area delle carte giocate della mappa.",
+"3. Aggiungi Riconciliarsi con gli Oltraggiati (14) e Rimprovero degli Empati (15) al libretto delle regole. _Spiegali a tutti._",
+"_Gira questa carta._"
+],
+"fascia": "PACIFISTA - ATTO III"
+},
+"472_04_r.jpg": {
+"g": [
+"Dimostrare la Nonviolenza",
+null,
+"Non hai Trofei né Prigionieri.",
+"In totale, i tuoi Rivali hanno più risorse Psicoenergia di te."
+],
+"fascia": "PACIFISTA - ATTO III"
+},
+"472_05.jpg": {
+"g": [
+"EMPATI ITINERANTI",
+"*Crisi:* il giocatore con meno Potere ottiene Psicoenergia fino al numero dei suoi spazi risorsa vuoti. Scarta questa carta.",
+"*Appena Acquisita:* ottieni Psicoenergia fino al numero dei tuoi spazi risorsa vuoti. Scarta questa carta."
+]
+},
+"472_06.jpg": {
+"g": [
+"EMPATI ITINERANTI",
+"*Crisi:* il giocatore con meno Potere ottiene Psicoenergia fino al numero dei suoi spazi risorsa vuoti. Scarta questa carta.",
+"*Appena Acquisita:* ottieni Psicoenergia fino al numero dei tuoi spazi risorsa vuoti. Scarta questa carta."
+]
+},
+"472_07.jpg": {
+"g": [
+"EMISSARI DELLA PSICOENERGIA",
+"Quando Copi per *influenzare*, puoi ottenere 1 Psicoenergia.",
+"*Preludio:* puoi attaccare questa carta a una carta della Corte senza agenti per dichiarare l'ambizione Empate."
+]
+},
+"472_08.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Elimina la tua carta Testimoni (02).",
+"2. Elimina gli Emissari della Psicoenergia (05) e i 2 Empati Itineranti (06-07).",
+"3. Gira sul lato Psicoenergia i Testimoni sulla mappa e aggiungili alla riserva delle risorse.",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina la tua carta Testimoni (02).",
+"2. Aggiungi gli Emissari della Psicoenergia (05) e i 2 Empati Itineranti (06-07) al mazzo Corte. / 3. Elimina tutti i segnalini Testimone sulla mappa."
+]
+},
+"472_09.jpg": {
+"g": [
+"POZZO DI EMPATIA",
+"Quando difendi in battaglia, se prendi Trofei, restituiscili e ottieni 1 Psicoenergia per ogni Trofeo restituito.",
+"Puoi tenere qui un numero qualsiasi di Psicoenergia. Il loro costo di razzia è di 2 ciascuna."
+]
+},
+"472_10.jpg": {
+"g": [
+"TESTIMONI",
+"I segnalini Testimone sono tuoi pezzi Leali.",
+"",
+"",
+"*Preludio:* puoi girare un Testimone che controlli su un pianeta Psicoenergia sul suo lato risorsa Psicoenergia e prenderlo. Puoi dichiarare Empate."
+],
+"extra": [
+{
+"box": [
+56,
+336,
+474,
+450
+],
+"t": "Puoi *muovere* i Testimoni che controlli.",
+"size": 36
+},
+{
+"box": [
+56,
+452,
+662,
+530
+],
+"t": "Quando muovi navi con un movimento Catapulta, puoi muovere i Testimoni insieme a loro.",
+"size": 32
+}
+]
+},
+"472_11.jpg": {
+"g": [
+"1. Rimuovi tutto il tuo Oltraggio.",
+"2. Prendi le carte Testimoni (02) e Pozzo di Empatia (03).",
+"",
+"3. Raccogli i 4 segnalini Testimone. Metti 1 Testimone sul lato cannocchiale _(mostrato a destra)_ su",
+"ogni pianeta Armi.",
+"4. *Rifornisci la tua flotta:* se sulla mappa hai meno di _8 navi Leali_, metti 1 nave alla volta in qualsiasi sistema finché non hai 8 navi Leali sulla mappa.",
+"_Gira questa carta._"
+],
+"fascia": "PACIFISTA - ATTO II",
+"extra": [
+{
+"box": [
+180,
+40,
+224,
+580
+],
+"t": ""
+}
+],
+"ripristina": [
+[
+562,
+190,
+700,
+322
+]
+]
+},
+"472_11_r.jpg": {
+"g": [
+"",
+null,
+"Impegnarsi nel Pacifismo",
+"Alla fine di un capitolo, avanza",
+"di 2 se non hai Trofei, e avanza di 1 se non hai Prigionieri.",
+"Diffondere l'Empatia",
+"Avanza di 1 per ogni Psicoenergia che spendi nel tuo Preludio mentre Empate è dichiarata."
+],
+"fascia": "PACIFISTA - ATTO II"
+}
+}
