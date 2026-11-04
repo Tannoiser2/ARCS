@@ -1,0 +1,219 @@
+{
+"487_00.jpg": {
+"g": [
+"DICERIE CONDIVISE",
+"Nei Vertici, i Rivali del Pirata possono svolgere una nuova azione di Trattativa, *Diffondere la Diceria:* un Rivale mette un suo agente Leale su un segnalino Diceria che ha il tuo agente Leale.",
+"Ora che ha un agente sulla Diceria, può guardarla da quel momento in poi, e può svolgere l'azione Diffondere la Diceria per farla guardare anche ad altri Rivali.",
+null
+]
+},
+"487_01.jpg": {
+"g": [
+"DICERIE SUL RIFUGIO",
+"",
+"Il Pirata può guardare le Dicerie. I Rivali del Pirata possono guardare le Dicerie su cui hanno agenti Leali.",
+"In *battaglia*, se un giocatore ruba qualcosa al Pirata, può anche mettere 1 agente su una Diceria senza agenti Leali."
+],
+"extra": [
+{
+"box": [
+46,
+195,
+486,
+382
+],
+"t": "Sulla mappa ci sono 4 Dicerie, 2 Vere e 2 False. Le Dicerie Vere \"Ammasso Giusto\" e \"Simbolo Giusto\" indicano l'ammasso e il simbolo del pianeta del Rifugio."
+},
+{
+"box": [
+46,
+392,
+572,
+540
+],
+"t": "Alla fine dell'Atto, ottieni 10 Potere e fai perdere 10 Potere al Pirata se controlli il pianeta del Rifugio e lo indovini. _(Vedi la carta obiettivo del Pirata.)_"
+}
+],
+"ripristina": [
+[
+488,
+275,
+600,
+382
+]
+]
+},
+"487_02.jpg": {
+"g": [
+"LE DICERIE SI DIFFONDONO",
+"*Crisi:* nell'ammasso tirato, scopri tutti i segnalini Diceria e rimetti nelle riserve tutti gli agenti sopra di essi. Se hai scoperto almeno una Diceria, scarta questa carta.",
+"*Appena Acquisita:* puoi mettere un agente su un segnalino Diceria in un sistema con tuoi pezzi Leali. Scarta questa carta."
+]
+},
+"487_03.jpg": {
+"g": [
+null,
+"*Appena Acquisita:* puoi mettere un agente su un segnalino Diceria in un sistema con tuoi pezzi Leali. Scarta questa carta."
+],
+"extra": [
+{
+"box": [
+60,
+22,
+560,
+70
+],
+"t": "LE DICERIE SI DIFFONDONO",
+"titolo": true,
+"size": 48
+},
+{
+"box": [
+46,
+128,
+570,
+270
+],
+"t": "*Crisi:* nell'ammasso tirato, scopri tutti i segnalini Diceria e rimetti nelle riserve tutti gli agenti sopra di essi. Se hai scoperto almeno una Diceria, scarta questa carta.",
+"size": 26
+}
+]
+},
+"487_04.jpg": {
+"g": [
+"",
+"",
+"3. Aggiungi Dicerie sul Rifugio (11) e Dicerie Condivise (12) al libretto delle regole. _Spiegale a tutti._",
+"",
+"_Le Dicerie Vere indicano l'ammasso e il simbolo del Rifugio Pirata, che devi tenere nascosto. Per esempio, mettere la Diceria \"Ammasso Giusto\" su un pianeta dell'ammasso 5 e la Diceria \"Simbolo Giusto\" su un pianeta A dell'ammasso 2 significa che il Rifugio è segretamente sul pianeta 5A._",
+"_Gira questa carta._"
+],
+"fascia": "PIRATA - ATTO III",
+"extra": [
+{
+"box": [
+150,
+40,
+186,
+440
+],
+"t": ""
+},
+{
+"box": [
+186,
+44,
+560,
+112
+],
+"t": "1. Rimescola le 2 carte Le Dicerie si Diffondono (09-10) nel mazzo Corte.",
+"size": 25
+},
+{
+"box": [
+186,
+120,
+458,
+310
+],
+"t": "2. Metti i 2 segnalini Diceria Vera e i 2 Diceria Falsa _coperti_, ciascuno su un pianeta diverso. Puoi guardarli. _(Leggi sotto.)_",
+"size": 25
+}
+],
+"ripristina": [
+[
+465,
+112,
+582,
+222
+]
+]
+},
+"487_04_r.jpg": {
+"g": [
+"Ridere della Follia dei Rivali",
+"La tua carta Bottino Pirata ha almeno 2 risorse e...",
+"Scegli di dichiarare sinceramente che nel sistema del Rifugio Pirata non ci sono pezzi Rivali.",
+"Scegli di dichiarare sinceramente che nel sistema del Rifugio Pirata c'è un pezzo Leale.",
+"_Alla fine dell'Atto III, i Rivali del Pirata in ordine di turno possono scegliere ciascuno 1 pianeta che controllano. Rivela i segnalini Diceria Vera per mostrare il pianeta del Rifugio Pirata. Se qualcuno ha scelto quel pianeta, ottiene 10 Potere e tu perdi 10 Potere. Se nessuno l'ha scelto, ottieni 10 Potere._"
+],
+"fascia": "PIRATA - ATTO III"
+},
+"487_05.jpg": {
+"g": [
+"LINGUE D'ARGENTO",
+"*Preludio:* puoi scartarla per rubare 1 carta Gilda o 1 risorsa."
+]
+},
+"487_06.jpg": {
+"g": [
+"CHIAMATA ALLE ARMI",
+"*Crisi:* il giocatore con più risorse svolge l'azione Appena Acquisita.",
+"*Appena Acquisita:* prendi in mano 1 carta azione dal fondo degli scarti delle azioni. Scarta Chiamata alle Armi."
+]
+},
+"487_07.jpg": {
+"g": [
+"CONTRABBANDIERI PIRATI",
+"Puoi tassare le città Rivali con qualsiasi nave Leale, ignorando il controllo, ma non catturi un agente se non controlli la città."
+]
+},
+"487_08.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi Contrabbandieri Pirati (05).",
+"2. Elimina Chiamata alle Armi (06) e Lingue d'Argento (07).",
+"3. Puoi spendere Carburante, Materiale e Reliquie del tuo Bottino Pirata per le loro azioni Preludio, ignorando i limiti di costruzione delle navi per il Materiale. Puoi mettere sulla tua plancia qualsiasi risorsa del Bottino. Rimetti nella riserva le risorse rimaste.",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Aggiungi la tua Flotta Pirata (03), Contrabbandieri Pirati (05), Chiamata alle Armi (06) e Lingue d'Argento (07) al mazzo Corte.",
+"2. Rimetti nella riserva tutte le risorse del tuo Bottino Pirata."
+]
+},
+"487_09.jpg": {
+"g": [
+"FLOTTA PIRATA",
+"Quando attacchi in battaglia, puoi raccogliere dadi razzia anche se non ci sono edifici o Ammiraglie in difesa. Se lo fai, puoi rubare solo risorse, al massimo 1 per ogni nave in difesa danneggiata."
+]
+},
+"487_10.jpg": {
+"g": [
+"BOTTINO PIRATA",
+"L'Oltraggio non fa scartare le risorse che sono qui.",
+"Puoi mettere qui le risorse che rubi. Il loro costo di razzia è di 2 ciascuna. _(Puoi spenderle e aggiungerle alle ambizioni. Ricorda: puoi razziare gli edifici Liberi!)_"
+]
+},
+"487_11.jpg": {
+"g": [
+"1. *Ottieni un'Ammiraglia:* prendi una plancia Ammiraglia e preparala come descritto sul retro.",
+"2. Metti 1 porto stellare integro su ciascuna delle Migliorie Raggio Traente e Sistema Difensivo.",
+"3. Prendi il Bottino Pirata (02) e la Flotta Pirata (03).",
+"4. *Rifornisci la tua flotta:* in ogni ammasso in cui non hai navi Leali, metti 1 nave sul portale.",
+"_Gira questa carta._"
+],
+"fascia": "PIRATA - ATTO II",
+"extra": [
+{
+"box": [
+150,
+40,
+186,
+450
+],
+"t": ""
+}
+]
+},
+"487_11_r.jpg": {
+"g": [
+"",
+null,
+"Accrescere il Bottino di Risorse",
+"Alla fine di un capitolo, avanza di 1 per ogni risorsa nel tuo Bottino Pirata.",
+"_In pratica, metti risorse nel Bottino rubandole._",
+"*Umiliare i Rivali con le Ricchezze* / Alla fine di un capitolo, avanza di 2 per ogni tipo di risorsa di cui il tuo Bottino Pirata ha più di ogni Rivale.",
+"_Non contare le carte Gilda._",
+"_In 2 giocatori, conta come Rivale le risorse sui riquadri delle ambizioni._"
+],
+"fascia": "PIRATA - ATTO II"
+}
+}
