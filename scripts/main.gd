@@ -45,7 +45,8 @@ var top_guida: HBoxContainer
 var col_giocatori: VBoxContainer
 var corte_box: HBoxContainer
 var titolo_corte: Label
-var amb_box: VBoxContainer
+var amb_box: Control
+var info_camp: Label
 var diario: RichTextLabel
 var pannello_scelte: VBoxContainer
 var titolo_scelte: Label
@@ -630,8 +631,8 @@ func _apri_partita() -> void:
 	schermo.add_child(sfondo)
 	var cont := SubViewportContainer.new()
 	cont.set_anchors_preset(Control.PRESET_FULL_RECT)
-	cont.offset_left = 262
-	cont.offset_right = -350
+	cont.offset_left = 296
+	cont.offset_right = -422
 	cont.offset_top = 44
 	cont.offset_bottom = -226
 	cont.stretch = true
@@ -677,8 +678,8 @@ func _costruisci_hud() -> void:
 	sx.set_anchors_preset(Control.PRESET_LEFT_WIDE)
 	sx.offset_top = 50
 	sx.offset_bottom = -232
-	sx.offset_right = 262
-	sx.offset_left = 6
+	sx.offset_right = 296
+	sx.offset_left = 4
 	sx.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	schermo.add_child(sx)
 	col_giocatori = VBoxContainer.new()
@@ -688,7 +689,7 @@ func _costruisci_hud() -> void:
 	# a destra: Corte, ambizioni, diario
 	var dx := VBoxContainer.new()
 	dx.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
-	dx.offset_left = -350
+	dx.offset_left = -278
 	dx.offset_right = -6
 	dx.offset_top = 50
 	dx.offset_bottom = -232
@@ -703,18 +704,25 @@ func _costruisci_hud() -> void:
 	corte_box = HBoxContainer.new()
 	corte_box.add_theme_constant_override("separation", 4)
 	vc.add_child(corte_box)
-	var pa := pannello(Color(0.03, 0.03, 0.06, 0.9))
-	dx.add_child(pa)
-	amb_box = VBoxContainer.new()
-	amb_box.add_theme_constant_override("separation", 2)
-	pa.add_child(amb_box)
+	# plancia delle Ambizioni accanto alla mappa
+	amb_box = Control.new()
+	amb_box.set_anchors_preset(Control.PRESET_RIGHT_WIDE)
+	amb_box.offset_left = -420
+	amb_box.offset_right = -280
+	amb_box.offset_top = 50
+	amb_box.offset_bottom = -232
+	amb_box.clip_contents = true
+	schermo.add_child(amb_box)
+	info_camp = testo_lungo("", 13, Color(0.8, 0.76, 0.95))
+	info_camp.visible = false
+	dx.add_child(info_camp)
 	var pd := pannello(Color(0.02, 0.02, 0.04, 0.85))
 	pd.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	dx.add_child(pd)
 	diario = RichTextLabel.new()
 	diario.bbcode_enabled = true
 	diario.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	diario.custom_minimum_size = Vector2(320, 60)
+	diario.custom_minimum_size = Vector2(260, 60)
 	diario.scroll_following = true
 	diario.add_theme_font_override("normal_font", F_TESTO)
 	diario.add_theme_font_override("bold_font", F_NERO)
@@ -737,10 +745,14 @@ func _costruisci_hud() -> void:
 	mano_titolo = etichetta("La tua mano", F_TITOLO, 17, C_ORO_CHIARO)
 	riga.add_child(mano_titolo)
 	giocate_box = HBoxContainer.new()
-	giocate_box.add_theme_constant_override("separation", 4)
-	giocate_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	giocate_box.alignment = BoxContainer.ALIGNMENT_END
-	riga.add_child(giocate_box)
+	giocate_box.add_theme_constant_override("separation", 10)
+	giocate_box.set_anchors_preset(Control.PRESET_TOP_WIDE)
+	giocate_box.offset_left = 300
+	giocate_box.offset_right = -426
+	giocate_box.offset_top = 52
+	giocate_box.alignment = BoxContainer.ALIGNMENT_CENTER
+	giocate_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	schermo.add_child(giocate_box)
 	vm.add_child(riga)
 	var sm := ScrollContainer.new()
 	sm.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
@@ -1115,12 +1127,18 @@ func _aggiorna_tutto() -> void:
 func _aggiorna_top() -> void:
 	var iz: int = m.s["iniz"]
 	top_info.text = "Capitolo %d   Iniziativa: %s%s" % [m.s["capitolo"], m.s["g"][iz]["nome"], "  (sottratta da %s)" % m.s["g"][m.s["sottratta"]]["nome"] if m.s["sottratta"] >= 0 else ""]
+	if m.s.has("camp"):
+		var cp: Dictionary = m.s["camp"]
+		top_info.text = "Atto %s, cap. %d/3   Iniziativa: %s" % [["I", "II", "III"][int(cp["atto"]) - 1], m.s["capitolo"], m.s["g"][iz]["nome"]]
+		info_camp.text = "Politica imperiale: %s   Consiglio: %s   Tesoro Imperiale: %d" % [MotoreCampagna.NOME_POLITICA[cp["politica"]],
+			"In Sessione" if cp["consiglio"] == "sessione" else "Deliberato", cp["tesoro"].size()]
+		info_camp.visible = true
 	top_info.add_theme_color_override("font_color", Dati.TINTA[m.s["g"][iz]["colore"]].lightened(0.2))
 	for c in top_guida.get_children():
 		c.queue_free()
 	var gd: Dictionary = m.s.get("guida", {})
 	if not gd.is_empty():
-		top_guida.add_child(etichetta("Guida: %s di %s (valore %d)" % [Dati.nome_carta_azione(gd["c"]), m.s["g"][gd["g"]]["nome"], gd["valore"]], F_TESTO, 16, Dati.COLORE_SEME[Dati.seme(gd["c"])].lightened(0.35)))
+		pass
 	# tracciato del Potere
 	for i in m.s["n"]:
 		var g: Dictionary = m.s["g"][i]
@@ -1133,16 +1151,27 @@ func _aggiorna_top() -> void:
 		var col: Color = Dati.TINTA[m.s["g"][gg["g"]]["colore"]]
 		var w := VBoxContainer.new()
 		var path := img_carta(gg["c"]) if gg["su"] else "res://assets/carte/retro_azione.webp"
-		var im := immagine(path, 40, 56)
+		var im := immagine(path, 66, 92)
 		im.tooltip_text = "%s: %s" % [m.s["g"][gg["g"]]["nome"], {"guida": "Guida", "supera": "Supera", "cambia": "Cambia", "copia": "Copia", "sottrai": "sottrae l'iniziativa", "evento": "Evento"}[gg["modo"]]]
 		if gg["su"]:
 			im.gui_input.connect(_clic_zoom.bind(path))
 		w.add_child(im)
 		var barra := ColorRect.new()
 		barra.color = col
-		barra.custom_minimum_size = Vector2(40, 4)
+		barra.custom_minimum_size = Vector2(66, 4)
 		w.add_child(barra)
+		var mp := pannello(Color(0, 0, 0, 0.75), col)
+		var modo := etichetta({"guida": "GUIDA", "supera": "SUPERA", "cambia": "CAMBIA", "copia": "COPIA", "sottrai": "SOTTRAE", "evento": "EVENTO"}[gg["modo"]], F_TITOLO, 11, col.lightened(0.3))
+		modo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		mp.add_child(modo)
+		w.add_child(mp)
 		giocate_box.add_child(w)
+
+const PB_W := 270.0
+const PB_H := 108.0
+const PB_SLOT := [0.100, 0.212, 0.325, 0.443, 0.560, 0.676]
+const PB_CITTA := [0.326, 0.443, 0.605, 0.798, 0.908]
+const PB_OLTRAGGIO := {"materiale": 0.505, "carburante": 0.606, "armi": 0.707, "reliquie": 0.808, "psico": 0.909}
 
 func _aggiorna_giocatori() -> void:
 	for c in col_giocatori.get_children():
@@ -1155,69 +1184,38 @@ func _aggiorna_giocatori() -> void:
 		var p := pannello(Color(0.03, 0.03, 0.06, 0.9) if not turno else Color(0.1, 0.07, 0.03, 0.95), col * Color(1, 1, 1, 1.0 if turno else 0.5))
 		col_giocatori.add_child(p)
 		var v := VBoxContainer.new()
-		v.add_theme_constant_override("separation", 3)
+		v.add_theme_constant_override("separation", 2)
 		p.add_child(v)
 		var r := HBoxContainer.new()
 		r.add_theme_constant_override("separation", 6)
 		r.add_child(pallino(col, 18))
-		var nome := etichetta(g["nome"], F_TITOLO, 18, col.lightened(0.25))
+		var nome := etichetta(g["nome"], F_TITOLO, 16, col.lightened(0.25))
 		nome.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		nome.clip_text = true
+		nome.custom_minimum_size = Vector2(40, 0)
 		r.add_child(nome)
-		if m.s["iniz"] == i:
-			r.add_child(etichetta("INIZIATIVA", F_NERO, 12, C_ORO_CHIARO))
-		r.add_child(etichetta("%d" % g["potere"], F_NERO, 22, C_ORO_CHIARO))
-		v.add_child(r)
 		if m.s.has("camp"):
 			var cp: Dictionary = m.s["camp"]
 			var titolo: String = "REGGENTE" if cp["titolo"][i] == "reggente" else "FUORILEGGE"
 			if int(cp["primo"]) == i:
 				titolo = "PRIMO REGGENTE"
+			r.add_child(etichetta(titolo, F_TITOLO, 10, Color(0.75, 0.7, 0.95) if cp["titolo"][i] == "reggente" else Color(0.95, 0.5, 0.4)))
+		if m.s["iniz"] == i:
+			r.add_child(etichetta("INIZIATIVA", F_NERO, 10, C_ORO_CHIARO))
+		r.add_child(etichetta("%d" % g["potere"], F_NERO, 19, C_ORO_CHIARO))
+		v.add_child(r)
+		v.add_child(_plancia_giocatore(i))
+		var info := "Navi %d  Spazioporti %d  Agenti %d  Mano %d" % [g["navi"], g["porti"], g["agenti"], g["mano"].size()]
+		if m.s.has("camp"):
 			var favori := 0
-			for x in cp["favori"][i].values():
+			for x in m.s["camp"]["favori"][i].values():
 				favori += int(x)
-			var rt := HBoxContainer.new()
-			rt.add_theme_constant_override("separation", 8)
-			rt.add_child(etichetta(titolo, F_TITOLO, 13, Color(0.75, 0.7, 0.95) if cp["titolo"][i] == "reggente" else Color(0.95, 0.5, 0.4)))
 			if favori > 0:
-				rt.add_child(etichetta("Favori %d" % favori, F_TESTO, 13, C_SPENTO))
-			v.add_child(rt)
-		# risorse
-		var rr := HBoxContainer.new()
-		rr.add_theme_constant_override("separation", 2)
-		var aperti := m.spazi_aperti(i)
-		for k in 6:
-			var t: String = g["risorse"][k]
-			if t != "":
-				var ic := immagine("res://assets/ui/ris_%s.png" % t, 24, 24)
-				ic.tooltip_text = Dati.NOME_RISORSA[t] + (" (Oltraggio)" if t in g["oltraggio"] else "")
-				if t in g["oltraggio"]:
-					ic.modulate = Color(1, 0.5, 0.5)
-				rr.add_child(ic)
-			else:
-				var vuoto := pallino(Color(0.14, 0.14, 0.18) if k < aperti else Color(0.05, 0.05, 0.05, 0.6), 22, "" if k < aperti else "")
-				vuoto.tooltip_text = "Spazio libero (razzia %d)" % Dati.COSTO_SPAZIO[k] if k < aperti else "Spazio coperto da una città"
-				rr.add_child(vuoto)
-		if g["antichi"] != "":
-			rr.add_child(immagine("res://assets/ui/ris_%s.png" % g["antichi"], 24, 24))
-		v.add_child(rr)
-		var info := "Navi %d  Porti %d  Città %d  Agenti %d  Carte %d" % [g["navi"], g["porti"], g["citta_plancia"].count(true), g["agenti"], g["mano"].size()]
-		v.add_child(etichetta(info, F_TESTO, 13, C_SPENTO))
-		var r2 := HBoxContainer.new()
-		r2.add_theme_constant_override("separation", 4)
-		r2.add_child(immagine("res://assets/ui/trofei.png", 26, 20))
-		r2.add_child(etichetta(str(g["trofei"].size()), F_NERO, 15))
-		r2.add_child(immagine("res://assets/ui/prigionieri.png", 26, 20))
-		r2.add_child(etichetta(str(g["prigionieri"].size()), F_NERO, 15))
-		if not g["oltraggio"].is_empty():
-			r2.add_child(etichetta("Oltraggio:", F_TESTO, 13, C_ROSSO))
-			for t in g["oltraggio"]:
-				var ic := immagine("res://assets/ui/ris_%s.png" % t, 18, 18)
-				ic.modulate = Color(1, 0.45, 0.45)
-				r2.add_child(ic)
-		if m.bonus_citta(i) > 0:
-			r2.add_child(etichetta("+%d" % m.bonus_citta(i), F_NERO, 14, C_ORO_CHIARO))
-		v.add_child(r2)
+				info += "   Favori %d" % favori
+		var li := etichetta(info, F_TESTO, 12, C_SPENTO)
+		li.clip_text = true
+		li.custom_minimum_size = Vector2(40, 0)
+		v.add_child(li)
 		# carte Gilda, Leader e Lore
 		var cc := HFlowContainer.new()
 		cc.add_theme_constant_override("h_separation", 3)
@@ -1234,6 +1232,77 @@ func _aggiorna_giocatori() -> void:
 			cc.add_child(im)
 		if not lista.is_empty():
 			v.add_child(cc)
+
+## La plancia giocatore stampata, con sopra risorse, città ancora da costruire, Oltraggio, Trofei e Prigionieri.
+func _plancia_giocatore(i: int) -> Control:
+	var g: Dictionary = m.s["g"][i]
+	var col: Color = Dati.TINTA[g["colore"]]
+	var box := Control.new()
+	box.custom_minimum_size = Vector2(PB_W, PB_H)
+	var file := "res://assets/plance/plancia_%s.webp" % g["colore"]
+	var sf := immagine(file, PB_W, PB_H)
+	sf.size = Vector2(PB_W, PB_H)
+	sf.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	box.add_child(sf)
+	# città ancora sulla plancia (coprono spazi risorsa o bonus)
+	for k in 5:
+		if g["citta_plancia"][k]:
+			var t := Control.new()
+			t.position = Vector2(PB_CITTA[k] * PB_W - 10, 0.25 * PB_H - 10)
+			t.size = Vector2(20, 20)
+			t.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			t.draw.connect(func():
+				t.draw_colored_polygon(PackedVector2Array([Vector2(10, 1), Vector2(19, 18), Vector2(1, 18)]), col)
+				t.draw_polyline(PackedVector2Array([Vector2(10, 1), Vector2(19, 18), Vector2(1, 18), Vector2(10, 1)]), Color(0, 0, 0, 0.8), 1.2))
+			box.add_child(t)
+	# risorse
+	for k in 6:
+		var tr: String = g["risorse"][k]
+		if tr == "":
+			continue
+		var ic := immagine("res://assets/ui/ris_%s.png" % tr, 21, 21)
+		ic.size = Vector2(21, 21)
+		ic.position = Vector2(PB_SLOT[k] * PB_W - 10.5, 0.237 * PB_H - 10.5)
+		ic.tooltip_text = Dati.NOME_RISORSA[tr] + (" (Oltraggio)" if tr in g["oltraggio"] else "")
+		if tr in g["oltraggio"]:
+			ic.modulate = Color(1, 0.5, 0.5)
+		box.add_child(ic)
+	if g["antichi"] != "":
+		var ia_ := immagine("res://assets/ui/ris_%s.png" % g["antichi"], 22, 22)
+		ia_.size = Vector2(22, 22)
+		ia_.position = Vector2(0.385 * PB_W, 0.03 * PB_H)
+		box.add_child(ia_)
+	# Oltraggio: un agente sull'icona della risorsa
+	for t in g["oltraggio"]:
+		var ag := pallino(col, 10)
+		ag.position = Vector2(0.236 * PB_W - 5, PB_OLTRAGGIO[t] * PB_H - 5)
+		ag.tooltip_text = "Oltraggio " + Dati.NOME_RISORSA[t]
+		box.add_child(ag)
+	# Trofei e Prigionieri
+	_pezzi_in_riquadro(box, g["trofei"].map(func(x): return int(x["g"])), Rect2(0.47 * PB_W, 0.47 * PB_H, 0.24 * PB_W, 0.46 * PB_H), "Trofei")
+	_pezzi_in_riquadro(box, g["prigionieri"], Rect2(0.765 * PB_W, 0.47 * PB_H, 0.18 * PB_W, 0.46 * PB_H), "Prigionieri")
+	if m.bonus_citta(i) > 0:
+		var b := etichetta("+%d" % m.bonus_citta(i), F_NERO, 14, C_ORO_CHIARO)
+		b.position = Vector2(0.83 * PB_W, 0.02 * PB_H)
+		box.add_child(b)
+	return box
+
+func _pezzi_in_riquadro(box: Control, chi: Array, r: Rect2, cosa: String) -> void:
+	if chi.is_empty():
+		return
+	var conta := {}
+	for j in chi:
+		conta[j] = int(conta.get(j, 0)) + 1
+	var fl := HFlowContainer.new()
+	fl.position = r.position
+	fl.size = r.size
+	fl.add_theme_constant_override("h_separation", 2)
+	fl.add_theme_constant_override("v_separation", 2)
+	fl.tooltip_text = "%s: %d" % [cosa, chi.size()]
+	for j in conta:
+		var c: Color = Dati.TINTA[m.s["g"][j]["colore"]] if j < m.s["g"].size() else Color(0.6, 0.6, 0.6)
+		fl.add_child(pallino(c, 15, str(conta[j])))
+	box.add_child(fl)
 
 func _nome_carta(c: String) -> String:
 	if Dati.CORTE.has(c):
@@ -1254,7 +1323,7 @@ func _aggiorna_corte() -> void:
 		var v := VBoxContainer.new()
 		v.add_theme_constant_override("separation", 2)
 		var path := img_carta(slot["c"])
-		var im := immagine(path, 74, 104)
+		var im := immagine(path, 50, 70)
 		im.tooltip_text = _nome_carta(slot["c"])
 		var scelte := _scelte_per("corte", k)
 		if not scelte.is_empty():
@@ -1311,62 +1380,73 @@ func _chiudi_zoom() -> void:
 	if zoom_layer:
 		zoom_layer.visible = false
 
+const AMB_K := 140.0 / 330.0
+const AMB_ESAGONI := [Vector2(85, 190), Vector2(170, 190), Vector2(256, 190)]
+const AMB_RIQUADRI := {"magnate": 268, "tiranno": 428, "generale": 588, "custode": 745, "empate": 905}
+const AMB_CAPITOLI := [52, 113, 175, 237, 297]
+
+## La plancia delle Ambizioni stampata, con i segnalini, i punteggi correnti e il capitolo.
 func _aggiorna_ambizioni() -> void:
 	for c in amb_box.get_children():
 		c.queue_free()
-	var r0 := HBoxContainer.new()
-	r0.add_child(etichetta("AMBIZIONI", F_TITOLO, 17, C_ORO_CHIARO))
-	var disp := HBoxContainer.new()
-	disp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	disp.alignment = BoxContainer.ALIGNMENT_END
-	disp.add_theme_constant_override("separation", 4)
-	for k in 3:
-		if m.s["segnalini"][k]["amb"] == "":
-			var vs := m.valore_segnalino(k)
-			disp.add_child(_segnalino(vs, m.s["segnalini"][k]["girato"]))
-	r0.add_child(disp)
-	if m.s.has("camp"):
-		var cp: Dictionary = m.s["camp"]
-		var t := "Atto %s, capitolo %d di 3. Politica: %s. Consiglio: %s. Tesoro Imperiale: %d" % [
-			["I", "II", "III"][int(cp["atto"]) - 1], m.s["capitolo"], MotoreCampagna.NOME_POLITICA[cp["politica"]],
-			"In Sessione" if cp["consiglio"] == "sessione" else "Deliberato", cp["tesoro"].size()]
-		var lc := etichetta(t, F_TESTO, 13, Color(0.8, 0.76, 0.95))
-		lc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		amb_box.add_child(lc)
-	amb_box.add_child(r0)
+	var k := AMB_K
+	var sf := immagine("res://assets/plance/ambizioni.webp", 330 * k, 1214 * k)
+	sf.size = Vector2(330 * k, 1214 * k)
+	sf.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	amb_box.add_child(sf)
+	# segnalini disponibili negli esagoni
+	var libero := 0
+	for q in 3:
+		if m.s["segnalini"][q]["amb"] == "":
+			var sg := _segnalino(m.valore_segnalino(q), m.s["segnalini"][q]["girato"])
+			sg.position = AMB_ESAGONI[libero] * k - Vector2(17, 11)
+			amb_box.add_child(sg)
+			libero += 1
 	for amb in Dati.AMBIZIONI:
-		var r := HBoxContainer.new()
-		r.add_theme_constant_override("separation", 5)
-		var ic := immagine("res://assets/ui/amb_%s.png" % amb, 30, 22)
-		r.add_child(ic)
-		var dich := false
-		var segn := HBoxContainer.new()
-		for k in 3:
-			if m.s["segnalini"][k]["amb"] == amb:
-				dich = true
-				segn.add_child(_segnalino(m.valore_segnalino(k), m.s["segnalini"][k]["girato"]))
-		var nome := etichetta(Dati.NOME_AMBIZIONE[amb], F_NERO if dich else F_TESTO, 15, C_ORO_CHIARO if dich else C_SPENTO)
-		nome.custom_minimum_size = Vector2(62, 0)
-		r.add_child(nome)
-		r.add_child(segn)
+		var top: float = AMB_RIQUADRI[amb]
+		var dich := 0
+		for q in 3:
+			if m.s["segnalini"][q]["amb"] == amb:
+				var sg := _segnalino(m.valore_segnalino(q), m.s["segnalini"][q]["girato"])
+				sg.position = Vector2(232 - dich * 46, top + 48) * k
+				amb_box.add_child(sg)
+				dich += 1
 		var pts := m.classifica_ambizione(amb)
-		var sp := Control.new()
-		sp.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		r.add_child(sp)
+		var riga := HBoxContainer.new()
+		riga.add_theme_constant_override("separation", 1)
+		riga.position = Vector2(18, top + 82) * k
 		for i in m.s["n"]:
-			var pl := pallino(Dati.TINTA[m.s["g"][i]["colore"]] * Color(1, 1, 1, 1.0 if pts[i] > 0 else 0.35), 17, str(pts[i]))
-			r.add_child(pl)
+			if pts[i] > 0 or dich > 0:
+				riga.add_child(pallino(Dati.TINTA[m.s["g"][i]["colore"]] * Color(1, 1, 1, 1.0 if pts[i] > 0 else 0.4), 13, str(pts[i])))
 		var virt: int = m.s["virtuale"].get(amb, 0)
 		if virt > 0:
-			r.add_child(pallino(Color(0.4, 0.4, 0.4), 20, str(virt)))
-		amb_box.add_child(r)
-	var ris := HBoxContainer.new()
-	ris.add_theme_constant_override("separation", 3)
-	ris.add_child(etichetta("Riserva:", F_TESTO, 14, C_SPENTO))
+			riga.add_child(pallino(Color(0.4, 0.4, 0.4), 15, str(virt)))
+		riga.tooltip_text = Dati.NOME_AMBIZIONE[amb]
+		amb_box.add_child(riga)
+		if dich > 0:
+			var alone := Panel.new()
+			alone.add_theme_stylebox_override("panel", stile(Color(1, 0.8, 0.3, 0.08), C_ORO_CHIARO, 2, 6))
+			alone.position = Vector2(14, top - 8) * k
+			alone.size = Vector2(304, 124) * k
+			alone.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			amb_box.add_child(alone)
+	# capitolo in corso
+	var cap: int = clampi(int(m.s["capitolo"]), 1, 5)
+	var anello := Panel.new()
+	anello.add_theme_stylebox_override("panel", stile(Color(1, 0.75, 0.2, 0.35), C_ORO_CHIARO, 3, 20))
+	anello.size = Vector2(66, 66) * k
+	anello.position = Vector2(AMB_CAPITOLI[cap - 1] - 30, 1152 - 30) * k
+	anello.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	amb_box.add_child(anello)
+	# riserva delle risorse
+	var ris := HFlowContainer.new()
+	ris.position = Vector2(0, 1214 * k + 2)
+	ris.size = Vector2(140, 40)
+	ris.add_theme_constant_override("h_separation", 3)
 	for t in Dati.RISORSE:
-		ris.add_child(immagine("res://assets/ui/ris_%s.png" % t, 20, 20))
-		ris.add_child(etichetta(str(m.riserva(t)), F_NERO, 14))
-	ris.add_child(etichetta("  Azioni scartate %d" % m.s["scarti_azioni"].size(), F_TESTO, 13, C_SPENTO))
+		ris.add_child(immagine("res://assets/ui/ris_%s.png" % t, 14, 14))
+		ris.add_child(etichetta(str(m.riserva(t)), F_NERO, 11))
+	ris.tooltip_text = "Risorse nella riserva"
 	amb_box.add_child(ris)
 
 func _segnalino(vs: Array, girato: bool) -> PanelContainer:
