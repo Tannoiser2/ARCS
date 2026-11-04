@@ -42,6 +42,9 @@ jobs:
           ./Godot_v4.7-stable_linux.x86_64 --headless --path . --export-release "Web" build/web/index.html
           test -f build/web/index.pck
           touch build/web/.nojekyll
+          mkdir -p build/web/campagna
+          cp -r campagna/img build/web/campagna/img
+          cp campagna/carte.json build/web/campagna/carte.json
 
       # Ludoteca privata: con i segreti CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID pubblica il gioco su
       # https://arcs.<dominio>/ protetto da email e codice. Senza segreti non fa nulla.
