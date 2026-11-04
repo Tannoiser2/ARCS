@@ -155,7 +155,7 @@ func valuta_posizione(m: Motore, me: int) -> float:
 		var v := _punteggio(m, j, prev)
 		altri += v
 		max_altri = maxf(max_altri, v)
-	return mio - 0.35 * altri / maxf(1, n - 1) - 0.35 * max_altri
+	return mio - 0.45 * altri / maxf(1, n - 1) - 0.45 * max_altri
 
 func _punteggio(m: Motore, i: int, prev: Array) -> float:
 	var g: Dictionary = m.s["g"][i]
@@ -190,6 +190,16 @@ func _punteggio(m: Motore, i: int, prev: Array) -> float:
 					v += 2.0 if e["danno"] else 3.2
 		v += nv[0] * 1.5 + nv[1] * 0.8
 		var c := m.controllo(id)
+		if nv[0] > 0 and m.in_gioco(id):
+			# minaccia e spazio per crescere
+			var liberi := 0
+			for e in m.s["mappa"][id]["edifici"]:
+				if e == null:
+					liberi += 1
+				elif e["g"] != i:
+					v += 0.8
+			if liberi > 0 and (c < 0 or c == i):
+				v += 0.5
 		if c == i:
 			if mio_ed:
 				v += 1.2
@@ -205,7 +215,7 @@ func _punteggio(m: Motore, i: int, prev: Array) -> float:
 		v += 1.6
 	v += g["carte"].size() * 2.6
 	v -= g["oltraggio"].size() * 2.2
-	v += g["trofei"].size() * 0.7 + g["prigionieri"].size() * 0.7
+	v += g["trofei"].size() * 1.0 + g["prigionieri"].size() * 1.0
 	# corte
 	for slot in m.s["corte"]:
 		var a: int = slot["ag"][i]
@@ -219,7 +229,7 @@ func _punteggio(m: Motore, i: int, prev: Array) -> float:
 	v += g["agenti"] * 0.15
 	# mano e iniziativa
 	for c in g["mano"]:
-		v += 1.3 + Dati.punti(c) * 0.9 + Dati.valore(c) * 0.12
+		v += 0.3 + Dati.punti(c) * 0.3 + Dati.valore(c) * 0.06
 	if m.s["iniz"] == i or m.s["sottratta"] == i:
 		v += 2.5
 	return v

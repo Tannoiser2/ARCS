@@ -71,10 +71,12 @@ func nuova_partita(cfg: Dictionary) -> void:
 	# ambizioni: posizione di ogni segnalino ("" = disponibile) e lato
 	s["segnalini"] = [{"amb": "", "girato": false}, {"amb": "", "girato": false}, {"amb": "", "girato": false}]
 	s["virtuale"] = {}
+	s["fuori_risorse"] = {}
 	if n == 2:
 		for sett in s["fuori"]:
 			for l in ["a", "b", "c"]:
 				var t: String = Dati.TIPO["%d%s" % [sett, l]]
+				s["fuori_risorse"][t] = int(s["fuori_risorse"].get(t, 0)) + 1
 				var amb: String = {"materiale": "magnate", "carburante": "magnate", "armi": "generale", "reliquie": "custode", "psico": "empate"}[t]
 				s["virtuale"][amb] = int(s["virtuale"].get(amb, 0)) + 1
 	# corte
@@ -301,7 +303,7 @@ func conta_risorsa(i: int, t: String) -> int:
 	return n
 
 func riserva(t: String) -> int:
-	var n := 5
+	var n: int = 5 - int(s.get("fuori_risorse", {}).get(t, 0))
 	for i in s["n"]:
 		n -= conta_risorsa(i, t)
 	return n

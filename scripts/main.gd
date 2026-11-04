@@ -674,7 +674,7 @@ func _costruisci_hud() -> void:
 	vm.add_child(riga)
 	var sm := ScrollContainer.new()
 	sm.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	sm.custom_minimum_size = Vector2(0, 186)
+	sm.custom_minimum_size = Vector2(0, 170)
 	vm.add_child(sm)
 	mano_box = HBoxContainer.new()
 	mano_box.add_theme_constant_override("separation", 6)
@@ -1268,6 +1268,14 @@ func _aggiorna_ambizioni() -> void:
 		if virt > 0:
 			r.add_child(pallino(Color(0.4, 0.4, 0.4), 20, str(virt)))
 		amb_box.add_child(r)
+	var ris := HBoxContainer.new()
+	ris.add_theme_constant_override("separation", 3)
+	ris.add_child(etichetta("Riserva:", F_TESTO, 14, C_SPENTO))
+	for t in Dati.RISORSE:
+		ris.add_child(immagine("res://assets/ui/ris_%s.png" % t, 20, 20))
+		ris.add_child(etichetta(str(m.riserva(t)), F_NERO, 14))
+	ris.add_child(etichetta("  Azioni scartate %d" % m.s["scarti_azioni"].size(), F_TESTO, 13, C_SPENTO))
+	amb_box.add_child(ris)
 
 func _segnalino(vs: Array, girato: bool) -> PanelContainer:
 	var p := PanelContainer.new()
@@ -1297,11 +1305,16 @@ func _aggiorna_mano() -> void:
 	for c in mano:
 		var path := img_carta(c)
 		var scelte := _scelte_per("mano", c)
-		var im := immagine(path, 110, 153)
+		var im := immagine(path, 104, 145)
 		im.tooltip_text = Dati.nome_carta_azione(c)
 		if not scelte.is_empty():
 			var bordo := PanelContainer.new()
-			bordo.add_theme_stylebox_override("panel", stile(Color(1.0, 0.8, 0.3, 0.2), C_ORO_CHIARO, 3, 6))
+			var st := stile(Color(1.0, 0.8, 0.3, 0.2), C_ORO_CHIARO, 3, 6)
+			st.content_margin_left = 3
+			st.content_margin_right = 3
+			st.content_margin_top = 3
+			st.content_margin_bottom = 3
+			bordo.add_theme_stylebox_override("panel", st)
 			bordo.add_child(im)
 			mano_box.add_child(bordo)
 		else:
