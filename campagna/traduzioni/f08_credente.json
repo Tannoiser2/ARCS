@@ -1,0 +1,280 @@
+{
+"458_00.jpg": {
+"g": [
+"SPEZZARE LA FEDE",
+"Quando un Rivale del Credente distrugge una città Leale del Credente, chi l'ha distrutta può rimuovere 1 segnalino Ideale da un'ambizione non dichiarata.",
+"~SE L'AMBIZIONE / NON È DICHIARATA"
+]
+},
+"458_01.jpg": {
+"g": [
+"FEDE DOMINANTE",
+"Seguite le stesse regole di prima:",
+"Devi giocare le carte azione Fedeli sullo stesso lato della Dottrina.",
+"Quando giochi una carta azione Fedele, nel tuo turno devi seguire queste regole se vuoi dichiarare un'ambizione:",
+"• Se il riquadro dell'ambizione non ha un segnalino Ideale, mettici un segnalino Ideale che mostra la Dottrina.",
+"• Se il riquadro dell'ambizione ha già un segnalino Ideale, non puoi dichiarare questa ambizione se il suo Ideale non corrisponde alla Dottrina.",
+"C'è un nuovo limite: quando giochi una carta non Fedele, in questo turno non puoi dichiarare un'ambizione con un Ideale."
+]
+},
+"458_02.jpg": {
+"g": [
+"1. Infila Fede Dominante (30) davanti a Fede Dottrinale (23) nel libretto delle regole. _Spiega Fede Dominante a tutti._",
+"",
+"2. Aggiungi Spezzare la Fede (31) al libretto delle regole. _Spiegala a tutti._",
+"3. Gira la carta Dottrina (22) sull'Ideale con più segnalini nei riquadri delle ambizioni. In caso di parità, girala sul lato Saggezza.",
+"_Gira questa carta._"
+],
+"fascia": "CREDENTE - ATTO III"
+},
+"458_02_r.jpg": {
+"g": [
+"",
+"Guidare il Gregge",
+"Due segnalini ambizione sono su ambizioni con Ideali.",
+"Tutti e tre i segnalini ambizione sono su ambizioni con Ideali.",
+"_Questo obiettivo conta quanti segnalini ambizione sono su ambizioni con Ideali, non quante ambizioni diverse con Ideali hanno segnalini._"
+],
+"fascia": "CREDENTE - ATTO III"
+},
+"458_03.jpg": {
+"g": [
+"FEDE REPRESSA",
+"Seguite le stesse regole di prima: / • Devi giocare le carte azione Fedeli sullo stesso lato della Dottrina.",
+"• Quando giochi una carta azione Fedele, in quel turno non puoi dichiarare ambizioni con un Ideale diverso dalla Dottrina.",
+"C'è un nuovo limite: se giochi una carta azione Fedele, in questo turno non puoi dichiarare ambizioni senza Ideale.",
+"_Queste regole non limitano la dichiarazione di ambizioni con carte non Fedeli._"
+]
+},
+"458_04.jpg": {
+"g": [
+"",
+"",
+"_La *Dottrina* stabilisce su quale lato vanno giocate le carte azione Fedeli e quali ambizioni si possono dichiarare guidando con carte azione Fedeli._"
+],
+"titolo": "FISSARE LA DOTTRINA LAICA",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+],
+"extra": [
+{
+"box": [
+45,
+195,
+580,
+412
+],
+"t": "I giocatori rivelano le loro carte azione Fedeli. Chi rivela il numero di iniziativa più alto può cambiare la *Dottrina* in Zelo o Saggezza, girando la carta Dottrina infilata nell'area delle carte giocate della mappa."
+}
+]
+},
+"458_05.jpg": {
+"g": [
+"ORDINE SEGRETO",
+"Quando dichiari Custode o Empate, non mettere il segnalino zero."
+]
+},
+"458_06.jpg": {
+"g": [
+"IL PROFETA",
+"*Preludio:* puoi scartare 1 carta azione non Evento per mettere questa carta accanto a una carta Fedele giocata. _(Anche se è coperta!)_ Alla fine del round, prendila in mano e prendi questa carta."
+]
+},
+"458_07.jpg": {
+"g": [
+"",
+"_Registra tutti gli Ideali sul tuo foglio di campagna._",
+"*Se hai completato il tuo obiettivo:*",
+"1. Se hai La Giovane Luce (16), eliminala e prendi Il Profeta (25). Altrimenti, elimina Il Profeta (25).",
+"2. Elimina Ordine Segreto (26), Fissare la Dottrina Laica (27) e Fede Repressa (28).",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina tutti i segnalini Ideale non sulle ambizioni. / 2. Elimina Il Profeta (25). / 3. Aggiungi Ordine Segreto (26) al mazzo Corte.",
+"4. Elimina Fissare la Dottrina (21) e Fede Dottrinale (23) dal libretto delle regole e aggiungi Fissare la Dottrina Laica (27) e Fede Repressa (28). _Spiegali a tutti._"
+]
+},
+"458_08.jpg": {
+"g": [
+"FEDE DOTTRINALE",
+"D'ora in poi devi giocare le carte azione Fedeli sullo stesso lato della Dottrina, indicata dalla carta infilata vicino all'area delle carte giocate.",
+"Quando giochi una carta azione Fedele, nel tuo turno devi seguire queste regole se vuoi dichiarare un'ambizione: / • Se il riquadro dell'ambizione non ha un segnalino Ideale, mettici un segnalino Ideale che mostra la Dottrina. / • Se il riquadro dell'ambizione ha già un segnalino Ideale, non puoi dichiarare questa ambizione se il suo Ideale non corrisponde alla Dottrina.",
+"Queste regole non cambiano le carte non Fedeli. Gli Ideali resteranno nell'Atto III."
+]
+},
+"458_09.jpg": {
+"g": [
+"DOTTRINA DELLO",
+"ZELO",
+"Devi giocare le carte azione Fedeli sul lato Zelo.",
+"Quando giochi una carta azione Fedele:",
+"• In questo turno non puoi dichiarare ambizioni con l'Ideale Saggezza.",
+"• Se in questo turno dichiari un'ambizione senza Ideale, metti nel suo riquadro un segnalino Ideale sul lato Zelo.",
+"_Nella preparazione dell'Atto III, questa carta Dottrina parte sul lato dell'Ideale con più segnalini nei riquadri delle ambizioni. In caso di parità, parte su Saggezza._"
+]
+},
+"458_09_r.jpg": {
+"g": [
+"DOTTRINA DELLA",
+"SAGGEZZA",
+"Devi giocare le carte azione Fedeli sul lato Saggezza.",
+"Quando giochi una carta azione Fedele:",
+"• In questo turno non puoi dichiarare ambizioni con l'Ideale Zelo.",
+"• Se in questo turno dichiari un'ambizione senza Ideale, metti nel suo riquadro un segnalino Ideale sul lato Saggezza.",
+"_Nella preparazione dell'Atto III, questa carta Dottrina parte sul lato dell'Ideale con più segnalini nei riquadri delle ambizioni. In caso di parità, parte su Saggezza._"
+]
+},
+"458_10.jpg": {
+"g": [
+"",
+"_La *Dottrina* stabilisce su quale lato vanno giocate le carte azione Fedeli e quali ambizioni si possono dichiarare guidando con carte azione Fedeli._"
+],
+"titolo": "FISSARE LA DOTTRINA",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+],
+"extra": [
+{
+"box": [
+45,
+195,
+580,
+375
+],
+"t": "Chi ha La Giovane Luce o Il Profeta può cambiare la *Dottrina* in Zelo o Saggezza, girando la carta Dottrina infilata nell'area delle carte giocate della mappa."
+}
+]
+},
+"458_11.jpg": {
+"g": [
+"1. Raccogli i 5 segnalini Ideale. _(Sono a doppia faccia!)_",
+null,
+"",
+"2. Aggiungi l'Editto Fissare la Dottrina (21) al libretto delle regole.",
+"",
+"3. Infila la carta Dottrina (22) nell'area delle carte giocate sul bordo sinistro della mappa. Se hai l'iniziativa, mettila sul lato Zelo; altrimenti sul lato Saggezza.",
+"4. Elimina Fede Pluralista (14) dal libretto delle regole e aggiungi Fede Dottrinale (23). _Spiegala a tutti._",
+"_Gira questa carta._"
+],
+"fascia": "CREDENTE - ATTO II",
+"libero": true
+},
+"458_11_r.jpg": {
+"g": [
+"",
+null,
+null,
+"• _Come descritto in Fede Dottrinale nel libretto delle regole, i giocatori mettono Ideali sulle ambizioni che dichiarano nei turni in cui giocano carte azione Fedeli._",
+"• _Conta anche il Potere bonus degli spazi città scoperti sulla tua plancia. Per esempio, se ottieni 5 Potere vincendo un'ambizione con un segnalino Ideale e 5 Potere bonus dalle città, avanza il segnalino obiettivo di 10 spazi._"
+],
+"fascia": "CREDENTE - ATTO II",
+"extra": [
+{
+"box": [
+150,
+196,
+552,
+232
+],
+"t": "*_Sviluppare gli Ideali della Propria Fede_*"
+},
+{
+"box": [
+146,
+248,
+556,
+338
+],
+"t": "Ogni volta che vinci un'ambizione con un segnalino Ideale, *avanza* di 1 per ogni Potere che ottieni da essa."
+}
+]
+},
+"458_12.jpg": {
+"g": [
+"ORDINE SEGRETO",
+"Quando dichiari Custode o Empate, non mettere il segnalino zero."
+]
+},
+"458_13.jpg": {
+"g": [
+"IL FIGLIOL PRODIGO",
+"*Preludio:* puoi scartare 1 carta azione non Evento per mettere questa carta accanto a una carta Fedele giocata. _(Anche se è coperta!)_ Alla fine del round, prendila in mano e prendi questa carta."
+]
+},
+"458_14.jpg": {
+"g": [
+null,
+"*Appena Acquisita:* cerca negli scarti delle azioni, prendi in mano la carta azione Fedele di numero più alto, poi rimescola gli scarti. Scarta Complotto per il Rapimento."
+],
+"extra": [
+{
+"box": [
+100,
+22,
+520,
+72
+],
+"t": "COMPLOTTO PER IL RAPIMENTO",
+"titolo": true,
+"size": 40
+},
+{
+"box": [
+45,
+130,
+560,
+236
+],
+"t": "*Crisi:* attacca qui La Giovane Luce o Il Profeta. Ogni giocatore scarta la sua carta azione Fedele di numero più alto."
+}
+]
+},
+"458_15.jpg": {
+"g": [
+"LA GIOVANE LUCE",
+"*Preludio:* puoi scartare 1 carta azione non Evento per mettere questa carta accanto a una carta Fedele giocata. _(Anche se è coperta!)_ Alla fine del round, prendila in mano e prendi questa carta."
+]
+},
+"458_16.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi La Giovane Luce (16). / 2. Aggiungi Complotto per il Rapimento (17) al mazzo Corte.",
+"3. Elimina i tuoi Diffondere la Fede (03), Il Figliol Prodigo (18) e Ordine Segreto (19).",
+"4. Aggiungi al mazzo Corte tutte le carte azione Fedeli rimaste nella loro pila.",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Elimina i tuoi Diffondere la Fede (03), La Giovane Luce (16) e Complotto per il Rapimento (17).",
+"2. Aggiungi Il Figliol Prodigo (18) e Ordine Segreto (19) al mazzo Corte. / 3. Aggiungi al mazzo Corte tutte le carte azione Fedeli rimaste nella loro pila."
+]
+},
+"458_17.jpg": {
+"g": [
+"FEDE PLURALISTA",
+"Quando guidi con una carta azione Fedele, puoi usarla per dichiarare qualsiasi ambizione.",
+"_Funziona esattamente come quando guidi con una carta azione \"7\"._"
+]
+},
+"458_18.jpg": {
+"g": [
+"CARTE FEDELI",
+"Le carte Fedeli sono un nuovo seme di carte azione. Quando ne acquisisci una dalla Corte, prendila in mano. / Quando ne giochi una, mettila sul lato Zelo o sul lato Saggezza.",
+"• *Zelo:* muovere, influenzare, combattere, tassare",
+"• *Saggezza:* costruire, riparare, acquisire",
+"Hanno un paio di differenze dalle normali carte azione:",
+"• Per Superare una carta Fedele devi giocare una carta Fedele sullo stesso lato. _(Se un giocatore guida con Zelo, Superi solo giocando Zelo. Puoi comunque Cambiare con Saggezza.)_",
+"• Non prendi l'iniziativa quando Superi con una carta azione Fedele \"7\"."
+]
+}
+}

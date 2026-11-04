@@ -1,0 +1,263 @@
+{
+"479_00.jpg": {
+"g": [
+"LEGGE MARZIALE",
+"_Infila questa carta sotto l'area delle carte giocate._",
+"I Reggenti, tranne l'Ammiraglio, seguono queste regole se non hanno Ufficiali Imperiali o Ammiragli Rinnegati: / • Non puoi Comandare la Flotta Imperiale. / • Se sei il Primo Reggente, non controlli i sistemi controllati dall'Impero per ambizioni, obiettivi ed eventi.",
+"Quando svolgi un movimento Catapulta, il controllo dei portali da parte dell'Impero termina il tuo movimento."
+]
+},
+"479_01.jpg": {
+"g": [
+"LEGGE MARZIALE",
+"I Reggenti, tranne l'Ammiraglio, seguono queste regole se non hanno Ufficiali Imperiali o Ammiragli Rinnegati:",
+"• Non puoi Comandare la Flotta Imperiale. _(Nel tuo turno non controlli i sistemi dell'Impero e non puoi usare le navi Imperiali.)_",
+"• Se sei il Primo Reggente, non controlli i sistemi dell'Impero per ambizioni, obiettivi ed eventi.",
+"• Nel movimento Catapulta, i portali controllati dall'Impero fermano il tuo movimento."
+]
+},
+"479_02.jpg": {
+"g": [
+"1. Aggiungi Legge Marziale (20) al libretto delle regole. _Spiegala",
+"",
+"_a tutti._",
+"2. Come promemoria, infila la seconda copia di Legge Marziale (21) in parte sotto l'area delle carte giocate della mappa.",
+"_Gira questa carta._"
+],
+"fascia": "AMMIRAGLIO - ATTO III"
+},
+"479_02_r.jpg": {
+"g": [
+"",
+"Mantenere il Monopolio della Forza",
+"Sei un Reggente e...",
+"Controlli almeno 9 pianeti.",
+"Hai sulla mappa più navi Leali di ogni Rivale.",
+"_Se sei il Primo Reggente, controlli i pianeti controllati dall'Impero._"
+],
+"fascia": "AMMIRAGLIO - ATTO III"
+},
+"479_03.jpg": {
+"g": [
+"RIVOLTA DI MASSA",
+"*Crisi:* distruggi tutte le navi danneggiate. Seppellisci questa carta.",
+"*Appena Acquisita:* scegli un ammasso della mappa. Metti 1 tua nave in ogni sistema di quell'ammasso. Scarta questa carta."
+]
+},
+"479_04.jpg": {
+"g": [
+"RIVOLTA DI MASSA",
+"*Crisi:* distruggi tutte le navi danneggiate. Seppellisci questa carta.",
+"*Appena Acquisita:* scegli un ammasso della mappa. Metti 1 tua nave in ogni sistema di quell'ammasso. Scarta questa carta."
+]
+},
+"479_05.jpg": {
+"g": [
+"DISERTORI IMPERIALI",
+"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+]
+},
+"479_06.jpg": {
+"g": [
+"DISERTORI IMPERIALI",
+"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+]
+},
+"479_07.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Elimina i 2 Disertori Imperiali (15-16). / 2. Aggiungi le 2 Rivolte di Massa (17-18) al mazzo Corte. / *Se non hai completato il tuo obiettivo:*",
+"1. Aggiungi i 2 Disertori Imperiali (15-16) al mazzo Corte.",
+"2. Elimina le 2 Rivolte di Massa (17-18)."
+]
+},
+"479_08.jpg": {
+"g": [
+"CAOS AL COMANDO",
+"*Crisi:* attacca qui gli Ufficiali Imperiali.",
+"Rimescola nel mazzo Corte tutti gli Ammiragli Rinnegati degli scarti della Corte.",
+"*Appena Acquisita:* Influenza una volta. Puoi diventare Reggente. Rimescola questa carta nel mazzo Corte."
+]
+},
+"479_09.jpg": {
+"g": [
+"1. Rimescola Caos al Comando (13) nel mazzo Corte.",
+"",
+"_Gira questa carta._",
+null
+],
+"fascia": "AMMIRAGLIO - ATTO II"
+},
+"479_09_r.jpg": {
+"g": [
+null,
+"Ampliare i Possedimenti della Marina",
+"",
+"Alla fine di un capitolo, se sei Reggente, avanza di 1 per ogni pianeta controllato dall'Impero.",
+"Schiacciare i Nemici dell'Impero",
+"Finché sei Reggente, avanza di 2 per ogni pezzo Fuorilegge che prendi come Trofeo in battaglia.",
+"_A differenza dell'Atto I, non avanzi più grazie alla Piaga!_",
+"Dominare i Reggenti Rivali",
+"Finché sei Reggente, avanza di 2 per ogni agente Reggente che catturi. / _Non contano i pezzi trasferiti nei Vertici._"
+],
+"fascia": "AMMIRAGLIO - ATTO II"
+},
+"479_10.jpg": {
+"g": [
+"DISERTORI IMPERIALI",
+"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+]
+},
+"479_11.jpg": {
+"g": [
+"DISERTORI IMPERIALI",
+"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+]
+},
+"479_12.jpg": {
+"g": [
+"SGHERRI DI CORTE",
+"*Rapire (Combattere):* cattura tutti gli agenti Rivali da una carta della Corte che ha meno agenti Rivali del totale delle tue icone Armi di risorse e carte.",
+"*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
+]
+},
+"479_13.jpg": {
+"g": [
+"SGHERRI DI CORTE",
+"*Rapire (Combattere):* cattura tutti gli agenti Rivali da una carta della Corte che ha meno agenti Rivali del totale delle tue icone Armi di risorse e carte.",
+"*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
+]
+},
+"479_14.jpg": {
+"g": [
+null,
+"Ignori le Leggi di Presenza, Movimento e Tregua dell'Impero.",
+"*Preludio:* puoi scartarla per mettere 3 navi Imperiali in un sistema che controlli."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+580,
+530
+],
+"t": "AMMIRAGLI RINNEGATI",
+"titolo": true,
+"size": 40
+},
+{
+"box": [
+48,
+578,
+590,
+614
+],
+"t": "*_Seppelliscila se sei un Fuorilegge._*"
+}
+]
+},
+"479_15.jpg": {
+"g": [
+"*_Seppelliscila se sei un Fuorilegge._*",
+"Ignori le Leggi di Presenza, Movimento e Tregua dell'Impero.",
+"*Preludio:* puoi scartarla per mettere 3 navi Imperiali in un sistema che controlli."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+580,
+530
+],
+"t": "AMMIRAGLI RINNEGATI",
+"titolo": true,
+"size": 40
+}
+]
+},
+"479_16.jpg": {
+"g": [
+"GUARDIA D'ONORE",
+"Le tue carte Gilda Armi non possono essere rubate finché hai delle Armi."
+]
+},
+"479_17.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi Guardia d'Onore (05).",
+"2. Aggiungi i 2 Ammiragli Rinnegati (06-07) e i 2 Sgherri di Corte (08-09) al mazzo Corte.",
+"3. Elimina i 2 Disertori Imperiali (10-11).",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Elimina l'Editto Usare le Fonderie Imperiali (03) dal libretto delle regole.",
+"2. Elimina Guardia d'Onore (05) e i 2 Ammiragli Rinnegati (06-07).",
+"3. Aggiungi i 2 Sgherri di Corte (08-09) e i 2 Disertori Imperiali (10-11) al mazzo Corte."
+]
+},
+"479_18.jpg": {
+"g": [
+"",
+"",
+"Per ogni tuo porto stellare Leale, puoi sostituire 1 nave Leale nel suo sistema con 1 nave Imperiale.",
+"_Se sei l'Ammiraglio, ricordati di avanzare nel tuo obiettivo se stai vincendo un'ambizione!_"
+],
+"titolo": "USARE LE FONDERIE IMPERIALI",
+"titolo_box": [
+150,
+48,
+612,
+158
+],
+"extra": [
+{
+"box": [
+48,
+195,
+590,
+265
+],
+"t": "*_Lo risolve il giocatore che ha gli Ufficiali Imperiali._*"
+}
+],
+"titolo_col": [
+250,
+245,
+235
+]
+},
+"479_19.jpg": {
+"g": [
+"UFFICIALI IMPERIALI",
+"*_Seppelliscila se sei un Fuorilegge._*",
+"Ignori le Leggi di Presenza e Movimento dell'Impero. _(In pratica, nel tuo turno puoi svolgere azioni con qualsiasi nave Imperiale e controlli tutti i sistemi controllati dall'Impero! In entrambi i casi non ti servono pezzi Leali.)_"
+]
+},
+"479_20.jpg": {
+"g": [
+"1. Prendi Ufficiali Imperiali (02).",
+"2. Aggiungi l'Editto Usare le Fonderie Imperiali (03) al libretto delle regole.",
+"3. Prendi la tessera Primo Reggente, a meno che il Siniscalco sia in gioco.",
+"",
+"_Gira questa carta._"
+],
+"fascia": "AMMIRAGLIO - ATTO I"
+},
+"479_20_r.jpg": {
+"g": [
+null,
+"Dimostrarsi un Nuovo Ammiraglio",
+"Finché sei Reggente e stai vincendo un'ambizione, avanza di 1 per ogni nave Imperiale che qualcuno mette sulla mappa.",
+"",
+"_Le navi Imperiali si mettono con gli Editti Usare le Fonderie Imperiali e Governare l'Orlo Imperiale (Politica di Escalation)._",
+"Dimostrare la Potenza della Marina",
+"Finché sei Reggente, avanza di 1 per ogni Trofeo che prendi in battaglia attaccando con navi Imperiali. / _Per avanzare puoi combattere la Piaga, le città Libere e i Fuorilegge._",
+"_Puoi attaccare sia con navi Leali sia con navi Imperiali, e la nave Imperiale può essere distrutta._"
+],
+"fascia": "AMMIRAGLIO - ATTO I"
+}
+}

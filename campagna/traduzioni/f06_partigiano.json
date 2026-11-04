@@ -1,0 +1,226 @@
+{
+"477_00.jpg": {
+"g": [
+"SEMINATORE DI DISCORDIA",
+"Alla fine di un round, quando ottieni il segnalino iniziativa Superando, puoi mettere un agente Leale in uno spazio Oltraggio vuoto di un Rivale. _(Questo non è Recare Oltraggio.)_"
+]
+},
+"477_01.jpg": {
+"g": [
+"1. Prendi Seminatore di Discordia (25).",
+"_Gira questa carta._"
+],
+"fascia": "PARTIGIANO - ATTO III"
+},
+"477_01_r.jpg": {
+"g": [
+"Formare un Blocco di Potere Dominante",
+"Avere più carte Gilda di ogni Rivale.",
+"Avere il segnalino iniziativa."
+],
+"fascia": "PARTIGIANO - ATTO III"
+},
+"477_02.jpg": {
+"g": [
+"UNIONE DELLE ARMI",
+"*Preludio:* puoi mettere questa carta accanto a una carta Aggressione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"477_03.jpg": {
+"g": [
+"UNIONE DEI TRASPORTI",
+"*Preludio:* puoi mettere questa carta accanto a una carta Mobilitazione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"477_04.jpg": {
+"g": [
+"ATTACCO TERRORISTICO",
+"*Crisi:* distruggi i pezzi danneggiati sui pianeti dell'Oltraggio di ogni giocatore. Rimescola questa carta nel mazzo Corte.",
+"*Appena Acquisita:* risolvi la Crisi, ma non distruggere i pezzi Leali."
+]
+},
+"477_05.jpg": {
+"g": [
+"ATTACCO TERRORISTICO",
+"*Crisi:* distruggi i pezzi danneggiati sui pianeti dell'Oltraggio di ogni giocatore. Rimescola questa carta nel mazzo Corte.",
+"*Appena Acquisita:* risolvi la Crisi, ma non distruggere i pezzi Leali."
+]
+},
+"477_06.jpg": {
+"g": [
+"LE GILDE CONDANNANO IL TERRORE",
+"Se Fiasco Diplomatico non è nella Corte, cercalo nel mazzo Corte, attaccalo alla carta Consiglio Imperiale e gira il Consiglio Imperiale sul lato In Sessione.",
+null,
+null,
+null,
+null,
+null
+]
+},
+"477_07.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi Le Gilde Condannano il Terrore (19) al libretto delle regole.",
+"2. Aggiungi 2 Attacchi Terroristici (20-21) al mazzo Corte.",
+"3. Elimina Unione dei Trasporti (22) e Unione delle Armi (23). / *Se non hai completato il tuo obiettivo:*",
+"1. Elimina Le Gilde Condannano il Terrore (19) e i 2 Attacchi Terroristici (20-21).",
+"2. Aggiungi Unione dei Trasporti (22) e Unione delle Armi (23) al mazzo Corte."
+]
+},
+"477_08.jpg": {
+"g": [
+"EROE DEL POPOLO",
+"Quando dichiari un'ambizione, puoi rimuovere 1 tuo Oltraggio, purché tu abbia più carte Gilda del tipo di quell'Oltraggio di ogni Rivale."
+]
+},
+"477_09.jpg": {
+"g": [
+"SOTTRAZIONE PARTIGIANA",
+"Non puoi sottrarre l'iniziativa scartando una seconda carta azione. _(Questo non limita gli altri modi di sottrarla.)_",
+"Puoi invece sottrarre l'iniziativa quando giochi una carta, se scegli di Recare Oltraggio con una risorsa non ancora Oltraggiata. _(Scarta le risorse e le carte Gilda del tipo dell'Oltraggio. Metti un agente nello spazio Oltraggio corrispondente.)_",
+"_Ricorda: non puoi sottrarre l'iniziativa se ce l'hai già o se è già stata sottratta!_"
+]
+},
+"477_10.jpg": {
+"g": [
+"1. Aggiungi Sottrazione Partigiana (16) al libretto delle regole. _Spiegala a tutti._",
+"",
+"2. Come promemoria, infila la tua copia di Sottrazione Partigiana (04) sotto la mappa vicino all'area delle carte giocate, in modo che si veda solo il titolo.",
+"",
+"3. Prendi Eroe del Popolo (17).",
+"_Gira questa carta._"
+],
+"fascia": "PARTIGIANO - ATTO II"
+},
+"477_10_r.jpg": {
+"g": [
+"",
+"",
+"Mostrare la Propria Guida",
+"Avanza di 1 ogni volta che giochi una carta azione mentre hai l'iniziativa.",
+"Lucidare la Propria Immagine",
+"Quando rimuovi un Oltraggio con Eroe del Popolo, avanza di 1 per ogni carta Gilda che hai."
+],
+"fascia": "PARTIGIANO - ATTO II"
+},
+"477_11.jpg": {
+"g": [
+"L'OLTRAGGIO DILAGA",
+"*Crisi:* ogni giocatore Reca Oltraggio del pianeta tirato. Scarta questa carta.",
+"*Appena Acquisita:* puoi scegliere un tipo di Oltraggio. Ogni giocatore (anche tu) deve Recare Oltraggio di quel tipo. Scarta questa carta."
+]
+},
+"477_12.jpg": {
+"g": [
+"L'OLTRAGGIO DILAGA",
+"*Crisi:* ogni giocatore Reca Oltraggio del pianeta tirato. Scarta questa carta.",
+"*Appena Acquisita:* puoi scegliere un tipo di Oltraggio. Ogni giocatore (anche tu) deve Recare Oltraggio di quel tipo. Scarta questa carta."
+]
+},
+"477_13.jpg": {
+"g": [
+"UNIONE DELLE ARMI",
+"*Preludio:* puoi mettere questa carta accanto a una carta Aggressione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"477_14.jpg": {
+"g": [
+"UNIONE DEI TRASPORTI",
+"*Preludio:* puoi mettere questa carta accanto a una carta Mobilitazione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"477_15.jpg": {
+"g": [
+"BARDI GALATTICI",
+"Quando Superi o Cambi, prima delle azioni, puoi dichiarare l'ambizione della tua carta se in questo round non ne è stata dichiarata nessuna. Non mettere il segnalino zero."
+]
+},
+"477_16.jpg": {
+"g": [
+"CUSTODI LEALI",
+"Se Rechi Oltraggio, tieni questa carta.",
+"Puoi spendere qualsiasi risorsa come Reliquie. Ignori l'Oltraggio quando spendi Reliquie per la loro azione Preludio."
+]
+},
+"477_17.jpg": {
+"g": [
+"EMPATI LEALI",
+"Se Rechi Oltraggio, tieni questa carta.",
+"Puoi spendere qualsiasi risorsa come Psicoenergia. Ignori l'Oltraggio quando spendi Psicoenergia per la sua azione Preludio."
+]
+},
+"477_18.jpg": {
+"g": [
+"MARINE LEALI",
+"Se Rechi Oltraggio, tieni questa carta.",
+"Puoi spendere qualsiasi risorsa come Armi. Ignori l'Oltraggio quando spendi Armi per la loro azione Preludio.",
+"*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
+]
+},
+"477_19.jpg": {
+"g": [
+"PILOTI LEALI",
+"Se Rechi Oltraggio, tieni questa carta.",
+"Puoi spendere qualsiasi risorsa come Carburante. Ignori l'Oltraggio quando spendi Carburante per la sua azione Preludio."
+]
+},
+"477_20.jpg": {
+"g": [
+"INGEGNERI LEALI",
+"Se Rechi Oltraggio, tieni questa carta.",
+"Puoi spendere qualsiasi risorsa come Materiale. Ignori l'Oltraggio quando spendi Materiale per la sua azione Preludio."
+]
+},
+"477_21.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi le 5 carte Leali (05-09) al mazzo Corte.",
+"2. Prendi Bardi Galattici (10).",
+"3. Elimina Unione dei Trasporti (11), Unione delle Armi (12) e i 2 L'Oltraggio Dilaga (13-14).",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina le 5 carte Leali (05-09).",
+"2. Aggiungi Bardi Galattici (10), Unione dei Trasporti (11), Unione delle Armi (12) e i 2 L'Oltraggio Dilaga (13-14) al mazzo Corte.",
+"3. Elimina la tua carta Sottrazione Partigiana (03) e rimuovi tutti i tuoi Oltraggi."
+]
+},
+"477_22.jpg": {
+"g": [
+"SOTTRAZIONE PARTIGIANA",
+"_Eliminala e rimuovi tutti i tuoi Oltraggi se non sei il Partigiano._",
+"Non puoi sottrarre l'iniziativa scartando una seconda carta azione. _(Questo non limita gli altri modi di sottrarla.)_",
+"Puoi invece sottrarre l'iniziativa quando giochi una carta, se scegli di Recare Oltraggio con una risorsa non ancora Oltraggiata. _(Scarta le risorse e le carte Gilda del tipo dell'Oltraggio. Metti un agente nello spazio Oltraggio corrispondente.)_",
+"_Ricorda: non puoi sottrarre l'iniziativa se ce l'hai già o se è già stata sottratta!_"
+]
+},
+"477_23.jpg": {
+"g": [
+"INFORMATORI",
+"*Spiare (Influenzare):* una volta per turno, dai a un Rivale la tua carta azione di numero più alto. Dopo, lui deve darti la sua carta azione di numero più alto.",
+"_(Può essere la stessa carta.)_"
+]
+},
+"477_24.jpg": {
+"g": [
+"1. Prendi Informatori (02) e Sottrazione Partigiana (03).",
+"",
+null,
+"_Gira questa carta._",
+null
+],
+"fascia": "PARTIGIANO - ATTO I"
+},
+"477_24_r.jpg": {
+"g": [
+null,
+null,
+null,
+"Seminare Discordia nell'Orlo",
+"Avanza di 1 ogni volta che ottieni il segnalino iniziativa, in qualsiasi modo.",
+"_La tua carta Sottrazione Partigiana cambia il modo in cui sottrai l'iniziativa: invece di scartare una carta in più, devi Recare Oltraggio._",
+"Fare Appello ai Propri Sostenitori",
+"Avanza di 2 ogni volta che vinci un'ambizione per la cui risorsa non hai Oltraggio. _L'Oltraggio Armi ti impedisce di avanzare vincendo Generale._"
+],
+"fascia": "PARTIGIANO - ATTO I"
+}
+}

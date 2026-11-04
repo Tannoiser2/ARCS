@@ -212,7 +212,7 @@ def rendi(f, trad, dest):
         return size, larg
     corpo = 999
     for testo, box, hh, col, titolo, sotto, x0, x1, rot in lavori:
-        if testo and not titolo and not rot:
+        if testo and not titolo and not rot and not testo.startswith('~') and not trad.get('libero'):
             corpo = min(corpo, misura(testo, box, hh, titolo, sotto, x0, x1)[0])
     for testo, box, hh, col, titolo, sotto, x0, x1, rot in lavori:
         if testo == '':
@@ -241,8 +241,10 @@ def rendi(f, trad, dest):
             col = (30, 25, 20)
         if titolo:
             testo = maiuscoletto(testo)
+        proprio = testo.startswith('~') or trad.get('libero')
+        testo = testo.lstrip('~')
         size, larg = misura(testo, box, hh, titolo, sotto, x0, x1)
-        if not titolo:
+        if not titolo and not proprio:
             size = corpo
         fnt, righe, alt = impagina(testo, size, larg, titolo)
         y = box[1] + (2 if not titolo else max(0, (box[3] - box[1] - alt) / 2) - size * 0.12)
@@ -281,6 +283,8 @@ def rendi(f, trad, dest):
         x0b, y0b, x1b, y1b = trad['titolo_box']
         img2 = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR)
         col = cancella(img2, [x0b, y0b, x1b, y1b]) or (250, 245, 235)
+        if trad.get('titolo_col'):
+            col = tuple(trad['titolo_col'])
         pil = Image.fromarray(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))
         dt = ImageDraw.Draw(pil)
         testo = maiuscoletto(trad['titolo'])
@@ -387,7 +391,7 @@ PIEDI = {'GUILD': 'GILDA', 'EDICT': 'EDITTO', 'SETUP': 'PREPARAZIONE', 'RESOLUTI
          'OBJECTIVE': 'OBIETTIVO', 'ABILITY': 'ABILITÀ', 'TITLE': 'TITOLO', 'EVENT': 'EVENTO', 'VOX': 'VOX',
          'LORE': 'LORE', 'ARTIFACT': 'ARTEFATTO', 'BURDENED': 'GRAVATO', 'WINDFALL': 'FORTUNA', 'POLICY': 'POLITICA',
          'UPGRADE': 'MIGLIORIA', 'COUNCIL': 'CONSIGLIO IMPERIALE', 'IMPERIAL': ' ', 'FATE': 'DESTINO',
-         'CARD': ' ', 'REMINDER': 'PROMEMORIA', 'RULES': 'REGOLE', 'ECONOMY': 'ECONOMIA', 'MONOPOLY': 'MONOPOLIO', 'SUMMIT': 'VERTICE'}
+         'CARD': ' ', 'REMINDER': 'PROMEMORIA', 'DOCTRINE': 'DOTTRINA', 'RULES': 'REGOLE', 'ECONOMY': 'ECONOMIA', 'MONOPOLY': 'MONOPOLIO', 'SUMMIT': 'VERTICE'}
 
 if __name__ == '__main__':
     os.makedirs(R + '/it', exist_ok=True)
