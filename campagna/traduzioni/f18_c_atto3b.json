@@ -1,0 +1,443 @@
+{
+"444_00.jpg": {
+"g": [
+"*Preludio:* una volta per turno, puoi scartare 1 risorsa per ottenere 1 Reliquia."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "RECINTO DELLE RELIQUIE",
+"titolo": true,
+"size": 40
+}
+]
+},
+"444_01.jpg": {
+"g": [
+"",
+""
+],
+"titolo": "RIMPROVERO DEI CUSTODI",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+],
+"extra": [
+{
+"box": [
+46,
+195,
+572,
+470
+],
+"t": "Se Custode è dichiarata e il Redentore _non_ la sta vincendo, il Redentore perde Potere pari al primo posto di Custode. / Se Custode _non_ è dichiarata, il giocatore con più Reliquie può dichiarare Custode. _(Il Redentore non può dichiararla. In caso di parità, salta questo passo.)_",
+"size": 28
+}
+]
+},
+"444_02.jpg": {
+"g": [
+"IRA DEI CUSTODI",
+"Non puoi dichiarare l'ambizione Custode.",
+"Puoi tassare le città Leali sui pianeti Reliquie solo se li controlli."
+]
+},
+"444_03.jpg": {
+"g": [
+"",
+"",
+"",
+"",
+"",
+null,
+"",
+"",
+"_Gira questa carta._"
+],
+"fascia": "REDENTORE - ATTO III",
+"extra": [
+{
+"box": [
+150,
+40,
+185,
+740
+],
+"t": ""
+},
+{
+"box": [
+186,
+44,
+592,
+505
+],
+"t": "1. *Se hai un'Ammiraglia, puoi Ricollocarti* come descritto sul retro della plancia Ammiraglia. / 2. Reca Oltraggio Reliquie. / 3. Prendi Ira dei Custodi (02). / 4. Aggiungi Rimprovero dei Custodi (03) al libretto delle regole. _Spiegalo a tutti._ / 5. Metti Recinto delle Reliquie (04) in cima al mazzo Corte. / 6. In 2 giocatori, rimetti nella riserva tutte le Reliquie del riquadro dell'ambizione Custode.",
+"size": 25
+}
+]
+},
+"444_03_r.jpg": {
+"g": [
+"",
+null,
+"Dopo il calcolo del punteggio, se hai vinto Custode o non era dichiarata, avanza di 3.",
+"Frantumare le Reliquie",
+"Dopo il calcolo del punteggio, se hai vinto almeno un'ambizione, puoi eliminare quante tue Reliquie vuoi. Per ognuna, avanza di 2.",
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "REDENTORE - ATTO III",
+"extra": [
+{
+"box": [
+150,
+200,
+545,
+232
+],
+"t": "Sottomettere i Custodi",
+"centra": true,
+"size": 25
+}
+]
+},
+"473_00.jpg": {
+"g": [
+"AMBIZIONE GUARDIA DELL'EDEN",
+"",
+"",
+"",
+"_(Per le ambizioni, il Primo Reggente controlla i sistemi controllati dall'Impero.)_",
+"Quando un giocatore dichiarerebbe Magnate, può dichiarare invece Guardia dell'Eden."
+],
+"extra": [
+{
+"box": [
+46,
+195,
+294,
+418
+],
+"t": "*C'è una nuova ambizione, Guardia dell'Eden:* controlla più pianeti Carburante e Materiale.",
+"size": 27
+}
+],
+"ripristina": [
+[
+296,
+205,
+604,
+392
+]
+]
+},
+"473_01.jpg": {
+"g": [
+"IRA DEI MAGNATI",
+"Non puoi dichiarare Magnate né ottenere Potere dal suo calcolo.",
+"Puoi tassare le città Leali sui pianeti Materiale e Carburante solo se li controlli."
+]
+},
+"473_02.jpg": {
+"g": [
+"CAVEAU VERDE",
+"Quando prendi Materiale o Carburante, puoi metterlo tra i tuoi Prigionieri. _(Anche se lo prendi per il Tesoro Imperiale!)_",
+"Il Materiale e il Carburante tra i tuoi Prigionieri sono congelati. _(Contano sia per Tiranno sia per Magnate, e tornano nella riserva se si calcola Tiranno.)_"
+]
+},
+"473_03.jpg": {
+"g": [
+"",
+"",
+"",
+"",
+"",
+null,
+"",
+"",
+"",
+"",
+"",
+"_Gira questa carta._"
+],
+"fascia": "GUARDIANO - ATTO III",
+"ripristina": [
+[
+368,
+390,
+582,
+540
+]
+],
+"extra": [
+{
+"box": [
+150,
+40,
+185,
+740
+],
+"t": ""
+},
+{
+"box": [
+186,
+44,
+592,
+382
+],
+"t": "1. *Se hai un'Ammiraglia, puoi Ricollocarti* come descritto sul retro della plancia Ammiraglia. / 2. Reca Oltraggio Carburante e Materiale. _(Scarta queste risorse e carte. Metti agenti sulle loro icone Oltraggio.)_ / 3. In 2 giocatori, rimetti nella riserva tutto il Materiale e il Carburante sui riquadri delle ambizioni.",
+"size": 25
+},
+{
+"box": [
+186,
+386,
+366,
+545
+],
+"t": "4. Metti la tessera Ambizione Guardia dell'Eden accanto al riquadro dell'ambizione Magnate.",
+"size": 25
+},
+{
+"box": [
+186,
+550,
+592,
+728
+],
+"t": "5. Prendi Caveau Verde (02) e Ira dei Magnati (03). / 6. Aggiungi Ambizione Guardia dell'Eden (04) al libretto delle regole. _Spiegala a tutti._",
+"size": 25
+}
+]
+},
+"473_03_r.jpg": {
+"g": [
+null,
+null,
+"Restituire alla Terra",
+"Alla fine di un capitolo, se vinci Tiranno o non è dichiarata, avanza di 1 per ogni Materiale o Carburante tra i tuoi Prigionieri.",
+"",
+"*Custodire lo Splendore dell'Orlo* / Alla fine di un capitolo, se vinci Guardia dell'Eden o non è dichiarata, avanza di 1 per ogni pianeta Materiale e Carburante che controlli.",
+null,
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "GUARDIANO - ATTO III"
+},
+"446_00.jpg": {
+"g": [
+"AMBIZIONE STIRPE DELLA PIAGA",
+"",
+"",
+"",
+"_(Il Primo Reggente controlla i sistemi controllati dall'Impero.)_",
+"Quando un giocatore dichiarerebbe Empate, può dichiarare invece Stirpe della Piaga."
+],
+"extra": [
+{
+"box": [
+46,
+195,
+294,
+380
+],
+"t": "*C'è una nuova ambizione, Stirpe della Piaga:* controlla più sistemi con Piaga *fresca*.",
+"size": 27
+}
+],
+"ripristina": [
+[
+296,
+205,
+604,
+392
+]
+]
+},
+"446_01.jpg": {
+"g": [
+"*Seminare (Costruire):* tira il dado numerico. Per ogni agente Leale che scegli di ritirare dalla Corte, cambia il risultato di 1 (dopo il \"6\" viene \"1\" e viceversa). Nell'ammasso tirato, metti 1 Piaga danneggiata in un sistema senza Piaga."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "GUIDE DELLE SPORE",
+"titolo": true,
+"size": 40
+}
+]
+},
+"446_02.jpg": {
+"g": [
+"SOCIETÀ DELLA PIAGA",
+"Puoi riparare e muovere la Piaga che controlli. _(Non può fare movimenti Catapulta. Non è Leale.)_",
+"Se danneggi o distruggi una Piaga, elimina 1 agente Leale dalla tua riserva.",
+"Nelle Crisi della Piaga, puoi spendere 1 Psicoenergia per impedirle in tutti i sistemi con navi Leali."
+]
+},
+"446_03.jpg": {
+"g": [
+"",
+"",
+"",
+"",
+null,
+"",
+"",
+"_Gira questa carta._"
+],
+"fascia": "NATURALISTA - ATTO III",
+"ripristina": [
+[
+368,
+226,
+582,
+380
+]
+],
+"extra": [
+{
+"box": [
+150,
+40,
+185,
+740
+],
+"t": ""
+},
+{
+"box": [
+186,
+44,
+592,
+215
+],
+"t": "1. *Se hai un'Ammiraglia, puoi Ricollocarti* come descritto sul retro della plancia Ammiraglia. / 2. Prendi Società della Piaga (02) e Guide delle Spore (03).",
+"size": 25
+},
+{
+"box": [
+186,
+222,
+366,
+384
+],
+"t": "3. Metti la tessera Ambizione Stirpe della Piaga accanto al riquadro dell'ambizione Empate.",
+"size": 25
+},
+{
+"box": [
+186,
+388,
+592,
+500
+],
+"t": "4. Aggiungi Ambizione Stirpe della Piaga (04) al libretto delle regole. _Spiegala a tutti._",
+"size": 25
+}
+]
+},
+"446_03_r.jpg": {
+"g": [
+"Vivere nel Giardino",
+"Alla fine di un capitolo, se vinci Stirpe della Piaga o non è dichiarata, avanza di 1 per ogni sistema che controlli con Piaga fresca.",
+"_La tua Società della Piaga ti permette di riparare la Piaga e ti aiuta a convivere con essa._",
+"_Le tue Guide delle Spore ti aiutano ad aggiungere Piaga alla mappa._",
+null,
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "NATURALISTA - ATTO III"
+},
+"450_00.jpg": {
+"g": [
+"",
+"*Il Signore Supremo perde Potere in base al numero dei suoi Oltraggi:*",
+"• *1 Oltraggio:* perdi 1 Potere",
+"• *2 Oltraggi:* perdi 3 Potere / • *3 Oltraggi:* perdi 6 Potere / • *4 Oltraggi:* perdi 8 Potere / • *5 Oltraggi:* perdi 10 Potere",
+null
+],
+"titolo": "L'ORLO RIFIUTA IL SIGNORE SUPREMO",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+]
+},
+"450_01.jpg": {
+"g": [
+null,
+"ADULATORI",
+"Quando Rechi Oltraggio, tieni questa carta e metti 2 navi su un pianeta del tipo dell'Oltraggio.",
+"*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
+]
+},
+"450_02.jpg": {
+"g": [
+"",
+"",
+"",
+"",
+null,
+"_Gira questa carta._",
+null
+],
+"fascia": "SIGNORE SUPREMO - ATTO III",
+"extra": [
+{
+"box": [
+150,
+40,
+185,
+740
+],
+"t": ""
+},
+{
+"box": [
+186,
+44,
+592,
+425
+],
+"t": "1. *Se hai un'Ammiraglia, puoi Ricollocarti* come descritto sul retro della plancia Ammiraglia. / 2. Prendi Adulatori (02). / 3. Aggiungi L'Orlo Rifiuta il Signore Supremo (03) al libretto delle regole. / 4. Se non hai Oltraggio, puoi Recare Oltraggio una volta per mettere 2 navi su un pianeta di quel tipo di Oltraggio. _(Non attivare anche Adulatori.)_",
+"size": 25
+}
+]
+},
+"450_02_r.jpg": {
+"g": [
+null,
+"Governare Solo con la Paura",
+"Alla fine di un capitolo, avanza di 1 per ogni tipo di risorsa che hai corrispondente al tuo Oltraggio.",
+"Controllare Solo con la Paura",
+null,
+"Alla fine di un capitolo, avanza di 2 per ogni tipo di pianeta che controlli corrispondente al tuo Oltraggio.",
+"_Se sei il Primo Reggente, per gli obiettivi controlli tutti i sistemi controllati dall'Impero._",
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "SIGNORE SUPREMO - ATTO III"
+}
+}
