@@ -22,13 +22,13 @@
 },
 "477_02.jpg": {
 "g": [
-"UNIONE DELLE ARMI",
+"LEGA DEI COMBATTENTI",
 "*Preludio:* puoi mettere questa carta accanto a una carta Aggressione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
 ]
 },
 "477_03.jpg": {
 "g": [
-"UNIONE DEI TRASPORTI",
+"LEGA DEI NAVIGATORI",
 "*Preludio:* puoi mettere questa carta accanto a una carta Mobilitazione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
 ]
 },
@@ -63,9 +63,9 @@ null
 "*Se hai completato il tuo obiettivo:*",
 "1. Aggiungi Le Gilde Condannano il Terrore (19) al libretto delle regole.",
 "2. Aggiungi 2 Attacchi Terroristici (20-21) al mazzo Corte.",
-"3. Elimina Unione dei Trasporti (22) e Unione delle Armi (23). / *Se non hai completato il tuo obiettivo:*",
+"3. Elimina Lega dei Navigatori (22) e Lega dei Combattenti (23). / *Se non hai completato il tuo obiettivo:*",
 "1. Elimina Le Gilde Condannano il Terrore (19) e i 2 Attacchi Terroristici (20-21).",
-"2. Aggiungi Unione dei Trasporti (22) e Unione delle Armi (23) al mazzo Corte."
+"2. Aggiungi Lega dei Navigatori (22) e Lega dei Combattenti (23) al mazzo Corte."
 ]
 },
 "477_08.jpg": {
@@ -120,13 +120,13 @@ null
 },
 "477_13.jpg": {
 "g": [
-"UNIONE DELLE ARMI",
+"LEGA DEI COMBATTENTI",
 "*Preludio:* puoi mettere questa carta accanto a una carta Aggressione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
 ]
 },
 "477_14.jpg": {
 "g": [
-"UNIONE DEI TRASPORTI",
+"LEGA DEI NAVIGATORI",
 "*Preludio:* puoi mettere questa carta accanto a una carta Mobilitazione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
 ]
 },
@@ -178,9 +178,9 @@ null
 "*Se hai completato il tuo obiettivo:*",
 "1. Aggiungi le 5 carte Leali (05-09) al mazzo Corte.",
 "2. Prendi Bardi Galattici (10).",
-"3. Elimina Unione dei Trasporti (11), Unione delle Armi (12) e i 2 L'Oltraggio Dilaga (13-14).",
+"3. Elimina Lega dei Navigatori (11), Lega dei Combattenti (12) e i 2 L'Oltraggio Dilaga (13-14).",
 "*Se non hai completato il tuo obiettivo:* / 1. Elimina le 5 carte Leali (05-09).",
-"2. Aggiungi Bardi Galattici (10), Unione dei Trasporti (11), Unione delle Armi (12) e i 2 L'Oltraggio Dilaga (13-14) al mazzo Corte.",
+"2. Aggiungi Bardi Galattici (10), Lega dei Navigatori (11), Lega dei Combattenti (12) e i 2 L'Oltraggio Dilaga (13-14) al mazzo Corte.",
 "3. Elimina la tua carta Sottrazione Partigiana (03) e rimuovi tutti i tuoi Oltraggi."
 ]
 },

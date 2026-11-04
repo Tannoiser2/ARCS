@@ -43,14 +43,14 @@ null
 "EMPATIA PER TUTTI",
 "_Infila questa carta in parte sotto l'area delle carte giocate della mappa._",
 "Quando un giocatore danneggia qualcosa su un pianeta che corrisponde a una risorsa che possiede, Reca Oltraggio del tipo di quel pianeta.",
-"_In battaglia, risolvi questo alla fine dell'assegnazione dei colpi e prima della razzia._"
+"_In combattimento, risolvi questo alla fine dell'assegnazione dei colpi e prima della razzia._"
 ]
 },
 "472_03.jpg": {
 "g": [
 "EMPATIA PER TUTTI",
 "",
-"_Nelle battaglie, risolvi questo alla fine dell'assegnazione dei colpi e prima della razzia._"
+"_Nei combattimenti, risolvi questo alla fine dell'assegnazione dei colpi e prima della razzia._"
 ],
 "extra": [
 {
@@ -117,7 +117,7 @@ null,
 "472_09.jpg": {
 "g": [
 "POZZO DI EMPATIA",
-"Quando difendi in battaglia, se prendi Trofei, restituiscili e ottieni 1 Psicoenergia per ogni Trofeo restituito.",
+"Quando difendi in combattimento, se prendi Trofei, restituiscili e ottieni 1 Psicoenergia per ogni Trofeo restituito.",
 "Puoi tenere qui un numero qualsiasi di Psicoenergia. Il loro costo di razzia è di 2 ciascuna."
 ]
 },
@@ -147,7 +147,7 @@ null,
 662,
 530
 ],
-"t": "Quando muovi navi con un movimento Catapulta, puoi muovere i Testimoni insieme a loro.",
+"t": "Quando muovi navi con un movimento con la Fionda, puoi muovere i Testimoni insieme a loro.",
 "size": 32
 }
 ]

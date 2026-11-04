@@ -25,15 +25,15 @@ null
 "436_02.jpg": {
 "g": [
 "LA PIAGA INCOMBE",
-"*Crisi:* ripara tutta la Piaga nell'ammasso tirato. Metti 1 Piaga danneggiata su ogni pianeta del simbolo tirato senza Piaga. Seppellisci questa carta.",
-"*Appena Acquisita:* puoi distruggere tutta la Piaga danneggiata in un ammasso con pezzi Leali. Seppellisci questa carta."
+"*Crisi:* ripara tutta la Piaga nel settore tirato. Metti 1 Piaga danneggiata su ogni pianeta del simbolo tirato senza Piaga. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi distruggere tutta la Piaga danneggiata in un settore con pezzi Leali. Seppellisci questa carta."
 ]
 },
 "436_03.jpg": {
 "g": [
 "PANICO DA PIAGA",
 "*Crisi:* in ordine di turno, ogni giocatore deve ritirare 1 agente Leale dalla Corte per ogni Piaga su un suo edificio Leale o sulla sua Ammiraglia. Seppellisci questa carta.",
-"*Appena Acquisita:* distruggi tutta la Piaga danneggiata in un ammasso con pezzi Leali, prendendola come Trofei. Seppellisci questa carta."
+"*Appena Acquisita:* distruggi tutta la Piaga danneggiata in un settore con pezzi Leali, prendendola come Trofei. Seppellisci questa carta."
 ]
 },
 "436_04.jpg": {
@@ -120,14 +120,14 @@ null
 "436_08.jpg": {
 "g": [
 "CACCIATORI DELLA PIAGA",
-"Quando attacchi in battaglia, puoi danneggiare e distruggere la Piaga infliggendo solo 1 colpo (invece di 2)."
+"Quando attacchi in combattimento, puoi danneggiare e distruggere la Piaga infliggendo solo 1 colpo (invece di 2)."
 ]
 },
 "436_09.jpg": {
 "g": [
 "FURIA DELLA PIAGA",
 null,
-"Puoi muovere e riparare la Piaga che controlli. _(Non può fare movimenti Catapulta. Non è Leale.)_ / *Ira (Combattere):* tira il dado numerico. Per ogni Psicoenergia che spendi, cambia il risultato di 1 (dopo il \"6\" viene \"1\" e viceversa). Avviene una Crisi della Piaga in ogni sistema dell'ammasso tirato."
+"Puoi muovere e riparare la Piaga che controlli. _(Non può fare movimenti con la Fionda. Non è Leale.)_ / *Ira (Combattere):* tira il dado numerico. Per ogni Psicoenergia che spendi, cambia il risultato di 1 (dopo il \"6\" viene \"1\" e viceversa). Avviene una Crisi della Piaga in ogni sistema del settore tirato."
 ]
 },
 "436_10.jpg": {
@@ -142,7 +142,7 @@ null,
 "436_11.jpg": {
 "g": [
 "NAVI SPORA",
-"Quando svolgi un movimento Catapulta, la Piaga non lo interrompe più.",
+"Quando svolgi un movimento con la Fionda, la Piaga non lo interrompe più.",
 "*Generare (Costruire):* danneggia 1 Piaga integra che controlli per mettere 1 Piaga danneggiata nello stesso sistema."
 ]
 },

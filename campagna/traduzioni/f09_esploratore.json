@@ -109,9 +109,9 @@ null
 "g": [
 "INDIZI DEL PORTALE",
 "L'Esploratore può farti mettere un segnalino Indizio su un pianeta. Se non ne hai nella riserva, prendilo dalla mappa.",
-"Metti l'Indizio sul lato Spunta se il pianeta è nell'ammasso giusto o ha il simbolo identificativo giusto (A/B/C).",
+"Metti l'Indizio sul lato Spunta se il pianeta è nel settore giusto o ha il simbolo identificativo giusto (A/B/C).",
 "",
-"Metti l'Indizio sul lato X se il pianeta non è nell'ammasso giusto e non ha il simbolo identificativo giusto (A/B/C).",
+"Metti l'Indizio sul lato X se il pianeta non è nel settore giusto e non ha il simbolo identificativo giusto (A/B/C).",
 "",
 "Se la sua Ammiraglia è sul pianeta giusto, metti invece il segnalino Portale. Elimina tutti gli Indizi, questa carta e la carta Scoprire Indizi.",
 "_Non puoi discutere del sistema del Portale né fare allusioni. Puoi solo mettere questi segnalini come descritto._"
@@ -120,9 +120,9 @@ null
 "433_09.jpg": {
 "g": [
 "SCOPRIRE INDIZI",
-"*Preludio:* se la tua Ammiraglia è su un pianeta senza segnalino Indizio, puoi spendere 1 risorsa diversa da tutti i pianeti del suo ammasso per far mettere al giocatore alla tua destra 1 segnalino Indizio sul pianeta. Ottieni 1 risorsa del tipo del pianeta per ogni città lì, e metti lì 2 navi per ogni porto stellare lì.",
-"Un Indizio Spunta significa che il pianeta è nell'ammasso giusto o ha il simbolo identificativo giusto (A/B/C).",
-"Un Indizio X significa che il pianeta non è nell'ammasso giusto e non ha il simbolo identificativo giusto (A/B/C).",
+"*Preludio:* se la tua Ammiraglia è su un pianeta senza segnalino Indizio, puoi spendere 1 risorsa diversa da tutti i pianeti del suo settore per far mettere al giocatore alla tua destra 1 segnalino Indizio sul pianeta. Ottieni 1 risorsa del tipo del pianeta per ogni città lì, e metti lì 2 navi per ogni spazioporto lì.",
+"Un Indizio Spunta significa che il pianeta è nel settore giusto o ha il simbolo identificativo giusto (A/B/C).",
+"Un Indizio X significa che il pianeta non è nel settore giusto e non ha il simbolo identificativo giusto (A/B/C).",
 "",
 "Un segnalino Portale significa che hai trovato il Portale! _(Completi il tuo obiettivo.)_"
 ],
@@ -139,10 +139,10 @@ null
 "g": [
 "1. *Ottieni un'Ammiraglia:* prendi una plancia Ammiraglia e preparala come descritto sul retro.",
 "",
-"2. Metti 1 porto stellare sulla tua Miglioria Propulsore a Scia. Metti 1 città sulla tua Miglioria Scafo.",
+"2. Metti 1 spazioporto sulla tua Miglioria Propulsore a Scia. Metti 1 città sulla tua Miglioria Scafo.",
 "",
 "3. Prendi la carta Scoprire Indizi (02).",
-"4. Il giocatore alla tua destra scrive di nascosto il numero dell'ammasso e il simbolo identificativo (A/B/C) di un pianeta qualsiasi della mappa.",
+"4. Il giocatore alla tua destra scrive di nascosto il numero del settore e il simbolo identificativo (A/B/C) di un pianeta qualsiasi della mappa.",
 "",
 "",
 "",

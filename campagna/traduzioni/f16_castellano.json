@@ -1,7 +1,7 @@
 {
 "488_00.jpg": {
 "g": [
-"*Risolvi questo per ogni Feudo, a partire dall'Ammasso 1 e procedendo in senso orario:* il Signore del Feudo ottiene 3 Potere. Poi, se il segnalino Corte del Feudo è su una carta della Corte, il Signore del Feudo può influenzare o acquisire quella carta."
+"*Risolvi questo per ogni Feudo, a partire dal Settore 1 e procedendo in senso orario:* il Signore del Feudo ottiene 3 Potere. Poi, se il segnalino Corte del Feudo è su una carta della Corte, il Signore del Feudo può influenzare o acquisire quella carta."
 ],
 "titolo": "I SIGNORI OTTENGONO POTERE",
 "titolo_box": [
@@ -93,7 +93,7 @@
 },
 "488_03.jpg": {
 "g": [
-"I Rivali non possono rubare le tue risorse e le tue altre carte Gilda. _(In battaglia possono rubare prima questa carta e poi pagare 1 chiave.)_",
+"I Rivali non possono rubare le tue risorse e le tue altre carte Gilda. _(In combattimento possono rubare prima questa carta e poi pagare 1 chiave.)_",
 "Se questa carta viene rubata, seppelliscila. _(Mettila in fondo al mazzo Corte.)_"
 ],
 "extra": [
@@ -112,8 +112,8 @@
 },
 "488_04.jpg": {
 "g": [
-"SCHERMAGLIATORI",
-"Dopo aver tirato in battaglia, puoi ritirare un numero di dadi schermaglia fino al totale delle tue icone Armi di risorse e carte.",
+"INCURSORI",
+"Dopo aver tirato in combattimento, puoi ritirare un numero di dadi Incursione fino al totale delle tue icone Armi di risorse e carte.",
 "*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
 ]
 },
@@ -128,19 +128,19 @@
 "488_07.jpg": {
 "g": [
 "LEVA DEL CASTELLANO",
-"*Arruolare (Tassare):* metti qui 1 nave dalla riserva di un Vassallo. Questa carta può contenere al massimo 1 nave di un Vassallo per ogni Feudo in cui sei suo Signore. / Quando attacchi in battaglia, le navi su questa carta devono subire per prime i colpi. Rimetti qui le navi distrutte: non vengono prese come Trofei."
+"*Arruolare (Tassare):* metti qui 1 nave dalla riserva di un Vassallo. Questa carta può contenere al massimo 1 nave di un Vassallo per ogni Feudo in cui sei suo Signore. / Quando attacchi in combattimento, le navi su questa carta devono subire per prime i colpi. Rimetti qui le navi distrutte: non vengono prese come Trofei."
 ]
 },
 "488_08.jpg": {
 "g": [
 "",
 "*Se hai completato il tuo obiettivo:* / 1. Prendi Leva del Castellano (12). / 2. Aggiungi 2 Giorni di Festa (13-14) al mazzo Corte.",
-"3. Elimina Schermagliatori (15) e Guardiani Giurati (16).",
+"3. Elimina Incursori (15) e Guardiani Giurati (16).",
 "*Se non hai completato il tuo obiettivo:*",
 "1. Elimina Pretese di Nobiltà (02) e tutti i segnalini Seggio che non sono sulla mappa.",
 "2. Elimina tutte le carte titolo Signore (03-08) corrispondenti ai segnalini Seggio eliminati.",
 "3. Elimina Leva del Castellano (12) e i 2 Giorni di Festa (13-14).",
-"4. Aggiungi Schermagliatori (15) e Guardiani Giurati (16) al mazzo Corte."
+"4. Aggiungi Incursori (15) e Guardiani Giurati (16) al mazzo Corte."
 ]
 },
 "488_09.jpg": {
@@ -148,7 +148,7 @@
 "LEGGE",
 "FEUDALE",
 "Un Signore può tassare qualsiasi città del suo Feudo, ignorando il controllo. _(Prende comunque Prigionieri dalle città dei Vassalli Rivali!)_",
-"Se un Signore danneggia un suo Vassallo nel proprio Feudo, o un Vassallo danneggia il suo Signore nel suo Feudo, Reca Oltraggio con tutte le città del Feudo. _(In battaglia, risolvi questo prima della razzia.)_",
+"Se un Signore danneggia un suo Vassallo nel proprio Feudo, o un Vassallo danneggia il suo Signore nel suo Feudo, Reca Oltraggio con tutte le città del Feudo. _(In combattimento, risolvi questo prima della razzia.)_",
 "I Vassalli non Recano Oltraggio se distruggono la città di un Vassallo Rivale nel Feudo.",
 "_La Legge Feudale si attiva solo per le azioni che il Signore e i suoi Vassalli svolgono nel Feudo in cui hanno quel rapporto, non in altri Feudi! Nell'Atto III, usare la carta Leva del Castellano non conta come danneggiare un tuo Vassallo._"
 ]
@@ -158,7 +158,7 @@
 "SEGGI E FEUDI",
 "I giocatori possono aggiungere segnalini Seggio alle città con la carta Pretese di Nobiltà.",
 null,
-"Finché una città ha un segnalino Seggio, il suo giocatore è Signore del suo ammasso, che è il Feudo del Signore. Prende la carta titolo Signore (03-08) di quell'ammasso.",
+"Finché una città ha un segnalino Seggio, il suo giocatore è Signore del suo settore, che è il Feudo del Signore. Prende la carta titolo Signore (03-08) di quel settore.",
 "I Rivali del Signore che hanno una città Leale o un'Ammiraglia nel Feudo del Signore sono Vassalli del Signore solo in quel Feudo.",
 "Se una città con un Seggio viene distrutta, rimetti nella riserva il suo Seggio e la carta titolo Signore corrispondente.",
 "_La carta Legge Feudale descrive il rapporto tra Signori e Vassalli._"
@@ -168,7 +168,7 @@ null,
 "g": [
 "PRETESE DI NOBILTÀ",
 "*Crisi:* il giocatore che ha questa carta deve svolgere l'azione Rivendicare un Feudo.",
-"*Rivendicare un Feudo (Tassare):* attacca questa carta a una carta della Corte. Puoi mettere un segnalino Seggio sopra una città Leale che controlli in un ammasso senza Seggio."
+"*Rivendicare un Feudo (Tassare):* attacca questa carta a una carta della Corte. Puoi mettere un segnalino Seggio sopra una città Leale che controlli in un settore senza Seggio."
 ]
 },
 "488_18.jpg": {
@@ -242,10 +242,10 @@ null,
 "*_Infilala sotto la tua carta Destino._*",
 "",
 "",
-"Puoi *tassare* qualsiasi città dell'Ammasso 6, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
-"Se *danneggi* un Vassallo nell'Ammasso 6, o un Vassallo danneggia te nell'Ammasso 6, chi ha danneggiato Reca Oltraggio con *tutte le città* dell'Ammasso 6."
+"Puoi *tassare* qualsiasi città del Settore 6, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
+"Se *danneggi* un Vassallo nel Settore 6, o un Vassallo danneggia te nel Settore 6, chi ha danneggiato Reca Oltraggio con *tutte le città* del Settore 6."
 ],
-"titolo": "SIGNORE DEL SESTO AMMASSO",
+"titolo": "SIGNORE DEL SESTO SETTORE",
 "titolo_box": [
 10,
 30,
@@ -265,7 +265,7 @@ null,
 398,
 442
 ],
-"t": "Sei il *Signore* dell'Ammasso 6. / I Rivali con una città Leale o un'Ammiraglia nell'Ammasso 6 sono tuoi *Vassalli* nell'Ammasso 6.",
+"t": "Sei il *Signore* del Settore 6. / I Rivali con una città Leale o un'Ammiraglia nel Settore 6 sono tuoi *Vassalli* nel Settore 6.",
 "size": 27
 }
 ],
@@ -282,10 +282,10 @@ null,
 "g": [
 "*_Infilala sotto la tua carta Destino._*",
 "",
-"Puoi *tassare* qualsiasi città dell'Ammasso 5, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
-"Se *danneggi* un Vassallo nell'Ammasso 5, o un Vassallo danneggia te nell'Ammasso 5, chi ha danneggiato Reca Oltraggio con *tutte le città* dell'Ammasso 5."
+"Puoi *tassare* qualsiasi città del Settore 5, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
+"Se *danneggi* un Vassallo nel Settore 5, o un Vassallo danneggia te nel Settore 5, chi ha danneggiato Reca Oltraggio con *tutte le città* del Settore 5."
 ],
-"titolo": "SIGNORE DEL QUINTO AMMASSO",
+"titolo": "SIGNORE DEL QUINTO SETTORE",
 "titolo_box": [
 10,
 30,
@@ -305,7 +305,7 @@ null,
 398,
 442
 ],
-"t": "Sei il *Signore* dell'Ammasso 5. / I Rivali con una città Leale o un'Ammiraglia nell'Ammasso 5 sono tuoi *Vassalli* nell'Ammasso 5.",
+"t": "Sei il *Signore* del Settore 5. / I Rivali con una città Leale o un'Ammiraglia nel Settore 5 sono tuoi *Vassalli* nel Settore 5.",
 "size": 27
 }
 ],
@@ -322,10 +322,10 @@ null,
 "g": [
 "*_Infilala sotto la tua carta Destino._*",
 "",
-"Puoi *tassare* qualsiasi città dell'Ammasso 4, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
-"Se *danneggi* un Vassallo nell'Ammasso 4, o un Vassallo danneggia te nell'Ammasso 4, chi ha danneggiato Reca Oltraggio con *tutte le città* dell'Ammasso 4."
+"Puoi *tassare* qualsiasi città del Settore 4, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
+"Se *danneggi* un Vassallo nel Settore 4, o un Vassallo danneggia te nel Settore 4, chi ha danneggiato Reca Oltraggio con *tutte le città* del Settore 4."
 ],
-"titolo": "SIGNORE DEL QUARTO AMMASSO",
+"titolo": "SIGNORE DEL QUARTO SETTORE",
 "titolo_box": [
 10,
 30,
@@ -345,7 +345,7 @@ null,
 398,
 442
 ],
-"t": "Sei il *Signore* dell'Ammasso 4. / I Rivali con una città Leale o un'Ammiraglia nell'Ammasso 4 sono tuoi *Vassalli* nell'Ammasso 4.",
+"t": "Sei il *Signore* del Settore 4. / I Rivali con una città Leale o un'Ammiraglia nel Settore 4 sono tuoi *Vassalli* nel Settore 4.",
 "size": 27
 }
 ],
@@ -364,10 +364,10 @@ null,
 "",
 null,
 "",
-"Puoi *tassare* qualsiasi città dell'Ammasso 3, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
-"Se *danneggi* un Vassallo nell'Ammasso 3, o un Vassallo danneggia te nell'Ammasso 3, chi ha danneggiato Reca Oltraggio con *tutte le città* dell'Ammasso 3."
+"Puoi *tassare* qualsiasi città del Settore 3, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
+"Se *danneggi* un Vassallo nel Settore 3, o un Vassallo danneggia te nel Settore 3, chi ha danneggiato Reca Oltraggio con *tutte le città* del Settore 3."
 ],
-"titolo": "SIGNORE DEL TERZO AMMASSO",
+"titolo": "SIGNORE DEL TERZO SETTORE",
 "titolo_box": [
 10,
 30,
@@ -387,7 +387,7 @@ null,
 398,
 442
 ],
-"t": "Sei il *Signore* dell'Ammasso 3. / I Rivali con una città Leale o un'Ammiraglia nell'Ammasso 3 sono tuoi *Vassalli* nell'Ammasso 3.",
+"t": "Sei il *Signore* del Settore 3. / I Rivali con una città Leale o un'Ammiraglia nel Settore 3 sono tuoi *Vassalli* nel Settore 3.",
 "size": 27
 }
 ],
@@ -404,10 +404,10 @@ null,
 "g": [
 "*_Infilala sotto la tua carta Destino._*",
 "",
-"Puoi *tassare* qualsiasi città dell'Ammasso 2, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
-"Se *danneggi* un Vassallo nell'Ammasso 2, o un Vassallo danneggia te nell'Ammasso 2, chi ha danneggiato Reca Oltraggio con *tutte le città* dell'Ammasso 2."
+"Puoi *tassare* qualsiasi città del Settore 2, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
+"Se *danneggi* un Vassallo nel Settore 2, o un Vassallo danneggia te nel Settore 2, chi ha danneggiato Reca Oltraggio con *tutte le città* del Settore 2."
 ],
-"titolo": "SIGNORE DEL SECONDO AMMASSO",
+"titolo": "SIGNORE DEL SECONDO SETTORE",
 "titolo_box": [
 10,
 30,
@@ -427,7 +427,7 @@ null,
 398,
 442
 ],
-"t": "Sei il *Signore* dell'Ammasso 2. / I Rivali con una città Leale o un'Ammiraglia nell'Ammasso 2 sono tuoi *Vassalli* nell'Ammasso 2.",
+"t": "Sei il *Signore* del Settore 2. / I Rivali con una città Leale o un'Ammiraglia nel Settore 2 sono tuoi *Vassalli* nel Settore 2.",
 "size": 27
 }
 ],
@@ -445,10 +445,10 @@ null,
 "*_Infilala sotto la tua carta Destino._*",
 "",
 "",
-"Puoi *tassare* qualsiasi città dell'Ammasso 1, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
-"Se *danneggi* un Vassallo nell'Ammasso 1, o un Vassallo danneggia te nell'Ammasso 1, chi ha danneggiato Reca Oltraggio con *tutte le città* dell'Ammasso 1."
+"Puoi *tassare* qualsiasi città del Settore 1, ignorando il controllo. _(Prendi Prigionieri se tassi le città dei tuoi Vassalli!)_",
+"Se *danneggi* un Vassallo nel Settore 1, o un Vassallo danneggia te nel Settore 1, chi ha danneggiato Reca Oltraggio con *tutte le città* del Settore 1."
 ],
-"titolo": "SIGNORE DEL PRIMO AMMASSO",
+"titolo": "SIGNORE DEL PRIMO SETTORE",
 "titolo_box": [
 10,
 30,
@@ -468,7 +468,7 @@ null,
 398,
 442
 ],
-"t": "Sei il *Signore* dell'Ammasso 1. / I Rivali con una città Leale o un'Ammiraglia nell'Ammasso 1 sono tuoi *Vassalli* nell'Ammasso 1.",
+"t": "Sei il *Signore* del Settore 1. / I Rivali con una città Leale o un'Ammiraglia nel Settore 1 sono tuoi *Vassalli* nel Settore 1.",
 "size": 27
 }
 ],

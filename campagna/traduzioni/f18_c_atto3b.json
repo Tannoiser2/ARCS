@@ -268,7 +268,7 @@ null,
 },
 "446_01.jpg": {
 "g": [
-"*Seminare (Costruire):* tira il dado numerico. Per ogni agente Leale che scegli di ritirare dalla Corte, cambia il risultato di 1 (dopo il \"6\" viene \"1\" e viceversa). Nell'ammasso tirato, metti 1 Piaga danneggiata in un sistema senza Piaga."
+"*Seminare (Costruire):* tira il dado numerico. Per ogni agente Leale che scegli di ritirare dalla Corte, cambia il risultato di 1 (dopo il \"6\" viene \"1\" e viceversa). Nelil settore tirato, metti 1 Piaga danneggiata in un sistema senza Piaga."
 ],
 "extra": [
 {
@@ -287,7 +287,7 @@ null,
 "446_02.jpg": {
 "g": [
 "SOCIETÀ DELLA PIAGA",
-"Puoi riparare e muovere la Piaga che controlli. _(Non può fare movimenti Catapulta. Non è Leale.)_",
+"Puoi riparare e muovere la Piaga che controlli. _(Non può fare movimenti con la Fionda. Non è Leale.)_",
 "Se danneggi o distruggi una Piaga, elimina 1 agente Leale dalla tua riserva.",
 "Nelle Crisi della Piaga, puoi spendere 1 Psicoenergia per impedirle in tutti i sistemi con navi Leali."
 ]

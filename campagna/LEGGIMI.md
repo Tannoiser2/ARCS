@@ -11,11 +11,18 @@ immagini inglesi del modulo TTS.
 4. `tools/campagna/rendi_it.py` cancella il testo inglese (solo i tratti delle lettere: lo sfondo resta) e scrive
    quello italiano con i font del gioco.
 5. `tools/campagna/stampa.py SET` mostra i paragrafi ancora da tradurre di un Destino.
+6. Le carte Destino B e C (trame 217 e 218) si ricompongono con `tools/campagna/rendi_trame.py` da `traduzioni_trame/`.
+7. Altre chiavi: `extra` (riquadri aggiuntivi), `ripristina` (zone dell'illustrazione da rimettere com'erano),
+   `libero` (ogni paragrafo con la propria misura), `complessita`, `titolo_col`; un paragrafo che inizia con `~`
+   usa la propria misura.
+8. Le immagini finali, ridotte e senza doppioni, stanno in `img/` con l'elenco `carte.json`; il gioco le carica dal sito.
 
 Glossario: Regent = Reggente, Outlaw = Fuorilegge, First Regent = Primo Reggente, Imperial Trust = Tesoro Imperiale,
 Favor = Favore, Summit = Vertice, Crisis = Crisi, Edict = Editto, Blight = Piaga, Free city = città Libera,
 Flagship = Ammiraglia, Fate = Destino, Act = Atto, Intermission = Intervallo, objective = obiettivo,
 grand ambition = grande ambizione, scrap = elimina, bury = seppellisci, Imperial Council = Consiglio Imperiale.
+Termini del gioco base come nell'edizione italiana MS Edizioni: cluster = settore, starport = spazioporto,
+Catapult = Fionda (movimento con la Fionda), skirmish dice = dadi Incursione, battle = combattere/combattimento.
 Destini: Steward = Siniscalco, Founder = Fondatore, Magnate = Magnate, Advocate = Patrocinatore,
 Caretaker = Curatore, Partisan = Partigiano, Admiral = Ammiraglio, Believer = Credente, Pathfinder = Esploratore,
 Hegemon = Egemone, Planet Breaker = Distruttore di Pianeti, Pirate = Pirata, Blight Speaker = Voce della Piaga,

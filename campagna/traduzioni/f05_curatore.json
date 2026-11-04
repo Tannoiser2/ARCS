@@ -131,7 +131,7 @@ null,
 "429_12.jpg": {
 "g": [
 "CERCATORE INSTABILE",
-"*Crisi:* il giocatore che ha il Cercatore muove le sue navi Leali dai pianeti del simbolo tirato al portale dell'ammasso tirato.",
+"*Crisi:* il giocatore che ha il Cercatore muove le sue navi Leali dai pianeti del simbolo tirato al portale del settore tirato.",
 "*Appena Acquisita:* gira il Cercatore sul lato Desto e prendilo. Scarta questa carta."
 ]
 },
@@ -159,7 +159,7 @@ null,
 "*Preludio:* puoi spendere i tuoi Golem Desti per svolgere, se vuoi, le loro azioni.",
 "*Guerriero:* distruggi tutte le navi danneggiate in un sistema. _(Le navi Leali tornano nella tua riserva.)_",
 "*Protettore:* ripara le navi che vuoi. _(Anche 1 Potenziamento o Corazza con un'Ammiraglia.)_",
-"*Cercatore:* svolgi un movimento Catapulta da un sistema.",
+"*Cercatore:* svolgi un movimento con la Fionda da un sistema.",
 "*Raccoglitore:* ottieni una risorsa qualsiasi."
 ]
 },
@@ -270,7 +270,7 @@ null,
 478,
 305
 ],
-"t": "2. Mescola i 4 segnalini Golem Dormienti. Mettine uno, sul lato Dormiente, su ogni portale degli ammassi senza navi Imperiali."
+"t": "2. Mescola i 4 segnalini Golem Dormienti. Mettine uno, sul lato Dormiente, su ogni portale dei settori senza navi Imperiali."
 }
 ],
 "ripristina": [

@@ -4,7 +4,7 @@
 "LEGGE MARZIALE",
 "_Infila questa carta sotto l'area delle carte giocate._",
 "I Reggenti, tranne l'Ammiraglio, seguono queste regole se non hanno Ufficiali Imperiali o Ammiragli Rinnegati: / • Non puoi Comandare la Flotta Imperiale. / • Se sei il Primo Reggente, non controlli i sistemi controllati dall'Impero per ambizioni, obiettivi ed eventi.",
-"Quando svolgi un movimento Catapulta, il controllo dei portali da parte dell'Impero termina il tuo movimento."
+"Quando svolgi un movimento con la Fionda, il controllo dei portali da parte dell'Impero termina il tuo movimento."
 ]
 },
 "479_01.jpg": {
@@ -13,7 +13,7 @@
 "I Reggenti, tranne l'Ammiraglio, seguono queste regole se non hanno Ufficiali Imperiali o Ammiragli Rinnegati:",
 "• Non puoi Comandare la Flotta Imperiale. _(Nel tuo turno non controlli i sistemi dell'Impero e non puoi usare le navi Imperiali.)_",
 "• Se sei il Primo Reggente, non controlli i sistemi dell'Impero per ambizioni, obiettivi ed eventi.",
-"• Nel movimento Catapulta, i portali controllati dall'Impero fermano il tuo movimento."
+"• Nel movimento con la Fionda, i portali controllati dall'Impero fermano il tuo movimento."
 ]
 },
 "479_02.jpg": {
@@ -41,28 +41,28 @@
 "g": [
 "RIVOLTA DI MASSA",
 "*Crisi:* distruggi tutte le navi danneggiate. Seppellisci questa carta.",
-"*Appena Acquisita:* scegli un ammasso della mappa. Metti 1 tua nave in ogni sistema di quell'ammasso. Scarta questa carta."
+"*Appena Acquisita:* scegli un settore della mappa. Metti 1 tua nave in ogni sistema di quel settore. Scarta questa carta."
 ]
 },
 "479_04.jpg": {
 "g": [
 "RIVOLTA DI MASSA",
 "*Crisi:* distruggi tutte le navi danneggiate. Seppellisci questa carta.",
-"*Appena Acquisita:* scegli un ammasso della mappa. Metti 1 tua nave in ogni sistema di quell'ammasso. Scarta questa carta."
+"*Appena Acquisita:* scegli un settore della mappa. Metti 1 tua nave in ogni sistema di quel settore. Scarta questa carta."
 ]
 },
 "479_05.jpg": {
 "g": [
 "DISERTORI IMPERIALI",
-"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
-"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+"*Crisi:* nel settore tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un settore a tua scelta."
 ]
 },
 "479_06.jpg": {
 "g": [
 "DISERTORI IMPERIALI",
-"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
-"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+"*Crisi:* nel settore tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un settore a tua scelta."
 ]
 },
 "479_07.jpg": {
@@ -97,7 +97,7 @@ null,
 "",
 "Alla fine di un capitolo, se sei Reggente, avanza di 1 per ogni pianeta controllato dall'Impero.",
 "Schiacciare i Nemici dell'Impero",
-"Finché sei Reggente, avanza di 2 per ogni pezzo Fuorilegge che prendi come Trofeo in battaglia.",
+"Finché sei Reggente, avanza di 2 per ogni pezzo Fuorilegge che prendi come Trofeo in combattimento.",
 "_A differenza dell'Atto I, non avanzi più grazie alla Piaga!_",
 "Dominare i Reggenti Rivali",
 "Finché sei Reggente, avanza di 2 per ogni agente Reggente che catturi. / _Non contano i pezzi trasferiti nei Vertici._"
@@ -107,15 +107,15 @@ null,
 "479_10.jpg": {
 "g": [
 "DISERTORI IMPERIALI",
-"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
-"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+"*Crisi:* nel settore tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un settore a tua scelta."
 ]
 },
 "479_11.jpg": {
 "g": [
 "DISERTORI IMPERIALI",
-"*Crisi:* nell'ammasso tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
-"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un ammasso a tua scelta."
+"*Crisi:* nel settore tirato, sostituisci le navi Imperiali con navi del primo Fuorilegge in ordine di turno. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi scartare questa carta o risolvere la Crisi in un settore a tua scelta."
 ]
 },
 "479_12.jpg": {
@@ -203,7 +203,7 @@ null,
 "g": [
 "",
 "",
-"Per ogni tuo porto stellare Leale, puoi sostituire 1 nave Leale nel suo sistema con 1 nave Imperiale.",
+"Per ogni tuo spazioporto Leale, puoi sostituire 1 nave Leale nel suo sistema con 1 nave Imperiale.",
 "_Se sei l'Ammiraglio, ricordati di avanzare nel tuo obiettivo se stai vincendo un'ambizione!_"
 ],
 "titolo": "USARE LE FONDERIE IMPERIALI",
@@ -255,7 +255,7 @@ null,
 "",
 "_Le navi Imperiali si mettono con gli Editti Usare le Fonderie Imperiali e Governare l'Orlo Imperiale (Politica di Escalation)._",
 "Dimostrare la Potenza della Marina",
-"Finché sei Reggente, avanza di 1 per ogni Trofeo che prendi in battaglia attaccando con navi Imperiali. / _Per avanzare puoi combattere la Piaga, le città Libere e i Fuorilegge._",
+"Finché sei Reggente, avanza di 1 per ogni Trofeo che prendi in combattimento attaccando con navi Imperiali. / _Per avanzare puoi combattere la Piaga, le città Libere e i Fuorilegge._",
 "_Puoi attaccare sia con navi Leali sia con navi Imperiali, e la nave Imperiale può essere distrutta._"
 ],
 "fascia": "AMMIRAGLIO - ATTO I"

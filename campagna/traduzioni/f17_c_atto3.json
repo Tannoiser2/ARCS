@@ -10,7 +10,7 @@
 "456_01.jpg": {
 "g": [
 "PASSAGGI E IL PASSAGGIO CONTORTO",
-"Lo Spettro dei Portali può usare i movimenti Catapulta per mettere segnalini Passaggio sui portali.",
+"Lo Spettro dei Portali può usare i movimenti con la Fionda per mettere segnalini Passaggio sui portali.",
 "Il centro della mappa ora è un portale chiamato Passaggio Contorto.",
 "I portali con segnalini Passaggio sono fuori gioco: i pezzi che vi andrebbero messi vanno invece nel Passaggio Contorto.",
 "Puoi muovere dai sistemi adiacenti ai portali con un Passaggio al Passaggio Contorto.",
@@ -33,7 +33,7 @@
 "SPEZZARE PORTALI E APRIRE PASSAGGI",
 "",
 "1. Metti un segnalino Passaggio sul portale in cui ti sei mosso.",
-"2. Distruggi gli edifici usati per la Catapulta: il porto stellare sulla mappa, oppure il Propulsore a Scia e la Corazza della tua Ammiraglia. Non prenderli come Trofei.",
+"2. Distruggi gli edifici usati per la Fionda: il spazioporto sulla mappa, oppure il Propulsore a Scia e la Corazza della tua Ammiraglia. Non prenderli come Trofei.",
 "3. Metti tutte le navi e i segnalini del portale nel Passaggio Contorto, l'area centrale della mappa. Distruggi tutti gli edifici sul portale, ma non prenderli come Trofei."
 ],
 "ripristina": [
@@ -52,7 +52,7 @@
 392,
 345
 ],
-"t": "Quando fai un movimento Catapulta da un pianeta al portale dello stesso ammasso, fai quanto segue.",
+"t": "Quando fai un movimento con la Fionda da un pianeta al portale dello stesso settore, fai quanto segue.",
 "size": 27
 }
 ]
@@ -60,7 +60,7 @@
 "456_04.jpg": {
 "g": [
 null,
-"Quando fai un movimento Catapulta nel Passaggio Contorto, puoi proseguire il movimento ignorando il controllo e la Piaga."
+"Quando fai un movimento con la Fionda verso il Passaggio Contorto, puoi proseguire il movimento ignorando il controllo e la Piaga."
 ],
 "extra": [
 {
@@ -70,7 +70,7 @@ null,
 584,
 526
 ],
-"t": "CATAPULTA POTENZIATA",
+"t": "FIONDA POTENZIATA",
 "titolo": true,
 "size": 42
 },
@@ -81,7 +81,7 @@ null,
 560,
 642
 ],
-"t": "Puoi fare movimenti Catapulta con i porti stellari Rivali che controlli.",
+"t": "Puoi fare movimenti con la Fionda con i spazioporti Rivali che controlli.",
 "size": 26
 }
 ]
@@ -90,7 +90,7 @@ null,
 "g": [
 "1. Se hai un'Ammiraglia, puoi Ricollocarti come descritto sul retro della plancia Ammiraglia.",
 "",
-"2. Prendi Catapulta Potenziata (02) e Spezzare Portali e Aprire Passaggi (03).",
+"2. Prendi Fionda Potenziata (02) e Spezzare Portali e Aprire Passaggi (03).",
 "",
 "3. Raccogli i 6 segnalini Passaggio. Mettine uno su un portale qualsiasi. Risolvi il passo 3 di Spezzare Portali e Aprire Passaggi (03).",
 "4. Tira il dado evento e mettilo nell'area centrale della mappa.",
@@ -424,8 +424,8 @@ null,
 "",
 "Se sei un Rivale del Giudice, segui queste regole:",
 "Puoi svolgere azioni con le navi Leali del Giudice. _(Le sue navi non contano per il tuo controllo.)_",
-"Quando in battaglia attacchi chiunque tranne il Giudice, puoi aggiungere alle tue navi attaccanti le navi Leali del Giudice nel sistema della battaglia.",
-"Quando in battaglia attacchi il Giudice, le sue navi Leali si aggiungono ai suoi pezzi in difesa, non alle tue navi attaccanti."
+"Quando in combattimento attacchi chiunque tranne il Giudice, puoi aggiungere alle tue navi attaccanti le navi Leali del Giudice nel sistema del combattimento.",
+"Quando in combattimento attacchi il Giudice, le sue navi Leali si aggiungono ai suoi pezzi in difesa, non alle tue navi attaccanti."
 ],
 "titolo": "PRESCELTO DEL GIUDICE",
 "titolo_box": [
