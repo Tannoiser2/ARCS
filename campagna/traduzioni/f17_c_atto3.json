@@ -1,0 +1,491 @@
+{
+"456_00.jpg": {
+"g": [
+"TEMPESTE DEL PASSAGGIO",
+"*Appena Pescata:* il giocatore con l'iniziativa attacca questa carta a una carta della Corte.",
+"*Crisi:* colpisci ogni pezzo nel Passaggio Contorto. Metti questa carta sotto la prima carta del mazzo Corte.",
+"*Appena Acquisita:* muovi quante volte vuoi dal Passaggio Contorto a qualsiasi pianeta. _(Non togliere questa carta!)_"
+]
+},
+"456_01.jpg": {
+"g": [
+"PASSAGGI E IL PASSAGGIO CONTORTO",
+"Lo Spettro dei Portali può usare i movimenti Catapulta per mettere segnalini Passaggio sui portali.",
+"Il centro della mappa ora è un portale chiamato Passaggio Contorto.",
+"I portali con segnalini Passaggio sono fuori gioco: i pezzi che vi andrebbero messi vanno invece nel Passaggio Contorto.",
+"Puoi muovere dai sistemi adiacenti ai portali con un Passaggio al Passaggio Contorto.",
+"Puoi muovere dal Passaggio Contorto a qualsiasi pianeta il cui simbolo è sul dado evento. Dopo, ritira il dado evento.",
+"I giocatori non possono danneggiare i Rivali nel Passaggio Contorto. _(Le Crisi possono comunque danneggiare.)_ Le città nel Passaggio Contorto sono Psicoenergia.",
+"_Dopo il calcolo del punteggio, I Morti Vivono mette le navi distrutte nel Passaggio Contorto._"
+]
+},
+"456_02.jpg": {
+"g": [
+"I MORTI VIVONO",
+"Le navi distrutte che non vengono prese come Trofei vanno su questa carta.",
+"Dopo il calcolo del punteggio, prendi tutte le navi dai Trofei e da questa carta e mettile integre nel Passaggio Contorto.",
+"_Non importa se Generale è stata calcolata o no!_",
+"PASSAGGIO / CONTORTO"
+]
+},
+"456_03.jpg": {
+"g": [
+"SPEZZARE PORTALI E APRIRE PASSAGGI",
+"",
+"1. Metti un segnalino Passaggio sul portale in cui ti sei mosso.",
+"2. Distruggi gli edifici usati per la Catapulta: il porto stellare sulla mappa, oppure il Propulsore a Scia e la Corazza della tua Ammiraglia. Non prenderli come Trofei.",
+"3. Metti tutte le navi e i segnalini del portale nel Passaggio Contorto, l'area centrale della mappa. Distruggi tutti gli edifici sul portale, ma non prenderli come Trofei."
+],
+"ripristina": [
+[
+398,
+180,
+600,
+318
+]
+],
+"extra": [
+{
+"box": [
+46,
+195,
+392,
+345
+],
+"t": "Quando fai un movimento Catapulta da un pianeta al portale dello stesso ammasso, fai quanto segue.",
+"size": 27
+}
+]
+},
+"456_04.jpg": {
+"g": [
+null,
+"Quando fai un movimento Catapulta nel Passaggio Contorto, puoi proseguire il movimento ignorando il controllo e la Piaga."
+],
+"extra": [
+{
+"box": [
+40,
+486,
+584,
+526
+],
+"t": "CATAPULTA POTENZIATA",
+"titolo": true,
+"size": 42
+},
+{
+"box": [
+48,
+578,
+560,
+642
+],
+"t": "Puoi fare movimenti Catapulta con i porti stellari Rivali che controlli.",
+"size": 26
+}
+]
+},
+"456_05.jpg": {
+"g": [
+"1. Se hai un'Ammiraglia, puoi Ricollocarti come descritto sul retro della plancia Ammiraglia.",
+"",
+"2. Prendi Catapulta Potenziata (02) e Spezzare Portali e Aprire Passaggi (03).",
+"",
+"3. Raccogli i 6 segnalini Passaggio. Mettine uno su un portale qualsiasi. Risolvi il passo 3 di Spezzare Portali e Aprire Passaggi (03).",
+"4. Tira il dado evento e mettilo nell'area centrale della mappa.",
+"5. Metti I Morti Vivono (04) vicino alla mappa, accanto al tracciato dei capitoli.",
+"6. Aggiungi Passaggi e il Passaggio Contorto (05) al libretto delle regole. _Spiegala a tutti._",
+"7. Metti Tempeste del Passaggio (06) in cima al mazzo Corte.",
+"_Gira questa carta._"
+],
+"fascia": "SPETTRO DEI PORTALI - ATTO III",
+"ripristina": [
+[
+478,
+250,
+592,
+368
+]
+]
+},
+"456_05_r.jpg": {
+"g": [
+"",
+null,
+"*Far Crollare i Portali dell'Orlo* / Ogni volta che vinci un'ambizione, avanza di 1 per ogni segnalino Passaggio sulla mappa.",
+"Alla fine di un capitolo, se controlli il Passaggio Contorto, avanza di 1 per ogni segnalino Passaggio sulla mappa.",
+"_Verifica il controllo del Passaggio Contorto prima che i pezzi tornino da I Morti Vivono._",
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "SPETTRO DEI PORTALI - ATTO III"
+},
+"468_00.jpg": {
+"g": [
+"",
+"In ordine di turno, ogni giocatore con più Potere del Sopravvissuto fa questo: se il Sopravvissuto ha Prigionieri Leali a te, puoi scegliere un Bunker che controlli.",
+"Il Sopravvissuto deve restituire tutti quei Prigionieri oppure Recare Oltraggio del tipo del pianeta di quel Bunker."
+],
+"titolo": "RILASCIO DEI PRIGIONIERI",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+]
+},
+"468_01.jpg": {
+"g": [
+"BUNKER",
+"",
+"",
+"",
+"_Resistente._ I Bunker richiedono 2 colpi ciascuno per essere danneggiati e per essere distrutti."
+],
+"extra": [
+{
+"box": [
+46,
+195,
+392,
+428
+],
+"t": "_Il Sopravvissuto può eliminare i suoi agenti per costruire Bunker sui pianeti, che catturano agenti Rivali e gli permettono di tenere Prigionieri quando si calcola Tiranno._",
+"size": 26
+},
+{
+"box": [
+46,
+430,
+560,
+505
+],
+"t": "Quando un Rivale distrugge un Bunker, elimina 1 Prigioniero tenuto dal Sopravvissuto."
+},
+{
+"box": [
+88,
+512,
+566,
+624
+],
+"t": "_Edificio._ I Bunker possono essere *danneggiati* come gli edifici. _(Non occupano spazi edificio e non si possono razziare.)_"
+}
+],
+"ripristina": [
+[
+392,
+190,
+590,
+382
+],
+[
+24,
+505,
+88,
+575
+],
+[
+24,
+630,
+88,
+700
+]
+]
+},
+"468_02.jpg": {
+"g": [
+"COSTRUIRE BUNKER",
+"I segnalini Bunker sono tuoi pezzi Leali.",
+"Puoi *costruire* Bunker sui pianeti, al massimo 1 per pianeta. Per costruire un Bunker devi anche eliminare 1 agente dalla tua riserva.",
+"Quando costruisci un Bunker, cattura 1 agente dalla riserva di un Rivale qualsiasi. Quando un Rivale distrugge un Bunker, elimina 1 tuo Prigioniero.",
+"_Edificio._ I Bunker possono essere *danneggiati* come gli edifici. _(Non occupano spazi edificio e non si possono razziare.)_",
+"~_Resistente._ I Bunker richiedono 2 colpi ciascuno per essere danneggiati e per essere distrutti."
+],
+"ripristina": [
+[
+384,
+205,
+590,
+365
+],
+[
+22,
+570,
+82,
+628
+],
+[
+22,
+690,
+82,
+762
+]
+]
+},
+"468_03.jpg": {
+"g": [
+null,
+"Non puoi *dichiarare* l'ambizione Tiranno.",
+"Nel *calcolo del punteggio*, quando vinci un'ambizione, ottieni solo il Potere del secondo posto. Quando restituisci i Prigionieri, tieni 1 Prigioniero per ogni Bunker sulla mappa.",
+""
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "VOTO DI SOPRAVVIVENZA",
+"titolo": true,
+"size": 40
+}
+]
+},
+"468_04.jpg": {
+"g": [
+"1. Se hai un'Ammiraglia, puoi",
+"",
+"Ricollocarti come descritto sul retro della plancia Ammiraglia.",
+"2. Prendi Voto di Sopravvivenza (02). / 3. Prendi la carta Costruire Bunker (03) e raccogli i 9 segnalini Bunker sopra di essa.",
+"4. Aggiungi le carte Bunker (04)",
+"e Rilascio dei Prigionieri (05) al libretto delle regole. _Spiegale a tutti._",
+"_Gira questa carta._"
+],
+"fascia": "SOPRAVVISSUTO - ATTO III"
+},
+"468_04_r.jpg": {
+"g": [
+null,
+null,
+"Ogni volta che vinci un'ambizione, avanza di 1 per ogni tuo Prigioniero o per ogni Bunker sulla mappa, il minore dei due.",
+"Proteggere dalla Piaga",
+"Avanza di 1 ogni volta che avviene una Crisi della Piaga su un pianeta con un Bunker.",
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "SOPRAVVISSUTO - ATTO III",
+"extra": [
+{
+"box": [
+150,
+200,
+540,
+232
+],
+"t": "Tenere al Sicuro la Gente",
+"centra": true,
+"size": 25
+}
+]
+},
+"474_00.jpg": {
+"g": [
+"SVENTARE COSPIRAZIONI",
+"Il Cospiratore ha 2 segnalini Cospirazione per ogni colore dei giocatori.",
+"Quando acquisisci una carta Vox o una carta con agenti del Cospiratore, puoi provare a indovinare un segnalino Cospirazione coperto su un riquadro ambizione.",
+"Se indovini, restituiscilo al Cospiratore. Se sbagli, il Cospiratore avanza di 1."
+]
+},
+"474_01.jpg": {
+"g": [
+"CALCOLO DELLE COSPIRAZIONI",
+"Ci sono 2 Cospirazioni per ogni colore dei giocatori.",
+"Dopo il calcolo delle ambizioni, rivela tutte le Cospirazioni sulle ambizioni calcolate.",
+"• Il Cospiratore avanza di 1 per ogni Cospirazione ancora non rivelata.",
+"• Il Cospiratore avanza di 1 per ogni",
+"Cospirazione rivelata che mostra un giocatore al primo posto nell'ambizione o a pari merito.",
+"• Il Cospiratore sposta indietro di 1 il suo segnalino obiettivo sul tracciato del Potere per ogni Cospirazione che non lo mostra. _(Lo allontana dal completamento.)_",
+"Combina tutti questi passi in un unico movimento del segnalino obiettivo. Restituisci tutte le Cospirazioni rivelate."
+]
+},
+"474_02.jpg": {
+"g": [
+"COSPIRAZIONI",
+"_Hai 2 segnalini Cospirazione per ogni colore dei giocatori._",
+"",
+"Quando *acquisisci* una carta, puoi rifornire la Corte con una tua carta Gilda per mettere una Cospirazione coperta in un riquadro ambizione *_senza segnalino ambizione._*"
+],
+"ripristina": [
+[
+400,
+186,
+554,
+318
+]
+],
+"extra": [
+{
+"box": [
+46,
+320,
+398,
+396
+],
+"t": "Quando *dichiari* un'ambizione, non metti un segnalino ambizione.",
+"size": 27
+},
+{
+"box": [
+46,
+398,
+558,
+578
+],
+"t": "_(Non puoi dichiarare un'ambizione se non ci sono segnalini Disponibili.)_ Metti invece una Cospirazione dalla tua riserva coperta nel riquadro dell'ambizione dichiarata.",
+"size": 27
+}
+]
+},
+"474_03.jpg": {
+"g": [
+"VEGGENTI",
+"Quando dichiari un'ambizione, guarda la mano di un Rivale. Puoi scambiare 1 carta con lui.",
+"*Preludio:* puoi scartare questa carta e quante carte vuoi dalla tua mano. Pesca lo stesso numero di carte (Veggenti compresi) dal fondo degli scarti delle azioni."
+]
+},
+"474_04.jpg": {
+"g": [
+"1. Se hai un'Ammiraglia, puoi Ricollocarti come descritto sul retro della plancia Ammiraglia.",
+null,
+"2. Prendi Veggenti (02).",
+"3. Raccogli gli 8 segnalini Cospirazione, 2 per colore dei giocatori. _(Anche se non siete in 4!)_",
+"4. Prendi la carta Cospirazioni (03).",
+"_Spiegala a tutti._",
+"5. Aggiungi Calcolo delle Cospirazioni (04)",
+"e Sventare Cospirazioni (05) al libretto delle regole. _Spiegale a tutti._",
+null,
+"_Gira questa carta._"
+],
+"fascia": "COSPIRATORE - ATTO III"
+},
+"474_04_r.jpg": {
+"g": [
+"Controllare la Procedura",
+"Nel calcolo delle ambizioni, avanza",
+"di 1 per ogni Cospirazione giusta e per ogni Cospirazione su ambizioni non calcolate.",
+"_Le Cospirazioni si mettono come descritto sulla carta Cospirazioni e i Rivali le rimuovono come descritto sulla carta Sventare Cospirazioni._",
+null,
+"_Le Cospirazioni si calcolano come descritto sulla carta Calcolo delle Cospirazioni._",
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "COSPIRATORE - ATTO III"
+},
+"449_00.jpg": {
+"g": [
+"",
+"",
+"",
+""
+],
+"titolo": "IL GIUDICE FISSA L'AGENDA",
+"titolo_box": [
+180,
+50,
+735,
+190
+],
+"titolo_col": [
+250,
+245,
+235
+],
+"extra": [
+{
+"box": [
+58,
+232,
+690,
+458
+],
+"t": "Il Giudice può dichiarare *qualsiasi* ambizione, mettendo *qualsiasi* segnalino ambizione non ancora piazzato. _(Non serve che sia quello con più Potere.)_ Se lo fa, perde il Potere del secondo posto del segnalino ambizione dichiarato.",
+"size": 33
+},
+{
+"box": [
+58,
+470,
+690,
+602
+],
+"t": "Poi, restituisci la carta Prescelto del Giudice al Giudice. Il Giudice deve darla a un Rivale qualsiasi.",
+"size": 33
+}
+]
+},
+"449_01.jpg": {
+"g": [
+"",
+"Se sei un Rivale del Giudice, segui queste regole:",
+"Puoi svolgere azioni con le navi Leali del Giudice. _(Le sue navi non contano per il tuo controllo.)_",
+"Quando in battaglia attacchi chiunque tranne il Giudice, puoi aggiungere alle tue navi attaccanti le navi Leali del Giudice nel sistema della battaglia.",
+"Quando in battaglia attacchi il Giudice, le sue navi Leali si aggiungono ai suoi pezzi in difesa, non alle tue navi attaccanti."
+],
+"titolo": "PRESCELTO DEL GIUDICE",
+"titolo_box": [
+12,
+28,
+732,
+178
+],
+"titolo_col": [
+250,
+245,
+235
+]
+},
+"449_02.jpg": {
+"g": [
+"L'ARBITRO",
+"All'inizio del calcolo del punteggio, puoi dare quanti tuoi Trofei, Prigionieri e risorse vuoi ai Rivali, fino al numero dei loro spazi risorsa vuoti. I pezzi Leali a quel Rivale tornano nella sua riserva."
+]
+},
+"449_03.jpg": {
+"g": [
+"I tuoi Trofei e Prigionieri possono essere rubati. Il loro costo di razzia è di 1 ciascuno.",
+"Se un giocatore ruba Trofei o Prigionieri a lui Leali, quei pezzi tornano nella sua riserva."
+],
+"extra": [
+{
+"box": [
+72,
+583,
+672,
+631
+],
+"t": "VOTO DI EQUITÀ",
+"titolo": true,
+"size": 50
+}
+]
+},
+"449_04.jpg": {
+"g": [
+"1. Se hai un'Ammiraglia, puoi Ricollocarti come descritto sul retro della plancia Ammiraglia.",
+"2. Prendi Voto di Equità (02), L'Arbitro (03) e Prescelto del Giudice (04).",
+"3. Aggiungi Il Giudice Fissa l'Agenda (05) al libretto delle regole.",
+null,
+"",
+"_Gira questa carta._"
+],
+"fascia": "GIUDICE - ATTO III"
+},
+"449_04_r.jpg": {
+"g": [
+null,
+"Riequilibrare l'Orlo",
+"Alla fine di un capitolo, avanza di 1 per ogni ambizione in cui dei giocatori sono a pari merito al primo posto.",
+"_In 2 giocatori, le risorse sulle ambizioni possono creare una parità._",
+null,
+"_Se è dichiarata un'ambizione della Confederazione, fa avanzare il Giudice solo se singoli giocatori sono a pari merito al primo posto. Non sommare i valori delle ambizioni._",
+"Alla fine di un capitolo, vinci la partita se hai completato il tuo obiettivo e hai almeno 1 Potere."
+],
+"fascia": "GIUDICE - ATTO III"
+}
+}
