@@ -188,7 +188,7 @@ func mostra_menu() -> void:
 var scelta_n := 3
 var scelta_umani := [true, false, false, false]
 var scelta_nomi := ["Tu", "Rivale 1", "Rivale 2", "Rivale 3"]
-var scelta_leader := true
+var scelta_leader := false
 var scelta_prep := -1
 var scelta_facile := false
 
@@ -871,6 +871,8 @@ func _salva(subito: bool) -> void:
 func _mostra_scelte(a: Dictionary) -> void:
 	for c in pannello_scelte.get_children():
 		c.queue_free()
+	if a.get("tipo", "") == "draft":
+		_mostra_draft(a)
 	var g: int = a["g"]
 	titolo_scelte.text = str(a["testo"])
 	titolo_scelte.add_theme_color_override("font_color", Dati.TINTA[m.s["g"][g]["colore"]].lightened(0.3))
@@ -895,6 +897,50 @@ func _mostra_scelte(a: Dictionary) -> void:
 	plancia.evidenzia(sis)
 	_aggiorna_mano()
 	_aggiorna_corte()
+
+## Draft di Leader e Lore: le carte in grande, si sceglie cliccando.
+func _mostra_draft(a: Dictionary) -> void:
+	var velo := ColorRect.new()
+	velo.color = Color(0.0, 0.0, 0.02, 0.86)
+	velo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	schermo.add_child(velo)
+	var v := VBoxContainer.new()
+	v.set_anchors_preset(Control.PRESET_FULL_RECT)
+	v.offset_left = 30
+	v.offset_right = -30
+	v.offset_top = 20
+	v.offset_bottom = -20
+	v.add_theme_constant_override("separation", 10)
+	velo.add_child(v)
+	var g: Dictionary = m.s["g"][a["g"]]
+	v.add_child(etichetta("%s: %s" % [g["nome"], a["testo"]], F_TITOLO, 28, Dati.TINTA[g["colore"]].lightened(0.2)))
+	v.add_child(testo_lungo("Ognuno prende 1 Leader e 1 Lore, in ordine inverso di turno. Clicca una carta per sceglierla.", 16, C_SPENTO))
+	var ops: Array = a["opzioni"]
+	for gruppo in ["leader", "lore"]:
+		var riga := HBoxContainer.new()
+		riga.add_theme_constant_override("separation", 12)
+		riga.alignment = BoxContainer.ALIGNMENT_CENTER
+		for i in ops.size():
+			var o: Dictionary = ops[i]
+			if not o.has(gruppo):
+				continue
+			var c: String = o[gruppo]
+			var box := VBoxContainer.new()
+			var im := immagine(img_carta(c), 160 if gruppo == "leader" else 170, 272 if gruppo == "leader" else 238)
+			im.tooltip_text = _nome_carta(c)
+			box.add_child(im)
+			var b := bottone("SCEGLI", func():
+				velo.queue_free()
+				_decidi(i), Color(0.3, 0.16, 0.05), 15)
+			box.add_child(b)
+			im.gui_input.connect(func(ev):
+				if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_RIGHT:
+					_mostra_zoom(img_carta(c)))
+			riga.add_child(box)
+		if riga.get_child_count() > 0:
+			v.add_child(etichetta("LEADER" if gruppo == "leader" else "LORE", F_TITOLO, 22, C_ORO_CHIARO))
+			v.add_child(riga)
+	v.add_child(etichetta("Tasto destro su una carta per ingrandirla.", F_CORSIVO, 14, C_SPENTO))
 
 func _colore_opzione(o: Dictionary) -> Color:
 	var v = o.get("v")
@@ -1251,7 +1297,7 @@ func _aggiorna_mano() -> void:
 	for c in mano:
 		var path := img_carta(c)
 		var scelte := _scelte_per("mano", c)
-		var im := immagine(path, 124, 172)
+		var im := immagine(path, 110, 153)
 		im.tooltip_text = Dati.nome_carta_azione(c)
 		if not scelte.is_empty():
 			var bordo := PanelContainer.new()

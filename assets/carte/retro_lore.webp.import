@@ -15,9 +15,9 @@ dest_files=["res://.godot/imported/retro_lore.webp-46f34d9bb9a31985b2cbbe0d1fff9
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
-compress/lossy_quality=0.7
+compress/lossy_quality=0.82
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1

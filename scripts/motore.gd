@@ -1206,7 +1206,7 @@ func _preludio_esegui(i: int, c: String) -> void:
 			for k in range(1, 7):
 				var id := "%dg" % k
 				if in_gioco(id):
-					_metti_navi(i, id, 1, controllo(id) >= 0 and controllo(id) != i)
+					_metti_navi(i, id, 1, false)
 					_ev({"tipo": "nave", "sis": id, "g": i})
 		"c12", "c13", "c14":
 			_scarta_corte(i, c)
@@ -1797,8 +1797,7 @@ func _p_vox(p: Dictionary) -> void:
 			if v != null:
 				for l in ["g", "a", "b", "c"]:
 					var id := "%d%s" % [v, l]
-					var con := controllo(id)
-					_metti_navi(i, id, 1, con >= 0 and con != i)
+					_metti_navi(i, id, 1, false)
 					_ev({"tipo": "nave", "sis": id, "g": i})
 				_log("Rivolta di Massa: %s mette 1 nave in ogni sistema del settore %d." % [_nome(i), v])
 				s["scarti_corte"].append(c)
@@ -2341,7 +2340,8 @@ func _distrutto(b: int, autore: int, cosa: String, id: String) -> void:
 		if s["pila"].size() > 0:
 			for q in range(s["pila"].size() - 1, -1, -1):
 				if s["pila"][q]["k"] == "battaglia":
-					s["pila"][q]["trofei_presi"] = true
+					if int(s["pila"][q]["g"]) == autore:
+						s["pila"][q]["trofei_presi"] = true
 					break
 	else:
 		match cosa:

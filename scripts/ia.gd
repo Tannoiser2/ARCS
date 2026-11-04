@@ -31,8 +31,10 @@ func scegli(m: Motore, a: Dictionary) -> int:
 	var profondo: bool = tipo in RAMIFICAZIONE
 	var best := 0
 	var bv := -INF
+	var inizio := Time.get_ticks_msec()
 	for i in ops.size():
-		var v := _valuta(m, me, i, profondo)
+		# tempo massimo per decisione (nel browser il calcolo è più lento): oltre si valuta in modo rapido
+		var v := _valuta(m, me, i, profondo and Time.get_ticks_msec() - inizio < 600)
 		v += rng.randf() * (6.0 if facile else 0.05)
 		if v > bv:
 			bv = v
