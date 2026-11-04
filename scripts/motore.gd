@@ -112,6 +112,19 @@ func nuova_partita(cfg: Dictionary) -> void:
 		_spingi({"k": "piazza_tutti"})
 	_avanza()
 
+# ---------------------------------------------------------------- agganci per la campagna
+func _mazzo_azioni() -> Array:
+	return Dati.carte_azione(s["n"])
+
+func _opzioni_evento(_i: int) -> Array:
+	return []
+
+func _punti_evento(_i: int) -> int:
+	return 0
+
+func _dopo_round() -> void:
+	pass
+
 func _zeri(n: int) -> Array:
 	var a := []
 	for i in n:
@@ -552,7 +565,7 @@ func _p_capitolo(p: Dictionary) -> void:
 	var n: int = s["n"]
 	if not p.has("fatto"):
 		p["fatto"] = true
-		var mazzo: Array = Dati.carte_azione(n)
+		var mazzo: Array = _mazzo_azioni()
 		_mescola(mazzo)
 		for i in n:
 			G(i)["mano"] = mazzo.slice(i * 6, i * 6 + 6)
@@ -640,6 +653,8 @@ func _p_turno_guida(p: Dictionary) -> void:
 		return
 	var ops := []
 	for c in _ordina_mano(G(i)["mano"]):
+		if Dati.is_evento(c):
+			continue
 		ops.append({"t": "Guida con " + Dati.nome_carta_azione(c), "v": c, "mano": c})
 	ops.append({"t": "Passa l'iniziativa", "v": "passa"})
 	_chiedi(p, i, "Hai l'iniziativa: gioca una carta Guida", ops, "guida")
@@ -663,7 +678,7 @@ func _p_turno_segui(p: Dictionary) -> void:
 		var modo: String = v[1]
 		G(i)["mano"].erase(c)
 		s["giocate"].append({"g": i, "c": c, "modo": modo, "su": modo != "copia"})
-		var desc: String = {"supera": "Supera con", "cambia": "Cambia con", "copia": "Copia (carta coperta)"}[modo]
+		var desc: String = {"supera": "Supera con", "cambia": "Cambia con", "copia": "Copia (carta coperta)", "evento": "gioca"}[modo]
 		_log("%s %s%s." % [_nome(i), desc, "" if modo == "copia" else " " + Dati.nome_carta_azione(c)])
 		_ev({"tipo": "carta", "g": i, "c": c if modo != "copia" else "", "modo": modo})
 		_inizia_turno(i, c, modo)
@@ -675,13 +690,18 @@ func _p_turno_segui(p: Dictionary) -> void:
 		_spingi({"k": "pre_segui", "g": i, "c": c, "modo": modo})
 		return
 	var ops := []
+	ops.append_array(_opzioni_evento(i))
 	for c in _ordina_mano(G(i)["mano"]):
+		if Dati.is_evento(c):
+			continue
 		var cs := Dati.seme(c)
 		if cs == gs and Dati.valore(c) > int(guida["valore"]):
 			ops.append({"t": "Supera con %s (%d azioni)" % [Dati.nome_carta_azione(c), Dati.punti(c)], "v": [c, "supera"], "mano": c, "modo": "supera"})
 		if cs != gs:
 			ops.append({"t": "Cambia con %s (1 azione)" % Dati.nome_carta_azione(c), "v": [c, "cambia"], "mano": c, "modo": "cambia"})
 	for c in _ordina_mano(G(i)["mano"]):
+		if Dati.is_evento(c):
+			continue
 		ops.append({"t": "Copia scartando coperta %s (1 azione %s)" % [Dati.nome_carta_azione(c), Dati.NOME_SEME[gs]], "v": [c, "copia"], "mano": c, "modo": "copia"})
 	_chiedi(p, i, "%s ha guidato con %s: Supera, Cambia o Copia" % [_nome(guida["g"]), Dati.nome_carta_azione(guida["c"])], ops, "segui")
 
@@ -693,6 +713,9 @@ func _inizia_turno(i: int, c: String, modo: String) -> void:
 		pt = 1
 	elif modo == "cambia":
 		pt = 1
+	elif modo == "evento":
+		seme = Dati.seme(s["guida"]["c"])
+		pt = _punti_evento(i)
 	s["turno"] = {"g": i, "c": c, "modo": modo, "seme": seme, "punti": pt, "armi": false, "tassate": [],
 		"porti": [], "spesi": [], "preludio": true, "acquisite": [], "tecnopreti": false, "trafficante": false,
 		"dopo": ""}
@@ -718,6 +741,8 @@ func _p_pre_segui(p: Dictionary) -> void:
 		if s["sottratta"] < 0 and s["iniz"] != i and not G(i)["mano"].is_empty():
 			var ops := [{"t": "Non sottrarre l'iniziativa", "v": "no"}]
 			for c in _ordina_mano(G(i)["mano"]):
+				if Dati.is_evento(c):
+					continue
 				ops.append({"t": "Sottrai l'iniziativa scartando %s" % Dati.nome_carta_azione(c), "v": "sottrai:" + c, "mano": c})
 			_chiedi(p, i, "Vuoi sottrarre l'iniziativa giocando una carta Azione in più a faccia in giù?", ops, "sottrai")
 			return
@@ -1405,6 +1430,13 @@ func _bersagli_tassa(i: int, solo_leali: bool) -> Array:
 				out.append([id, k])
 	return out
 
+func _desc_citta(g: int, i: int) -> String:
+	if g == i:
+		return "Leale"
+	if g >= s["n"]:
+		return "Libera"
+	return "di " + _nome(g)
+
 func _tipi_citta(id: String) -> Array:
 	if not Dati.is_portale(id):
 		return [Dati.TIPO[id]]
@@ -1437,8 +1469,8 @@ func _tassa(p: Dictionary, nutrire: bool) -> void:
 			_spingi({"k": "scegli_tra", "g": i, "tra": tipi})
 		elif tipi.size() == 1:
 			_ottieni(i, tipi[0])
-		_log("%s tassa la città %s in %s." % [_nome(i), "di " + _nome(e["g"]) if e["g"] != i else "Leale", _desc_sis(id)])
-		if e["g"] != i:
+		_log("%s tassa la città %s in %s." % [_nome(i), _desc_citta(e["g"], i), _desc_sis(id)])
+		if e["g"] != i and e["g"] < s["n"]:
 			var j: int = e["g"]
 			if G(j)["agenti"] > 0:
 				G(j)["agenti"] -= 1
@@ -1454,7 +1486,7 @@ func _tassa(p: Dictionary, nutrire: bool) -> void:
 	var ops := []
 	for x in _bersagli_tassa(i, nutrire):
 		var e: Dictionary = s["mappa"][x[0]]["edifici"][x[1]]
-		ops.append({"t": "Tassa la città %s in %s" % ["Leale" if e["g"] == i else "di " + _nome(e["g"]), _desc_sis(x[0])], "v": x, "sis": x[0]})
+		ops.append({"t": "Tassa la città %s in %s" % [_desc_citta(e["g"], i), _desc_sis(x[0])], "v": x, "sis": x[0]})
 	_chiedi(p, i, "Quale città tassi?", ops, "sistema")
 
 func _p_scegli_tra(p: Dictionary) -> void:
@@ -2582,6 +2614,7 @@ func _p_fine_round(_p: Dictionary) -> void:
 	s["guida"] = {}
 	_ev({"tipo": "fine_round"})
 	_spingi({"k": "round"})
+	_dopo_round()
 
 func punteggio_ambizione(i: int, amb: String) -> int:
 	match amb:
@@ -2659,7 +2692,11 @@ func _p_fine_capitolo(_p: Dictionary) -> void:
 		if not s["segnalini"][k]["girato"]:
 			s["segnalini"][k]["girato"] = true
 			break
-	# fine della partita?
+	_controlla_fine()
+
+## Fine della partita (gioco base: 5 capitoli o soglia di Potere). La campagna la ridefinisce.
+func _controlla_fine() -> void:
+	var n: int = s["n"]
 	var soglia: int = SOGLIA[n]
 	var finita: bool = s["capitolo"] >= 5
 	for i in n:

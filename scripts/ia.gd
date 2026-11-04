@@ -93,7 +93,7 @@ func _copia(m: Motore) -> Motore:
 	var ev = m.s["eventi"]
 	m.s["log"] = []
 	m.s["eventi"] = []
-	var c := Motore.new()
+	var c: Motore = m.get_script().new()
 	c.s = m.s.duplicate(true)
 	c.adj = m.adj
 	m.s["log"] = log

@@ -114,6 +114,9 @@ static func adiacenze_base() -> Dictionary:
 # ---------------- carte Corte ----------------
 ## id: [nome italiano, tipo ("gilda"/"vox"), simbolo risorsa, costo razzia]
 const CORTE := {
+	"consiglio": ["Consiglio Imperiale", "consiglio", "", 0],
+	"x11": ["Intrigo a Corte", "vox", "", 0],
+	"x12": ["Fiasco Diplomatico", "vox", "", 0],
 	"c01": ["Ingegneri Leali", "gilda", "materiale", 3],
 	"c02": ["Attività Minerarie", "gilda", "materiale", 2],
 	"c03": ["Cartello del Materiale", "gilda", "materiale", 3],
@@ -153,6 +156,9 @@ const LEGHE := {"c04": "amm", "c05": "cos", "c10": "mob", "c11": "agg"}
 
 ## Breve promemoria in italiano dell'effetto (il testo completo è sulla carta scansionata).
 const TESTO_CORTE := {
+	"consiglio": "Acquisendolo, a fine round puoi convocare un Vertice; se sei Reggente diventi Primo Reggente, se sei Fuorilegge rubi dal Tesoro Imperiale; poi scegli se risolvere le Crisi o gli Editti.",
+	"x11": "Crisi: il Consiglio Imperiale torna In Sessione e riceve gli agenti di questa carta; seppelliscila. Appena Acquisita: il Consiglio torna In Sessione.",
+	"x12": "Crisi: chi ha più carte Gilda che agenti in riserva scarta Gilde fino a pareggiare; seppelliscila. Appena Acquisita: i Rivali risolvono la Crisi.",
 	"c01": "Spendi qualsiasi risorsa come Materiale. Se Rechi Oltraggio tieni questa carta.",
 	"c02": "Estrarre (Costruire): ottieni 1 Materiale. Preludio: scartala per riempire di Materiale gli spazi liberi.",
 	"c03": "Tieni qui la riserva di Materiale (vale per Magnate). Dopo il calcolo i Rivali scartano il Materiale. Preludio: scartala per rubare 1 Materiale.",
@@ -259,6 +265,9 @@ static func carte_azione(n: int) -> Array:
 			out.append("%s%d" % [s, v])
 	return out
 
+static func is_evento(c: String) -> bool:
+	return c.begins_with("evt")
+
 static func seme(c: String) -> String:
 	return c.substr(0, 3)
 
@@ -266,9 +275,13 @@ static func valore(c: String) -> int:
 	return int(c.substr(3))
 
 static func punti(c: String) -> int:
+	if is_evento(c):
+		return 0
 	return PUNTI[seme(c)][valore(c) - 1]
 
 static func nome_carta_azione(c: String) -> String:
+	if is_evento(c):
+		return "Evento"
 	return "%s %d" % [NOME_SEME[seme(c)], valore(c)]
 
 static func nome_corte(c: String) -> String:
