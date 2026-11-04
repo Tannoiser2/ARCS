@@ -175,12 +175,17 @@ def rendi(f, trad, dest):
                 sotto = min(sotto, boxes[j][1] - 4)
                 break
         pad = 4
+        # conta anche le parole lette con poca sicurezza (l'OCR spesso le scarta)
+        for r in g:
+            for w in r.get('w', []):
+                if sum(c.isalnum() for c in w[0]) >= (2 if titolo else 1) and w[5] < hh * 1.8:
+                    x0 = min(x0, w[2]); x1 = max(x1, w[2] + w[4])
+        if testo_en.lower().startswith('wait to resolve'):
+            box = [int(W * 0.13), 4, int(W * 0.87), int(H * 0.145)]
+            col = cancella(img, box)
+            lavori.append(("ATTENDI L'INTERVALLO\nPER RISOLVERLA", box, int(H * 0.034), col, True, box[3], box[0], box[2], False))
+            continue
         if titolo:
-            # nei titoli conta anche le parole lette con poca sicurezza (l'OCR spesso le scarta)
-            for r in g:
-                for w in r.get('w', []):
-                    if sum(c.isalpha() for c in w[0]) >= 2:
-                        x0 = min(x0, w[2]); x1 = max(x1, w[2] + w[4])
             # i titoli su più righe a volte l'OCR non li legge tutti: si pulisce tutta la fascia
             box = [max(0, x0 - 45), max(0, int(y0 - hh * 0.12)), min(W, x1 + 45), min(H, int(max(y1 + 4, min(sotto, y1 + hh * 1.5))))]
         else:
@@ -291,10 +296,42 @@ def rendi(f, trad, dest):
             for w, st, x in riga:
                 dt.text(((x0b + x1b) / 2 - lw / 2 + x, y), w, font=fnt[st], fill=col, stroke_width=max(1, int(size / 24)), stroke_fill=col)
             y += size
+    # riquadri aggiuntivi che l'OCR non ha letto o ha unito male: {"box": [x0,y0,x1,y1], "t": testo, "titolo": bool}
+    for ex in trad.get('extra', []):
+        x0b, y0b, x1b, y1b = ex['box']
+        img2 = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR)
+        cancella(img2, [x0b, y0b, x1b, y1b])
+        col = tuple(ex.get('col', (30, 25, 20)))
+        pil = Image.fromarray(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))
+        dt = ImageDraw.Draw(pil)
+        tit = ex.get('titolo', False)
+        testo = maiuscoletto(ex['t']) if tit else ex['t'].replace(' / ', '\n')
+        size = ex.get('size', (y1b - y0b) * 0.6 if tit else (corpo if corpo < 999 else 26))
+        while size > 9:
+            fnt, righe, alt = impagina(testo, size, x1b - x0b, tit)
+            if alt <= (y1b - y0b) + 2:
+                break
+            size *= 0.95
+        y = y0b + (max(0, ((y1b - y0b) - alt) / 2) - size * 0.1 if tit else 0)
+        for riga in righe:
+            lw = larghezza_riga(fnt, riga)
+            ox = (x0b + x1b) / 2 - lw / 2 if tit else x0b
+            for w, st, x in riga:
+                if tit:
+                    dt.text((ox + x, y), w, font=fnt[st], fill=col, stroke_width=max(1, int(size / 24)), stroke_fill=col)
+                else:
+                    dt.text((ox + x, y), w, font=fnt[st], fill=col)
+            y += size * (1.0 if tit else 1.18)
+    # parti dell'illustrazione da rimettere com'erano (icone e segnalini toccati dalla pulizia)
+    if trad.get('ripristina'):
+        orig = Image.open(R + '/en/' + f).convert('RGB')
+        for bx in trad['ripristina']:
+            pil.paste(orig.crop(tuple(bx)), (bx[0], bx[1]))
     d = ImageDraw.Draw(pil)
     # piede: tipo della carta
     piede = trad.get('piede')
     if piede is not False:
+        fatto = False
         for r in OCR[f]['righe']:
             if r['box'][1] <= H * 0.925:
                 continue
@@ -302,17 +339,18 @@ def rendi(f, trad, dest):
                 parola = re.sub(r'[^A-Z]', '', w[0].upper())
                 it = PIEDI.get(parola)
                 if it and w[1] > 20:
+                    fatto = True
                     x, y, ww, hh = w[2:6]
                     img2 = cv2.cvtColor(np.array(pil), cv2.COLOR_RGB2BGR)
                     col = cancella(img2, [max(0, x - 3), max(0, y - 3), min(W, x + ww + 3), min(H, y + hh + 3)]) or (30, 25, 20)
                     pil = Image.fromarray(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))
                     d = ImageDraw.Draw(pil)
+                    hh = min(hh, int(H * 0.026))
                     fn = font('Titoli.ttf', hh * 1.05)
                     it2 = maiuscoletto(it)
                     lw = fn.getlength(it2)
                     d.text((x + ww / 2 - lw / 2, y - hh * 0.2), it2, font=fn, fill=col, stroke_width=1, stroke_fill=col)
-        trovato = any(r['box'][1] > H * 0.925 and any(PIEDI.get(re.sub(r'[^A-Z]', '', w[0].upper())) for w in r.get('w', [])) for r in OCR[f]['righe'])
-        if not trovato:
+        if not fatto:
             pil = piede_fallback(pil)
     pil.save(dest, quality=88)
 
@@ -321,8 +359,13 @@ def piede_fallback(pil):
     W, H = pil.size
     x0, x1, y0, y1 = int(W * 0.28), int(W * 0.72), int(H * 0.935), int(H * 0.99)
     reg = pil.crop((x0, y0, x1, y1))
+    from PIL import ImageOps
     big = reg.resize((reg.width * 3, reg.height * 3))
     d = pytesseract.image_to_data(big, config='--psm 7', output_type=pytesseract.Output.DICT)
+    if not any(PIEDI.get(re.sub(r'[^A-Z]', '', t.upper())) for t in d['text']):
+        # testo chiaro su fascia scura: si riprova in negativo
+        g = np.array(big.convert('L'))
+        d = pytesseract.image_to_data(Image.fromarray(np.where(g > 180, 0, 255).astype('uint8')), config='--psm 7', output_type=pytesseract.Output.DICT)
     for k in range(len(d['text'])):
         parola = re.sub(r'[^A-Z]', '', d['text'][k].upper())
         it = PIEDI.get(parola)
@@ -333,7 +376,7 @@ def piede_fallback(pil):
         col = cancella(img2, [x - 3, y - 3, x + ww + 3, y + hh + 3]) or (30, 25, 20)
         pil = Image.fromarray(cv2.cvtColor(img2, cv2.COLOR_BGR2RGB))
         dr = ImageDraw.Draw(pil)
-        fn = font('Titoli.ttf', max(hh * 1.3, H * 0.027))
+        fn = font('Titoli.ttf', min(max(hh * 1.3, H * 0.027), H * 0.03))
         it2 = maiuscoletto(it)
         lw = fn.getlength(it2)
         dr.text((x + ww / 2 - lw / 2, y - hh * 0.2), it2, font=fn, fill=col, stroke_width=1, stroke_fill=col)
@@ -344,7 +387,7 @@ PIEDI = {'GUILD': 'GILDA', 'EDICT': 'EDITTO', 'SETUP': 'PREPARAZIONE', 'RESOLUTI
          'OBJECTIVE': 'OBIETTIVO', 'ABILITY': 'ABILITÀ', 'TITLE': 'TITOLO', 'EVENT': 'EVENTO', 'VOX': 'VOX',
          'LORE': 'LORE', 'ARTIFACT': 'ARTEFATTO', 'BURDENED': 'GRAVATO', 'WINDFALL': 'FORTUNA', 'POLICY': 'POLITICA',
          'UPGRADE': 'MIGLIORIA', 'COUNCIL': 'CONSIGLIO IMPERIALE', 'IMPERIAL': ' ', 'FATE': 'DESTINO',
-         'CARD': ' ', 'RULES': 'REGOLE'}
+         'CARD': ' ', 'REMINDER': 'PROMEMORIA', 'RULES': 'REGOLE', 'ECONOMY': 'ECONOMIA', 'MONOPOLY': 'MONOPOLIO', 'SUMMIT': 'VERTICE'}
 
 if __name__ == '__main__':
     os.makedirs(R + '/it', exist_ok=True)

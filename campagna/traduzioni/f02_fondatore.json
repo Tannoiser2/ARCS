@@ -1,0 +1,299 @@
+{
+"471_00.jpg": {
+"g": [
+null,
+"COMBATTENTI PER LA LIBERTÀ",
+"*Incitare alla Rivolta (Combattere):* in un sistema con una città Libera integra, distruggi tutte le navi Rivali e Imperiali danneggiate, ignorando la Legge della Tregua Imperiale. Non prendi Trofei."
+]
+},
+"471_01.jpg": {
+"g": [
+"",
+"_Elimina questo Editto se non ci sono Membri della Confederazione._",
+"Il Membro della Confederazione con meno Potere può sfilare 1 carta Armistizio da qui e attaccarla a una carta della Corte. In caso di pareggio, salta questo passo.",
+"Poi il Fondatore può fare lo stesso.",
+"_L'Armistizio impedisce anche ai Membri di lasciare la Confederazione finché non termina!_"
+],
+"titolo": "APPELLO GENERALE ALL'ARMISTIZIO",
+"titolo_box": [
+128,
+10,
+600,
+150
+]
+},
+"471_02.jpg": {
+"g": [
+"1. Elimina l'Editto Appello all'Armistizio (15) e aggiungi l'Editto Appello Generale all'Armistizio (26) al libretto delle regole. Spiegate che funziona come prima, ma ora anche il Fondatore può proporre un Armistizio.",
+"2. Prendi Combattenti per la Libertà (27).",
+null,
+"_Gira questa carta._",
+null,
+null
+],
+"fascia": "FONDATORE - ATTO III"
+},
+"471_02_r.jpg": {
+"g": [
+"Garantire la Libertà a Tutti",
+"La Confederazione ha vinto l'ambizione Confederazione e...",
+"3 città Libere non sono controllate né dall'Impero né da un giocatore che non sia Membro della Confederazione.",
+null,
+"7 città Libere non sono controllate né dall'Impero né da un giocatore che non sia Membro della Confederazione."
+],
+"fascia": "FONDATORE - ATTO III"
+},
+"471_03.jpg": {
+"g": [
+"SPIRITO DI LIBERTÀ",
+"Puoi *acquisire* carte della Corte su cui sei in parità per il maggior numero di agenti _(ma non zero)_ con un Rivale che non è Membro della Confederazione."
+]
+},
+"471_04.jpg": {
+"g": [
+"ATTENDI L'INTERVALLO PER RISOLVERLA",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi Spirito di Libertà (24).",
+"2. Elimina le 2 Leghe dei Costruttori (08-09) e le 2 Leghe dei Custodi (10-11).",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina Spirito di Libertà (24).",
+"2. Elimina la tua carta Fondatore della Confederazione (13) e il segnalino Ambizione Confederazione.",
+"3. Aggiungi le 2 Leghe dei Costruttori (08-09) e le 2 Leghe dei Custodi (10-11) al mazzo Corte."
+]
+},
+"471_05.jpg": {
+"g": [
+"ADESIONE ALLA CONFEDERAZIONE",
+"*Privilegi.* I Membri possono svolgere azioni con gli edifici Liberi non controllati dall'Impero come se fossero Leali: tassare le città Libere, costruire navi e muovere con la Fionda dagli spazioporti Liberi, costruire edifici lì e ripararli. I pezzi costruiti così sono sempre posizionati integri.",
+"Durante gli Editti, un Membro può impedire ai Membri di danneggiarsi tra loro e di danneggiare le città Libere. _(Vedi la carta Editto Appello all'Armistizio.)_",
+"I Membri possono calcolare insieme l'ambizione Confederazione. _(Vedi la carta Legge Ambizione Confederazione.)_",
+"*Disonore.* Se un Membro danneggia una città Libera, elimina il suo titolo di Membro. _(Non può tornare Membro.)_"
+]
+},
+"471_06.jpg": {
+"g": [
+"_Infila questa carta parzialmente sotto la tua carta Destino._",
+"*Edifici Liberi.* Puoi svolgere azioni con gli edifici Liberi non controllati dall'Impero come se fossero Leali. I pezzi costruiti così sono sempre posizionati integri.",
+"*Armistizio.* Durante gli Editti, un Membro può impedire ai Membri di danneggiarsi tra loro e di danneggiare le città Libere. _(Vedi la carta Editto Appello all'Armistizio.)_ *Ambizione Confederazione.* I Membri possono calcolare insieme l'ambizione Confederazione. _(Vedi la carta Legge Ambizione Confederazione.)_ *Disonore.* Se danneggi una città Libera, elimina questo titolo. _(Non potrai tornare Membro!)_"
+],
+"titolo": "MEMBRO DELLA CONFEDERAZIONE",
+"titolo_box": [
+15,
+5,
+605,
+150
+]
+},
+"471_07.jpg": {
+"g": [
+"_Infila questa carta parzialmente sotto la tua carta Destino._",
+"*Edifici Liberi.* Puoi svolgere azioni con gli edifici Liberi non controllati dall'Impero come se fossero Leali. I pezzi costruiti così sono sempre posizionati integri.",
+"*Armistizio.* Durante gli Editti, un Membro può impedire ai Membri di danneggiarsi tra loro e di danneggiare le città Libere. _(Vedi la carta Editto Appello all'Armistizio.)_ *Ambizione Confederazione.* I Membri possono calcolare insieme l'ambizione Confederazione. _(Vedi la carta Legge Ambizione Confederazione.)_",
+"*Disonore.* Se danneggi una città Libera, elimina questo titolo. _(Non potrai tornare Membro!)_"
+],
+"titolo": "MEMBRO DELLA CONFEDERAZIONE",
+"titolo_box": [
+15,
+5,
+605,
+150
+]
+},
+"471_08.jpg": {
+"g": [
+"_Infila questa carta parzialmente sotto la tua carta Destino._",
+"*Edifici Liberi.* Puoi svolgere azioni con gli edifici Liberi non controllati dall'Impero come se fossero Leali. I pezzi costruiti così sono sempre posizionati integri.",
+"*Armistizio.* Durante gli Editti, un Membro può impedire ai Membri di danneggiarsi tra loro e di danneggiare le città Libere. _(Vedi la carta Editto Appello all'Armistizio.)_ *Ambizione Confederazione.* I Membri possono calcolare insieme l'ambizione Confederazione. _(Vedi la carta Legge Ambizione Confederazione.)_",
+"*Disonore.* Se danneggi una città Libera, elimina questo titolo. _(Non potrai tornare Membro!)_"
+],
+"titolo": "MEMBRO DELLA CONFEDERAZIONE",
+"titolo_box": [
+15,
+5,
+605,
+150
+]
+},
+"471_09.jpg": {
+"g": [
+"_Infila questa carta parzialmente sotto la tua carta Destino._",
+"*Edifici Liberi.* Puoi svolgere azioni con gli edifici Liberi non controllati dall'Impero come se fossero Leali. I pezzi costruiti così sono sempre posizionati integri.",
+"*Armistizio.* Durante gli Editti, un Membro può impedire ai Membri di danneggiarsi tra loro e di danneggiare le città Libere. _(Vedi la carta Editto Appello all'Armistizio.)_ *Ambizione Confederazione.* I Membri possono calcolare insieme l'ambizione Confederazione. _(Vedi la carta Legge Ambizione Confederazione.)_",
+"*Disonore.* Se danneggi una città Libera, elimina questo titolo. _(Non potrai tornare Membro!)_"
+],
+"titolo": "MEMBRO DELLA CONFEDERAZIONE",
+"titolo_box": [
+15,
+5,
+605,
+150
+]
+},
+"471_10.jpg": {
+"g": [
+"ARMISTIZIO",
+"Finché questa carta è nella Corte, i Membri della Confederazione non possono danneggiarsi tra loro né danneggiare gli edifici Liberi. _(Questa carta non ha Crisi.)_",
+"*Appena Acquisita:* devi spostare tutti gli agenti presenti qui su altre carte della Corte a tua scelta. Infila questa carta dietro l'Editto 25."
+]
+},
+"471_11.jpg": {
+"g": [
+"ARMISTIZIO",
+"Finché questa carta è nella Corte, i Membri della Confederazione non possono danneggiarsi tra loro né danneggiare gli edifici Liberi. _(Questa carta non ha Crisi.)_",
+"*Appena Acquisita:* devi spostare tutti gli agenti presenti qui su altre carte della Corte a tua scelta. Infila questa carta dietro l'Editto 25."
+]
+},
+"471_12.jpg": {
+"g": [
+"",
+"_Elimina questo Editto se non ci sono Membri della Confederazione._",
+"Il Membro della Confederazione con meno Potere può sfilare 1 carta Armistizio da qui e attaccarla a una carta della Corte. In caso di pareggio, salta questo passo.",
+"_L'Armistizio impedisce anche ai Membri di lasciare la Confederazione finché non termina!_"
+],
+"titolo": "APPELLO ALL'ARMISTIZIO",
+"titolo_box": [
+128,
+10,
+600,
+150
+]
+},
+"471_13.jpg": {
+"g": [
+"AMBIZIONE CONFEDERAZIONE",
+"Il Fondatore della Confederazione può aggiungere il segnalino Ambizione Confederazione a un'ambizione che dichiara. Questa ambizione si calcola così: dà Potere solo a chi la vince, cioè a chi è primo senza pareggi. Tutti i Membri della Confederazione sommano i loro valori per l'ambizione nella Confederazione per stabilire i piazzamenti. _(Per tutto il resto, come gli obiettivi, usate i valori individuali.)_",
+"Se vince la Confederazione, dividete in parti uguali tra i Membri il Potere totale del primo e del secondo posto. Ignorate il Potere bonus delle città e i resti.",
+"Se vince un non Membro, ottiene il doppio del Potere totale del primo e del secondo posto."
+]
+},
+"471_14.jpg": {
+"g": [
+"_Infila questa carta sotto la tua carta Destino. Tieni il segnalino Ambizione Confederazione sulla tua carta Destino._",
+"Quando *dichiari* un'ambizione, puoi anche spostare il segnalino Ambizione Confederazione dalla tua carta Destino al riquadro dell'ambizione dichiarata.",
+"Questa ambizione si calcola come descritto sulla carta Legge Ambizione Confederazione."
+],
+"titolo": "FONDATORE DELLA CONFEDERAZIONE",
+"titolo_box": [
+15,
+5,
+605,
+150
+]
+},
+"471_15.jpg": {
+"g": [
+"1. Prendi la carta Fondatore della Confederazione (13).",
+null,
+"2. Metti il segnalino Ambizione Confederazione sulla tua carta Destino. / 3. Metti la Legge Ambizione Confederazione (14) e l'Editto Appello all'Armistizio (15) nel libretto delle regole.",
+"",
+"4. Infila i 2 Armistizi (16-17) sotto Appello all'Armistizio (15).",
+"5. Dai una carta titolo Membro della Confederazione (18-21) a ogni giocatore, compreso te.",
+"6. Aggiungi Adesione alla Confederazione (22) al libretto delle regole. _Spiegala a tutti._",
+"_Gira questa carta._"
+],
+"fascia": "FONDATORE - ATTO II"
+},
+"471_15_r.jpg": {
+"g": [
+"",
+null,
+"",
+"Distribuire il Potere con Equità",
+"Quando la Confederazione vince l'ambizione Confederazione, avanza di 2 per ogni Membro della Confederazione.",
+"_È spiegato meglio sulla carta Ambizione Confederazione._",
+"_Tutti iniziano come Membri, ma smettono di esserlo se danneggiano una città Libera._",
+"Proteggere la Libertà nell'Orlo",
+"Alla fine di un capitolo, avanza di 1 per ogni città Libera sulla mappa non controllata dall'Impero.",
+"_L'Impero controlla un sistema anche con 1 sola nave Imperiale integra._"
+],
+"fascia": "FONDATORE - ATTO II"
+},
+"471_16.jpg": {
+"g": [
+"LEGA DEI CUSTODI",
+"*Preludio:* puoi posizionare questa carta accanto a una carta Amministrazione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"471_17.jpg": {
+"g": [
+"LEGA DEI CUSTODI",
+"*Preludio:* puoi posizionare questa carta accanto a una carta Amministrazione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"471_18.jpg": {
+"g": [
+"LEGA DEI COSTRUTTORI",
+"*Preludio:* puoi posizionare questa carta accanto a una carta Costruzione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"471_19.jpg": {
+"g": [
+"LEGA DEI COSTRUTTORI",
+"*Preludio:* puoi posizionare questa carta accanto a una carta Costruzione giocata a faccia in su. Alla fine del round, prendi in mano quella carta e scarta questa."
+]
+},
+"471_20.jpg": {
+"g": [
+"INTRIGO POLITICO",
+"*Crisi:* ogni giocatore dà Favori così: se è uscito A, ne dà uno al giocatore alla sua sinistra; se è uscito B, ne dà uno a destra; se è uscito C, ne dà uno sia a sinistra sia a destra. Seppellisci questa carta.",
+"*Appena Acquisita:* prendi 1 Favore da ogni Rivale. Scarta questa carta."
+]
+},
+"471_21.jpg": {
+"g": [
+"INTRIGO POLITICO",
+"*Crisi:* ogni giocatore dà Favori così: se è uscito A, ne dà uno al giocatore alla sua sinistra; se è uscito B, ne dà uno a destra; se è uscito C, ne dà uno sia a sinistra sia a destra. Seppellisci questa carta.",
+"*Appena Acquisita:* prendi 1 Favore da ogni Rivale. Scarta questa carta."
+]
+},
+"471_22.jpg": {
+"g": [
+"*INTRIGO POLITICO* / *Crisi:* ogni giocatore dà Favori così: se è uscito A, ne dà uno al giocatore alla sua sinistra; se è uscito B, ne dà uno a destra; se è uscito C, ne dà uno sia a sinistra sia a destra. Seppellisci questa carta.",
+"*Appena Acquisita:* prendi 1 Favore da ogni Rivale. Scarta questa carta."
+]
+},
+"471_23.jpg": {
+"g": [
+"LIBRO DELLA LIBERAZIONE",
+"Non puoi danneggiare gli edifici Liberi.",
+"Puoi costruire edifici Liberi, tranne che nei sistemi controllati dall'Impero.",
+"Quando costruisci un edificio Libero su un pianeta, togli il tuo Oltraggio del tipo di quel pianeta."
+]
+},
+"471_24.jpg": {
+"g": [
+"ATTENDI L'INTERVALLO PER RISOLVERLA",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi Libro della Liberazione (04).",
+"2. Aggiungi le 3 carte Intrigo Politico (05-07) al mazzo Corte.",
+"3. Metti le 2 Leghe dei Costruttori (08-09) e le 2 Leghe dei Custodi (10-11) dietro la prossima carta Risoluzione del Fondatore (22).",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Elimina Libro della Liberazione (04) e le 3 carte Intrigo Politico (05-07).",
+"2. Aggiungi le 2 Leghe dei Costruttori (08-09) e le 2 Leghe dei Custodi (10-11) al mazzo Corte."
+]
+},
+"471_25.jpg": {
+"g": [
+"FLOTTE DA PARATA",
+"Quando *dichiari* un'ambizione, puoi posizionare 2 navi integre in una città Libera. Poi, se sei un Reggente, puoi diventare Fuorilegge."
+]
+},
+"471_26.jpg": {
+"g": [
+"1. Prendi Flotte da Parata (02).",
+"_Gira questa carta._",
+""
+],
+"fascia": "FONDATORE - ATTO I"
+},
+"471_26_r.jpg": {
+"g": [
+null,
+null,
+"Ispirare Fiducia nella Causa",
+"",
+"Finché sei un Fuorilegge, avanza di 3 per ogni ambizione che vinci.",
+"Sfidare il Pugno dell'Impero",
+"Alla fine di un capitolo, se sei un Fuorilegge, avanza di 1 per ogni sistema che controlli.",
+"_Puoi diventare Fuorilegge quando convochi un Vertice oppure quando dichiari un'ambizione, grazie a Flotte da Parata._"
+],
+"fascia": "FONDATORE - ATTO I"
+}
+}

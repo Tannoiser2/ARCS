@@ -1,0 +1,285 @@
+{
+"428_00.jpg": {
+"g": [
+"SUPREMAZIA DELLE GILDE",
+"Nel calcolo del Potere, le carte Gilda contano doppio.",
+"_Per esempio, ogni carta Gilda Psicoenergia conta due per l'ambizione Empate._"
+]
+},
+"428_01.jpg": {
+"g": [
+"SUPREMAZIA DELLE GILDE",
+"Nel calcolo del Potere, le carte Gilda contano doppio.",
+"_Per esempio, ogni carta Gilda Psicoenergia conta due per l'ambizione Empate._"
+]
+},
+"428_02.jpg": {
+"g": [
+"LEALTÀ DELLE GILDE",
+"Quando Rechi Oltraggio, non seppellisci le carte Gilda."
+]
+},
+"428_03.jpg": {
+"g": [
+"1. Prendi Lealtà delle Gilde (24).",
+"2. Aggiungi Supremazia delle Gilde al libretto delle regole (25). _Spiegala a tutti._",
+"3. Come promemoria, metti la seconda copia di Supremazia delle Gilde (26) vicino ai riquadri delle ambizioni.",
+"_Gira questa carta._",
+null
+],
+"fascia": "PATROCINATORE - ATTO III"
+},
+"428_03_r.jpg": {
+"g": [
+"Consolidare la Supremazia delle Gilde",
+"Avere carte Gilda di più semi diversi del numero del Capitolo in corso.",
+"Le carte Gilda sono più della metà della Corte.",
+"_La seconda grande ambizione conta anche le carte attaccate. Per esempio, se la Corte ha il Consiglio Imperiale, 3 carte e 2 carte attaccate, questa grande ambizione richiede 4 carte Gilda._",
+null,
+"_Ricorda che puoi attaccare una carta Gilda al Consiglio Imperiale, perché è una carta della Corte. Non serve nemmeno che sia In Sessione!_"
+],
+"fascia": "PATROCINATORE - ATTO III"
+},
+"428_04.jpg": {
+"g": [
+"LE GILDE SI RITIRANO",
+"*Crisi:* se è uscito B o A, ogni giocatore in ordine di turno deve seppellire 1 carta Gilda. Seppellisci questa carta.",
+"*Appena Acquisita:* ogni Rivale deve seppellire 1 carta Gilda. Seppellisci questa carta."
+]
+},
+"428_05.jpg": {
+"g": [
+"MAESTRI DELLA GILDA PSICOENERGIA",
+"Quando *dichiari* l'ambizione Empate, puoi rubare una carta Gilda Psicoenergia."
+]
+},
+"428_06.jpg": {
+"g": [
+"MAESTRI DELLA GILDA RELIQUIE",
+"Quando *dichiari* l'ambizione Custode, puoi rubare una carta Gilda Reliquie."
+]
+},
+"428_07.jpg": {
+"g": [
+"MAESTRI DELLA GILDA ARMI",
+"Quando *dichiari* l'ambizione Generale, puoi rubare una carta Gilda Armi."
+]
+},
+"428_08.jpg": {
+"g": [
+"MAESTRI DELLA GILDA CARBURANTE",
+"Quando *dichiari* l'ambizione Magnate, puoi rubare una carta Gilda Carburante."
+]
+},
+"428_09.jpg": {
+"g": [
+"MAESTRI DELLA GILDA MATERIALE",
+"Quando *dichiari* l'ambizione Magnate, puoi rubare una carta Gilda Materiale."
+]
+},
+"428_10.jpg": {
+"g": [
+"FIERA DELLE GILDE",
+"*Appena Acquisita:* rimetti nelle riserve tutti gli agenti Rivali sulle carte Gilda della Corte. Acquisisci tutte le carte Gilda che ora puoi acquisire. Seppellisci questa carta."
+],
+"extra": [
+{
+"box": [
+48,
+126,
+578,
+201
+],
+"t": "*Crisi:* i giocatori acquisiscono tutte le carte Gilda che ora possono acquisire. Seppellisci questa carta."
+}
+]
+},
+"428_11.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi Fiera delle Gilde (16) e le 5 carte Maestri della Gilda (17-21) al mazzo Corte.",
+"2. Elimina Le Gilde si Ritirano (22).",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Elimina Fiera delle Gilde (16) e le 5 carte Maestri della Gilda (17-21).",
+"2. Aggiungi Le Gilde si Ritirano (22) al mazzo Corte.",
+"3. Elimina Richiesta del Patrocinatore (13) dal libretto delle regole."
+]
+},
+"428_12.jpg": {
+"g": [
+"TRATTATIVE CON LE GILDE",
+"Nei Vertici puoi svolgere una nuova azione di Trattativa, *Trasferire l'Appoggio delle Gilde:*",
+"Dai una carta Gilda. Serve il consenso del Patrocinatore se è in gioco.",
+"Imporlo con Restituire Favori costa tanti Favori quanto il costo di razzia della carta Gilda. Puoi imporre il consenso del Patrocinatore restituendogli 1 suo Favore.",
+"_Nessuno può essere costretto a dare carte Gilda protette._"
+]
+},
+"428_13.jpg": {
+"g": [
+"",
+"",
+"Il Patrocinatore può scegliere 1 carta Gilda di un Rivale, ma il suo seme non può essere uguale a quello di nessuna carta Gilda del Patrocinatore.",
+"Quel Rivale deve dare quella carta Gilda al Patrocinatore e prendere 1 Favore del Patrocinatore, oppure dare 1 Favore al Patrocinatore.",
+"_Non è un furto, quindi carte come Guardiani Giurati non lo impediscono. Il Patrocinatore può richiedere anche carte Gilda protette!_"
+],
+"titolo": "RICHIESTA DEL PATROCINATORE",
+"titolo_box": [
+128,
+10,
+600,
+150
+],
+"extra": [
+{
+"box": [
+49,
+197,
+567,
+227
+],
+"t": "_Elimina questo Editto se il Patrocinatore non è in gioco._"
+}
+]
+},
+"428_14.jpg": {
+"g": [
+"1. Aggiungi l'Editto Richiesta del Patrocinatore (13) al libretto delle regole. _Spiegalo a tutti._",
+null,
+"",
+"2. Aggiungi Trattative con le Gilde (14) al libretto delle regole. _Spiegala a tutti._",
+"_Gira questa carta._"
+],
+"fascia": "PATROCINATORE - ATTO II"
+},
+"428_14_r.jpg": {
+"g": [
+null,
+null,
+"Collegarsi con le Gilde",
+null,
+"Alla fine di un capitolo, avanza di 1 per ogni seme diverso di carte Gilda che hai.",
+"Migliorare la Propria Posizione",
+"Alla fine di un capitolo, avanza di 1 per ogni Rivale che ha meno carte Gilda di te.",
+"_L'Editto Richiesta del Patrocinatore ti aiuterà ad avanzare in questi obiettivi!_"
+],
+"fascia": "PATROCINATORE - ATTO II"
+},
+"428_15.jpg": {
+"g": [
+"CONFLITTO FRA GILDE",
+"*Crisi:* in ordine di turno, ognuno dà 1 carta Gilda al giocatore a sinistra, tranne quella appena ricevuta. Seppellisci questa carta.",
+"*Appena Acquisita:* puoi rubare 1 carta Gilda a un Rivale. Rimescola nel mazzo Corte tutte le carte Gilda degli scarti della Corte. Seppellisci Conflitto fra Gilde."
+]
+},
+"428_16.jpg": {
+"g": [
+"FIASCO DIPLOMATICO",
+"*Crisi:* in ordine di turno, ogni giocatore con più carte Gilda che agenti nella propria riserva deve scartare carte Gilda finché il loro numero è pari a quello dei suoi agenti. Seppellisci questa carta. _(Conta le carte Gilda protette, ma non scartarle.)_",
+"*Appena Acquisita:* i Rivali risolvono la Crisi."
+]
+},
+"428_17.jpg": {
+"g": [
+"EMISSARI DELLA PSICOENERGIA",
+"Quando Copi per *influenzare*, puoi ottenere 1 Psicoenergia.",
+"*Preludio:* puoi attaccare questa carta a una carta della Corte senza agenti per dichiarare l'ambizione Empate."
+]
+},
+"428_18.jpg": {
+"g": [
+"EMISSARI DELLE RELIQUIE",
+"Quando Copi per *acquisire*, puoi ottenere 1 Reliquia.",
+"*Preludio:* puoi attaccare questa carta a una carta della Corte senza agenti per dichiarare l'ambizione Custode."
+]
+},
+"428_19.jpg": {
+"g": [
+"EMISSARI DELLE ARMI",
+"Quando Copi per *combattere*, puoi ottenere 1 Armi.",
+"*Preludio:* puoi attaccare questa carta a una carta della Corte senza agenti per dichiarare l'ambizione Generale."
+]
+},
+"428_20.jpg": {
+"g": [
+null,
+"EMISSARI DEL CARBURANTE",
+"Quando Copi per *muovere*, puoi ottenere 1 Carburante.",
+"*Preludio:* puoi attaccare questa carta a una carta della Corte senza agenti per dichiarare l'ambizione Magnate."
+]
+},
+"428_21.jpg": {
+"g": [
+"EMISSARI DEL MATERIALE",
+"Quando Copi per *costruire*, puoi ottenere 1 Materiale.",
+"*Preludio:* puoi attaccare questa carta a una carta della Corte senza agenti per dichiarare l'ambizione Magnate."
+]
+},
+"428_22.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi i tuoi Sorveglianti delle Gilde (03), le 5 carte Emissari (05-09) e Fiasco Diplomatico (10) al mazzo Corte.",
+"2. Elimina Conflitto fra Gilde (11).",
+"*Se non hai completato il tuo obiettivo:*",
+"1. Aggiungi i tuoi Sorveglianti delle Gilde (03) al mazzo Corte.",
+"2. Per ogni seme di carte Gilda di cui hai più carte di ogni Rivale, aggiungi la carta Emissari corrispondente (05-09) al mazzo Corte. Elimina le altre carte Emissari.",
+"3. Elimina Fiasco Diplomatico (10). / 4. Aggiungi Conflitto fra Gilde (11) al mazzo Corte."
+]
+},
+"428_23.jpg": {
+"g": [
+null,
+"SORVEGLIANTI DELLE GILDE",
+"Per usare le azioni delle carte Gilda devi essere al primo o al secondo posto di un'ambizione dichiarata. _(Cioè otterresti Potere se si calcolasse ora.)_ / *Appena Acquisita:* cerca nel mazzo e negli scarti della Corte e prendi 1 carta Gilda qualsiasi. Se hai cercato nel mazzo, rimescolalo."
+]
+},
+"428_24.jpg": {
+"g": [
+null
+],
+"extra": [
+{
+"box": [
+30,
+478,
+595,
+535
+],
+"t": "INVESTIGATORI DELLE GILDE",
+"titolo": true
+},
+{
+"box": [
+48,
+578,
+590,
+690
+],
+"t": "*Recuperare (Muovere):* attacca la carta Gilda in cima agli scarti della Corte a una carta della Corte senza agenti."
+}
+]
+},
+"428_25.jpg": {
+"g": [
+"1. Prendi Investigatori delle Gilde (02) e Sorveglianti delle Gilde (03).",
+"_Sorveglianti delle Gilde ha un'azione Appena Acquisita. Non risolverla ora: conta solo quando Sorveglianti delle Gilde entra nel mazzo Corte nell'Atto II._",
+null,
+"",
+"_Gira questa carta._"
+],
+"fascia": "PATROCINATORE - ATTO I"
+},
+"428_25_r.jpg": {
+"g": [
+null,
+"Dimostrare il Proprio Valore ai Sorveglianti",
+"Finché hai Sorveglianti delle Gilde, avanza di 3 ogni volta che usi l'azione Preludio di una carta Gilda che si scarta da sola.",
+"",
+"_Sorveglianti delle Gilde limita quando puoi usare le carte Gilda, compresi Investigatori delle Gilde!_",
+"Tenere al Potere le Gilde",
+"Finché hai Sorveglianti delle Gilde, avanza di 2 ogni volta che svolgi l'azione Recuperare dei tuoi Investigatori delle Gilde."
+],
+"fascia": "PATROCINATORE - ATTO I"
+}
+}

@@ -1,0 +1,297 @@
+{
+"429_00.jpg": {
+"g": [
+"Prima, i Golem Consumano la Coscienza. In ordine di turno, ogni giocatore deve eliminare 1 carta Gilda per ogni Golem Desto che possiede, ignorando i limiti delle carte Gilda protette. _(In altre parole, puoi eliminare anche le carte Gilda protette!)_",
+"Se non ha carte Gilda, elimina la carta Gilda più a sinistra della Corte che ha agenti, ed elimina quegli agenti.",
+"Poi, i Golem si Destano. Gira tutti i Golem Dormienti sul lato Desto."
+],
+"titolo": "I GOLEM SAZIANO LA LORO FAME",
+"titolo_box": [
+128,
+20,
+600,
+150
+]
+},
+"429_01.jpg": {
+"g": [
+"1. Aggiungi l'Editto I Golem Saziano la Loro Fame (21) al libretto delle regole. _Spiegalo a tutti._",
+"2. Gira tutti i Golem Dormienti sul lato Desto.",
+"_Gira questa carta._",
+null
+],
+"fascia": "CURATORE - ATTO III"
+},
+"429_01_r.jpg": {
+"g": [
+"Nutrire i Golem con il Sapere Pericoloso, ma Zittirli Prima che Divorino Tutto",
+"Alla fine di un capitolo, hai un Golem e scegli di eliminare 1 tua carta Lore, tranne il Focolare dei Golem.",
+"Alla fine di un capitolo, scegli di eliminare 1 tuo Golem.",
+"_Puoi svolgere ciascuna di queste azioni una volta per capitolo. Puoi eliminare il Golem dopo aver eliminato la carta Lore._",
+null
+],
+"fascia": "CURATORE - ATTO III"
+},
+"429_02.jpg": {
+"g": [
+"CULTO DEI GOLEM",
+"*Crisi:* in ordine di turno, ogni giocatore con dei Golem deve rimettere 1 città Leale sulla propria plancia. Seppellisci questa carta.",
+"*Appena Acquisita:* prendi un Golem qualsiasi e giralo sul lato Desto. Scarta questa carta."
+]
+},
+"429_03.jpg": {
+"g": [
+"CULTO DEI GOLEM",
+"*Crisi:* in ordine di turno, ogni giocatore con dei Golem deve rimettere 1 città Leale sulla propria plancia. Seppellisci questa carta.",
+"*Appena Acquisita:* prendi un Golem qualsiasi e giralo sul lato Desto. Scarta questa carta."
+]
+},
+"429_04.jpg": {
+"g": [
+"CULTO DEI GOLEM",
+"*Crisi:* in ordine di turno, ogni giocatore con dei Golem deve rimettere 1 città Leale sulla propria plancia. Seppellisci questa carta.",
+"*Appena Acquisita:* prendi un Golem qualsiasi e giralo sul lato Desto. Scarta questa carta."
+]
+},
+"429_05.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi le 3 carte Culto dei Golem (17-19) al mazzo Corte.",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina le 3 carte Culto dei Golem (17-19).",
+"2. Aggiungi al mazzo Corte tutte le carte Instabile (08-11) degli scarti della Corte."
+]
+},
+"429_06.jpg": {
+"g": [
+"EVENTO",
+"Svolgi azioni come la carta di guida, a meno che un Rivale abbia giocato una carta Evento o acquisito il Consiglio Imperiale in questo round.",
+"Imita la Guida, Aggiungi un Evento a Fine Round",
+"Non puoi guidare con questa carta, Copiare con essa o scartarla per prendere l'iniziativa.",
+"Alla fine del round, dopo aver verificato l'iniziativa, il giocatore con l'iniziativa può convocare un Vertice, poi deve tirare un evento.",
+"Risolvi le Crisi. / Risolvi gli Editti.",
+"Se il Consiglio Imperiale è stato acquisito in questo round, risolvi quello al posto di questa carta."
+]
+},
+"429_07.jpg": {
+"g": [
+"CONOSCENZA LIBERATA",
+"Nei Vertici puoi svolgere queste nuove azioni di Trattativa:",
+"*Trasferire Lore:* dai una carta Lore a un Rivale. Non si può imporre con Restituire Favori.",
+"*Trasferire Golem:* dai un Golem a un Rivale. Per imporlo con Restituire Favori devi restituire tanti Favori quanto il costo di razzia del Golem."
+]
+},
+"429_08.jpg": {
+"g": [
+"BIBLIOTECARI",
+"*Crisi:* il giocatore che ha questa carta deve attaccarla a una carta della Corte.",
+"Dopo che hai acquisito una carta, puoi pescare 1 carta Lore dal mazzo Lore e attaccarla alla carta che ha rifornito la Corte."
+]
+},
+"429_09.jpg": {
+"g": [
+"",
+"1. Prendi Bibliotecari (13).",
+"2. Aggiungi Conoscenza Liberata (14) al libretto delle regole. _Spiegala a tutti._",
+"3. Mescola la carta Evento extra (15) nel mazzo azioni. _Dillo a tutti. (Questa carta non riporta il proprio numero.)_",
+"4. Gira tutti i Golem Dormienti sul lato Desto.",
+null,
+"_Gira questa carta._"
+],
+"fascia": "CURATORE - ATTO II"
+},
+"429_09_r.jpg": {
+"g": [
+"",
+null,
+"Raccogliere il Sapere della Galassia",
+"Avanza di 2 ogni volta che acquisisci una carta Lore.",
+"Nelle Trattative dei Vertici, avanza",
+"di 1 ogni volta che un Rivale ti dà una carta Lore con Trasferire Lore, a meno che tu gliel'abbia data nello stesso Vertice.",
+null,
+"_La carta Conoscenza Liberata permette di cedere Lore nei Vertici._",
+"*Costruire la Collezione Più Grande* / Alla fine di un capitolo, avanza di 1 per ogni Rivale che ha meno carte Lore di te."
+],
+"fascia": "CURATORE - ATTO II"
+},
+"429_10.jpg": {
+"g": [
+"GUERRIERO INSTABILE",
+"*Crisi:* distruggi tutte le navi Leali danneggiate del giocatore che ha il Guerriero.",
+"*Appena Acquisita:* gira il Guerriero sul lato Desto e prendilo. Scarta questa carta."
+]
+},
+"429_11.jpg": {
+"g": [
+"PROTETTORE INSTABILE",
+"*Crisi:* ripara tutte le navi, tranne quelle del giocatore che ha il Protettore.",
+"*Appena Acquisita:* gira il Protettore sul lato Desto e prendilo. Scarta questa carta."
+]
+},
+"429_12.jpg": {
+"g": [
+"CERCATORE INSTABILE",
+"*Crisi:* il giocatore che ha il Cercatore muove le sue navi Leali dai pianeti del simbolo tirato al portale dell'ammasso tirato.",
+"*Appena Acquisita:* gira il Cercatore sul lato Desto e prendilo. Scarta questa carta."
+]
+},
+"429_13.jpg": {
+"g": [
+"RACCOGLITORE INSTABILE",
+"*Crisi:* il giocatore che ha il Raccoglitore scarta tutte le sue risorse.",
+"*Appena Acquisita:* gira il Raccoglitore sul lato Desto e prendilo. Scarta questa carta."
+]
+},
+"429_14.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Elimina il tuo Faro dei Golem (02).",
+"2. Metti tutti i segnalini Golem della mappa sul tuo Focolare dei Golem (03).",
+"3. Aggiungi al mazzo Corte 1 carta Lore a caso dal mazzo Lore per ogni giocatore. Aggiungi le 4 carte Instabile (08-11) al mazzo Corte.",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina il tuo Faro dei Golem (02).",
+"2. Aggiungi i tuoi Parlapietre (04) al mazzo Corte.",
+"3. Elimina tutti i segnalini Golem sulla mappa. / 4. Aggiungi al mazzo Corte le carte Instabile (08-11) dei Golem ancora in gioco. Elimina le altre carte Instabile (08-11)."
+]
+},
+"429_15.jpg": {
+"g": [
+"AZIONI DEI GOLEM",
+"*Preludio:* puoi spendere i tuoi Golem Desti per svolgere, se vuoi, le loro azioni.",
+"*Guerriero:* distruggi tutte le navi danneggiate in un sistema. _(Le navi Leali tornano nella tua riserva.)_",
+"*Protettore:* ripara le navi che vuoi. _(Anche 1 Potenziamento o Corazza con un'Ammiraglia.)_",
+"*Cercatore:* svolgi un movimento Catapulta da un sistema.",
+"*Raccoglitore:* ottieni una risorsa qualsiasi."
+]
+},
+"429_16.jpg": {
+"g": [
+"GOLEM",
+"",
+"",
+""
+],
+"extra": [
+{
+"box": [
+45,
+185,
+398,
+425
+],
+"t": "_Solo il Curatore può prendere Golem dalla mappa._ / I Golem occupano spazi risorsa e si possono scartare, riordinare e spendere per azioni come le risorse.",
+"size": 27
+},
+{
+"box": [
+45,
+428,
+595,
+585
+],
+"t": "_(Vedi la carta Azioni dei Golem.)_ / Hanno un lato Dormiente e un lato Desto. Il lato Desto è pubblico se un giocatore ha il Golem. _(I Golem dei giocatori si destano nelle Crisi.)_",
+"size": 27
+},
+{
+"box": [
+45,
+590,
+595,
+745
+],
+"t": "Quando un Golem viene speso o scartato, giralo sul lato Dormiente e mettilo in uno spazio risorsa vuoto di un Rivale. Se non ce ne sono, lo tieni tu.",
+"size": 27
+},
+{
+"box": [
+45,
+750,
+595,
+790
+],
+"t": "Nella *preparazione* degli Atti II e III, i Golem si destano.",
+"size": 27
+}
+],
+"ripristina": [
+[
+396,
+232,
+598,
+402
+]
+]
+},
+"429_17.jpg": {
+"g": [
+"PARLAPIETRE",
+"Quando dichiari un'ambizione, puoi terminare subito il tuo turno. Se lo fai, prendi i Golem che vuoi dai Rivali, poi tira il dado evento e risolvi le Crisi se escono. _(Non risolvere gli Editti.)_"
+]
+},
+"429_18.jpg": {
+"g": [
+"*Crisi:* gira sul lato Desto tutti i Golem Dormienti che non sono sulla mappa.",
+"Questa carta contiene un numero qualsiasi di Golem. _(Puoi spendere i Golem Desti che ci sono sopra.)_ Il loro costo di razzia è di 2 ciascuno."
+],
+"extra": [
+{
+"box": [
+30,
+478,
+595,
+535
+],
+"t": "FOCOLARE DEI GOLEM",
+"titolo": true
+}
+]
+},
+"429_19.jpg": {
+"g": [
+"FARO DEI GOLEM",
+"*Destare (Influenzare):* prendi i Golem che controlli sulla mappa e mettili sulla tua carta Focolare dei Golem.",
+"Gira questi Golem sul lato Desto se stai vincendo un'ambizione dichiarata."
+]
+},
+"429_20.jpg": {
+"g": [
+"1. Prendi Faro dei Golem (02), Focolare dei Golem (03) e Parlapietre (04).",
+"",
+"",
+"",
+"3. Aggiungi Golem (05) e Azioni dei Golem (06) al libretto delle regole. _Spiegale a tutti._",
+"_Gira questa carta._"
+],
+"fascia": "CURATORE - ATTO I",
+"extra": [
+{
+"box": [
+155,
+150,
+478,
+305
+],
+"t": "2. Mescola i 4 segnalini Golem Dormienti. Mettine uno, sul lato Dormiente, su ogni portale degli ammassi senza navi Imperiali."
+}
+],
+"ripristina": [
+[
+482,
+150,
+586,
+254
+]
+]
+},
+"429_20_r.jpg": {
+"g": [
+null,
+"Trovare i Golem",
+"Ogni volta che vinci un'ambizione, avanza di 2 per ogni Golem che hai. / _Puoi prendere Golem dalla mappa con la tua carta Faro dei Golem._",
+"",
+"",
+"Usare i Golem",
+"Avanza di 2 ogni volta che un giocatore spende un Golem nel proprio Preludio. / _Avanza anche se il giocatore sceglie di non usare l'azione Preludio del Golem._"
+],
+"fascia": "CURATORE - ATTO I"
+}
+}
