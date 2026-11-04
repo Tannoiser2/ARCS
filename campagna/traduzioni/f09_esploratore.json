@@ -1,0 +1,192 @@
+{
+"433_00.jpg": {
+"g": [
+"CERCARE IL PORTALE",
+"*Crisi:* in ordine di turno, ogni giocatore deve eliminare 1 nave Leale sulla mappa.",
+"*Appena Acquisita:* se controlli il segnalino Portale, elimina quante navi vuoi nel suo sistema. Ottieni 2 Potere per ogni nave eliminata. Rimescola questa carta nel mazzo Corte."
+]
+},
+"433_01.jpg": {
+"g": [
+"CERCARE IL PORTALE",
+"*Crisi:* in ordine di turno, ogni giocatore deve eliminare 1 nave Leale sulla mappa.",
+"*Appena Acquisita:* se controlli il segnalino Portale, elimina quante navi vuoi nel suo sistema. Ottieni 2 Potere per ogni nave eliminata. Rimescola questa carta nel mazzo Corte."
+]
+},
+"433_02.jpg": {
+"g": [
+"CERCARE IL PORTALE",
+"*Crisi:* in ordine di turno, ogni giocatore deve eliminare 1 nave Leale sulla mappa.",
+"*Appena Acquisita:* se controlli il segnalino Portale, elimina quante navi vuoi nel suo sistema. Ottieni 2 Potere per ogni nave eliminata. Rimescola questa carta nel mazzo Corte."
+]
+},
+"433_03.jpg": {
+"g": [
+"PELLEGRINI",
+"I segnalini Pellegrino sono tuoi pezzi Leali.",
+"*Preludio:* una volta per turno, puoi muovere ogni segnalino Pellegrino una volta in un sistema che controlli o in cui c'è la tua Ammiraglia.",
+"_È l'unico modo in cui i Pellegrini si muovono. Non puoi interrompere questa azione Preludio con altre, come spendere Carburante._",
+"*Usare il Portale (Muovere):* se controlli il segnalino Portale, prendi tutti i Pellegrini del suo sistema e mettili sulla tua carta obiettivo. Sfila una carta Cercare il Portale da qui e mettila in cima al mazzo Corte."
+]
+},
+"433_04.jpg": {
+"g": [
+"1. Prendi la carta Pellegrini (08).",
+"2. Metti 1 carta Cercare il Portale (09) in cima al mazzo Corte.",
+"",
+"3. Infila le altre 2 carte Cercare il Portale (10-11) sotto la carta Pellegrini e il Portale (08).",
+"4. Raccogli i 6 segnalini Pellegrino.",
+"",
+"_Gira questa carta._",
+null
+],
+"fascia": "ESPLORATORE - ATTO III",
+"extra": [
+{
+"box": [
+180,
+40,
+224,
+520
+],
+"t": ""
+},
+{
+"box": [
+226,
+354,
+555,
+505
+],
+"t": "5. Tira il dado evento e metti 1 segnalino Pellegrino su ogni pianeta del simbolo tirato."
+}
+],
+"ripristina": [
+[
+565,
+340,
+744,
+520
+]
+]
+},
+"433_04_r.jpg": {
+"g": [
+"Veder Giungere i Pellegrini",
+"Controlla il segnalino Portale.",
+"Abbi su questa carta più Pellegrini del numero del Capitolo in corso.",
+"_La carta Pellegrini e il Portale spiega come muovere i Pellegrini e portarli su questa carta._",
+null
+],
+"fascia": "ESPLORATORE - ATTO III"
+},
+"433_05.jpg": {
+"g": [
+"CERCATORI DEL PORTALE",
+"Nel calcolo del punteggio, realizzi una grande ambizione se controlli il segnalino Portale. _(Realizzare tre grandi ambizioni non ti fa ottenere più Potere.)_"
+]
+},
+"433_06.jpg": {
+"g": [
+"CHIAMATA AL PELLEGRINAGGIO",
+"*Crisi:* se è uscito A, ogni giocatore in ordine di turno deve scartare 1 carta Gilda.",
+"*Appena Acquisita:* scegli il seme di una tua carta Gilda. In senso orario a partire da te, ogni Rivale deve scartare tutte le sue carte Gilda di quel seme. Rimescola Chiamata al Pellegrinaggio nel mazzo Corte."
+]
+},
+"433_07.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:*",
+"1. Aggiungi Chiamata al Pellegrinaggio (05) al mazzo Corte.",
+"2. Elimina Cercatori del Portale (06).",
+"3. Costruisci 1 Miglioria o Corazza sulla plancia della tua Ammiraglia, senza bisogno di essere su un pianeta specifico.",
+"*Se non hai completato il tuo obiettivo:* / 1. Elimina Chiamata al Pellegrinaggio (05).",
+"2. Aggiungi Cercatori del Portale (06) al mazzo Corte.",
+"3. Metti il segnalino Portale sul sistema annotato durante la preparazione. / 4. Elimina tutti i segnalini Indizio, la tua carta Scoprire Indizi (02) e la carta Indizi del Portale (03)."
+]
+},
+"433_08.jpg": {
+"g": [
+"INDIZI DEL PORTALE",
+"L'Esploratore può farti mettere un segnalino Indizio su un pianeta. Se non ne hai nella riserva, prendilo dalla mappa.",
+"Metti l'Indizio sul lato Spunta se il pianeta è nell'ammasso giusto o ha il simbolo identificativo giusto (A/B/C).",
+"",
+"Metti l'Indizio sul lato X se il pianeta non è nell'ammasso giusto e non ha il simbolo identificativo giusto (A/B/C).",
+"",
+"Se la sua Ammiraglia è sul pianeta giusto, metti invece il segnalino Portale. Elimina tutti gli Indizi, questa carta e la carta Scoprire Indizi.",
+"_Non puoi discutere del sistema del Portale né fare allusioni. Puoi solo mettere questi segnalini come descritto._"
+]
+},
+"433_09.jpg": {
+"g": [
+"SCOPRIRE INDIZI",
+"*Preludio:* se la tua Ammiraglia è su un pianeta senza segnalino Indizio, puoi spendere 1 risorsa diversa da tutti i pianeti del suo ammasso per far mettere al giocatore alla tua destra 1 segnalino Indizio sul pianeta. Ottieni 1 risorsa del tipo del pianeta per ogni città lì, e metti lì 2 navi per ogni porto stellare lì.",
+"Un Indizio Spunta significa che il pianeta è nell'ammasso giusto o ha il simbolo identificativo giusto (A/B/C).",
+"Un Indizio X significa che il pianeta non è nell'ammasso giusto e non ha il simbolo identificativo giusto (A/B/C).",
+"",
+"Un segnalino Portale significa che hai trovato il Portale! _(Completi il tuo obiettivo.)_"
+],
+"ripristina": [
+[
+560,
+780,
+744,
+910
+]
+]
+},
+"433_10.jpg": {
+"g": [
+"1. *Ottieni un'Ammiraglia:* prendi una plancia Ammiraglia e preparala come descritto sul retro.",
+"",
+"2. Metti 1 porto stellare sulla tua Miglioria Propulsore a Scia. Metti 1 città sulla tua Miglioria Scafo.",
+"",
+"3. Prendi la carta Scoprire Indizi (02).",
+"4. Il giocatore alla tua destra scrive di nascosto il numero dell'ammasso e il simbolo identificativo (A/B/C) di un pianeta qualsiasi della mappa.",
+"",
+"",
+"",
+"_Gira questa carta._"
+],
+"fascia": "ESPLORATORE - ATTO II",
+"extra": [
+{
+"box": [
+180,
+40,
+224,
+850
+],
+"t": ""
+},
+{
+"box": [
+226,
+628,
+548,
+860
+],
+"t": "5. Dai la carta Indizi del Portale (03), 6 segnalini Indizio e il segnalino Portale al giocatore alla tua destra. _(Gli Indizi sono a doppia faccia!)_"
+}
+],
+"ripristina": [
+[
+555,
+650,
+744,
+880
+]
+]
+},
+"433_10_r.jpg": {
+"g": [
+"",
+null,
+"Trovare il Portale",
+"",
+"Avanza di 1 ogni volta che viene messo un segnalino Indizio Spunta. Questo non può completare il tuo obiettivo. / Avanza di 8 quando viene messo il segnalino Portale.",
+"_La tua carta abilità Scoprire Indizi descrive come si mettono gli Indizi e il Portale._"
+],
+"fascia": "ESPLORATORE - ATTO II"
+}
+}

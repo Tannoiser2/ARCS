@@ -28,7 +28,7 @@ null
 368
 ],
 "t": "*Preludio:* una volta per turno, puoi svolgere un movimento Catapulta con la sola Ammiraglia o con altre navi a partire dall'Ammiraglia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -50,7 +50,7 @@ null
 565
 ],
 "t": "Quando la tua Ammiraglia difende in *battaglia*, l'attaccante non può raccogliere dadi razzia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -72,7 +72,7 @@ null
 763
 ],
 "t": "Mentre la tua Ammiraglia è in un portale, puoi *tassare* le città del suo ammasso come se fossero Leali. _(Non prendi Prigionieri.)_",
-"size": 29
+"size": 26
 }
 ]
 },
@@ -106,7 +106,7 @@ null
 368
 ],
 "t": "Quando difendi in *battaglia*, la tua Ammiraglia può intercettare, infliggendo 1 colpo per ogni porto stellare integro sulla sua plancia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -128,7 +128,7 @@ null
 565
 ],
 "t": "La tua Ammiraglia può *costruire* fino a 2 navi per turno invece di 1. _(Devi comunque costruire due volte per costruire 2 navi.)_",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -150,7 +150,7 @@ null
 763
 ],
 "t": "Non ha benefici speciali. Può essere colpito come qualsiasi altra Miglioria.",
-"size": 29
+"size": 26
 }
 ]
 },
@@ -183,7 +183,7 @@ null
 368
 ],
 "t": "*Preludio:* una volta per turno, puoi svolgere un movimento Catapulta con la sola Ammiraglia o con altre navi a partire dall'Ammiraglia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -205,7 +205,7 @@ null
 565
 ],
 "t": "Quando la tua Ammiraglia difende in *battaglia*, l'attaccante non può raccogliere dadi razzia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -227,7 +227,7 @@ null
 763
 ],
 "t": "Mentre la tua Ammiraglia è in un portale, puoi *tassare* le città del suo ammasso come se fossero Leali. _(Non prendi Prigionieri.)_",
-"size": 29
+"size": 26
 }
 ]
 },
@@ -262,7 +262,7 @@ null
 368
 ],
 "t": "Quando difendi in *battaglia*, la tua Ammiraglia può intercettare, infliggendo 1 colpo per ogni porto stellare integro sulla sua plancia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -284,7 +284,7 @@ null
 565
 ],
 "t": "La tua Ammiraglia può *costruire* fino a 2 navi per turno invece di 1. _(Devi comunque costruire due volte per costruire 2 navi.)_",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -306,7 +306,7 @@ null
 763
 ],
 "t": "Non ha benefici speciali. Può essere colpito come qualsiasi altra Miglioria.",
-"size": 29
+"size": 26
 }
 ]
 },
@@ -340,7 +340,7 @@ null
 368
 ],
 "t": "*Preludio:* una volta per turno, puoi svolgere un movimento Catapulta con la sola Ammiraglia o con altre navi a partire dall'Ammiraglia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -362,7 +362,7 @@ null
 565
 ],
 "t": "Quando la tua Ammiraglia difende in *battaglia*, l'attaccante non può raccogliere dadi razzia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -384,7 +384,7 @@ null
 763
 ],
 "t": "Mentre la tua Ammiraglia è in un portale, puoi *tassare* le città del suo ammasso come se fossero Leali. _(Non prendi Prigionieri.)_",
-"size": 29
+"size": 26
 }
 ]
 },
@@ -418,7 +418,7 @@ null
 368
 ],
 "t": "Quando difendi in *battaglia*, la tua Ammiraglia può intercettare, infliggendo 1 colpo per ogni porto stellare integro sulla sua plancia.",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -440,7 +440,7 @@ null
 565
 ],
 "t": "La tua Ammiraglia può *costruire* fino a 2 navi per turno invece di 1. _(Devi comunque costruire due volte per costruire 2 navi.)_",
-"size": 29
+"size": 26
 },
 {
 "box": [
@@ -462,7 +462,7 @@ null
 763
 ],
 "t": "Non ha benefici speciali. Può essere colpito come qualsiasi altra Miglioria.",
-"size": 29
+"size": 26
 }
 ]
 }

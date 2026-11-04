@@ -1,0 +1,263 @@
+{
+"467_00.jpg": {
+"g": [
+null,
+null
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "OSPITI FELICI",
+"titolo": true,
+"size": 40
+},
+{
+"box": [
+48,
+576,
+566,
+778
+],
+"t": "*Pacificare (Acquisire):* cattura tutte le navi danneggiate che controlli, tranne quelle Leali. / Quando i Prigionieri vengono restituiti nel calcolo del punteggio, puoi tenere 1 Prigioniero per ogni Stendardo che controlli o che non è controllato.",
+"size": 26
+}
+]
+},
+"467_01.jpg": {
+"g": [
+"1. Prendi la carta Ospiti Felici (12).",
+"_Gira questa carta._"
+],
+"fascia": "EGEMONE - ATTO III"
+},
+"467_01_r.jpg": {
+"g": [
+"Un Solo Corpo, una Sola Mente",
+"Nessun Rivale ha vinto l'ambizione Tiranno.",
+"Sulla mappa ci sono più Stendardi del numero del Capitolo in corso.",
+null
+],
+"fascia": "EGEMONE - ATTO III"
+},
+"467_02.jpg": {
+"g": [
+null,
+"*Crisi:* seppellisci questa carta.",
+"*Appena Acquisita:* puoi prendere come Trofei gli Stendardi che controlli. Scarta questa carta."
+],
+"extra": [
+{
+"box": [
+60,
+26,
+560,
+66
+],
+"t": "CONTRO L'EGEMONIA",
+"titolo": true,
+"size": 42
+},
+{
+"box": [
+48,
+128,
+570,
+164
+],
+"t": "_Eliminala se non ci sono Stendardi sulla mappa._",
+"size": 26
+}
+],
+"libero": true
+},
+"467_03.jpg": {
+"g": [
+null,
+"*Crisi:* seppellisci questa carta.",
+"*Appena Acquisita:* puoi prendere come Trofei gli Stendardi che controlli. Scarta questa carta."
+],
+"extra": [
+{
+"box": [
+60,
+26,
+560,
+66
+],
+"t": "CONTRO L'EGEMONIA",
+"titolo": true,
+"size": 42
+},
+{
+"box": [
+48,
+128,
+570,
+164
+],
+"t": "_Eliminala se non ci sono Stendardi sulla mappa._",
+"size": 26
+}
+],
+"libero": true
+},
+"467_04.jpg": {
+"g": [
+"GUARDIE CARCERARIE",
+"*Arruolare a Forza (Costruire):* restituisci quanti tuoi Prigionieri vuoi per ottenere 1 risorsa qualsiasi per ciascuno. / *Giustiziare (Influenzare):* sposta quanti tuoi Prigionieri vuoi tra i tuoi Trofei.",
+"*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
+]
+},
+"467_05.jpg": {
+"g": [
+"*Arruolare a Forza (Costruire):* restituisci quanti tuoi Prigionieri vuoi per ottenere 1 risorsa qualsiasi per ciascuno. / *Giustiziare (Influenzare):* sposta quanti tuoi Prigionieri vuoi tra i tuoi Trofei.",
+"*Preludio:* puoi scartarla per mettere 3 navi in un sistema che controlli."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "GUARDIE CARCERARIE",
+"titolo": true,
+"size": 40
+}
+]
+},
+"467_06.jpg": {
+"g": [
+null
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "MANIPOLATORI MENTALI",
+"titolo": true,
+"size": 40
+},
+{
+"box": [
+48,
+575,
+566,
+730
+],
+"t": "*Manipolare (Influenzare):* scegli un Rivale di cui hai un Prigioniero. Guarda la sua mano, prendine 1 carta, poi dagli una carta qualsiasi dalla tua mano.",
+"size": 27
+}
+]
+},
+"467_07.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Prendi Manipolatori Mentali (06).",
+"2. Aggiungi 2 Guardie Carcerarie (07-08) al mazzo Corte.",
+"3. Elimina le 2 carte Contro l'Egemonia. / *Se non hai completato il tuo obiettivo:* / 1. Elimina Manipolatori Mentali (06).",
+"2. Aggiungi 2 Guardie Carcerarie (07-08) e 2 Contro l'Egemonia (09-10) al mazzo Corte.",
+"3. Elimina tutti i segnalini Stendardo che non sono sulla mappa."
+]
+},
+"467_08.jpg": {
+"g": [
+null,
+"Puoi muoverti tra pianeti con Stendardi come se fossero adiacenti.",
+"*Evocare Spiriti (Tassare):* una volta per turno, ottieni 2 risorse di un pianeta con uno Stendardo. / *Evocare Corpi (Costruire):* una volta per turno, metti 2 navi integre su uno Stendardo."
+],
+"extra": [
+{
+"box": [
+34,
+484,
+586,
+528
+],
+"t": "CANTO DELLO STENDARDO",
+"titolo": true,
+"size": 40
+}
+]
+},
+"467_09.jpg": {
+"g": [
+"STENDARDI DELL'EGEMONIA",
+"",
+"_Edificio._ Gli Stendardi possono essere *danneggiati* e *riparati* come gli edifici. _(Non si possono razziare. La Piaga li distrugge nell'Intervallo se nel loro sistema non ci sono navi.)_",
+"_Prezioso._ Nel *calcolo* di Generale, ottieni 2 Potere extra per ogni Stendardo tra i tuoi Trofei. _(Ottieni questo Potere anche se non hai ottenuto Potere piazzandoti in Generale.)_"
+],
+"extra": [
+{
+"box": [
+46,
+195,
+402,
+342
+],
+"t": "_L'Egemone può mettere uno Stendardo sul pianeta della sua Ammiraglia se non ha navi o edifici non Leali._"
+}
+],
+"ripristina": [
+[
+408,
+200,
+600,
+352
+]
+]
+},
+"467_10.jpg": {
+"g": [
+"PIANTARE STENDARDI",
+"_Eliminala se non hai un'Ammiraglia._ / I segnalini Stendardo sono tuoi pezzi Leali.",
+"*Preludio:* puoi mettere uno Stendardo sul pianeta della tua Ammiraglia se non ha Stendardi né navi o edifici non Leali. _(Puoi farlo più volte.)_"
+]
+},
+"467_11.jpg": {
+"g": [
+"1. *Ottieni un'Ammiraglia:* prendi una plancia Ammiraglia e preparala come descritto sul retro.",
+"",
+null,
+"2. Metti 1 porto stellare integro su ciascuna delle Migliorie Sistema Difensivo e Propulsore a Scia.",
+"3. *Rifornisci la tua flotta:* se sulla mappa hai meno di _6 navi Leali_ oltre all'Ammiraglia, metti navi sull'Ammiraglia finché non ne hai 6.",
+"4. Elimina 4 navi Leali qualsiasi.",
+"5. Prendi la carta Piantare Stendardi (02). Raccogli gli 8 segnalini Stendardo.",
+"6. Aggiungi la carta Stendardi dell'Egemonia (03) al libretto delle regole. _Spiegala a tutti._",
+"7. Prendi Canto dello Stendardo (04).",
+"_Gira questa carta._"
+],
+"fascia": "EGEMONE - ATTO II",
+"ripristina": [
+[
+462,
+455,
+600,
+585
+]
+]
+},
+"467_11_r.jpg": {
+"g": [
+"",
+null,
+null,
+"Piantare gli Stendardi del Nuovo Ordine",
+"Alla fine di un capitolo, avanza di 1 per ogni Stendardo sulla mappa.",
+"Se hai vinto almeno un'ambizione, avanza di nuovo di 1 per ogni Stendardo sulla mappa.",
+"_Per esempio, se vinci 3 ambizioni e sulla mappa ci sono 2 Stendardi, avanzi di 4._",
+"_La tua carta Piantare Stendardi spiega come mettere gli Stendardi._"
+],
+"fascia": "EGEMONE - ATTO II"
+}
+}
