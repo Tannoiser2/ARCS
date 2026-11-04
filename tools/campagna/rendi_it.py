@@ -300,6 +300,20 @@ def rendi(f, trad, dest):
             for w, st, x in riga:
                 dt.text(((x0b + x1b) / 2 - lw / 2 + x, y), w, font=fnt[st], fill=col, stroke_width=max(1, int(size / 24)), stroke_fill=col)
             y += size
+    # carte Destino: la scritta "Complexity:" in basso a destra
+    if trad.get('complessita'):
+        import pytesseract
+        c = pil.crop((int(W * 0.46), int(H * 0.91), W, int(H * 0.98)))
+        dd = pytesseract.image_to_data(c.resize((c.width * 2, c.height * 2)), output_type=pytesseract.Output.DICT)
+        for k, t in enumerate(dd['text']):
+            if 'omplex' in t:
+                cx0 = int(W * 0.46) + dd['left'][k] // 2; cy0 = int(H * 0.91) + dd['top'][k] // 2
+                cw = dd['width'][k] // 2; ch = dd['height'][k] // 2
+                sz = ch * 1.2
+                while font('Testo.ttf', sz).getlength('Complessità:') > cw + 4:
+                    sz *= 0.97
+                trad.setdefault('extra', []).append({'box': [cx0 - 2, cy0 - 4, cx0 + cw + 3, cy0 + ch + 7], 't': 'Complessità:', 'size': sz})
+                break
     # riquadri aggiuntivi che l'OCR non ha letto o ha unito male: {"box": [x0,y0,x1,y1], "t": testo, "titolo": bool}
     for ex in trad.get('extra', []):
         x0b, y0b, x1b, y1b = ex['box']
@@ -319,7 +333,7 @@ def rendi(f, trad, dest):
         y = y0b + (max(0, ((y1b - y0b) - alt) / 2) - size * 0.1 if tit else 0)
         for riga in righe:
             lw = larghezza_riga(fnt, riga)
-            ox = (x0b + x1b) / 2 - lw / 2 if tit else x0b
+            ox = (x0b + x1b) / 2 - lw / 2 if (tit or ex.get('centra')) else x0b
             for w, st, x in riga:
                 if tit:
                     dt.text((ox + x, y), w, font=fnt[st], fill=col, stroke_width=max(1, int(size / 24)), stroke_fill=col)

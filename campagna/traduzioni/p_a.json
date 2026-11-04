@@ -1,0 +1,159 @@
+{
+"216_00.jpg": {
+"complessita": true,
+"g": [
+"SINISCALCO",
+"~_Tieni unito un impero in frantumi destreggiandoti nella turbolenta politica di corte._",
+"~LA TUA VIA AL POTERE",
+"Afferma la tua autorità vincendo ambizioni da Primo Reggente.",
+"Estendi il controllo dell'Impero e riempi il Tesoro Imperiale.",
+"Consolida il controllo dell'Impero sulle città Fuorilegge e riempi il Tesoro Imperiale da Primo Reggente."
+]
+},
+"216_01.jpg": {
+"complessita": true,
+"g": [
+"FONDATORE",
+"~_Costruisci un nuovo ordine fondato sul rispetto reciproco e sul libero mercato._",
+"~LA TUA VIA AL POTERE",
+"Realizza le tue ambizioni e controlla sistemi da Fuorilegge.",
+"Guida la Confederazione e diffondi le città Libere sulla mappa.",
+"Proteggi le città Libere dal controllo dell'Impero e dei giocatori fuori dalla Confederazione."
+]
+},
+"216_02.jpg": {
+"complessita": true,
+"g": [
+"MAGNATE",
+"~_Accaparrati il mercato e domina l'Orlo con la tua abilità commerciale._",
+"~LA TUA VIA AL POTERE",
+"Baratta risorse e Favori con i Rivali durante i Vertici.",
+"Conquista e mantieni Monopoli sulle riserve di risorse.",
+"Mantieni i Monopoli e fuggi dall'Orlo con le tue ricchezze."
+]
+},
+"216_03.jpg": {
+"complessita": true,
+"g": [
+"PATROCINATORE",
+"~_Entra in contatto con le antiche gilde dell'Orlo e renditi indispensabile._",
+"~LA TUA VIA AL POTERE",
+"Usa e recupera più carte Gilda che puoi, dimostrando il tuo valore ai Sorveglianti delle Gilde.",
+"Abbi più carte Gilda dei tuoi Rivali, di semi diversi.",
+"Riempi la Corte di carte Gilda e mantieni semi di Gilda diversi."
+]
+},
+"216_04.jpg": {
+"complessita": true,
+"g": [
+"CURATORE",
+"~_Desta i Golem per custodire la saggezza dei Precursori._",
+"~LA TUA VIA AL POTERE",
+"Controlla e desta i Golem Dormienti, poi usali.",
+"Raccogli Lore dalla Corte e dai tuoi Rivali nei Vertici.",
+"Usa i tuoi Golem per eliminare le tue Lore e i Golem stessi."
+]
+},
+"216_05.jpg": {
+"complessita": true,
+"g": [
+null,
+"~_Abbatti gli oppressori dell'Orlo con ogni mezzo necessario._",
+"~LA TUA VIA AL POTERE",
+"Prendi l'iniziativa anche Recando Oltraggio e realizza le ambizioni dei tuoi sostenitori.",
+"Tieni l'iniziativa e ottieni il sostegno delle Gilde per la tua immagine.",
+"Abbi più carte Gilda di tutti e tieni l'iniziativa."
+],
+"extra": [
+{
+"box": [
+150,
+738,
+690,
+808
+],
+"t": "PARTIGIANO",
+"titolo": true,
+"size": 66
+}
+]
+},
+"216_06.jpg": {
+"complessita": true,
+"g": [
+null,
+"~LA TUA VIA AL POTERE",
+"Dimostra il tuo valore ingrandendo la flotta Imperiale e usandola in battaglia per prendere Trofei.",
+"Imponi il controllo Imperiale sui pianeti e domina i tuoi nemici, Reggenti e Fuorilegge.",
+"Controlla i pianeti dell'Orlo e costruisci la marina più forte."
+],
+"extra": [
+{
+"box": [
+150,
+738,
+690,
+808
+],
+"t": "AMMIRAGLIO",
+"titolo": true,
+"size": 66
+},
+{
+"box": [
+150,
+826,
+690,
+908
+],
+"t": "_Restaura la forza della flotta dell'Impero e reclama il trono che ti spetta._",
+"size": 29,
+"centra": true
+}
+]
+},
+"216_07.jpg": {
+"complessita": true,
+"g": [
+null,
+"Metti in gioco carte azione Fedeli mentre vinci ambizioni.",
+"Stabilisci gli Ideali della tua fede dichiarando ambizioni con carte Fedeli e realizzandole.",
+"Pretendi che le ambizioni con Ideali vengano dichiarate con costanza."
+],
+"extra": [
+{
+"box": [
+150,
+738,
+690,
+808
+],
+"t": "CREDENTE",
+"titolo": true,
+"size": 66
+},
+{
+"box": [
+150,
+828,
+690,
+868
+],
+"t": "_Apri loro gli occhi sulla Verità._",
+"size": 29,
+"centra": true
+},
+{
+"box": [
+232,
+892,
+594,
+924
+],
+"t": "LA TUA VIA AL POTERE",
+"size": 29,
+"centra": true
+}
+]
+}
+}
