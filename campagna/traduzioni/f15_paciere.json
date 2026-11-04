@@ -1,0 +1,184 @@
+{
+"442_00.jpg": {
+"g": [
+"ACCORDI DI PACE",
+"Nei Vertici puoi svolgere una nuova azione di Trattativa, *Mediare la Pace:*",
+"Gira un segnalino Cessate il Fuoco da Guerra a Pace, con il consenso dei giocatori che controllano in totale almeno 2 sistemi in quell'ammasso, te compreso. Puoi ottenere il consenso dei Rivali restituendo loro 1 loro Favore.",
+"_Puoi restituire Favori per ottenere il consenso dei Rivali che controllano sistemi anche se non hai convocato tu il Vertice. Durante i Vertici, il Primo Reggente controlla i sistemi controllati dall'Impero._"
+]
+},
+"442_01.jpg": {
+"g": [
+"",
+""
+],
+"titolo": "DIVIDENDI DELLA PACE",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+],
+"extra": [
+{
+"box": [
+48,
+195,
+572,
+395
+],
+"t": "I giocatori ottengono 2 Potere per ogni sistema che controllano negli ammassi in *Pace*. / Il Primo Reggente controlla i sistemi controllati dall'Impero, ma ottiene Potere per essi solo se la Politica Imperiale è *Pace*.",
+"size": 28
+}
+]
+},
+"442_02.jpg": {
+"g": [
+"",
+"Se la Politica Imperiale è *Guerra* e il Paciere è un *Fuorilegge*, il Primo Reggente può girare 1 segnalino Cessate il Fuoco su *Guerra* in un ammasso dove l'Impero controlla almeno 2 sistemi."
+],
+"titolo": "L'IMPERO RIFIUTA LA PACE",
+"titolo_box": [
+150,
+40,
+612,
+150
+],
+"titolo_col": [
+250,
+245,
+235
+]
+},
+"442_03.jpg": {
+"g": [
+"CESSATE IL FUOCO",
+"Ogni ammasso ha un segnalino Cessate il Fuoco, che indica se i suoi sistemi sono in Guerra o in Pace. Il lato Pace, mostrato a destra, limita i danni così.",
+"Per danneggiare qualsiasi cosa in un ammasso in Pace, tranne i pezzi Leali e la Piaga, devi spendere 1 Armi. Se lo fai, gira il segnalino Cessate il Fuoco dell'ammasso su Guerra.",
+"_Danneggiare significa combattere, colpire, danneggiare o distruggere. Le Crisi non contano._",
+"_I Cessate il Fuoco non si possono rimuovere. Tengono traccia dello stato degli ammassi e si mettono nei portali solo per comodità._"
+]
+},
+"442_04.jpg": {
+"g": [
+"1. Metti 1 segnalino Cessate il Fuoco vicino a ogni ammasso: ti consigliamo nel suo portale.",
+"Mettilo sul lato Pace _(mostrato a destra)_ se controlli sistemi in quell'ammasso, altrimenti sul lato Guerra. _(Se sei il Primo Reggente, controlli i sistemi controllati dall'Impero.)_",
+"2. In 2 giocatori, rimetti nella riserva tutte le Armi del riquadro dell'ambizione Generale.",
+null,
+"",
+"3. Aggiungi Cessate il Fuoco (08), L'Impero Rifiuta la Pace (09), Dividendi della Pace (10) e Accordi di Pace (11) al libretto delle regole. _Spiegali a tutti._"
+],
+"fascia": "PACIERE - ATTO III",
+"ripristina": [
+[
+465,
+40,
+582,
+145
+]
+]
+},
+"442_04_r.jpg": {
+"g": [
+"Un Orlo Pacifico",
+"Almeno 2 ammassi sono in Pace.",
+"Almeno 5 ammassi sono in Pace.",
+"_Puoi girare gli ammassi su Pace con la tua carta Accordi di Pace._",
+"_Se sei un Fuorilegge, il Primo Reggente può girare facilmente gli ammassi su Guerra con l'Editto L'Impero Rifiuta la Pace._",
+null,
+"_L'Editto Dividendi della Pace può incentivare i giocatori a mantenere gli ammassi in Pace._"
+],
+"fascia": "PACIERE - ATTO III"
+},
+"442_05.jpg": {
+"g": [
+"*Assemblare (Costruire):* ottieni 1 Armi.",
+"*Preludio:* puoi scartarla per ottenere Armi fino al numero dei tuoi spazi risorsa vuoti. Se la riserva di Armi si esaurisce, ruba invece le Armi."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "INTERESSI BELLICI",
+"titolo": true,
+"size": 42
+}
+]
+},
+"442_06.jpg": {
+"g": [
+null,
+"*Assemblare (Costruire):* ottieni 1 Armi.",
+"*Preludio:* puoi scartarla per ottenere Armi fino al numero dei tuoi spazi risorsa vuoti. Se la riserva di Armi si esaurisce, ruba invece le Armi."
+],
+"extra": [
+{
+"box": [
+60,
+486,
+560,
+526
+],
+"t": "INTERESSI BELLICI",
+"titolo": true,
+"size": 42
+}
+]
+},
+"442_07.jpg": {
+"g": [
+"",
+"*Se hai completato il tuo obiettivo:* / 1. Aggiungi 2 Interessi Bellici (05-06) al mazzo Corte. / *Se non hai completato il tuo obiettivo:* / 1. Elimina il tuo Giuramento di Pace (02).",
+"2. Aggiungi i tuoi Custodi dell'Arsenale (03), se li hai, al mazzo Corte."
+]
+},
+"442_08.jpg": {
+"g": [
+null,
+"CUSTODI DELL'ARSENALE",
+"Quando prendi un'Armi, puoi metterla qui invece. _(Anche se la prendi per il Tesoro Imperiale!)_",
+"Le Armi su questa carta sono congelate. Il loro costo di razzia è di 2 ciascuna.",
+null
+]
+},
+"442_09.jpg": {
+"g": [
+"GIURAMENTO DI PACE",
+"_Eliminala se non sei il Paciere._ / Restituisci tutti i Trofei che ottieni, tranne la Piaga. Non puoi dichiarare Generale né ottenere Potere dal suo calcolo. _(Puoi comunque impedire ai Rivali di ottenerlo.)_ Non puoi cambiare la Politica Imperiale in Guerra né far valere la Politica Imperiale di Guerra."
+]
+},
+"442_10.jpg": {
+"g": [
+"1. In 2 giocatori, rimetti nella riserva tutte le Armi del riquadro dell'ambizione Generale.",
+"",
+"2. Rimuovi tutto il tuo Oltraggio.",
+"",
+"3. Reca Oltraggio con le Armi. _(Scarta tutte le Armi e le carte Gilda Armi.)_",
+"4. Prendi Giuramento di Pace (02) e Custodi dell'Arsenale (03).",
+"5. *Rifornisci la tua flotta:* se sulla mappa hai meno di 8 navi Leali, metti 1 nave alla volta in qualsiasi sistema finché non hai 8 navi Leali sulla mappa.",
+"_Gira questa carta._"
+],
+"fascia": "PACIERE - ATTO II"
+},
+"442_10_r.jpg": {
+"g": [
+"",
+null,
+"Limitare la Disponibilità di Armi",
+"Alla fine di un capitolo, avanza di 1 per ogni Armi che hai.",
+"Controllare i Fabbricanti d'Armi",
+"Alla fine di un capitolo, avanza di 1 per ogni pianeta Armi che controlli.",
+"_Per gli obiettivi, se sei il Primo Reggente controlli i pianeti controllati dall'Impero._"
+],
+"fascia": "PACIERE - ATTO II"
+}
+}
