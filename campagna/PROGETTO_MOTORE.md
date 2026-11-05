@@ -180,8 +180,12 @@ Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDest
   pianeta con proprie navi.
 - Monopoli: con l'Editto Ottenere Monopoli li prende chi ha più della metà delle risorse di quel tipo
   in gioco (le risorse non passano sulla carta Monopolio).
-- Pila Fedeli: valori 1–7, ne esce una quando il Credente acquisisce una carta; Ideali sulle ambizioni
-  che il Credente dichiara (Atti II e III).
+- Carte azione Fedeli: seme nuovo (codici `fedN` in mano, `fezN` Zelo e `fesN` Saggezza quando si
+  giocano). Insegnare (Diffondere la Fede) scatta all'inizio dell'azione Influenzare del Credente e
+  attacca la prima carta della pila a una Gilda della Corte; chi acquisisce quella Gilda prende la
+  Fedele in mano, e da lì resta nel mazzo delle azioni. La Dottrina impone il lato dall'Atto II.
+  Ideali: li mette chi dichiara nel turno di una carta Fedele (e il Credente sempre); non c'è ancora il
+  divieto di dichiarare ambizioni con l'Ideale opposto.
 - Cospirazioni: una per ogni ambizione dichiarata da un Rivale, sul giocatore in testa in quel momento.
 - Pace: settore senza navi di due giocatori diversi nello stesso sistema.
 - Ammiraglie: una nave che segue la flotta (se il suo sistema si svuota passa dove il giocatore ha più
@@ -194,6 +198,16 @@ Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDest
 - Editti dei Destini con effetto: Fonderie Imperiali, Ottenere Monopoli, Richiesta del Patrocinatore,
   I Golem Saziano la loro Fame, Dividendi della Pace, Rimprovero degli Empati, Rimprovero dei Custodi
   (solo con Custode dichiarata), L'Orlo Rifiuta il Signore Supremo, I Signori Ottengono Potere.
-  Leggi con effetto: Protettori Imperiali, Supremazia delle Gilde. Gli altri Editti e Leggi (Fede,
-  Armistizi, Cessate il Fuoco, Legge Marziale, Corti Feudali, Economia Chiusa, Sottrazione Partigiana,
-  Bunker resistenti, Dicerie...) sono consultabili nel libretto ma non hanno ancora effetto.
+  Leggi con effetto: Protettori Imperiali, Supremazia delle Gilde, Carte Fedeli e Dottrina, Economia
+  Chiusa, Legge Feudale (il Signore tassa le città del suo Feudo). Senza effetto: Armistizi (l'Editto),
+  Cessate il Fuoco, Legge Marziale, Corti Feudali, Sottrazione Partigiana, Bunker resistenti, Dicerie,
+  Quorum Imperiale, Sponsor Imperiale, Il Giudice Fissa l'Agenda, Rilascio dei Prigionieri.
+- Carte Vox dei set: tutte hanno Crisi e «Appena Acquisita» (scelte facoltative automatiche); Rivolta di
+  Massa, L'Oltraggio Dilaga e Conflitto fra Gilde usano l'effetto della carta base. Senza effetto vero:
+  Tempeste del Passaggio, Le Dicerie si Diffondono, Caos al Comando (Crisi), Giorno di Festa (divieto).
+- Carte Gilda dei set con effetto: Reggente Minore, Ammiragli Rinnegati, Adulatori, Attività Belliche,
+  Recinto delle Reliquie, Emissari, Maestri della Gilda, Cartelli, Flotte da Parata, Lega dei Mercanti
+  (2 risorse congelate che contano per le ambizioni), Confidenti del Consiglio, Contrabbandieri Pirati,
+  Discepoli Fedeli, Il Profeta / La Giovane Luce / Il Figliol Prodigo. Le altre Gilde dei set senza un
+  equivalente nel gioco base non hanno ancora effetto.
+- Ammiraglie: anche Sistema di Controllo (tassare nel settore quando è in un portale).

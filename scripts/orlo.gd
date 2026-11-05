@@ -2,9 +2,11 @@
 ## È la classe finale del motore della campagna (main.gd e i test la istanziano).
 ## Alcune regole dei Destini sono semplificate: vedi campagna/PROGETTO_MOTORE.md.
 class_name MotoreOrlo
-extends MotoreDestini
+extends MotoreCarteDestini
 
-const VALORI_FEDELI := [1, 2, 3, 4, 5, 6, 7]
+## Pila delle carte azione Fedeli (la prima è in cima)
+const PILA_FEDELI := ["fed9", "fed8", "fed7", "fed6", "fed5", "fed4", "fed3", "fed2", "fed1"]
+const DOTTRINE := ["458_08", "458_03", "458_01"]
 const RISORSA_AMB := {"magnate": "materiale", "generale": "armi", "custode": "reliquie", "empate": "psico"}
 
 func D() -> Dictionary:
@@ -117,7 +119,7 @@ func _spec_destino(i: int, d: String, nome: String) -> void:
 		"golem":
 			D()["golem"] = _pianeti_casuali(5)
 			_log("5 Golem dormienti compaiono sulla mappa.")
-		"golem_desta", "evento_extra", "autorita", "economia", "dottrina", "dottrina_maggioranza", "ricollocare", \
+		"golem_desta", "evento_extra", "autorita", "economia", "ricollocare", \
 		"mondi_ripristina", "rifornisci_portali", "dicerie", "cessate_il_fuoco", "guardia_eden", "stirpe_piaga", \
 		"emissari", "lore_corte", "instabili_scarti", "profeta", "miglioria_gratis", "portale_rivelato", "mondi_annota", \
 		"martello_completo", "mondi_riserva", "bottino_ok", "testimoni_psico", "arsenale_corte", "togli_reliquie_virtuali", \
@@ -132,11 +134,25 @@ func _spec_destino(i: int, d: String, nome: String) -> void:
 		"monopoli_liberi":
 			D()["monopoli"] = {"materiale": -1, "carburante": -1, "armi": -1, "reliquie": -1, "psico": -1}
 		"pila_fedeli":
-			D()["fedeli"] = VALORI_FEDELI.duplicate()
+			D()["fedeli"] = PILA_FEDELI.duplicate()
+			D()["fedeli_attaccati"] = {}
 		"fedeli_corte":
+			# le carte Fedeli rimaste nella pila entrano nel mazzo delle azioni
+			_lista("fedeli_mazzo").append_array(D().get("fedeli", []))
 			D()["fedeli"] = []
+		"dottrina":
+			D()["dottrina"] = "fes"
+		"dottrina_maggioranza":
+			var z := 0
+			var sa := 0
+			for amb in D().get("ideali", {}):
+				if D()["ideali"][amb] == "fez":
+					z += 1
+				else:
+					sa += 1
+			D()["dottrina"] = "fez" if z > sa else "fes"
 		"ideali_via":
-			D()["ideali"] = []
+			D()["ideali"] = {}
 		"ammiraglia":
 			_metti_ammiraglia(i)
 		"rifornisci_ammiraglia:6":
@@ -228,8 +244,8 @@ func _h_ambizione(amb: String, punti: Array, virt: int, guadagni: Array) -> void
 			"credente":
 				if atto() == 1:
 					var pila: Array = D().get("fedeli", [])
-					avanza(i, 10 if pila.is_empty() else int(pila[0]), "Diffondere la Buona Novella")
-				elif atto() == 2 and amb in D().get("ideali", []):
+					avanza(i, 10 if pila.is_empty() else Dati.punti(pila[0]), "Diffondere la Buona Novella")
+				elif atto() == 2 and amb in D().get("ideali", {}):
 					avanza(i, gp, "Sviluppare gli Ideali della Propria Fede")
 			"voce":
 				var pg := 0
@@ -510,7 +526,7 @@ func _grande_ambizione(i: int, k: int) -> bool:
 					return false
 			return true
 		"credente":
-			var ideali: Array = D().get("ideali", [])
+			var ideali: Dictionary = D().get("ideali", {})
 			var q := 0
 			for x in s["segnalini"]:
 				if x["amb"] != "" and x["amb"] in ideali:
@@ -579,12 +595,22 @@ func _h_dichiara(i: int, amb: String) -> void:
 			and D().get("membri", []).size() >= 2:
 		D()["confed_amb"] = amb
 		_log("%s aggiunge il segnalino Ambizione Confederazione a %s." % [_nome(i), Dati.NOME_AMBIZIONE[amb]])
+	# Ideali: chi dichiara nel turno di una carta Fedele mette un Ideale del lato della Dottrina
 	var cr := in_gioco_destino("credente")
-	if cr >= 0 and atto() >= 2 and i == cr:
-		var ideali: Array = _lista("ideali")
-		if not amb in ideali:
-			ideali.append(amb)
-			_log("Un segnalino Ideale va sull'ambizione %s." % Dati.NOME_AMBIZIONE[amb])
+	var fedele: bool = s.has("turno") and not s["turno"].is_empty() and Dati.is_fedele(str(s["turno"].get("c", "")))
+	if cr >= 0 and atto() >= 2 and (fedele or i == cr):
+		if not (D().get("ideali") is Dictionary):
+			D()["ideali"] = {}
+		if not D()["ideali"].has(amb):
+			var lato: String = D().get("dottrina", "fes")
+			if fedele:
+				lato = Dati.seme(str(s["turno"]["c"]))
+			D()["ideali"][amb] = lato
+			_log("Un segnalino Ideale (%s) va sull'ambizione %s." % ["Zelo" if lato == "fez" else "Saggezza", Dati.NOME_AMBIZIONE[amb]])
+	# Discepoli Fedeli: un punto azione in più
+	if fedele and ha_carta(i, "993_29") and in_testa(amb) == i:
+		s["turno"]["punti"] = int(s["turno"]["punti"]) + 1
+		_log("Discepoli Fedeli: %s ottiene un punto azione in più." % _nome(i))
 	var co := in_gioco_destino("cospiratore")
 	if co >= 0 and atto() == 3 and i != co:
 		# il Cospiratore scommette su chi vincerà l'ambizione appena dichiarata
@@ -646,9 +672,13 @@ func _h_acquisita(i: int, c: String) -> void:
 		return
 	if destino(i) == "curatore" and atto() == 2 and Dati.info(c)[1] == "lore":
 		avanza(i, 2, "Raccogliere il Sapere della Galassia")
-	# Diffondere la Fede: influenzando, il Credente attacca una carta Fedele alla Corte
-	if destino(i) == "credente" and atto() == 1 and not D().get("fedeli", []).is_empty():
-		D()["fedeli"].pop_front()
+	# carte Fedeli attaccate alla carta acquisita: vanno in mano
+	var att: Dictionary = D().get("fedeli_attaccati", {})
+	if att.has(c):
+		G(i)["mano"].append(att[c])
+		_lista("fedeli_mazzo").append(att[c])
+		_log("%s prende in mano la carta azione %s." % [_nome(i), Dati.nome_carta_azione(att[c])])
+		att.erase(c)
 
 func _h_preludio_gilda(i: int, c: String) -> void:
 	super(i, c)
@@ -916,6 +946,35 @@ func simboli(i: int, t: String) -> int:
 				n += 1
 	return n
 
+## Tassare: Economia Chiusa, Legge Feudale, Sistema di Controllo dell'Ammiraglia, Contrabbandieri Pirati.
+func _bersagli_tassa(i: int, solo_leali: bool) -> Array:
+	var out: Array = super(i, solo_leali)
+	if not _attiva() or i < 0 or i >= s["n"]:
+		return out
+	var ma := in_gioco_destino("magnate")
+	if ma >= 0 and ma != i and reggente(ma) and reggente(i) and C()["libretto"].has("427_00"):
+		out = out.filter(func(x): return s["mappa"][x[0]]["navi"][imp()][0] <= 0 or s["mappa"][x[0]]["edifici"][x[1]]["g"] == i)
+	if solo_leali:
+		return out
+	var tassate: Array = s["turno"]["tassate"] if s.has("turno") and s["turno"].has("tassate") else []
+	var extra := func(id: String) -> void:
+		var ed: Array = s["mappa"][id]["edifici"]
+		for k in ed.size():
+			var e = ed[k]
+			if e != null and e["t"] == "citta" and e["g"] != i and not ("%s:%d" % [id, k]) in tassate:
+				var x := [id, k]
+				if not x in out:
+					out.append(x)
+	var feudi := _feudi_di(i) if C()["libretto"].has("488_09") else []
+	var am := ammiraglia(i)
+	var settore_am := _settore(am) if am != "" and Dati.is_portale(am) and migliorie(i).has("controllo") else -1
+	for id in s["mappa"]:
+		if not in_gioco(id) or Dati.is_portale(id):
+			continue
+		if _settore(id) in feudi or _settore(id) == settore_am or (ha_carta(i, "487_07") and navi(id, i) > 0):
+			extra.call(id)
+	return out
+
 # ================================================================ ambizioni nuove
 ## Guardia dell'Eden (al posto di Magnate) e Stirpe della Piaga (al posto di Empate).
 func punteggio_ambizione(i: int, amb: String) -> int:
@@ -1102,6 +1161,56 @@ func _settori_in_pace() -> int:
 		if _settore_in_pace(sett):
 			k += 1
 	return k
+
+# ================================================================ carte azione Fedeli
+func _lati_fedeli(i: int) -> Array:
+	if _attiva():
+		for c in DOTTRINE:
+			if C()["libretto"].has(c):
+				return [D().get("dottrina", "fes")]
+	return super(i)
+
+## Fede Pluralista: guidando con una carta Fedele si dichiara qualsiasi ambizione, come con un 7.
+func _valore_dichiarazione(c: String) -> int:
+	if _attiva() and Dati.is_fedele(c) and C()["libretto"].has("458_17"):
+		return 7
+	return super(c)
+
+## Le carte Fedeli entrate in gioco restano nel mazzo delle azioni.
+func _mazzo_azioni() -> Array:
+	var m: Array = super()
+	if s.has("camp") and C().has("dest"):
+		for c in D().get("fedeli_mazzo", []):
+			if not c in m:
+				m.append(c)
+	return m
+
+## Insegnare (Diffondere la Fede): influenzando, il Credente elimina la carta azione in fondo agli scarti e
+## attacca la prima carta Fedele della pila a una carta Gilda della Corte di un seme dei pianeti delle sue città.
+func _p_az_influenzare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	if _attiva() and not _ha_r(p) and not p.has("insegnato") and ha_carta(i, carta("credente", 3)) and not D().get("fedeli", []).is_empty():
+		p["insegnato"] = true
+		var semi := {}
+		for x in citta_di(i):
+			semi[Dati.TIPO.get(x[0], "")] = true
+		var bersaglio := ""
+		for slot in s["corte"]:
+			var cc: String = slot["c"]
+			if Dati.info(cc)[1] == "gilda" and semi.has(Dati.info(cc)[2]) and not D()["fedeli_attaccati"].has(cc):
+				bersaglio = cc
+				break
+		var fondo := -1
+		for q in range(s["scarti_azioni"].size() - 1, -1, -1):
+			if not Dati.is_evento(s["scarti_azioni"][q]):
+				fondo = q
+				break
+		if bersaglio != "" and fondo >= 0:
+			s["scarti_azioni"].remove_at(fondo)
+			var f: String = D()["fedeli"].pop_front()
+			D()["fedeli_attaccati"][bersaglio] = f
+			_log("Insegnare: %s attacca %s a %s." % [_nome(i), Dati.nome_carta_azione(f), Dati.nome_corte(bersaglio)])
+	super(p)
 
 # ================================================================ Magnate nei Vertici
 func _h_dono(da: int, a: int, cosa: String) -> void:

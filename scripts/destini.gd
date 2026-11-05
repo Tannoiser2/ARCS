@@ -302,9 +302,15 @@ func _p_scegli_destini(p: Dictionary) -> void:
 	var quanti: int = p.get("quanti", {}).get(str(i), 2)
 	var offerta := []
 	if not p.has("offerta"):
-		for z in quanti:
-			if not mazzo.is_empty():
-				offerta.append(mazzo.pop_front())
+		# per i test: s.forza = {lettera: destino} dà quel Destino al primo che sceglie
+		var forzato: String = s.get("forza", {}).get(lettera, "")
+		if k == 0 and forzato != "" and mazzo.has(forzato):
+			mazzo.erase(forzato)
+			offerta.append(forzato)
+		else:
+			for z in quanti:
+				if not mazzo.is_empty():
+					offerta.append(mazzo.pop_front())
 		p["offerta"] = offerta
 	offerta = p["offerta"]
 	var ops := []

@@ -68,6 +68,42 @@ func _init() -> void:
 	controlla(dove != "", "l'Ammiraglia è sulla mappa")
 	controlla(not m._razzia_permessa(dove, 0), "Raggio Traente impedisce la razzia")
 	controlla(m._intercetta_extra(0, dove) == 2, "Sistema Difensivo: 2 colpi con 2 spazioporti")
+	# Crisi di una carta Vox dei Destini: Epurazione della Piaga
+	m.s["corte"].append({"c": "436_04", "ag": [0, 0, 0]})
+	m.G(1)["trofei"].append({"t": "nave", "g": m.piaga()})
+	pw = m.G(1)["potere"]
+	m._p_crisi_vox({"c": "436_04"})
+	controlla(m.G(1)["potere"] == pw + 2, "Crisi di Epurazione della Piaga: +2 Potere per Trofeo di Piaga")
+	controlla(m._indice_corte("436_04") < 0, "la carta Vox si seppellisce")
+	controlla(m._ha_crisi("477_11") and not m._ha_crisi("471_10"), "carte Vox con e senza Crisi")
+	# Appena Acquisita con effetto della carta base (Rivolta di Massa)
+	m.s["pila"] = []
+	m.s["attesa"] = {}
+	m._p_vox({"k": "vox", "g": 2, "c": "479_03"})
+	controlla(m.s["attesa"].get("tipo", "") == "sistema", "Rivolta di Massa chiede un settore")
+	m.scegli(0)
+	controlla(m.s["scarti_corte"].has("479_03") and not m.s["scarti_corte"].has("c26"), "negli scarti va la carta del Destino")
+	# Reggente Minore nel Preludio
+	m.G(0)["carte"].append("463_05")
+	m.s["turno"] = {"g": 0, "preludio": true}
+	controlla(not m._preludio_carta(0, "463_05").is_empty(), "Reggente Minore ha un'azione di Preludio")
+	m.s["turno"] = {}
+	m.s["pila"] = []
+	m.s["attesa"] = {}
+	# carte azione Fedeli
+	m.G(0)["mano"] = ["fed5", "agg3"]
+	var gioc: Array = m._giocabili(0)
+	controlla(gioc.has("fez5") and gioc.has("fes5") and gioc.has("agg3"), "una carta Fedele si gioca su Zelo o Saggezza")
+	controlla(Dati.punti("fez5") == 3 and Dati.AZIONI_SEME["fes"].has("acquisire"), "punti e azioni delle carte Fedeli")
+	m._togli_dalla_mano(0, "fez5")
+	controlla(m.G(0)["mano"] == ["agg3"], "giocando il lato Zelo esce dalla mano la carta Fedele")
+	m.D()["fedeli_attaccati"] = {"c05": "fed7"}
+	m._h_acquisita(1, "c05")
+	controlla(m.G(1)["mano"].has("fed7"), "acquisendo la carta con la Fedele attaccata, la Fedele va in mano")
+	controlla(m._mazzo_azioni().has("fed7"), "la carta Fedele resta nel mazzo delle azioni")
+	m.C()["libretto"].append("458_08")
+	m.D()["dottrina"] = "fez"
+	controlla(m._lati_fedeli(0) == ["fez"], "la Dottrina impone il lato")
 	# Intervallo fino all'Atto II
 	m.C()["obiettivo"][0] = 0
 	m.s["pila"] = [{"k": "intervallo", "fase": 0}]

@@ -17,11 +17,14 @@ const AMBIZIONE_DI_VALORE := {2: "magnate", 3: "tiranno", 4: "generale", 5: "cus
 const SEGNALINI := [[[5, 3], [9, 4]], [[3, 2], [6, 3]], [[2, 0], [4, 2]]]
 
 const SEMI := ["amm", "agg", "cos", "mob"]
-const NOME_SEME := {"amm": "Amministrazione", "agg": "Aggressione", "cos": "Costruzione", "mob": "Mobilitazione"}
+const NOME_SEME := {"amm": "Amministrazione", "agg": "Aggressione", "cos": "Costruzione", "mob": "Mobilitazione",
+	"fed": "Fedele", "fez": "Zelo Fedele", "fes": "Saggezza Fedele"}
 const AZIONI_SEME := {"amm": ["tassare", "riparare", "influenzare"], "agg": ["combattere", "muovere", "acquisire"],
-	"cos": ["costruire", "riparare"], "mob": ["muovere", "influenzare"]}
+	"cos": ["costruire", "riparare"], "mob": ["muovere", "influenzare"],
+	"fez": ["muovere", "influenzare", "combattere", "tassare"], "fes": ["costruire", "riparare", "acquisire"]}
 const PUNTI := {"amm": [4, 4, 3, 3, 3, 2, 1], "agg": [3, 3, 2, 2, 2, 2, 1], "cos": [4, 4, 3, 3, 2, 2, 1],
-	"mob": [4, 4, 3, 3, 2, 2, 1]}
+	"mob": [4, 4, 3, 3, 2, 2, 1], "fed": [4, 4, 3, 3, 3, 2, 2, 1, 1], "fez": [4, 4, 3, 3, 3, 2, 2, 1, 1],
+	"fes": [4, 4, 3, 3, 3, 2, 2, 1, 1]}
 const NOME_AZIONE := {"tassare": "Tassare", "riparare": "Riparare", "influenzare": "Influenzare",
 	"combattere": "Combattere", "muovere": "Muovere", "acquisire": "Acquisire", "costruire": "Costruire"}
 const COLORE_SEME := {"amm": Color(0.62, 0.62, 0.58), "agg": Color(0.72, 0.16, 0.16), "cos": Color(0.90, 0.45, 0.15),
@@ -268,6 +271,13 @@ static func carte_azione(n: int) -> Array:
 
 static func is_evento(c: String) -> bool:
 	return c.begins_with("evt")
+
+## Carte azione Fedeli della campagna: «fedN» in mano, «fezN» (Zelo) o «fesN» (Saggezza) quando si giocano.
+static func is_fedele(c: String) -> bool:
+	return c.begins_with("fed") or c.begins_with("fez") or c.begins_with("fes")
+
+static func normalizza(c: String) -> String:
+	return "fed" + c.substr(3) if is_fedele(c) else c
 
 static func seme(c: String) -> String:
 	return c.substr(0, 3)

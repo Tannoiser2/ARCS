@@ -137,6 +137,8 @@ func img_carta(c: String) -> String:
 		"x12": return img_camp("364_12")
 	if c.length() == 6 and c[3] == "_":
 		return img_camp(c)
+	if Dati.is_fedele(c):
+		return img_camp("993_%d" % (18 + Dati.valore(c)))
 	return "res://assets/carte/%s.webp" % c
 
 var elenco_camp := {}

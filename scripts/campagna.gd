@@ -49,7 +49,7 @@ func nuova_partita(cfg: Dictionary) -> void:
 	var n: int = int(cfg.get("n", 4))
 	s = {"n": n, "rng": int(cfg.get("seme", 12345)) & 0xFFFFFFFF, "log": [], "eventi": [], "pila": [], "attesa": {},
 		"capitolo": 1, "fine": false, "vincitore": -1, "leader": false, "decisioni": 0,
-		"facile": bool(cfg.get("facile", false))}
+		"facile": bool(cfg.get("facile", false)), "forza": cfg.get("forza", {})}
 	if s["rng"] == 0:
 		s["rng"] = 99991
 	for k in 5:
@@ -546,7 +546,7 @@ func _p_crisi(p: Dictionary) -> void:
 	var vox := []
 	for slot in s["corte"]:
 		var c: String = slot["c"]
-		if c in ["c27", "x11", "x12"]:
+		if _ha_crisi(c):
 			vox.append(c)
 	for k in range(vox.size() - 1, -1, -1):
 		_spingi({"k": "crisi_vox", "c": vox[k]})
@@ -570,6 +570,10 @@ func _crisi_piaga() -> void:
 		if colpiti or resto < colpi:
 			_ev({"tipo": "crisi_piaga", "sis": id})
 			_log("La Piaga colpisce in %s." % _desc_sis(id))
+
+## Le carte della Corte con una Crisi.
+func _ha_crisi(c: String) -> bool:
+	return c in ["c27", "x11", "x12"]
 
 func _crisi_esclusa(_id: String) -> bool:
 	return false

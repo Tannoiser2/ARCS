@@ -167,6 +167,10 @@ func _h_ruba(_i: int, _t: String) -> bool:
 func _intercetta_extra(_j: int, _id: String) -> int:
 	return 0
 
+## Numero della carta per dichiarare (7 = qualsiasi ambizione).
+func _valore_dichiarazione(c: String) -> int:
+	return Dati.valore(c)
+
 func _h_fine_turno(_i: int) -> void:
 	pass
 
@@ -685,7 +689,7 @@ func _p_turno_guida(p: Dictionary) -> void:
 			s["round_finito"] = true
 			return
 		var c: String = v
-		G(i)["mano"].erase(c)
+		_togli_dalla_mano(i, c)
 		s["passi"] = 0
 		s["guida"] = {"c": c, "g": i, "valore": Dati.valore(c)}
 		s["giocate"].append({"g": i, "c": c, "modo": "guida", "su": true})
@@ -706,12 +710,32 @@ func _p_turno_guida(p: Dictionary) -> void:
 		s["round_finito"] = true
 		return
 	var ops := []
-	for c in _ordina_mano(G(i)["mano"]):
+	for c in _giocabili(i):
 		if Dati.is_evento(c):
 			continue
-		ops.append({"t": "Guida con " + Dati.nome_carta_azione(c), "v": c, "mano": c})
+		ops.append({"t": "Guida con " + Dati.nome_carta_azione(c), "v": c, "mano": Dati.normalizza(c)})
 	ops.append({"t": "Passa l'iniziativa", "v": "passa"})
 	_chiedi(p, i, "Hai l'iniziativa: gioca una carta Guida", ops, "guida")
+
+## Le carte che si possono giocare: le carte Fedeli si giocano sul lato Zelo o Saggezza.
+func _giocabili(i: int) -> Array:
+	var out := []
+	for c in _ordina_mano(G(i)["mano"]):
+		if c.begins_with("fed"):
+			for lato in _lati_fedeli(i):
+				out.append(lato + c.substr(3))
+		else:
+			out.append(c)
+	return out
+
+func _lati_fedeli(_i: int) -> Array:
+	return ["fez", "fes"]
+
+func _togli_dalla_mano(i: int, c: String) -> void:
+	if G(i)["mano"].has(c):
+		G(i)["mano"].erase(c)
+	else:
+		G(i)["mano"].erase(Dati.normalizza(c))
 
 func _ordina_mano(m: Array) -> Array:
 	var a := m.duplicate()
@@ -730,14 +754,14 @@ func _p_turno_segui(p: Dictionary) -> void:
 		var v: Array = _r(p)
 		var c: String = v[0]
 		var modo: String = v[1]
-		G(i)["mano"].erase(c)
+		_togli_dalla_mano(i, c)
 		s["giocate"].append({"g": i, "c": c, "modo": modo, "su": modo != "copia"})
 		_h_carta_giocata(i, c, modo)
 		var desc: String = {"supera": "Supera con", "cambia": "Cambia con", "copia": "Copia (carta coperta)", "evento": "gioca"}[modo]
 		_log("%s %s%s." % [_nome(i), desc, "" if modo == "copia" else " " + Dati.nome_carta_azione(c)])
 		_ev({"tipo": "carta", "g": i, "c": c if modo != "copia" else "", "modo": modo})
 		_inizia_turno(i, c, modo)
-		if modo == "supera" and Dati.valore(c) == 7 and s["sottratta"] < 0 and s["iniz"] != i:
+		if modo == "supera" and Dati.valore(c) == 7 and not Dati.is_fedele(c) and s["sottratta"] < 0 and s["iniz"] != i:
 			s["sottratta"] = i
 			_log("%s sottrae l'iniziativa con un 7!" % _nome(i))
 			_ev({"tipo": "sottrai", "g": i})
@@ -746,14 +770,14 @@ func _p_turno_segui(p: Dictionary) -> void:
 		return
 	var ops := []
 	ops.append_array(_opzioni_evento(i))
-	for c in _ordina_mano(G(i)["mano"]):
+	for c in _giocabili(i):
 		if Dati.is_evento(c):
 			continue
 		var cs := Dati.seme(c)
 		if cs == gs and Dati.valore(c) > int(guida["valore"]):
-			ops.append({"t": "Supera con %s (%d azioni)" % [Dati.nome_carta_azione(c), Dati.punti(c)], "v": [c, "supera"], "mano": c, "modo": "supera"})
+			ops.append({"t": "Supera con %s (%d azioni)" % [Dati.nome_carta_azione(c), Dati.punti(c)], "v": [c, "supera"], "mano": Dati.normalizza(c), "modo": "supera"})
 		if cs != gs:
-			ops.append({"t": "Cambia con %s (1 azione)" % Dati.nome_carta_azione(c), "v": [c, "cambia"], "mano": c, "modo": "cambia"})
+			ops.append({"t": "Cambia con %s (1 azione)" % Dati.nome_carta_azione(c), "v": [c, "cambia"], "mano": Dati.normalizza(c), "modo": "cambia"})
 	for c in _ordina_mano(G(i)["mano"]):
 		if Dati.is_evento(c):
 			continue
@@ -782,7 +806,7 @@ func _p_pre_segui(p: Dictionary) -> void:
 		var v = _r(p)
 		if v is String and v.begins_with("sottrai:"):
 			var c: String = v.substr(8)
-			G(i)["mano"].erase(c)
+			_togli_dalla_mano(i, c)
 			s["giocate"].append({"g": i, "c": c, "modo": "sottrai", "su": false})
 			s["sottratta"] = i
 			_log("%s sottrae l'iniziativa giocando una carta in più." % _nome(i))
@@ -864,7 +888,7 @@ func _p_dichiara(p: Dictionary) -> void:
 		return
 	if _segnalino_libero() < 0:
 		return
-	var val := Dati.valore(c)
+	var val := _valore_dichiarazione(c)
 	var possibili := []
 	if val == 7:
 		possibili = Dati.AMBIZIONI.duplicate()
@@ -1898,7 +1922,7 @@ func _p_vox(p: Dictionary) -> void:
 					_metti_navi(i, id, 1, false)
 					_ev({"tipo": "nave", "sis": id, "g": i})
 				_log("Rivolta di Massa: %s mette 1 nave in ogni sistema del settore %d." % [_nome(i), v])
-				s["scarti_corte"].append(c)
+				s["scarti_corte"].append(p.get("orig", c))
 				return
 			var ops := []
 			for k in range(1, 7):
@@ -1906,7 +1930,7 @@ func _p_vox(p: Dictionary) -> void:
 					ops.append({"t": "Settore %d" % k, "v": k, "sis": "%dg" % k})
 			_chiedi(p, i, "Rivolta di Massa: scegli un settore", ops, "sistema")
 		"c27":
-			s["scarti_corte"].append(c)
+			s["scarti_corte"].append(p.get("orig", c))
 			if v != null:
 				if not _e(v, "no"):
 					_dichiara(i, v, false)
@@ -1914,15 +1938,15 @@ func _p_vox(p: Dictionary) -> void:
 			if _segnalino_libero() < 0:
 				return
 			p["c"] = c
-			s["scarti_corte"].erase(c)
+			s["scarti_corte"].erase(p.get("orig", c))
 			var ops := [{"t": "Non dichiarare", "v": "no"}]
 			for a in Dati.AMBIZIONI:
 				ops.append({"t": "Dichiara " + Dati.NOME_AMBIZIONE[a], "v": a, "amb": a})
-			s["scarti_corte"].append(c)
+			s["scarti_corte"].append(p.get("orig", c))
 			_chiedi(p, i, "Richieste Populiste: dichiara una qualsiasi ambizione", ops, "dichiara")
 		"c28":
 			if v != null:
-				s["scarti_corte"].append(c)
+				s["scarti_corte"].append(p.get("orig", c))
 				for j in ordine_da(i):
 					_oltraggio(j, v)
 				return
@@ -1942,7 +1966,7 @@ func _p_vox(p: Dictionary) -> void:
 					if s["sottratta"] < 0 and s["iniz"] != i:
 						s["sottratta"] = i
 						_log("%s sottrae l'iniziativa." % _nome(i))
-				s["mazzo_corte"].append(c)
+				s["mazzo_corte"].append(p.get("orig", c))
 				_mescola(s["mazzo_corte"])
 				return
 			var ops := [{"t": "Non fare nulla", "v": "no"}]
@@ -1985,7 +2009,7 @@ func _p_vox(p: Dictionary) -> void:
 						ops.append({"t": "Ruba %s a %s" % [Dati.nome_corte(cc), _nome(j)], "v": [j, cc], "carta": cc})
 			_chiedi(p, i, "Conflitto fra Gilde: puoi rubare 1 carta Gilda", ops, "carta")
 		"c31":
-			s["scarti_corte"].append(c)
+			s["scarti_corte"].append(p.get("orig", c))
 			if not s["scarti_azioni"].is_empty():
 				G(i)["mano"].append(s["scarti_azioni"].pop_front())
 				_log("In Azione!: %s pesca 1 carta dal fondo degli scarti." % _nome(i))
@@ -2680,12 +2704,12 @@ func _p_fine_round(_p: Dictionary) -> void:
 	var riprese := []
 	for l in s["leghe"]:
 		riprese.append(l["carta"])
-		G(l["g"])["mano"].append(l["carta"])
+		G(l["g"])["mano"].append(Dati.normalizza(l["carta"]))
 		s["scarti_corte"].append(l["c"])
 		_log("%s riprende in mano %s." % [_nome(l["g"]), Dati.nome_carta_azione(l["carta"])])
 	for gg in s["giocate"]:
 		if not gg["c"] in riprese:
-			s["scarti_azioni"].append(gg["c"])
+			s["scarti_azioni"].append(Dati.normalizza(gg["c"]))
 	s["giocate"] = []
 	s["leghe"] = []
 	s["guida"] = {}

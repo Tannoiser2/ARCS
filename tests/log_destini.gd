@@ -10,7 +10,12 @@ func _init() -> void:
 	for i in n:
 		nomi.append("IA%d" % i)
 		ia.append(true)
-	m.nuova_partita({"n": n, "nomi": nomi, "ia": ia, "seme": seme, "campagna": true})
+	# forza i Destini: LETTERA=destino,...
+	var forza := {}
+	if a.size() > 2:
+		for x in a[2].split(","):
+			forza[x.split("=")[0]] = x.split("=")[1]
+	m.nuova_partita({"n": n, "nomi": nomi, "ia": ia, "seme": seme, "campagna": true, "forza": forza})
 	m.s["log_max"] = 100000
 	var ai := IA.new()
 	var k := 0
