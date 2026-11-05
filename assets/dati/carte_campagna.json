@@ -2292,5 +2292,66 @@
   "set": "(sciolte)",
   "nome": "",
   "fronte": "752_00"
+ },
+ "993_19": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_19"
+ },
+ "993_20": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_20"
+ },
+ "993_21": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_21"
+ },
+ "993_22": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_22"
+ },
+ "993_23": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_23"
+ },
+ "993_24": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_24"
+ },
+ "993_25": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_25"
+ },
+ "993_26": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_26"
+ },
+ "993_27": {
+  "set": "BELIEVER",
+  "nome": "Action Card",
+  "fronte": "993_27"
+ },
+ "993_28": {
+  "set": "BELIEVER",
+  "nome": "SPREADING THE FAITH",
+  "fronte": "993_28"
+ },
+ "993_29": {
+  "set": "BELIEVER",
+  "nome": "FAITHFUL DISCIPLES",
+  "fronte": "993_29"
+ },
+ "993_30": {
+  "set": "BELIEVER",
+  "nome": "",
+  "fronte": "993_30",
+  "retro": "993_30_r"
  }
 }

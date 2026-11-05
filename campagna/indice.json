@@ -3550,5 +3550,79 @@
 "dup": null,
 "retro": "515_00_r.jpg",
 "dup_r": null
+},
+"993_19": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_19.jpg",
+"dup": null
+},
+"993_20": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_20.jpg",
+"dup": null
+},
+"993_21": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_21.jpg",
+"dup": null
+},
+"993_22": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_22.jpg",
+"dup": null
+},
+"993_23": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_23.jpg",
+"dup": null
+},
+"993_24": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_24.jpg",
+"dup": null
+},
+"993_25": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_25.jpg",
+"dup": null
+},
+"993_26": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_26.jpg",
+"dup": null
+},
+"993_27": {
+"nick": "Action Card",
+"set": "BELIEVER",
+"fronte": "993_27.jpg",
+"dup": null
+},
+"993_28": {
+"nick": "SPREADING THE FAITH",
+"set": "BELIEVER",
+"fronte": "993_28.jpg",
+"dup": null
+},
+"993_29": {
+"nick": "FAITHFUL DISCIPLES",
+"set": "BELIEVER",
+"fronte": "993_29.jpg",
+"dup": null
+},
+"993_30": {
+"nick": "",
+"set": "BELIEVER",
+"fronte": "993_30.jpg",
+"dup": null,
+"retro": "993_30_r.jpg",
+"dup_r": null
 }
 }
