@@ -286,4 +286,21 @@ static func nome_carta_azione(c: String) -> String:
 	return "%s %d" % [NOME_SEME[seme(c)], valore(c)]
 
 static func nome_corte(c: String) -> String:
-	return CORTE[c][0] if CORTE.has(c) else c
+	return info(c)[0] if ha_info(c) else c
+
+## Carte aggiunte dalla campagna (Destini): codice -> [nome, tipo, seme, costo]
+static var EXTRA := {}
+static var EXTRA_TESTO := {}
+
+static func info(c: String) -> Array:
+	if CORTE.has(c):
+		return CORTE[c]
+	return EXTRA.get(c, [c, "", "", 0])
+
+static func ha_info(c: String) -> bool:
+	return CORTE.has(c) or EXTRA.has(c)
+
+static func testo(c: String) -> String:
+	if TESTO_CORTE.has(c):
+		return TESTO_CORTE[c]
+	return EXTRA_TESTO.get(c, "")

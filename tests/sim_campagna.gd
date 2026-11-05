@@ -11,7 +11,7 @@ func _init() -> void:
 	var decisioni := 0
 	var t0 := Time.get_ticks_msec()
 	for k in partite:
-		var m := MotoreCampagna.new()
+		var m: Motore = MotoreOrlo.new() if OS.get_cmdline_user_args().has("destini") else MotoreCampagna.new()
 		var nomi := []
 		var ia := []
 		for i in n:

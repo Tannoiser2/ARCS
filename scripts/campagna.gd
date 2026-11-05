@@ -124,12 +124,17 @@ func nuova_partita(cfg: Dictionary) -> void:
 	s["giocate"] = []
 	s["leghe"] = []
 	s["passi"] = 0
-	C()["primo"] = s["iniz"]
-	_log("Campagna, Atto I: settori imperiali %d e %d. Politica imperiale: %s. Primo Reggente: %s." % [
-		imperiali[0], imperiali[1], NOME_POLITICA[C()["politica"]], _nome(s["iniz"])])
+	_log("Campagna, Atto I: settori imperiali %d e %d. Politica imperiale: %s." % [
+		imperiali[0], imperiali[1], NOME_POLITICA[C()["politica"]]])
 	_spingi({"k": "capitolo"})
 	_spingi({"k": "piazza_campagna", "giro": 0, "fatti": 0})
+	_spingi({"k": "inizio_destini"})
 	_avanza()
+
+## Senza Destini (MotoreCampagna puro): il Primo Reggente è chi ha l'iniziativa.
+func _p_inizio_destini(_p: Dictionary) -> void:
+	if primo() < 0:
+		C()["primo"] = s["iniz"]
 
 func _giocatore(nome: String, colore: String, ia_: bool) -> Dictionary:
 	return {"nome": nome, "colore": colore, "ia": ia_, "potere": 0, "risorse": ["", "", "", "", "", ""],
@@ -342,6 +347,7 @@ func _acquisisci(i: int, k: int, soggiogo: bool) -> void:
 		else:
 			for z in a:
 				G(i)["prigionieri"].append(j)
+				_h_cattura(i, j)
 		slot["ag"][j] = 0
 	C()["consiglio"] = "deciso"
 	C()["consiglio_preso"] = i
@@ -436,6 +442,17 @@ func _p_vertice(p: Dictionary) -> void:
 				C()["titolo"][i] = "reggente"
 				C()["primo"] = i
 				_log("%s rifonda l'Impero e diventa Primo Reggente." % _nome(i))
+			_:
+				if str(v).begins_with("tratta:"):
+					var parti := str(v).split(":")
+					_spingi(p)
+					p.erase("r")
+					p["fatte"] = p.get("fatte", []) + ["tratta:" + parti[1]]
+					s["pila"].pop_back()
+					_spingi(p)
+					_spingi({"k": "trattativa", "da": i, "a": int(parti[1]), "t": parti[2]})
+					return
+				_esegui_vertice_extra(i, str(v))
 		p.erase("r")
 		p["fatte"] = p.get("fatte", []) + [str(v)]
 	var ops := [{"t": "Chiudi il Vertice", "v": "fine"}]
@@ -451,9 +468,43 @@ func _p_vertice(p: Dictionary) -> void:
 				regg = true
 		if not regg:
 			ops.append({"t": "Rifonda l'Impero (torni Reggente e Primo Reggente)", "v": "rifonda"})
+	# Trattative: cedere una risorsa in cambio di un Favore
+	for j in s["n"]:
+		if j == i or ("tratta:%d" % j) in fatte or G(j)["agenti"] <= 0:
+			continue
+		var visti := {}
+		for r_ in G(i)["risorse"]:
+			if r_ != "" and not visti.has(r_):
+				visti[r_] = true
+				ops.append({"t": "Trattativa: offri 1 %s a %s per un Favore" % [Dati.NOME_RISORSA[r_], _nome(j)], "v": "tratta:%d:%s" % [j, r_], "risorsa": r_})
+	ops.append_array(_opzioni_vertice_extra(i, fatte))
 	_spingi(p)
 	_chiedi(p, i, "Vertice, Richiamo all'Ordine: cosa fai?", ops, "vertice")
 	s["pila"].pop_back()
+
+## Trattativa di un Vertice: chi riceve l'offerta accetta (prende la risorsa e dà un Favore) o rifiuta.
+func _p_trattativa(p: Dictionary) -> void:
+	var da: int = p["da"]
+	var a: int = p["a"]
+	var r_: String = p["t"]
+	if _ha_r(p):
+		if _e(_r(p), "si") and conta_risorsa(da, r_) > 0 and G(a)["agenti"] > 0:
+			_togli_risorsa(da, r_)
+			_metti_risorsa_libera(a, r_)
+			G(a)["agenti"] -= 1
+			C()["favori"][da][str(a)] = int(C()["favori"][da].get(str(a), 0)) + 1
+			_log("Trattativa: %s cede 1 %s a %s e riceve un suo Favore." % [_nome(da), Dati.NOME_RISORSA[r_], _nome(a)])
+			_h_dono(a, da, "favore")
+			_h_dono(da, a, "risorsa")
+		else:
+			_log("%s rifiuta l'offerta di %s." % [_nome(a), _nome(da)])
+		return
+	_chiedi(p, a, "%s ti offre 1 %s in cambio di un tuo Favore (un agente): accetti?" % [_nome(da), Dati.NOME_RISORSA[r_]],
+		[{"t": "Accetto", "v": "si"}, {"t": "Rifiuto", "v": "no"}], "trattativa")
+
+## Gancio: «da» dà qualcosa («favore» o «risorsa») ad «a» in una Trattativa.
+func _h_dono(_da: int, _a: int, _cosa: String) -> void:
+	pass
 
 func _lascia_impero(i: int) -> void:
 	C()["titolo"][i] = "fuorilegge"
@@ -474,6 +525,12 @@ func _lascia_impero(i: int) -> void:
 			C()["primo"] = -1
 			if tot > 0:
 				_log("Non ci sono più Reggenti: il Tesoro torna nella riserva e %s perde %d Potere." % [_nome(i), tot])
+
+func _opzioni_vertice_extra(_i: int, _fatte: Array) -> Array:
+	return []
+
+func _esegui_vertice_extra(_i: int, _v: String) -> void:
+	pass
 
 # ================================================================ Crisi
 func _p_crisi(p: Dictionary) -> void:
@@ -556,7 +613,7 @@ func _p_crisi_vox(p: Dictionary) -> void:
 		"x12":
 			# Fiasco Diplomatico: chi ha più carte Gilda che agenti in riserva ne scarta
 			for i in ordine_da(s["iniz"]):
-				var gilde: Array = G(i)["carte"].filter(func(x): return Dati.CORTE.has(x) and Dati.CORTE[x][1] == "gilda")
+				var gilde: Array = G(i)["carte"].filter(func(x): return Dati.ha_info(x) and Dati.info(x)[1] == "gilda")
 				while gilde.size() > G(i)["agenti"]:
 					var x: String = gilde.pop_back()
 					G(i)["carte"].erase(x)
@@ -593,7 +650,7 @@ func _p_editti(p: Dictionary) -> void:
 				var slot: Dictionary = s["corte"][q]
 				var c: String = slot["c"]
 				var vuota: bool = slot["ag"].max() == 0
-				if Dati.CORTE.has(c) and Dati.CORTE[c][1] == "gilda" and vuota:
+				if Dati.ha_info(c) and Dati.info(c)[1] == "gilda" and vuota:
 					s["corte"].remove_at(q)
 					s["mazzo_corte"].append(c)
 				else:
@@ -644,6 +701,7 @@ func _applica_politica(i: int, pol: String) -> void:
 					var x: int = G(j)["prigionieri"][q]
 					if not reggente(x):
 						G(i)["prigionieri"].append(x)
+						_h_cattura(i, x)
 						G(j)["prigionieri"].remove_at(q)
 						preso = true
 						break
@@ -682,6 +740,7 @@ func _applica_politica(i: int, pol: String) -> void:
 				var q := mini(2, G(imp())["navi"])
 				s["mappa"][dove]["navi"][imp()][0] += q
 				G(imp())["navi"] -= q
+				_h_navi_imperiali(q, dove)
 				_log("Requisire Navi: 2 navi imperiali in %s." % _desc_sis(dove))
 		"guerra":
 			for j in s["n"]:
@@ -719,6 +778,22 @@ func _controlla_fine() -> void:
 	_log("Fine dell'Atto I: è in testa %s con %d Potere." % [_nome(best), G(best)["potere"]])
 	_ev({"tipo": "fine", "g": best})
 
+## Combattimento della campagna: chiunque può attaccare la Piaga e gli Stati Liberi; solo i Fuorilegge attaccano l'Impero.
+## Legge della Tregua: i Reggenti non si attaccano tra loro nei sistemi con navi imperiali integre.
+func _avversari(i: int, id: String) -> Array:
+	var out: Array = super(i, id)
+	if not s.has("camp"):
+		return out
+	if reggente(i) and s["mappa"][id]["navi"][imp()][0] > 0:
+		out = out.filter(func(j): return not reggente(j))
+	if not reggente(i) and navi(id, imp()) > 0:
+		out.append(imp())
+	if navi(id, piaga()) > 0:
+		out.append(piaga())
+	if ha_pezzi(id, lib()):
+		out.append(lib())
+	return out
+
 ## Legge della Tregua: un Reggente non tassa le città di Reggenti Rivali nei sistemi con navi imperiali.
 func _bersagli_tassa(i: int, solo_leali: bool) -> Array:
 	var out: Array = super(i, solo_leali)
@@ -744,7 +819,7 @@ func _p_vox(p: Dictionary) -> void:
 		for j in ordine_da(s["iniz"]):
 			if j == i:
 				continue
-			var gilde: Array = G(j)["carte"].filter(func(x): return Dati.CORTE.has(x) and Dati.CORTE[x][1] == "gilda")
+			var gilde: Array = G(j)["carte"].filter(func(x): return Dati.ha_info(x) and Dati.info(x)[1] == "gilda")
 			while gilde.size() > G(j)["agenti"]:
 				var x: String = gilde.pop_back()
 				G(j)["carte"].erase(x)

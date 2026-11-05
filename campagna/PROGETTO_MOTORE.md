@@ -152,3 +152,40 @@ Piaga se c'era già); 2 giocatori: risorse di 2 ammassi tirati sui riquadri; pre
 4. Intervallo, scelta del Destino B, Ammiraglie, Atto II.
 5. Atto III, Destini C, grandi ambizioni e obiettivi finali.
 6. Salvataggio della campagna fra un Atto e l'altro (locale e Firebase).
+
+## Stato (motore dei Destini)
+Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDestini` (destini.gd) →
+`MotoreOrlo` (orlo.gd, classe finale usata da main.gd e dai test).
+
+- **destini.gd**: dati delle carte dei Destini (`assets/dati/destini.json`, caricati in `Dati.EXTRA`),
+  numeri delle carte di ogni set (`NUM`), alias delle Gilde uguali a quelle del gioco base (`ALIAS`),
+  tabelle `PREP` (preparazione per Atto) e `RIS` (risoluzione all'Intervallo, completato o no),
+  scelta del Destino (si pescano 2 carte, se ne tiene 1; all'Intervallo chi ha completato pesca 1
+  carta e può tenere il Destino, chi non l'ha completato ne pesca 2), libretto delle regole,
+  segnalino obiettivo (`avanza`), Intervallo A–F, preparazione degli Atti II e III, Atto III di 4
+  capitoli, vincitore finale (più Potere; parità A > B > C; un Destino C con obiettivo a 0 e almeno 1
+  Potere vince subito alla fine del capitolo).
+- **orlo.gd**: obiettivi di tutti i 24 Destini, grandi ambizioni dei Destini A e B nell'Atto III
+  (2/4, 3/8, 4/14, 5/20 Potere per capitolo), segnalini sulla mappa, Trattative del Vertice
+  (cedere una risorsa per un Favore), valore degli obiettivi per l'IA (`valore_ia`).
+- **Combattimento**: chiunque attacca Piaga e Stati Liberi; solo i Fuorilegge attaccano l'Impero;
+  Legge della Tregua (Reggenti non si attaccano dove c'è una nave imperiale integra).
+
+### Semplificazioni da rivedere
+- Segnalini dei Destini automatici alla fine del turno del loro giocatore: Golem e Frammenti si
+  prendono con una propria nave nel sistema; Stendardi, Seggi e Passaggi si mettono su un sistema
+  controllato (Passaggi: portali con proprie navi); Indizi uno per settore, il Portale al 4º Indizio;
+  Pellegrini +1 per turno con navi sul Portale; Navi Spora / Guide delle Spore mettono 1 Piaga.
+- Martello Planetario: con tutti i Frammenti, una volta per capitolo distrugge gli edifici Rivali di un
+  pianeta con proprie navi.
+- Monopoli: alla fine del capitolo chi ha 3 risorse dello stesso tipo prende quel Monopolio.
+- Pila Fedeli: valori 1–7, ne esce una quando il Credente acquisisce una carta; Ideali sulle ambizioni
+  che il Credente dichiara (Atti II e III).
+- Cospirazioni: una per ogni ambizione dichiarata da un Rivale, sul giocatore in testa in quel momento.
+- Pace: settore senza navi di due giocatori diversi nello stesso sistema.
+- Ammiraglie: una nave in più nel sistema del proprio spazioporto; le migliorie sono annotate ma non
+  hanno ancora effetto in battaglia.
+- Le ambizioni nuove (Confederazione, Guardia dell'Eden, Stirpe della Piaga) non si dichiarano: gli
+  obiettivi che le citano le trattano come «non dichiarate».
+- I testi delle carte dei Destini sono consultabili (immagini e libretto), ma molte Leggi ed Editti
+  dei set non hanno ancora un effetto proprio nel motore.

@@ -316,6 +316,15 @@ func aggiorna(motore: Motore) -> void:
 			anello.material_override = am
 			anello.position = c0 + Vector3(0, 0.02, 0)
 			pezzi.add_child(anello)
+	# segnalini dei Destini della campagna (Golem, Stendardi, Seggi, Portale...)
+	if m.has_method("segnalini_mappa"):
+		var seg: Dictionary = m.segnalini_mappa()
+		for id in seg:
+			if not m.s["mappa"].has(id) or not m.in_gioco(id):
+				continue
+			var nomi: Array = seg[id]
+			for q in nomi.size():
+				_etichetta_3d(pos(id) + Vector3(-0.42, 0.25 + 0.16 * q, 0.42), str(nomi[q]).to_upper(), Color(0.95, 0.85, 1.0), 26)
 
 func _fuori(id: String) -> void:
 	var d := MeshInstance3D.new()
@@ -444,11 +453,11 @@ func _edificio(mesh: Mesh, base_mat: StandardMaterial3D, p: Vector3, danno: bool
 	mi.rotation_degrees = Vector3(0 if not danno else 8, 180, 0 if not danno else -6)
 	pezzi.add_child(mi)
 
-func _etichetta_3d(p: Vector3, testo: String, col: Color) -> void:
+func _etichetta_3d(p: Vector3, testo: String, col: Color, dim := 48) -> void:
 	var l := Label3D.new()
 	l.text = testo
 	l.font = load("res://assets/font/TestoNero.ttf")
-	l.font_size = 48
+	l.font_size = dim
 	l.pixel_size = 0.005
 	l.modulate = col
 	l.outline_size = 10

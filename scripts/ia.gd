@@ -161,6 +161,7 @@ func _punteggio(m: Motore, i: int, prev: Array) -> float:
 	var g: Dictionary = m.s["g"][i]
 	var v := 0.0
 	v += g["potere"] * 10.0
+	v += m.valore_ia(i)
 	# ambizioni dichiarate: Potere atteso (più sicuro verso fine capitolo)
 	var carte_rimaste := 0
 	for j in m.s["n"]:

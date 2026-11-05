@@ -125,6 +125,54 @@ func _punti_evento(_i: int) -> int:
 func _dopo_round() -> void:
 	pass
 
+# ---------------------------------------------------------------- agganci per i Destini
+func _h_ambizione(_amb: String, _punti: Array, _virt: int, _guadagni: Array) -> void:
+	pass
+
+func _h_dopo_punteggio(_calcolate: Dictionary) -> void:
+	pass
+
+func _h_fine_capitolo() -> void:
+	pass
+
+func _h_dichiara(_i: int, _amb: String) -> void:
+	pass
+
+func _h_iniziativa(_i: int) -> void:
+	pass
+
+func _h_trofeo(_autore: int, _b: int, _cosa: String, _id: String) -> void:
+	pass
+
+func _h_acquisita(_i: int, _c: String) -> void:
+	pass
+
+func _h_preludio_gilda(_i: int, _c: String) -> void:
+	pass
+
+func _h_cattura(_i: int, _j: int) -> void:
+	pass
+
+func _h_carta_giocata(_i: int, _c: String, _modo: String) -> void:
+	pass
+
+func _h_spendi(_i: int, _r: String) -> void:
+	pass
+
+## Gancio: una risorsa rubata; true se la gestisce il gancio (non va nell'area del ladro).
+func _h_ruba(_i: int, _t: String) -> bool:
+	return false
+
+func _h_fine_turno(_i: int) -> void:
+	pass
+
+func _h_navi_imperiali(_n: int, _id: String) -> void:
+	pass
+
+## Valore aggiuntivo di una posizione per l'IA (obiettivi della campagna).
+func valore_ia(_i: int) -> float:
+	return 0.0
+
 func _zeri(n: int) -> Array:
 	var a := []
 	for i in n:
@@ -219,7 +267,7 @@ func _ha_r(p: Dictionary) -> bool:
 # ================================================================ utilità
 func _log(t: String) -> void:
 	s["log"].append(t)
-	if s["log"].size() > 300:
+	if s["log"].size() > int(s.get("log_max", 300)):
 		s["log"].pop_front()
 
 func _ev(e: Dictionary) -> void:
@@ -324,7 +372,7 @@ func riserva(t: String) -> int:
 func simboli(i: int, t: String) -> int:
 	var n := conta_risorsa(i, t)
 	for c in G(i)["carte"]:
-		if Dati.CORTE[c][2] == t:
+		if Dati.info(c)[2] == t:
 			n += 1
 	return n
 
@@ -442,7 +490,7 @@ func _oltraggio(i: int, t: String) -> void:
 		G(i)["antichi"] = ""
 	var tieni := []
 	for c in G(i)["carte"]:
-		if Dati.CORTE[c][2] == t and not Dati.LEALI.has(c):
+		if Dati.info(c)[2] == t and not Dati.LEALI.has(c):
 			s["scarti_corte"].append(c)
 		else:
 			tieni.append(c)
@@ -598,6 +646,7 @@ func _p_round(_p: Dictionary) -> void:
 	s["giocate"] = []
 	s["leghe"] = []
 	s["sottratta"] = -1
+	s["iniz_prima"] = s["iniz"]
 	s["guida"] = {}
 	s["dichiarata_round"] = false
 	_spingi({"k": "fine_round"})
@@ -636,6 +685,7 @@ func _p_turno_guida(p: Dictionary) -> void:
 		s["passi"] = 0
 		s["guida"] = {"c": c, "g": i, "valore": Dati.valore(c)}
 		s["giocate"].append({"g": i, "c": c, "modo": "guida", "su": true})
+		_h_carta_giocata(i, c, "guida")
 		_log("%s guida con %s." % [_nome(i), Dati.nome_carta_azione(c)])
 		_ev({"tipo": "carta", "g": i, "c": c, "modo": "guida"})
 		_inizia_turno(i, c, "guida")
@@ -678,6 +728,7 @@ func _p_turno_segui(p: Dictionary) -> void:
 		var modo: String = v[1]
 		G(i)["mano"].erase(c)
 		s["giocate"].append({"g": i, "c": c, "modo": modo, "su": modo != "copia"})
+		_h_carta_giocata(i, c, modo)
 		var desc: String = {"supera": "Supera con", "cambia": "Cambia con", "copia": "Copia (carta coperta)", "evento": "gioca"}[modo]
 		_log("%s %s%s." % [_nome(i), desc, "" if modo == "copia" else " " + Dati.nome_carta_azione(c)])
 		_ev({"tipo": "carta", "g": i, "c": c if modo != "copia" else "", "modo": modo})
@@ -793,6 +844,7 @@ func _dichiara(i: int, amb: String, zero: bool) -> void:
 		_spingi({"k": "demagogo", "g": i})
 	if ha_carta(i, "c17"):
 		_spingi({"k": "veggenti", "g": i})
+	_h_dichiara(i, amb)
 
 func _p_dichiara(p: Dictionary) -> void:
 	var i: int = p["g"]
@@ -816,7 +868,7 @@ func _p_dichiara(p: Dictionary) -> void:
 		possibili = [Dati.AMBIZIONE_DI_VALORE[val]]
 	if possibili.is_empty():
 		return
-	if leader(i) == "edonista" and G(i)["carte"].filter(func(x): return Dati.CORTE[x][1] == "gilda").is_empty():
+	if leader(i) == "edonista" and G(i)["carte"].filter(func(x): return Dati.info(x)[1] == "gilda").is_empty():
 		return
 	var ops := [{"t": "Non dichiarare", "v": "no"}]
 	var k := _segnalino_libero()
@@ -843,7 +895,7 @@ func _p_dai_gilda(p: Dictionary) -> void:
 		return
 	var ops := []
 	for c in G(i)["carte"]:
-		if Dati.CORTE[c][1] == "gilda":
+		if Dati.info(c)[1] == "gilda":
 			ops.append({"t": "Dai " + Dati.nome_corte(c), "v": c, "carta": c})
 	_chiedi(p, i, "Generoso: dai 1 carta Gilda a %s" % _nome(meno), ops, "carta")
 
@@ -1116,6 +1168,7 @@ func _esegui_scelta_turno(p: Dictionary, v) -> void:
 		var come: String = parti[2]
 		_togli_risorsa(i, r)
 		t["spesi"].append(r)
+		_h_spendi(i, r)
 		_log("%s spende 1 %s%s." % [_nome(i), Dati.NOME_RISORSA[r], "" if r == come else " come " + Dati.NOME_RISORSA[come]])
 		_ev({"tipo": "spendi", "g": i, "t": r})
 		_spingi(p)
@@ -1168,6 +1221,7 @@ func _fine_turno() -> void:
 	var t: Dictionary = s["turno"]
 	var i: int = t["g"]
 	t["preludio"] = false
+	_h_fine_turno(i)
 	# Eliminazione: senza spazioporti né navi si rientra con 3 navi in un portale
 	var ha := false
 	for id in s["mappa"]:
@@ -1267,6 +1321,8 @@ func _metti_risorsa_libera(i: int, t: String) -> void:
 func _scarta_corte(i: int, c: String) -> void:
 	G(i)["carte"].erase(c)
 	s["scarti_corte"].append(c)
+	if Dati.info(c)[1] == "gilda" and s.has("turno") and not s["turno"].is_empty():
+		_h_preludio_gilda(i, c)
 	_ev({"tipo": "carta_corte", "g": i, "c": c})
 
 func _p_ruba_risorsa(p: Dictionary) -> void:
@@ -1275,7 +1331,8 @@ func _p_ruba_risorsa(p: Dictionary) -> void:
 		var j: int = _r(p)
 		_togli_risorsa(j, p["t"])
 		_log("%s ruba 1 %s a %s." % [_nome(i), Dati.NOME_RISORSA[p["t"]], _nome(j)])
-		_ottieni_diretto(i, p["t"])
+		if not _h_ruba(i, p["t"]):
+			_ottieni_diretto(i, p["t"])
 		return
 	var ops := []
 	for j in s["n"]:
@@ -1377,7 +1434,7 @@ func _p_persuasore(p: Dictionary) -> void:
 			continue
 		var protetto := ha_carta(j, "c22")
 		for c in G(j)["carte"]:
-			if Dati.CORTE[c][1] == "gilda" and (not protetto or c == "c22"):
+			if Dati.info(c)[1] == "gilda" and (not protetto or c == "c22"):
 				ops.append({"t": "Ruba %s a %s" % [Dati.nome_corte(c), _nome(j)], "v": [j, "carta", c], "carta": c})
 		if not protetto:
 			var visti := {}
@@ -1475,6 +1532,7 @@ func _tassa(p: Dictionary, nutrire: bool) -> void:
 			if G(j)["agenti"] > 0:
 				G(j)["agenti"] -= 1
 				G(i)["prigionieri"].append(j)
+				_h_cattura(i, j)
 				_log("%s cattura 1 agente di %s." % [_nome(i), _nome(j)])
 		var modo: String = s["turno"]["modo"]
 		if modo in ["copia", "cambia"] and p.get("da", "") == "punto":
@@ -1762,7 +1820,7 @@ func _carte_acquisibili(i: int) -> Array:
 		for j in s["n"]:
 			if j != i and s["corte"][k]["ag"][j] >= m:
 				ok = false
-		if leader(i) == "demagogo" and m < 2 and Dati.CORTE[s["corte"][k]["c"]][1] == "gilda":
+		if leader(i) == "demagogo" and m < 2 and Dati.info(s["corte"][k]["c"])[1] == "gilda":
 			ok = false
 		if ok:
 			out.append(k)
@@ -1798,12 +1856,14 @@ func _acquisisci(i: int, k: int, soggiogo: bool) -> void:
 					G(i)["trofei"].append({"t": "agente", "g": j})
 				else:
 					G(i)["prigionieri"].append(j)
+					_h_cattura(i, j)
 	s["corte"].remove_at(k)
 	_log("%s acquisisce %s." % [_nome(i), Dati.nome_corte(c)])
 	_ev({"tipo": "acquisisci", "g": i, "c": c})
+	_h_acquisita(i, c)
 	if s.has("turno"):
 		s["turno"]["acquisite"].append(c)
-	if Dati.CORTE[c][1] == "vox":
+	if Dati.info(c)[1] == "vox":
 		_spingi({"k": "rifornisci"})
 		_spingi({"k": "vox", "g": i, "c": c})
 	else:
@@ -1903,7 +1963,7 @@ func _p_vox(p: Dictionary) -> void:
 				var gilde := []
 				var resto := []
 				for x in s["scarti_corte"]:
-					if Dati.CORTE[x][1] == "gilda":
+					if Dati.info(x)[1] == "gilda":
 						gilde.append(x)
 					else:
 						resto.append(x)
@@ -1917,7 +1977,7 @@ func _p_vox(p: Dictionary) -> void:
 					continue
 				var protetto := ha_carta(j, "c22")
 				for cc in G(j)["carte"]:
-					if Dati.CORTE[cc][1] == "gilda" and (not protetto or cc == "c22"):
+					if Dati.info(cc)[1] == "gilda" and (not protetto or cc == "c22"):
 						ops.append({"t": "Ruba %s a %s" % [Dati.nome_corte(cc), _nome(j)], "v": [j, cc], "carta": cc})
 			_chiedi(p, i, "Conflitto fra Gilde: puoi rubare 1 carta Gilda", ops, "carta")
 		"c31":
@@ -2026,6 +2086,7 @@ func _dopo_movimento(i: int, t: String) -> void:
 		if e != null and e["t"] == "porto" and e["g"] == c and not e["danno"] and G(i)["agenti"] > 0:
 			G(i)["agenti"] -= 1
 			G(c)["prigionieri"].append(i)
+			_h_cattura(c, i)
 			_log("Portali Attrezzati: %s cattura 1 agente di %s." % [_nome(c), _nome(i)])
 			return
 
@@ -2067,10 +2128,16 @@ func _sistemi_battaglia(i: int) -> Array:
 	for id in s["mappa"]:
 		if not in_gioco(id) or navi(id, i) <= 0:
 			continue
-		for j in s["n"]:
-			if j != i and ha_pezzi(id, j):
-				out.append(id)
-				break
+		if not _avversari(i, id).is_empty():
+			out.append(id)
+	return out
+
+## Chi si può attaccare in un sistema (la campagna aggiunge Impero, Piaga e Stati Liberi).
+func _avversari(i: int, id: String) -> Array:
+	var out := []
+	for j in s["n"]:
+		if j != i and ha_pezzi(id, j):
+			out.append(j)
 	return out
 
 func _p_az_combattere(p: Dictionary) -> void:
@@ -2089,9 +2156,8 @@ func _p_az_combattere(p: Dictionary) -> void:
 		return
 	if not p.has("dif"):
 		var ops := []
-		for j in s["n"]:
-			if j != i and ha_pezzi(p["sis"], j):
-				ops.append({"t": "Attacca " + _nome(j), "v": j, "giocatore": j})
+		for j in _avversari(i, p["sis"]):
+			ops.append({"t": "Attacca " + _nome(j), "v": j, "giocatore": j})
 		if ops.size() == 1:
 			p["dif"] = ops[0]["v"]
 		else:
@@ -2242,6 +2308,8 @@ func _p_tattico_dopo(p: Dictionary) -> void:
 	_chiedi(p, i, "Tattico: vuoi Muovere dopo la battaglia?", [{"t": "No", "v": "no"}, {"t": "Muovi", "v": "si"}])
 
 func _razzia_permessa(id: String, j: int) -> bool:
+	if j >= s["n"]:
+		return false
 	if ha_lore(j, "l05"):
 		for e in s["mappa"][id]["edifici"]:
 			if e != null and e["g"] == j and e["t"] == "porto" and not e["danno"]:
@@ -2371,6 +2439,7 @@ func _distrutto(b: int, autore: int, cosa: String, id: String) -> void:
 	_ev({"tipo": "distruggi", "sis": id, "g": b, "cosa": cosa})
 	if autore >= 0 and autore != b:
 		G(autore)["trofei"].append({"t": cosa, "g": b})
+		_h_trofeo(autore, b, cosa, id)
 		if s["pila"].size() > 0:
 			for q in range(s["pila"].size() - 1, -1, -1):
 				if s["pila"][q]["k"] == "battaglia":
@@ -2440,7 +2509,7 @@ func _p_colpi_misti(p: Dictionary) -> void:
 		if e["t"] == "citta":
 			for t in _tipi_citta_distrutta(id):
 				_oltraggio(b, t)
-			if leader(b) != "antico":
+			if leader(b) != "antico" and b < s["n"]:
 				_spingi({"k": "soggioga", "g": i, "dif": b})
 	p["n"] = n - 1
 	if p["n"] > 0:
@@ -2493,7 +2562,7 @@ func _p_razzia(p: Dictionary) -> void:
 			_ottieni_diretto(i, t)
 			return
 		var c: String = cosa[1]
-		p["chiavi"] -= Dati.CORTE[c][3]
+		p["chiavi"] -= Dati.info(c)[3]
 		G(j)["carte"].erase(c)
 		if c == "c22":
 			s["mazzo_corte"].append(c)
@@ -2516,8 +2585,8 @@ func _p_razzia(p: Dictionary) -> void:
 		if G(j)["antichi"] != "" and k >= 3:
 			ops.append({"t": "Ruba %s da Antichi Possedimenti (costo 3)" % Dati.NOME_RISORSA[G(j)["antichi"]], "v": ["risorsa", 99]})
 	for c in G(j)["carte"]:
-		if Dati.CORTE[c][1] == "gilda" and Dati.CORTE[c][3] <= k and (not protetto or c == "c22"):
-			ops.append({"t": "Ruba %s (costo %d)" % [Dati.nome_corte(c), Dati.CORTE[c][3]], "v": ["carta", c], "carta": c})
+		if Dati.info(c)[1] == "gilda" and Dati.info(c)[3] >= 0 and Dati.info(c)[3] <= k and (not protetto or c == "c22"):
+			ops.append({"t": "Ruba %s (costo %d)" % [Dati.nome_corte(c), Dati.info(c)[3]], "v": ["carta", c], "carta": c})
 	if ops.size() == 1:
 		return
 	_chiedi(p, i, "Razzia: hai %d chiav%s da spendere su %s" % [k, "e" if k == 1 else "i", _nome(j)], ops, "razzia")
@@ -2543,6 +2612,7 @@ func _p_az_rapire(p: Dictionary) -> void:
 			if j != i:
 				for z in s["corte"][k]["ag"][j]:
 					G(i)["prigionieri"].append(j)
+					_h_cattura(i, j)
 				s["corte"][k]["ag"][j] = 0
 		_log("%s rapisce gli agenti Rivali da %s." % [_nome(i), Dati.nome_corte(s["corte"][k]["c"])])
 		return
@@ -2599,6 +2669,8 @@ func _p_fine_round(_p: Dictionary) -> void:
 			if best >= 0:
 				s["iniz"] = best
 		_log("Fine del round: l'iniziativa è di %s." % _nome(s["iniz"]))
+		if s["iniz"] != int(s.get("iniz_prima", -1)):
+			_h_iniziativa(s["iniz"])
 	# Leghe: la carta giocata torna in mano a chi ha usato la Lega
 	var riprese := []
 	for l in s["leghe"]:
@@ -2653,11 +2725,13 @@ func _p_fine_capitolo(_p: Dictionary) -> void:
 		var virt: int = s["virtuale"].get(amb, 0)
 		var guadagni := _classifica(punti, virt, p1, p2, amb)
 		calcolate[amb] = guadagni
+		_h_ambizione(amb, punti, virt, guadagni)
 		for i in n:
 			if guadagni[i] > 0:
 				G(i)["potere"] += guadagni[i]
 				_log("%s ottiene %d Potere da %s." % [_nome(i), guadagni[i], Dati.NOME_AMBIZIONE[amb]])
 	_ev({"tipo": "punteggio", "risultati": calcolate})
+	_h_dopo_punteggio(calcolate)
 	# restituire Trofei e Prigionieri
 	if calcolate.has("generale"):
 		for i in n:
@@ -2686,6 +2760,7 @@ func _p_fine_capitolo(_p: Dictionary) -> void:
 		if leader(i) == "divoratore" and calcolate.has("magnate"):
 			while _togli_risorsa(i, "carburante"):
 				pass
+	_h_fine_capitolo()
 	for k in 3:
 		s["segnalini"][k]["amb"] = ""
 	for k in [2, 1, 0]:

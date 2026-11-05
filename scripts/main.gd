@@ -47,6 +47,8 @@ var corte_box: HBoxContainer
 var titolo_corte: Label
 var amb_box: Control
 var info_camp: Label
+var bott_libretto: Button
+var velo_destini: Control
 var diario: RichTextLabel
 var pannello_scelte: VBoxContainer
 var titolo_scelte: Label
@@ -356,7 +358,7 @@ func _menu_nuova() -> void:
 
 func _avvia_locale() -> void:
 	online = false
-	m = MotoreCampagna.new() if scelta_campagna else Motore.new()
+	m = MotoreOrlo.new() if scelta_campagna else Motore.new()
 	var ia_flags := []
 	posti = []
 	for i in scelta_n:
@@ -384,7 +386,7 @@ func _menu_continua() -> void:
 		_avviso("Nessuna partita salvata.")
 		return
 	online = false
-	m = MotoreCampagna.new() if st.has("camp") else Motore.new()
+	m = MotoreOrlo.new() if st.has("camp") else Motore.new()
 	m.carica(st)
 	posti = m.s.get("posti", [])
 	if posti.size() != m.s["n"]:
@@ -589,7 +591,7 @@ func _avvia_da_stanza(room: Dictionary) -> void:
 		posti.append(int(game["seat"][k]))
 		ia_flags.append(int(game["seat"][k]) < 0)
 	var camp := bool(game.get("campagna", false))
-	m = MotoreCampagna.new() if camp else Motore.new()
+	m = MotoreOrlo.new() if camp else Motore.new()
 	m.nuova_partita({"n": n, "nomi": game["nomi"], "ia": ia_flags, "leader": bool(game["leader"]), "seme": int(game["seme"]),
 		"prep": int(game["prep"]), "campagna": camp})
 	ia = IA.new()
@@ -736,6 +738,10 @@ func _costruisci_hud() -> void:
 	info_camp = testo_lungo("", 13, Color(0.8, 0.76, 0.95))
 	info_camp.visible = false
 	dx.add_child(info_camp)
+	bott_libretto = bottone("Libretto delle regole", func():
+		_mostra_galleria("Libretto delle regole", m.s["camp"].get("libretto", [])), Color(0.12, 0.1, 0.2), 13)
+	bott_libretto.visible = false
+	dx.add_child(bott_libretto)
 	var pd := pannello(Color(0.02, 0.02, 0.04, 0.85))
 	pd.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	dx.add_child(pd)
@@ -937,6 +943,8 @@ func _aspetta_remoto() -> void:
 
 func _decidi(i: int) -> void:
 	_chiudi_zoom()
+	if is_instance_valid(velo_destini):
+		velo_destini.queue_free()
 	for c in pannello_scelte.get_children():
 		if c is Button:
 			c.disabled = true
@@ -975,6 +983,8 @@ func _mostra_scelte(a: Dictionary) -> void:
 		c.queue_free()
 	if a.get("tipo", "") == "draft":
 		_mostra_draft(a)
+	elif a.get("tipo", "") == "destino" and umano(a["g"]):
+		_mostra_destini(a)
 	var g: int = a["g"]
 	titolo_scelte.text = str(a["testo"])
 	titolo_scelte.add_theme_color_override("font_color", Dati.TINTA[m.s["g"][g]["colore"]].lightened(0.3))
@@ -1043,6 +1053,97 @@ func _mostra_draft(a: Dictionary) -> void:
 			v.add_child(etichetta("LEADER" if gruppo == "leader" else "LORE", F_TITOLO, 22, C_ORO_CHIARO))
 			v.add_child(riga)
 	v.add_child(etichetta("Tasto destro su una carta per ingrandirla.", F_CORSIVO, 14, C_SPENTO))
+
+## Scelta del Destino: le carte Destino in grande, con il loro obiettivo sul retro della carta Preparazione.
+func _mostra_destini(a: Dictionary) -> void:
+	if is_instance_valid(velo_destini):
+		velo_destini.queue_free()
+	var velo := ColorRect.new()
+	velo_destini = velo
+	velo.color = Color(0.0, 0.0, 0.02, 0.88)
+	velo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	schermo.add_child(velo)
+	var v := VBoxContainer.new()
+	v.set_anchors_preset(Control.PRESET_FULL_RECT)
+	v.offset_left = 30
+	v.offset_right = -30
+	v.offset_top = 20
+	v.offset_bottom = -20
+	v.add_theme_constant_override("separation", 10)
+	velo.add_child(v)
+	var g: Dictionary = m.s["g"][a["g"]]
+	v.add_child(etichetta("%s: %s" % [g["nome"], a["testo"]], F_TITOLO, 28, Dati.TINTA[g["colore"]].lightened(0.2)))
+	v.add_child(testo_lungo("Il Destino ti dà le carte, le regole e l'obiettivo di questo Atto. Clicca SCEGLI sotto il Destino che vuoi seguire; tasto destro su una carta per ingrandirla.", 16, C_SPENTO))
+	var riga := HBoxContainer.new()
+	riga.add_theme_constant_override("separation", 26)
+	riga.alignment = BoxContainer.ALIGNMENT_CENTER
+	v.add_child(riga)
+	var ops: Array = a["opzioni"]
+	for i in ops.size():
+		var o: Dictionary = ops[i]
+		var box := VBoxContainer.new()
+		box.add_theme_constant_override("separation", 6)
+		var coppia := HBoxContainer.new()
+		coppia.add_theme_constant_override("separation", 6)
+		var paths := [img_carta(str(o["carta"]))]
+		var prep := ""
+		if m.has_method("carta_obiettivo"):
+			prep = m.carta_obiettivo(str(o["destino"]))
+		if prep != "":
+			paths.append(img_camp(prep, true))
+		for pth in paths:
+			var im := immagine(pth, 170, 238)
+			im.gui_input.connect(func(ev):
+				if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_RIGHT:
+					_mostra_zoom(pth))
+			coppia.add_child(im)
+		box.add_child(coppia)
+		box.add_child(etichetta(str(o["t"]), F_TITOLO, 18, C_ORO_CHIARO))
+		box.add_child(bottone("SCEGLI", func():
+			velo.queue_free()
+			_decidi(i), Color(0.3, 0.16, 0.05), 15))
+		riga.add_child(box)
+
+## Più carte in grande (libretto delle regole, area di gioco).
+func _mostra_galleria(titolo: String, carte: Array) -> void:
+	for c in zoom_layer.get_children():
+		c.queue_free()
+	zoom_layer.visible = true
+	var velo := ColorRect.new()
+	velo.color = Color(0, 0, 0.02, 0.88)
+	velo.set_anchors_preset(Control.PRESET_FULL_RECT)
+	velo.gui_input.connect(func(ev):
+		if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+			_chiudi_zoom())
+	zoom_layer.add_child(velo)
+	var v := VBoxContainer.new()
+	v.set_anchors_preset(Control.PRESET_FULL_RECT)
+	v.offset_left = 24
+	v.offset_right = -24
+	v.offset_top = 16
+	v.offset_bottom = -16
+	v.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	velo.add_child(v)
+	v.add_child(etichetta(titolo, F_TITOLO, 26, C_ORO_CHIARO))
+	v.add_child(etichetta("Tasto destro su una carta per ingrandirla, clic per chiudere.", F_CORSIVO, 14, C_SPENTO))
+	var sc := ScrollContainer.new()
+	sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	v.add_child(sc)
+	var fl := HFlowContainer.new()
+	fl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	fl.add_theme_constant_override("h_separation", 10)
+	fl.add_theme_constant_override("v_separation", 10)
+	sc.add_child(fl)
+	for c in carte:
+		var pth: String = img_carta(c)
+		var im := immagine(pth, 150, 210)
+		im.tooltip_text = _nome_carta(c)
+		im.gui_input.connect(func(ev):
+			if ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_RIGHT:
+				_mostra_zoom(pth))
+		fl.add_child(im)
+	if carte.is_empty():
+		fl.add_child(etichetta("Nessuna carta.", F_TESTO, 16, C_SPENTO))
 
 func _colore_opzione(o: Dictionary) -> Color:
 	var v = o.get("v")
@@ -1149,10 +1250,13 @@ func _aggiorna_top() -> void:
 	top_info.text = "Capitolo %d   Iniziativa: %s%s" % [m.s["capitolo"], m.s["g"][iz]["nome"], "  (sottratta da %s)" % m.s["g"][m.s["sottratta"]]["nome"] if m.s["sottratta"] >= 0 else ""]
 	if m.s.has("camp"):
 		var cp: Dictionary = m.s["camp"]
-		top_info.text = "Atto %s, cap. %d/3   Iniziativa: %s" % [["I", "II", "III"][int(cp["atto"]) - 1], m.s["capitolo"], m.s["g"][iz]["nome"]]
+		top_info.text = "Atto %s, cap. %d/%d   Iniziativa: %s" % [["I", "II", "III"][int(cp["atto"]) - 1], m.s["capitolo"], 4 if int(cp["atto"]) == 3 else 3, m.s["g"][iz]["nome"]]
 		info_camp.text = "Politica imperiale: %s   Consiglio: %s   Tesoro Imperiale: %d" % [MotoreCampagna.NOME_POLITICA[cp["politica"]],
 			"In Sessione" if cp["consiglio"] == "sessione" else "Deliberato", cp["tesoro"].size()]
 		info_camp.visible = true
+		bott_libretto.visible = cp.has("libretto")
+		if cp.has("libretto"):
+			bott_libretto.text = "Libretto delle regole (%d)" % cp["libretto"].size()
 	top_info.add_theme_color_override("font_color", Dati.TINTA[m.s["g"][iz]["colore"]].lightened(0.2))
 	for c in top_guida.get_children():
 		c.queue_free()
@@ -1236,6 +1340,22 @@ func _aggiorna_giocatori() -> void:
 		li.clip_text = true
 		li.custom_minimum_size = Vector2(40, 0)
 		v.add_child(li)
+		var dest: Dictionary = m.info_destino(i) if m.has_method("info_destino") else {}
+		if not dest.is_empty():
+			var rd := HBoxContainer.new()
+			rd.add_theme_constant_override("separation", 4)
+			var testo_ob := "Atto III: grandi ambizioni" if int(dest["obiettivo"]) < 0 else ("obiettivo completato" if int(dest["obiettivo"]) == 0 else "obiettivo: %d" % int(dest["obiettivo"]))
+			var ld := etichetta("%s (%s)  %s" % [dest["nome"], dest["lettera"], testo_ob], F_TITOLO, 12, Color(0.85, 0.8, 1.0) if int(dest["obiettivo"]) != 0 else C_ORO_CHIARO)
+			ld.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			ld.clip_text = true
+			ld.custom_minimum_size = Vector2(40, 0)
+			ld.mouse_filter = Control.MOUSE_FILTER_STOP
+			ld.gui_input.connect(_clic_zoom.bind(img_carta(dest["carta"])))
+			rd.add_child(ld)
+			if str(dest["prep"]) != "":
+				var ob := bottone("Obiettivo", _mostra_zoom.bind(img_camp(str(dest["prep"]), true)), Color(0.14, 0.1, 0.22), 11)
+				rd.add_child(ob)
+			v.add_child(rd)
 		# carte Gilda, Leader e Lore
 		var cc := HFlowContainer.new()
 		cc.add_theme_constant_override("h_separation", 3)
@@ -1328,8 +1448,8 @@ func _pezzi_in_riquadro(box: Control, chi: Array, r: Rect2, cosa: String, agenti
 	box.add_child(fl)
 
 func _nome_carta(c: String) -> String:
-	if Dati.CORTE.has(c):
-		return Dati.CORTE[c][0] + ": " + Dati.TESTO_CORTE[c]
+	if Dati.ha_info(c):
+		return Dati.info(c)[0] + ": " + Dati.testo(c)
 	if Dati.LORE.has(c):
 		return Dati.LORE[c][0] + ": " + Dati.LORE[c][1]
 	if Dati.LEADER.has(c):
