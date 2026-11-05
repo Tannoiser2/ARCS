@@ -555,6 +555,17 @@ func _p_intervallo(p: Dictionary) -> void:
 						G(j)["agenti"] += 1
 				G(i)["prigionieri"] = []
 			C()["tesoro"] = []
+			# risorse congelate sulle carte (Lega dei Mercanti, Custodi dell'Arsenale) tornano nella riserva
+			for diz in [C().get("dest", {}), C().get("carte_dest", {})]:
+				for key in diz.keys():
+					if str(key).begins_with("arsenale_") or str(key).begins_with("lega_"):
+						var tipi: Array = diz[key] if diz[key] is Array else []
+						if str(key).begins_with("arsenale_"):
+							for z in int(diz[key]):
+								tipi.append("armi")
+						for tp in tipi:
+							s["fuori_risorse"][tp] = maxi(0, int(s["fuori_risorse"].get(tp, 0)) - 1)
+						diz[key] = [] if diz[key] is Array else 0
 			if n == 2:
 				s["virtuale"] = {}
 				s["fuori_risorse"] = {}

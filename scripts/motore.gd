@@ -179,6 +179,34 @@ func _modi_sottrarre(_i: int) -> Array:
 func _h_battaglia(_i: int, _j: int, _id: String) -> void:
 	pass
 
+## Ganci della campagna: Gilde protette, razzia, tassazione, colpi e calcolo del punteggio.
+func _gilda_protetta(_j: int, _c: String) -> bool:
+	return false
+
+func _opzioni_razzia_extra(_j: int, _k: int) -> Array:
+	return []
+
+func _razzia_extra_esegui(_i: int, _j: int, _cosa: String) -> int:
+	return 0
+
+func _h_tassa(_i: int, _proprietario: int, _t: String) -> bool:
+	return false
+
+func _h_inizio_punteggio() -> void:
+	pass
+
+func _colpi_effettivi(_i: int, _b: int, n: int) -> int:
+	return n
+
+func _colpi_residui(_i: int, _b: int, _id: String, _n: int) -> void:
+	pass
+
+func _prigionieri_tenuti(_i: int) -> int:
+	return 0
+
+func _razzia_extra(_i: int, _id: String, _j: int) -> bool:
+	return false
+
 ## Numero della carta per dichiarare (7 = qualsiasi ambizione).
 func _valore_dichiarazione(c: String) -> int:
 	return Dati.valore(c)
@@ -1486,7 +1514,7 @@ func _p_persuasore(p: Dictionary) -> void:
 			continue
 		var protetto := ha_carta(j, "c22")
 		for c in G(j)["carte"]:
-			if Dati.info(c)[1] == "gilda" and (not protetto or c == "c22"):
+			if Dati.info(c)[1] == "gilda" and (not protetto or c == "c22") and not _gilda_protetta(j, c):
 				ops.append({"t": "Ruba %s a %s" % [Dati.nome_corte(c), _nome(j)], "v": [j, "carta", c], "carta": c})
 		if not protetto:
 			var visti := {}
@@ -1577,7 +1605,8 @@ func _tassa(p: Dictionary, nutrire: bool) -> void:
 		if tipi.size() > 1:
 			_spingi({"k": "scegli_tra", "g": i, "tra": tipi})
 		elif tipi.size() == 1:
-			_ottieni(i, tipi[0])
+			if not _h_tassa(i, int(e["g"]), tipi[0]):
+				_ottieni(i, tipi[0])
 		_log("%s tassa la città %s in %s." % [_nome(i), _desc_citta(e["g"], i), _desc_sis(id)])
 		if e["g"] != i and e["g"] < s["n"]:
 			var j: int = e["g"]
@@ -2033,7 +2062,7 @@ func _p_vox(p: Dictionary) -> void:
 					continue
 				var protetto := ha_carta(j, "c22")
 				for cc in G(j)["carte"]:
-					if Dati.info(cc)[1] == "gilda" and (not protetto or cc == "c22"):
+					if Dati.info(cc)[1] == "gilda" and (not protetto or cc == "c22") and not _gilda_protetta(j, cc):
 						ops.append({"t": "Ruba %s a %s" % [Dati.nome_corte(cc), _nome(j)], "v": [j, cc], "carta": cc})
 			_chiedi(p, i, "Conflitto fra Gilde: puoi rubare 1 carta Gilda", ops, "carta")
 		"c31":
@@ -2298,7 +2327,7 @@ func _p_battaglia(p: Dictionary) -> void:
 					return
 			rest -= int(p["incursione"])
 			if not p.has("razzia"):
-				var razzia_ok := _razzia_permessa(id, j)
+				var razzia_ok := _razzia_permessa(id, j) or _razzia_extra(i, id, j)
 				if not razzia_ok or rest <= 0:
 					p["razzia"] = 0
 				elif r != null:
@@ -2515,6 +2544,9 @@ func _p_colpi_misti(p: Dictionary) -> void:
 	var i: int = p["g"]
 	var b: int = p["bersaglio"]
 	var id: String = p["sis"]
+	if not p.has("effettivi"):
+		p["effettivi"] = true
+		p["n"] = _colpi_effettivi(i, b, int(p["n"]))
 	var n: int = p["n"]
 	if n <= 0:
 		return
@@ -2541,6 +2573,7 @@ func _p_colpi_misti(p: Dictionary) -> void:
 	# edifici
 	var eds := _edifici_in(id, b)
 	if eds.is_empty():
+		_colpi_residui(i, b, id, n)
 		return
 	var scelta = _r(p) if _ha_r(p) else null
 	if scelta == null:
@@ -2603,6 +2636,10 @@ func _p_razzia(p: Dictionary) -> void:
 		if _e(v, "basta"):
 			return
 		var cosa: Array = v
+		if cosa[0] == "extra":
+			p["chiavi"] -= _razzia_extra_esegui(i, j, str(cosa[1]))
+			_spingi(p)
+			return
 		if cosa[0] == "risorsa":
 			var slot: int = cosa[1]
 			var t: String
@@ -2643,8 +2680,9 @@ func _p_razzia(p: Dictionary) -> void:
 		if G(j)["antichi"] != "" and k >= 3:
 			ops.append({"t": "Ruba %s da Antichi Possedimenti (costo 3)" % Dati.NOME_RISORSA[G(j)["antichi"]], "v": ["risorsa", 99]})
 	for c in G(j)["carte"]:
-		if Dati.info(c)[1] == "gilda" and Dati.info(c)[3] >= 0 and Dati.info(c)[3] <= k and (not protetto or c == "c22"):
+		if Dati.info(c)[1] == "gilda" and Dati.info(c)[3] >= 0 and Dati.info(c)[3] <= k and (not protetto or c == "c22") and not _gilda_protetta(j, c):
 			ops.append({"t": "Ruba %s (costo %d)" % [Dati.nome_corte(c), Dati.info(c)[3]], "v": ["carta", c], "carta": c})
+	ops.append_array(_opzioni_razzia_extra(j, k))
 	if ops.size() == 1:
 		return
 	_chiedi(p, i, "Razzia: hai %d chiav%s da spendere su %s" % [k, "e" if k == 1 else "i", _nome(j)], ops, "razzia")
@@ -2764,6 +2802,7 @@ func punteggio_ambizione(i: int, amb: String) -> int:
 func _p_fine_capitolo(_p: Dictionary) -> void:
 	var n: int = s["n"]
 	_log("— Fine del capitolo %d: calcolo del Potere —" % s["capitolo"])
+	_h_inizio_punteggio()
 	var calcolate := {}
 	for amb in Dati.AMBIZIONI:
 		var p1 := 0
@@ -2800,9 +2839,11 @@ func _p_fine_capitolo(_p: Dictionary) -> void:
 	if calcolate.has("tiranno"):
 		for i in n:
 			if calcolate["tiranno"][i] > 0:
-				for j in G(i)["prigionieri"]:
+				var tieni: int = _prigionieri_tenuti(i)
+				var restano: Array = G(i)["prigionieri"].slice(0, tieni)
+				for j in G(i)["prigionieri"].slice(tieni):
 					G(j)["agenti"] += 1
-				G(i)["prigionieri"] = []
+				G(i)["prigionieri"] = restano
 	# Cartelli e Divoratore
 	for i in n:
 		if ha_carta(i, "c03"):

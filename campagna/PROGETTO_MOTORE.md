@@ -207,11 +207,12 @@ Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDest
   Sottrazione Partigiana, Empatia per Tutti, Quorum Imperiale, Sponsor Imperiale, Il Giudice Fissa
   l'Agenda, Rilascio dei Prigionieri, Appello all'Armistizio, Le Gilde Condannano il Terrore.
 - Bunker: il Sopravvissuto ne costruisce uno a fine turno su un pianeta che controlla (elimina un suo
-  agente e cattura un agente Rivale); un Bunker cade quando un Rivale vince una battaglia contro il
-  Sopravvissuto restando solo nel sistema. Non sono ancora pezzi colpibili con 2 colpi.
+  agente e cattura un agente Rivale); in battaglia contro il
+  Sopravvissuto: i colpi che avanzano dopo navi ed edifici vanno al Bunker (2 per danneggiarlo, altri 2
+  per distruggerlo); il Sopravvissuto lo ripara a fine turno se controlla il sistema.
 - Dicerie: chi prende un Trofeo del Pirata scopre una Diceria Vera; alla fine dell'Atto III chi conosce
   settore e simbolo e controlla il Rifugio ottiene 10 Potere (il Pirata li perde), altrimenti il
-  Pirata ne ottiene 10. Diffondere la Diceria nei Vertici non c'è.
+  Pirata ne ottiene 10. Nei Vertici un Rivale può Diffondere la Diceria a un altro.
 - Carte Vox dei set: tutte hanno Crisi e «Appena Acquisita» (scelte facoltative automatiche); Rivolta di
   Massa, L'Oltraggio Dilaga e Conflitto fra Gilde usano l'effetto della carta base. Senza effetto vero:
   Tempeste del Passaggio, Le Dicerie si Diffondono, Caos al Comando (Crisi), Giorno di Festa (divieto).
@@ -223,8 +224,11 @@ Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDest
   Guide delle Spore, Navi Spora, Mietitori della Piaga, Profughi, Investigatori delle Gilde,
   Sorveglianti delle Gilde, Cercatori del Portale, Ufficiali Imperiali. Le azioni alternative
   («Rapire (Combattere)» ecc.) si scelgono come le varianti del gioco base; il bersaglio lo sceglie il
-  motore. Senza effetto: L'Arbitro, Bibliotecari, Parlapietre, Guardia d'Onore, Esattori, Cercatori,
-  Ospiti Felici, Custodi dell'Arsenale, Flotta Pirata, Cacciatori della Piaga.
+  motore. Anche: L'Arbitro (il Giudice restituisce pezzi per pareggiare Tiranno o Generale),
+  Bibliotecari (Lore attaccata alla prossima carta della Corte), Parlapietre, Guardia d'Onore,
+  Esattori, Cercatori, Ospiti Felici (le navi catturate contano come Prigionieri del loro colore),
+  Custodi dell'Arsenale, Flotta Pirata, Cacciatori della Piaga.
+- La Piaga richiede 2 colpi per ogni colpo in combattimento (1 con i Cacciatori della Piaga).
 - Ammiraglie: Raggio Traente, Sistema Difensivo, Sistema di Controllo, Propulsore a Scia (un movimento
   in più nel Preludio), costruire navi all'Ammiraglia con uno spazioporto sulla plancia (Gru Navale:
   due volte per turno).

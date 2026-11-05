@@ -603,6 +603,13 @@ func _h_dichiara(i: int, amb: String) -> void:
 	if not _attiva():
 		return
 	_scegli_sostituta(i, amb)
+	if ha_carta(i, "429_17"):
+		var altri := 0
+		for j in s["n"]:
+			if j != i:
+				altri += int(D().get("golem_%d" % j, 0))
+		if altri > 0:
+			_parlapietre(i)
 	if D().get("sponsor", "") == amb:
 		D()["sponsor"] = ""
 		if not C()["tesoro"].is_empty():
@@ -699,6 +706,13 @@ func _h_acquisita(i: int, c: String) -> void:
 	if destino(i) == "curatore" and atto() == 2 and Dati.info(c)[1] == "lore":
 		avanza(i, 2, "Raccogliere il Sapere della Galassia")
 	_h_acquisita_partigiana(i)
+	var la: Dictionary = D().get("lore_attaccate", {})
+	if la.has(c):
+		G(i)["lore"].append(la[c])
+		_log("%s prende la carta Lore %s." % [_nome(i), Dati.LORE[la[c]][0]])
+		la.erase(c)
+	if ha_carta(i, "429_08") and c != "429_08":
+		_bibliotecari(i)
 	# Sorveglianti delle Gilde: prendi una carta Gilda dal mazzo Corte
 	if c == "428_23":
 		for x in s["mazzo_corte"]:
@@ -813,6 +827,7 @@ func _h_fine_turno(i: int) -> void:
 						D()["rifugio"] = id
 						break
 		"sopravvissuto":
+			_ripara_bunker(i)
 			_costruisci_bunker(i)
 		"castellano":
 			var sg: Array = _lista("seggi")
@@ -984,6 +999,8 @@ func _crisi_esclusa(id: String) -> bool:
 ## Supremazia delle Gilde: nel calcolo del Potere le carte Gilda contano doppio.
 func simboli(i: int, t: String) -> int:
 	var n: int = super(i, t)
+	if t == "armi" and _attiva() and i >= 0 and i < s["n"]:
+		n += int(D().get("arsenale_%d" % i, 0))
 	if _attiva() and i >= 0 and i < s["n"] and C()["libretto"].has("428_01"):
 		for c in gilde(i):
 			if Dati.info(c)[2] == t:
@@ -1289,6 +1306,15 @@ func _opzioni_vertice_extra(i: int, fatte: Array) -> Array:
 				tot += 1
 		if tot >= 3:
 			ops.append({"t": "Esporta nel Nucleo Galattico (scarta 3 risorse)", "v": "esporta"})
+	# Dicerie Condivise: un Rivale del Pirata mostra le Dicerie che conosce a un altro Rivale
+	if D().has("dicerie_note") and C()["libretto"].has("487_00") and destino(i) != "pirata":
+		var mie: Array = D()["dicerie_note"].get(str(i), [])
+		if not mie.is_empty():
+			for j in s["n"]:
+				if j != i and destino(j) != "pirata" and not ("diceria:%d" % j) in fatte:
+					var sue: Array = D()["dicerie_note"].get(str(j), [])
+					if sue.size() < 2:
+						ops.append({"t": "Diffondi la Diceria a %s" % _nome(j), "v": "diceria:%d" % j})
 	# Accordi di Pace: Mediare la Pace in un settore in Guerra dove controlli almeno un sistema
 	if D().has("cessate") and C()["libretto"].has("442_00"):
 		for sett in range(1, 7):
@@ -1302,6 +1328,15 @@ func _opzioni_vertice_extra(i: int, fatte: Array) -> Array:
 	return ops
 
 func _esegui_vertice_extra(i: int, v: String) -> void:
+	if v.begins_with("diceria:"):
+		var j := int(v.substr(8))
+		var sue: Array = D()["dicerie_note"].get(str(j), [])
+		for x in D()["dicerie_note"].get(str(i), []):
+			if not x in sue:
+				sue.append(x)
+		D()["dicerie_note"][str(j)] = sue
+		_log("%s diffonde la Diceria a %s." % [_nome(i), _nome(j)])
+		return
 	if v.begins_with("pace:"):
 		D()["cessate"][v.substr(5)] = "pace"
 		_log("%s media la Pace nel settore %s." % [_nome(i), v.substr(5)])
@@ -1506,23 +1541,34 @@ func _costruisci_bunker(i: int) -> void:
 		_log("%s costruisce un Bunker in %s." % [_nome(i), _desc_sis(id)])
 		return
 
-## Un Bunker è distrutto quando un Rivale resta solo nel suo sistema dopo una battaglia contro il Sopravvissuto.
-func _bunker_dopo_battaglia(i: int, j: int, id: String) -> void:
-	var so := in_gioco_destino("sopravvissuto")
-	if so < 0 or j != so or i == so:
+## Bunker resistenti: i colpi che avanzano contro il Sopravvissuto vanno ai Bunker del sistema,
+## 2 colpi per danneggiarli e altri 2 per distruggerli. Chi distrugge un Bunker gli fa eliminare un Prigioniero.
+func _colpi_residui(i: int, b: int, id: String, n: int) -> void:
+	super(i, b, id, n)
+	if not _attiva() or destino(b) != "sopravvissuto" or i == b:
 		return
 	var bk: Array = D().get("bunker", [])
-	if id in bk and navi(id, so) == 0 and navi(id, i) > 0:
+	if not id in bk or n <= 0:
+		return
+	if not D().has("bunker_colpi"):
+		D()["bunker_colpi"] = {}
+	var tot: int = int(D()["bunker_colpi"].get(id, 0)) + n
+	if tot >= 4:
 		bk.erase(id)
-		if not G(so)["prigionieri"].is_empty():
-			G(so)["prigionieri"].pop_back()
+		D()["bunker_colpi"].erase(id)
+		if not G(b)["prigionieri"].is_empty():
+			G(b)["prigionieri"].pop_back()
 		_log("%s distrugge il Bunker in %s." % [_nome(i), _desc_sis(id)])
+	else:
+		D()["bunker_colpi"][id] = tot
+		if tot >= 2:
+			_log("%s danneggia il Bunker in %s." % [_nome(i), _desc_sis(id)])
 
-func _p_battaglia(p: Dictionary) -> void:
-	var fase: String = p["fase"]
-	super(p)
-	if fase == "dopo" and _attiva():
-		_bunker_dopo_battaglia(int(p["g"]), int(p["dif"]), str(p["sis"]))
+## Un Bunker danneggiato si ripara con l'azione Riparare del Sopravvissuto (a fine turno nei suoi sistemi).
+func _ripara_bunker(i: int) -> void:
+	for id in D().get("bunker_colpi", {}).keys():
+		if controllo_eventi(id) == i:
+			D()["bunker_colpi"].erase(id)
 
 # ================================================================ Dicerie sul Rifugio
 ## Chi ruba al Pirata in combattimento scopre una Diceria Vera (il settore o il simbolo del Rifugio).
@@ -1741,7 +1787,8 @@ const VARIANTI_DESTINI := {"sgherri": "Rapire (Combattere): cattura gli agenti R
 	"raccogliere": "Raccogliere (Tassare): distruggi 1 Piaga danneggiata e ottieni 1 risorsa",
 	"ricollocare": "Ricollocare (Costruire): città Libera e via l'Oltraggio",
 	"recuperare": "Recuperare (Muovere): una Gilda degli scarti torna nella Corte",
-	"contrattare": "Contrattare (Acquisire): un Rivale acquisisce, poi acquisisci tu"}
+	"contrattare": "Contrattare (Acquisire): un Rivale acquisisce, poi acquisisci tu",
+	"pacificare": "Pacificare (Acquisire): cattura le navi danneggiate non Leali che controlli"}
 const PROFUGHI := {"475_06": "carburante", "475_03": "psico", "475_07": "materiale", "475_05": "armi", "475_04": "reliquie"}
 
 func _varianti(i: int, a: String) -> Array:
@@ -1766,6 +1813,7 @@ func _varianti(i: int, a: String) -> Array:
 			if ha_carta(i, "428_24"): v.append("recuperare")
 		"acquisire":
 			if ha_carta(i, "463_23"): v.append("contrattare")
+			if ha_carta(i, "467_00"): v.append("pacificare")
 	return v
 
 func _nome_variante(x: String) -> String:
@@ -1792,6 +1840,12 @@ func _azione_possibile(i: int, a: String) -> bool:
 					return true
 			return false
 		"contrattare": return not _bersagli_contrattare(i).is_empty()
+		"pacificare":
+			for id in sistemi_di(i):
+				for j in s["mappa"][id]["navi"].size():
+					if j != i and j != piaga() and s["mappa"][id]["navi"][j][1] > 0:
+						return true
+			return false
 	return super(i, a)
 
 func _bersagli_sgherri(i: int) -> Array:
@@ -2003,7 +2057,20 @@ func _p_az_contrattare(p: Dictionary) -> void:
 # ================================================================ Ammiraglie: Gru Navale e Propulsore a Scia
 func _opzioni_costruire(i: int) -> Array:
 	var out: Array = super(i)
-	if not _attiva() or i < 0 or i >= s["n"] or G(i)["navi"] <= 0:
+	if not _attiva() or i < 0 or i >= s["n"]:
+		return out
+	# Cercatori: città su qualsiasi pianeta del tipo di cui non si ha il Monopolio, senza pezzi Leali
+	if ha_carta(i, "427_05") and G(i)["citta_plancia"].has(true):
+		var mono: Dictionary = D().get("monopoli", {})
+		for id in s["mappa"]:
+			if Dati.is_portale(id) or not in_gioco(id) or _slot_libero(id) < 0:
+				continue
+			if int(mono.get(Dati.TIPO[id], -1)) == i:
+				continue
+			var x := ["citta", id]
+			if not x in out:
+				out.append(x)
+	if G(i)["navi"] <= 0:
 		return out
 	var am := ammiraglia(i)
 	if am == "" or not "porto" in migliorie(i).values():
@@ -2074,3 +2141,147 @@ func _h_acquisita_partigiana(i: int) -> void:
 	if ha_carta(i, "477_22") and destino(i) != "partigiano":
 		G(i)["carte"].erase("477_22")
 		G(i)["oltraggio"] = []
+
+# ================================================================ ultime carte Gilda dei Destini
+## Guardia d'Onore: le carte Gilda Armi non si rubano finché si hanno Armi.
+func _gilda_protetta(j: int, c: String) -> bool:
+	if _attiva() and j < s["n"] and ha_carta(j, "479_16") and Dati.info(c)[2] == "armi" and conta_risorsa(j, "armi") > 0:
+		return true
+	return super(j, c)
+
+## Custodi dell'Arsenale: le Armi prese vanno sulla carta (congelate, contano per Generale, razzia a 2).
+func _p_ottieni(p: Dictionary) -> void:
+	var i: int = p["g"]
+	if _attiva() and p["t"] == "armi" and not _ha_r(p) and i < s["n"] and ha_carta(i, "442_08") and riserva("armi") > 0:
+		s["fuori_risorse"]["armi"] = int(s["fuori_risorse"].get("armi", 0)) + 1
+		D()["arsenale_%d" % i] = int(D().get("arsenale_%d" % i, 0)) + 1
+		_log("%s mette 1 Armi sui Custodi dell'Arsenale." % _nome(i))
+		return
+	super(p)
+
+func _opzioni_razzia_extra(j: int, k: int) -> Array:
+	var ops: Array = super(j, k)
+	if _attiva() and j < s["n"] and int(D().get("arsenale_%d" % j, 0)) > 0 and k >= 2:
+		ops.append({"t": "Ruba 1 Armi dai Custodi dell'Arsenale (costo 2)", "v": ["extra", "arsenale"], "risorsa": "armi"})
+	return ops
+
+func _razzia_extra_esegui(i: int, j: int, cosa: String) -> int:
+	if cosa == "arsenale":
+		D()["arsenale_%d" % j] = int(D()["arsenale_%d" % j]) - 1
+		s["fuori_risorse"]["armi"] = maxi(0, int(s["fuori_risorse"].get("armi", 0)) - 1)
+		_ottieni_diretto(i, "armi")
+		_log("%s razzia 1 Armi dai Custodi dell'Arsenale di %s." % [_nome(i), _nome(j)])
+		return 2
+	return super(i, j, cosa)
+
+## Flotta Pirata: si razzia anche senza edifici in difesa (solo risorse).
+func _razzia_extra(i: int, id: String, j: int) -> bool:
+	if _attiva() and i < s["n"] and j < s["n"] and ha_carta(i, "487_09"):
+		return true
+	return super(i, id, j)
+
+## Esattori: tassando la città di un Fuorilegge si prende la risorsa dalla sua plancia.
+func _h_tassa(i: int, proprietario: int, t_: String) -> bool:
+	if _attiva() and ha_carta(i, "463_20") and proprietario >= 0 and proprietario < s["n"] and fuorilegge(proprietario) \
+			and reggente(i) and _togli_risorsa(proprietario, t_):
+		_ottieni_diretto(i, t_)
+		_log("Esattori: %s prende 1 %s dalla plancia di %s." % [_nome(i), Dati.NOME_RISORSA[t_], _nome(proprietario)])
+		return true
+	return super(i, proprietario, t_)
+
+## La Piaga resiste: servono 2 colpi per ogni colpo, tranne per chi ha i Cacciatori della Piaga.
+func _colpi_effettivi(i: int, b: int, n: int) -> int:
+	if _attiva() and b == piaga() and not ha_carta(i, "436_08"):
+		return n / 2
+	return super(i, b, n)
+
+## L'Arbitro: all'inizio del calcolo il Giudice restituisce pezzi per creare parità al primo posto.
+func _h_inizio_punteggio() -> void:
+	super()
+	if not _attiva():
+		return
+	for i in s["n"]:
+		if not ha_carta(i, "449_02") or destino(i) != "giudice":
+			continue
+		for amb in ["tiranno", "generale"]:
+			if not dichiarata(amb) or in_testa(amb) != i:
+				continue
+			var mio := punteggio_ambizione(i, amb)
+			var secondo := 0
+			var chi := -1
+			for j in s["n"]:
+				if j != i and punteggio_ambizione(j, amb) > secondo:
+					secondo = punteggio_ambizione(j, amb)
+					chi = j
+			if chi < 0 or mio - secondo > 2:
+				continue
+			while mio > secondo:
+				if amb == "tiranno" and not G(i)["prigionieri"].is_empty():
+					var x: int = G(i)["prigionieri"].pop_back()
+					G(x)["agenti"] += 1
+				elif amb == "generale" and not G(i)["trofei"].is_empty():
+					_restituisci_pezzo(G(i)["trofei"].pop_back())
+				else:
+					break
+				mio -= 1
+			_log("L'Arbitro: %s restituisce pezzi per pareggiare %s." % [_nome(i), Dati.NOME_AMBIZIONE[amb]])
+
+## Parlapietre: dichiarando, prendi i Golem dei Rivali, termina il turno e tira il dado evento.
+func _parlapietre(i: int) -> void:
+	var presi := 0
+	for j in s["n"]:
+		if j != i:
+			presi += int(D().get("golem_%d" % j, 0))
+			D()["golem_%d" % j] = 0
+	D()["golem_%d" % i] = int(D().get("golem_%d" % i, 0)) + presi
+	if s.has("turno") and not s["turno"].is_empty():
+		s["turno"]["punti"] = 0
+	var fe: Array = FACCE_EVENTO[_dado(6)]
+	_log("Parlapietre: %s prende %d Golem e tira il dado evento." % [_nome(i), presi])
+	if fe[0] == "crisi":
+		C()["dado_evento"] = fe
+		C()["dado_numero"] = _dado(6) + 1
+		_spingi({"k": "crisi", "dadi": true})
+
+## Bibliotecari: dopo aver acquisito, una carta Lore si attacca alla carta che rifornisce la Corte.
+func _bibliotecari(i: int) -> void:
+	if s["mazzo_corte"].is_empty():
+		return
+	var usate := []
+	for j in s["g"].size():
+		usate.append_array(G(j).get("lore", []))
+	usate.append_array(D().get("lore_attaccate", {}).values())
+	for l in Dati.LORE:
+		if not l in usate:
+			if not D().has("lore_attaccate"):
+				D()["lore_attaccate"] = {}
+			D()["lore_attaccate"][s["mazzo_corte"][0]] = l
+			_log("Bibliotecari: %s attacca una carta Lore alla prossima carta della Corte." % _nome(i))
+			return
+
+## Ospiti Felici: Pacificare cattura le navi danneggiate non Leali nei sistemi che controlli.
+func _p_az_pacificare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var q := 0
+	for id in sistemi_di(i):
+		for j in s["mappa"][id]["navi"].size():
+			if j == i or j == piaga():
+				continue
+			var nv: Array = s["mappa"][id]["navi"][j]
+			for z in nv[1]:
+				G(i)["prigionieri"].append(j)
+				q += 1
+			G(j)["navi"] += 0
+			nv[1] = 0
+	_log("Ospiti Felici: %s cattura %d navi danneggiate." % [_nome(i), q])
+
+## Ospiti Felici: tieni 1 Prigioniero per ogni Stendardo controllato o non controllato.
+func _prigionieri_tenuti(i: int) -> int:
+	if not _attiva() or not ha_carta(i, "467_00"):
+		return super(i)
+	var k := 0
+	for id in D().get("stendardi", []):
+		var c := controllo_eventi(id)
+		if c == i or c < 0:
+			k += 1
+	return k

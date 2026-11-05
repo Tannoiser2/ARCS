@@ -145,6 +145,33 @@ func _init() -> void:
 	for c in ["463_03", "449_00", "468_00", "471_12", "477_06", "442_02"]:
 		m._editto_extra(c)
 	controlla(true, "Editti della seconda parte eseguiti")
+	# ultime Gilde
+	controlla(m._colpi_effettivi(0, m.piaga(), 3) == 1, "la Piaga richiede 2 colpi per colpo")
+	m.G(0)["carte"].append("436_08")
+	controlla(m._colpi_effettivi(0, m.piaga(), 3) == 3, "Cacciatori della Piaga: 1 colpo basta")
+	m.G(1)["carte"].append("479_16")
+	m.G(1)["risorse"] = ["armi", "", "", "", "", ""]
+	var ga := ""
+	for cc in Dati.CORTE:
+		if Dati.CORTE[cc][1] == "gilda" and Dati.CORTE[cc][2] == "armi":
+			ga = cc
+			break
+	controlla(m._gilda_protetta(1, ga), "Guardia d'Onore protegge le Gilde Armi")
+	m.G(2)["carte"].append("442_08")
+	var arm := m.simboli(2, "armi")
+	m.s["pila"] = []
+	m.s["attesa"] = {}
+	m._p_ottieni({"k": "ottieni", "g": 2, "t": "armi"})
+	controlla(m.simboli(2, "armi") == arm + 1, "Custodi dell'Arsenale: le Armi sulla carta contano per Generale")
+	m.C()["destino"][1] = "sopravvissuto"
+	m.D()["bunker"] = [sis]
+	m.G(1)["prigionieri"] = [0]
+	m._colpi_residui(0, 1, sis, 2)
+	controlla(m.D()["bunker"].has(sis), "il Bunker resiste a 2 colpi")
+	m._colpi_residui(0, 1, sis, 2)
+	controlla(not m.D()["bunker"].has(sis) and m.G(1)["prigionieri"].is_empty(), "con 4 colpi il Bunker cade e si perde un Prigioniero")
+	m.G(0)["carte"].append("427_05")
+	controlla(not m._opzioni_costruire(0).filter(func(x): return x[0] == "citta").is_empty(), "Cercatori: città su qualsiasi pianeta")
 	# Intervallo fino all'Atto II
 	m.C()["obiettivo"][0] = 0
 	m.s["pila"] = [{"k": "intervallo", "fase": 0}]
