@@ -554,6 +554,8 @@ func _p_crisi(p: Dictionary) -> void:
 ## Ogni Piaga integra infligge 3 colpi, danneggiata 1: prima alle navi imperiali, poi a ogni giocatore.
 func _crisi_piaga() -> void:
 	for id in s["mappa"]:
+		if _crisi_esclusa(id):
+			continue
 		var pg: Array = s["mappa"][id]["navi"][piaga()]
 		var colpi: int = pg[0] * 3 + pg[1]
 		if colpi <= 0:
@@ -568,6 +570,9 @@ func _crisi_piaga() -> void:
 		if colpiti or resto < colpi:
 			_ev({"tipo": "crisi_piaga", "sis": id})
 			_log("La Piaga colpisce in %s." % _desc_sis(id))
+
+func _crisi_esclusa(_id: String) -> bool:
+	return false
 
 func _colpisci(b: int, id: String, n: int) -> int:
 	var nv: Array = s["mappa"][id]["navi"][b]
@@ -660,6 +665,12 @@ func _p_editti(p: Dictionary) -> void:
 		"03":
 			if primo() >= 0:
 				_spingi({"k": "governa", "g": primo()})
+		var altro:
+			_editto_extra(str(altro))
+
+## Editti dei Destini (libretto delle regole).
+func _editto_extra(_c: String) -> void:
+	pass
 
 func _p_governa(p: Dictionary) -> void:
 	var i: int = p["g"]

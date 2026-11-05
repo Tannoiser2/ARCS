@@ -163,6 +163,10 @@ func _h_spendi(_i: int, _r: String) -> void:
 func _h_ruba(_i: int, _t: String) -> bool:
 	return false
 
+## Colpi d'intercettazione in più per chi difende (Sistema Difensivo delle Ammiraglie).
+func _intercetta_extra(_j: int, _id: String) -> int:
+	return 0
+
 func _h_fine_turno(_i: int) -> void:
 	pass
 
@@ -2266,8 +2270,9 @@ func _p_battaglia(p: Dictionary) -> void:
 		"intercetta":
 			p["fase"] = "colpi_difensore"
 			_spingi(p)
-			if p["intercetta"] and navi(id, i) > 0:
-				var f: int = s["mappa"][id]["navi"][j][0]
+			var extra_int := _intercetta_extra(j, id)
+			if (p["intercetta"] or extra_int > 0) and navi(id, i) > 0:
+				var f: int = (s["mappa"][id]["navi"][j][0] if p["intercetta"] else 0) + extra_int
 				if f > 0:
 					_log("%s intercetta: %d colpi a %s." % [_nome(j), f, _nome(i)])
 					_spingi({"k": "colpi_navi", "g": i, "bersaglio": i, "sis": id, "n": f, "chi_sceglie": i, "da": j})

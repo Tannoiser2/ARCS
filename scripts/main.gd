@@ -1222,7 +1222,7 @@ func _aggiorna_tutto() -> void:
 	if m == null or plancia == null:
 		return
 	var colori := []
-	for i in m.s["n"]:
+	for i in m.s["g"].size():
 		colori.append(m.s["g"][i]["colore"])
 	var eventi: Array = m.s["eventi"]
 	plancia.aggiorna(m)
@@ -1253,6 +1253,12 @@ func _aggiorna_top() -> void:
 		top_info.text = "Atto %s, cap. %d/%d   Iniziativa: %s" % [["I", "II", "III"][int(cp["atto"]) - 1], m.s["capitolo"], 4 if int(cp["atto"]) == 3 else 3, m.s["g"][iz]["nome"]]
 		info_camp.text = "Politica imperiale: %s   Consiglio: %s   Tesoro Imperiale: %d" % [MotoreCampagna.NOME_POLITICA[cp["politica"]],
 			"In Sessione" if cp["consiglio"] == "sessione" else "Deliberato", cp["tesoro"].size()]
+		if m.has_method("nome_ambizione"):
+			for amb in ["magnate", "empate"]:
+				if m.nome_ambizione(amb) != Dati.NOME_AMBIZIONE[amb]:
+					info_camp.text += "\n%s dichiarata al posto di %s." % [m.nome_ambizione(amb), Dati.NOME_AMBIZIONE[amb]]
+			if cp.has("dest") and str(cp["dest"].get("confed_amb", "")) != "":
+				info_camp.text += "\nAmbizione Confederazione su %s." % Dati.NOME_AMBIZIONE[cp["dest"]["confed_amb"]]
 		info_camp.visible = true
 		bott_libretto.visible = cp.has("libretto")
 		if cp.has("libretto"):

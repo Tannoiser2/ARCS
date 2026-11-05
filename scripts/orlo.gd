@@ -206,6 +206,8 @@ func _h_ambizione(amb: String, punti: Array, virt: int, guadagni: Array) -> void
 	super(amb, punti, virt, guadagni)
 	if not _attiva():
 		return
+	if D().get("confed_amb", "") == amb:
+		_confederazione(amb, punti, virt, guadagni)
 	for i in s["n"]:
 		if not _vince(i, punti, virt):
 			continue
@@ -331,7 +333,6 @@ func _h_fine_capitolo() -> void:
 					avanza(i, _citta_libere_non_imperiali(), "Proteggere la Libertà nell'Orlo")
 			"magnate":
 				if a == 2:
-					_prendi_monopoli()
 					avanza(i, _monopoli_di(i), "...E Tenerselo")
 			"patrocinatore":
 				if a == 2:
@@ -422,8 +423,11 @@ func _h_fine_capitolo() -> void:
 			"guardiano":
 				if not dichiarata("tiranno") or in_testa("tiranno") == i:
 					avanza(i, conta_risorse(i, "materiale") + conta_risorse(i, "carburante"), "Restituire alla Terra")
-				avanza(i, pianeti_di(i).filter(func(x): return Dati.TIPO[x] in ["materiale", "carburante"]).size(), "Custodire lo Splendore dell'Orlo")
+				if not _sostituta_dichiarata("eden") or _vinta(i, "magnate"):
+					avanza(i, pianeti_di(i).filter(func(x): return Dati.TIPO[x] in ["materiale", "carburante"]).size(), "Custodire lo Splendore dell'Orlo")
 			"naturalista":
+				if _sostituta_dichiarata("stirpe") and not _vinta(i, "empate"):
+					continue
 				var k := 0
 				for id in sistemi_di(i):
 					if s["mappa"][id]["navi"][piaga()][0] > 0:
@@ -433,6 +437,8 @@ func _h_fine_capitolo() -> void:
 				var pas: Array = D().get("passaggi", [])
 				if not pas.is_empty() and controllo_eventi(pas[0]) == i:
 					avanza(i, pas.size(), "Far Crollare i Portali dell'Orlo")
+	D()["sostitute"] = {}
+	D()["confed_amb"] = ""
 	# grandi ambizioni dell'Atto III (si verificano qui, prima che i segnalini tornino)
 	if atto() == 3:
 		var gr := {}
@@ -454,6 +460,7 @@ func _h_fine_capitolo() -> void:
 				_ev({"tipo": "grande_ambizione", "g": i, "n": fatte})
 
 ## Le grandi ambizioni si calcolano in _h_fine_capitolo.
+## (Le ambizioni sostitute valgono solo per il capitolo in cui sono dichiarate.)
 func _grande_ambizione(i: int, k: int) -> bool:
 	var cap: int = s["capitolo"]
 	var n: int = s["n"]
@@ -567,6 +574,11 @@ func _h_dichiara(i: int, amb: String) -> void:
 	super(i, amb)
 	if not _attiva():
 		return
+	_scegli_sostituta(i, amb)
+	if destino(i) == "fondatore" and atto() >= 2 and C()["libretto"].has(carta("fondatore", 14)) and D().get("confed_amb", "") == "" \
+			and D().get("membri", []).size() >= 2:
+		D()["confed_amb"] = amb
+		_log("%s aggiunge il segnalino Ambizione Confederazione a %s." % [_nome(i), Dati.NOME_AMBIZIONE[amb]])
 	var cr := in_gioco_destino("credente")
 	if cr >= 0 and atto() >= 2 and i == cr:
 		var ideali: Array = _lista("ideali")
@@ -605,6 +617,9 @@ func _h_trofeo(autore: int, b: int, cosa: String, id: String) -> void:
 			if atto() >= 2 and cosa in ["citta", "porto"] and not Dati.is_portale(id):
 				_lista("bottino").append(Dati.TIPO[id])
 				_log("%s mette 1 %s nel Bottino Pirata." % [_nome(autore), Dati.NOME_RISORSA[Dati.TIPO[id]]])
+	if b == lib() and autore in D().get("membri", []):
+		D()["membri"].erase(autore)
+		_log("%s non è più Membro della Confederazione." % _nome(autore))
 	if b == piaga() or b >= s["n"]:
 		return
 	# Fame della Piaga: i pezzi Rivali distrutti dalla Piaga
@@ -776,6 +791,253 @@ func _crisi_piaga() -> void:
 				avanza(so, 1, "Proteggere dalla Piaga")
 	super()
 
+# ================================================================ Editti e Leggi dei Destini
+func _p_editti(p: Dictionary) -> void:
+	if not p.has("lista") and _attiva():
+		_log("— Editti —")
+		_ev({"tipo": "editti"})
+		var l: Array = C()["editti"].duplicate()
+		l.sort()
+		for c in C()["libretto"]:
+			if Dati.info(c)[1] == "editto" and not c in l:
+				l.append(c)
+		p["lista"] = l
+		p["idx"] = 0
+	super(p)
+
+func _editto_extra(c: String) -> void:
+	var n: int = s["n"]
+	match c:
+		"479_18":
+			# Usare le Fonderie Imperiali: l'Ammiraglio sostituisce navi Leali con navi Imperiali
+			var am := in_gioco_destino("ammiraglio")
+			if am < 0 or not reggente(am):
+				return
+			var q := 0
+			for x in porti_di(am):
+				var id: String = x[0]
+				if s["mappa"][id]["navi"][am][0] > 0 and G(imp())["navi"] > 0:
+					s["mappa"][id]["navi"][am][0] -= 1
+					G(am)["navi"] += 1
+					s["mappa"][id]["navi"][imp()][0] += 1
+					G(imp())["navi"] -= 1
+					q += 1
+					_h_navi_imperiali(1, id)
+			if q > 0:
+				_log("Usare le Fonderie Imperiali: %s sostituisce %d navi Leali con navi Imperiali." % [_nome(am), q])
+		"427_09":
+			_prendi_monopoli()
+		"428_13":
+			var pa := in_gioco_destino("patrocinatore")
+			if pa < 0:
+				return
+			var semi := {}
+			for g in gilde(pa):
+				semi[Dati.info(g)[2]] = true
+			for j in ordine_da(s["iniz"]):
+				if j == pa:
+					continue
+				for g in gilde(j):
+					if not semi.has(Dati.info(g)[2]):
+						if G(j)["agenti"] > 0 and gilde(j).size() <= 2:
+							G(j)["agenti"] -= 1
+							C()["favori"][pa][str(j)] = int(C()["favori"][pa].get(str(j), 0)) + 1
+							_log("Richiesta del Patrocinatore: %s dà un Favore a %s." % [_nome(j), _nome(pa)])
+						else:
+							G(j)["carte"].erase(g)
+							G(pa)["carte"].append(g)
+							if G(pa)["agenti"] > 0:
+								G(pa)["agenti"] -= 1
+								C()["favori"][j][str(pa)] = int(C()["favori"][j].get(str(pa), 0)) + 1
+							_log("Richiesta del Patrocinatore: %s dà %s a %s." % [_nome(j), Dati.nome_corte(g), _nome(pa)])
+						return
+		"429_00":
+			for i in n:
+				for z in _conta("golem", i):
+					var gl := gilde(i)
+					if not gl.is_empty():
+						G(i)["carte"].erase(gl[0])
+						_log("I Golem consumano %s di %s." % [Dati.nome_corte(gl[0]), _nome(i)])
+		"442_01":
+			for i in n:
+				var k := 0
+				for id in s["mappa"]:
+					if not _settore_in_pace(_settore(id)):
+						continue
+					var c_ := controllo(id)
+					if c_ == i or (c_ == imp() and primo() == i and C()["politica"] == "pace"):
+						k += 1
+				if k > 0:
+					G(i)["potere"] += 2 * k
+					_log("Dividendi della Pace: %s ottiene %d Potere." % [_nome(i), 2 * k])
+		"472_00":
+			if dichiarata("empate"):
+				for i in n:
+					for t in G(i)["oltraggio"]:
+						while _togli_risorsa(i, t):
+							pass
+					if not ha_oltraggio(i, "psico") and riserva("psico") > 0:
+						_ottieni(i, "psico")
+				_log("Rimprovero degli Empati.")
+		"444_01":
+			var re := in_gioco_destino("redentore")
+			if re >= 0 and dichiarata("custode") and in_testa("custode") != re:
+				var p1 := 0
+				for k in 3:
+					if s["segnalini"][k]["amb"] == "custode":
+						p1 += valore_segnalino(k)[0]
+				G(re)["potere"] -= p1
+				_log("Rimprovero dei Custodi: %s perde %d Potere." % [_nome(re), p1])
+		"450_00":
+			var si := in_gioco_destino("signore")
+			if si >= 0:
+				var perdita: int = [0, 1, 3, 6, 8, 10][mini(5, G(si)["oltraggio"].size())]
+				if perdita > 0:
+					G(si)["potere"] -= perdita
+					_log("L'Orlo rifiuta il Signore Supremo: %s perde %d Potere." % [_nome(si), perdita])
+		"488_00":
+			var ca := in_gioco_destino("castellano")
+			if ca >= 0:
+				var f := _feudi_di(ca).size()
+				if f > 0:
+					G(ca)["potere"] += 3 * f
+					_log("I Signori ottengono Potere: %s ottiene %d Potere." % [_nome(ca), 3 * f])
+
+## Protettori Imperiali: niente Crisi della Piaga nei sistemi controllati dall'Impero.
+func _crisi_esclusa(id: String) -> bool:
+	return _attiva() and C()["libretto"].has("463_18") and s["mappa"][id]["navi"][imp()][0] > 0
+
+## Supremazia delle Gilde: nel calcolo del Potere le carte Gilda contano doppio.
+func simboli(i: int, t: String) -> int:
+	var n: int = super(i, t)
+	if _attiva() and i >= 0 and i < s["n"] and C()["libretto"].has("428_01"):
+		for c in gilde(i):
+			if Dati.info(c)[2] == t:
+				n += 1
+	return n
+
+# ================================================================ ambizioni nuove
+## Guardia dell'Eden (al posto di Magnate) e Stirpe della Piaga (al posto di Empate).
+func punteggio_ambizione(i: int, amb: String) -> int:
+	if _attiva() and i >= 0 and i < s["n"]:
+		var so: String = D().get("sostitute", {}).get(amb, "")
+		if so == "eden":
+			return pianeti_di(i).filter(func(x): return Dati.TIPO[x] in ["materiale", "carburante"]).size()
+		if so == "stirpe":
+			return sistemi_di(i).filter(func(x): return s["mappa"][x]["navi"][piaga()][0] > 0).size()
+	return super(i, amb)
+
+func _sostituta_dichiarata(so: String) -> bool:
+	var amb := "magnate" if so == "eden" else "empate"
+	return dichiarata(amb) and D().get("sostitute", {}).get(amb, "") == so
+
+func nome_ambizione(amb: String) -> String:
+	if _attiva():
+		var so: String = D().get("sostitute", {}).get(amb, "")
+		if so == "eden":
+			return "Guardia dell'Eden"
+		if so == "stirpe":
+			return "Stirpe della Piaga"
+	return Dati.NOME_AMBIZIONE[amb]
+
+## Chi dichiara Magnate o Empate sceglie l'ambizione nuova se gli conviene di più.
+func _scegli_sostituta(i: int, amb: String) -> void:
+	var regole := {"magnate": ["473_00", "eden"], "empate": ["446_00", "stirpe"]}
+	if not regole.has(amb) or not C()["libretto"].has(regole[amb][0]):
+		return
+	if not D().has("sostitute"):
+		D()["sostitute"] = {}
+	if D()["sostitute"].has(amb):
+		return
+	var prima := punteggio_ambizione(i, amb)
+	D()["sostitute"][amb] = regole[amb][1]
+	var dopo := punteggio_ambizione(i, amb)
+	if dopo < prima or (dopo == prima and destino(i) not in ["guardiano", "naturalista"]):
+		D()["sostitute"].erase(amb)
+	else:
+		_log("%s dichiara invece %s." % [_nome(i), nome_ambizione(amb)])
+
+## Confederazione: i Membri sommano i loro valori; se vince la Confederazione il Potere si divide.
+func _confederazione(amb: String, punti: Array, virt: int, guadagni: Array) -> void:
+	var membri: Array = D().get("membri", [])
+	var p1 := 0
+	var p2 := 0
+	for k in 3:
+		if s["segnalini"][k]["amb"] == amb:
+			var vs := valore_segnalino(k)
+			p1 += vs[0]
+			p2 += vs[1]
+	var conf := 0
+	for j in membri:
+		conf += int(punti[j])
+	var best_altro := virt
+	var chi := -1
+	var pari := false
+	for j in s["n"]:
+		if j in membri:
+			continue
+		if punti[j] > best_altro:
+			best_altro = punti[j]
+			chi = j
+			pari = false
+		elif punti[j] == best_altro and punti[j] > 0:
+			pari = true
+	for j in guadagni.size():
+		guadagni[j] = 0
+	if conf > best_altro and not membri.is_empty():
+		var quota := (p1 + p2) / membri.size()
+		for j in membri:
+			guadagni[j] = quota
+		_log("La Confederazione vince %s: %d Potere a ogni Membro." % [Dati.NOME_AMBIZIONE[amb], quota])
+		var fo := in_gioco_destino("fondatore")
+		if fo >= 0 and atto() == 2:
+			avanza(fo, 2 * membri.size(), "Distribuire il Potere con Equità")
+	elif chi >= 0 and not pari and best_altro > conf:
+		guadagni[chi] = 2 * (p1 + p2)
+		_log("%s batte la Confederazione e ottiene il doppio del Potere." % _nome(chi))
+
+# ================================================================ Ammiraglie
+## L'Ammiraglia segue la flotta: se nel suo sistema non restano navi, passa dove il giocatore ne ha di più.
+func ammiraglia(i: int) -> String:
+	var k := "ammiraglia_" + str(i)
+	if not D().has(k):
+		return ""
+	var id: String = D()[k]
+	if id != "" and navi(id, i) > 0:
+		return id
+	var best := ""
+	var bv := 0
+	for x in s["mappa"]:
+		if navi(x, i) > bv:
+			bv = navi(x, i)
+			best = x
+	D()[k] = best
+	return best
+
+func migliorie(i: int) -> Dictionary:
+	var out := {}
+	for parte in str(D().get("migliorie_" + str(i), "")).split(","):
+		if "=" in parte:
+			var kv := parte.split("=")
+			out[kv[0]] = kv[1]
+	return out
+
+## Raggio Traente: chi attacca l'Ammiraglia non può razziare.
+func _razzia_permessa(id: String, j: int) -> bool:
+	if _attiva() and j < s["n"] and migliorie(j).has("raggio") and ammiraglia(j) == id:
+		return false
+	return super(id, j)
+
+## Sistema Difensivo: l'Ammiraglia intercetta con 1 colpo per ogni spazioporto sulla sua plancia.
+func _intercetta_extra(j: int, id: String) -> int:
+	if not _attiva() or j >= s["n"] or ammiraglia(j) != id:
+		return 0
+	var k := 0
+	for m_ in migliorie(j).values():
+		if m_ == "porto":
+			k += 1
+	return k if migliorie(j).has("difesa") else 0
+
 # ================================================================ Monopoli, Confederazione, Feudi, Pace
 func _prendi_monopoli() -> void:
 	if not D().has("monopoli"):
@@ -783,10 +1045,9 @@ func _prendi_monopoli() -> void:
 	var mono: Dictionary = D()["monopoli"]
 	var ma := in_gioco_destino("magnate")
 	for t in mono:
-		if int(mono[t]) >= 0:
-			continue
+		var in_gioco_ := 5 - int(s.get("fuori_risorse", {}).get(t, 0))
 		for i in s["n"]:
-			if conta_risorse(i, t) >= 3:
+			if int(mono[t]) != i and conta_risorse(i, t) * 2 > in_gioco_:
 				mono[t] = i
 				_log("%s ottiene il Monopolio: %s." % [_nome(i), Dati.NOME_RISORSA[t]])
 				if i == ma:
@@ -821,22 +1082,24 @@ func _feudi_di(i: int) -> Array:
 	return out
 
 ## Un settore è in Pace se nessun suo sistema ha navi di due giocatori diversi.
+func _settore_in_pace(sett: int) -> bool:
+	if s["fuori"].has(sett):
+		return false
+	for id in s["mappa"]:
+		if _settore(id) != sett:
+			continue
+		var q := 0
+		for j in s["n"]:
+			if navi(id, j) > 0:
+				q += 1
+		if q >= 2:
+			return false
+	return true
+
 func _settori_in_pace() -> int:
 	var k := 0
 	for sett in range(1, 7):
-		if s["fuori"].has(sett):
-			continue
-		var pace := true
-		for id in s["mappa"]:
-			if _settore(id) != sett:
-				continue
-			var q := 0
-			for j in s["n"]:
-				if navi(id, j) > 0:
-					q += 1
-			if q >= 2:
-				pace = false
-		if pace:
+		if _settore_in_pace(sett):
 			k += 1
 	return k
 
@@ -913,6 +1176,10 @@ func segnalini_mappa() -> Dictionary:
 		add.call(id, "Passaggio")
 	for id in D().get("spezzati", []):
 		add.call(id, "Mondo Spezzato")
+	for i in s["n"]:
+		var am := ammiraglia(i)
+		if am != "":
+			add.call(am, "Ammiraglia " + _nome(i))
 	if D().get("portale", "") != "":
 		add.call(D()["portale"], "Portale")
 	return out

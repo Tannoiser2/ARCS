@@ -178,14 +178,22 @@ Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDest
   Pellegrini +1 per turno con navi sul Portale; Navi Spora / Guide delle Spore mettono 1 Piaga.
 - Martello Planetario: con tutti i Frammenti, una volta per capitolo distrugge gli edifici Rivali di un
   pianeta con proprie navi.
-- Monopoli: alla fine del capitolo chi ha 3 risorse dello stesso tipo prende quel Monopolio.
+- Monopoli: con l'Editto Ottenere Monopoli li prende chi ha più della metà delle risorse di quel tipo
+  in gioco (le risorse non passano sulla carta Monopolio).
 - Pila Fedeli: valori 1–7, ne esce una quando il Credente acquisisce una carta; Ideali sulle ambizioni
   che il Credente dichiara (Atti II e III).
 - Cospirazioni: una per ogni ambizione dichiarata da un Rivale, sul giocatore in testa in quel momento.
 - Pace: settore senza navi di due giocatori diversi nello stesso sistema.
-- Ammiraglie: una nave in più nel sistema del proprio spazioporto; le migliorie sono annotate ma non
-  hanno ancora effetto in battaglia.
-- Le ambizioni nuove (Confederazione, Guardia dell'Eden, Stirpe della Piaga) non si dichiarano: gli
-  obiettivi che le citano le trattano come «non dichiarate».
-- I testi delle carte dei Destini sono consultabili (immagini e libretto), ma molte Leggi ed Editti
-  dei set non hanno ancora un effetto proprio nel motore.
+- Ammiraglie: una nave che segue la flotta (se il suo sistema si svuota passa dove il giocatore ha più
+  navi). Funzionano Raggio Traente (niente razzia contro l'Ammiraglia) e Sistema Difensivo
+  (intercetta con 1 colpo per spazioporto sulla plancia); Propulsore a Scia, Gru Navale e Sistema di
+  Controllo non ancora.
+- Ambizioni nuove: chi dichiara Magnate o Empate sceglie da solo Guardia dell'Eden o Stirpe della Piaga
+  (se sono nel libretto) quando gli conviene; il Fondatore mette il segnalino Confederazione sulla
+  prima ambizione che dichiara negli Atti II e III; si perde l'adesione distruggendo un edificio Libero.
+- Editti dei Destini con effetto: Fonderie Imperiali, Ottenere Monopoli, Richiesta del Patrocinatore,
+  I Golem Saziano la loro Fame, Dividendi della Pace, Rimprovero degli Empati, Rimprovero dei Custodi
+  (solo con Custode dichiarata), L'Orlo Rifiuta il Signore Supremo, I Signori Ottengono Potere.
+  Leggi con effetto: Protettori Imperiali, Supremazia delle Gilde. Gli altri Editti e Leggi (Fede,
+  Armistizi, Cessate il Fuoco, Legge Marziale, Corti Feudali, Economia Chiusa, Sottrazione Partigiana,
+  Bunker resistenti, Dicerie...) sono consultabili nel libretto ma non hanno ancora effetto.
