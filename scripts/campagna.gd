@@ -356,8 +356,13 @@ func _acquisisci(i: int, k: int, soggiogo: bool) -> void:
 	if s.has("turno"):
 		s["turno"]["acquisite"].append("consiglio")
 
+## Corti Feudali: alcune carte della Corte si influenzano e acquisiscono solo nel proprio Feudo.
+func _corte_permessa(_i: int, _k: int) -> bool:
+	return true
+
 func _carte_acquisibili(i: int) -> Array:
 	var out: Array = super(i)
+	out = out.filter(func(k): return not (k is int) or _corte_permessa(i, k))
 	if s.has("camp") and C()["consiglio"] == "deciso":
 		out = out.filter(func(k): return s["corte"][k]["c"] != "consiglio")
 	return out
@@ -371,7 +376,11 @@ func _p_az_influenzare(p: Dictionary) -> void:
 	for k in s["corte"].size():
 		if s["corte"][k]["c"] == "consiglio" and C()["consiglio"] == "deciso":
 			continue
+		if not _corte_permessa(i, k):
+			continue
 		ops.append({"t": "Influenza " + Dati.nome_corte(s["corte"][k]["c"]), "v": k, "corte": k})
+	if ops.is_empty() or G(i)["agenti"] <= 0:
+		return
 	_chiedi(p, i, "Su quale carta della Corte metti un agente?", ops, "corte")
 
 func _p_rifornisci(_p: Dictionary) -> void:
@@ -689,6 +698,8 @@ func _p_governa(p: Dictionary) -> void:
 		_applica_politica(i, pol)
 		return
 	var ops := [{"t": "Applica la Politica di %s" % NOME_POLITICA[pol], "v": "applica"}]
+	if p.get("solo_politica", false):
+		ops = [{"t": "Mantieni la Politica di %s" % NOME_POLITICA[pol], "v": pol}]
 	for x in POLITICHE:
 		if x != pol:
 			ops.append({"t": "Passa a una Politica di %s" % NOME_POLITICA[x], "v": x})
@@ -696,7 +707,11 @@ func _p_governa(p: Dictionary) -> void:
 
 func _applica_politica(i: int, pol: String) -> void:
 	_log("%s applica la Politica di %s." % [_nome(i), NOME_POLITICA[pol]])
-	# Riscuotere il Tributo
+	_riscuoti_tributo(i, pol)
+	_azione_imperiale(i, pol)
+
+## Riscuotere il Tributo.
+func _riscuoti_tributo(i: int, pol: String) -> void:
 	for j in s["n"]:
 		if not reggente(j):
 			continue
@@ -734,6 +749,9 @@ func _applica_politica(i: int, pol: String) -> void:
 			else:
 				_lascia_impero(j)
 	_ev({"tipo": "tributo", "g": i})
+
+## Azione imperiale della Politica.
+func _azione_imperiale(i: int, pol: String) -> void:
 	# Azione imperiale
 	match pol:
 		"pace":

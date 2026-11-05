@@ -120,13 +120,20 @@ func _spec_destino(i: int, d: String, nome: String) -> void:
 			D()["golem"] = _pianeti_casuali(5)
 			_log("5 Golem dormienti compaiono sulla mappa.")
 		"golem_desta", "evento_extra", "autorita", "economia", "ricollocare", \
-		"mondi_ripristina", "rifornisci_portali", "dicerie", "cessate_il_fuoco", "guardia_eden", "stirpe_piaga", \
+		"mondi_ripristina", "rifornisci_portali", "guardia_eden", "stirpe_piaga", \
 		"emissari", "lore_corte", "instabili_scarti", "profeta", "miglioria_gratis", "portale_rivelato", "mondi_annota", \
 		"martello_completo", "mondi_riserva", "bottino_ok", "testimoni_psico", "arsenale_corte", "togli_reliquie_virtuali", \
 		"togli_mat_carb_virtuali", "testimoni", "fine_confederazione":
 			pass
 		"golem_focolare", "golem_via":
 			D()["golem_" + str(i)] = 0
+		"cessate_il_fuoco":
+			D()["cessate"] = {}
+			for sett in range(1, 7):
+				D()["cessate"][str(sett)] = "pace"
+			_log("I segnalini Cessate il Fuoco mettono tutti i settori in Pace.")
+		"dicerie":
+			D()["dicerie_note"] = {}
 		"confederazione":
 			D()["membri"] = range(s["n"])
 		"monopoli":
@@ -466,6 +473,11 @@ func _h_fine_capitolo() -> void:
 				if _grande_ambizione(i, k):
 					fatte += 1
 			gr[str(i)] = fatte
+		for i in n:
+			if ha_carta(i, "433_05") and C()["lettera"][i] != "C":
+				var po: String = D().get("portale", "")
+				if po != "" and controllo_eventi(po) == i:
+					gr[str(i)] = mini(2, int(gr.get(str(i), 0)) + 1)
 		D()["grandi_" + str(cap)] = gr
 		for i in n:
 			var fatte: int = gr.get(str(i), 0)
@@ -591,6 +603,18 @@ func _h_dichiara(i: int, amb: String) -> void:
 	if not _attiva():
 		return
 	_scegli_sostituta(i, amb)
+	if D().get("sponsor", "") == amb:
+		D()["sponsor"] = ""
+		if not C()["tesoro"].is_empty():
+			_metti_risorsa_libera(i, C()["tesoro"].pop_front())
+		for k in 3:
+			if s["segnalini"][k]["amb"] == amb:
+				G(i)["potere"] += valore_segnalino(k)[1]
+				_log("Sponsor Imperiale: %s ottiene %d Potere." % [_nome(i), valore_segnalino(k)[1]])
+				break
+		if not reggente(i):
+			C()["titolo"][i] = "reggente"
+			_log("%s torna Reggente." % _nome(i))
 	if destino(i) == "fondatore" and atto() >= 2 and C()["libretto"].has(carta("fondatore", 14)) and D().get("confed_amb", "") == "" \
 			and D().get("membri", []).size() >= 2:
 		D()["confed_amb"] = amb
@@ -643,6 +667,8 @@ func _h_trofeo(autore: int, b: int, cosa: String, id: String) -> void:
 			if atto() >= 2 and cosa in ["citta", "porto"] and not Dati.is_portale(id):
 				_lista("bottino").append(Dati.TIPO[id])
 				_log("%s mette 1 %s nel Bottino Pirata." % [_nome(autore), Dati.NOME_RISORSA[Dati.TIPO[id]]])
+	if destino(b) == "pirata" and b != autore:
+		_scopri_diceria(autore)
 	if b == lib() and autore in D().get("membri", []):
 		D()["membri"].erase(autore)
 		_log("%s non è più Membro della Confederazione." % _nome(autore))
@@ -672,6 +698,18 @@ func _h_acquisita(i: int, c: String) -> void:
 		return
 	if destino(i) == "curatore" and atto() == 2 and Dati.info(c)[1] == "lore":
 		avanza(i, 2, "Raccogliere il Sapere della Galassia")
+	_h_acquisita_partigiana(i)
+	# Sorveglianti delle Gilde: prendi una carta Gilda dal mazzo Corte
+	if c == "428_23":
+		for x in s["mazzo_corte"]:
+			if Dati.info(x)[1] == "gilda":
+				s["mazzo_corte"].erase(x)
+				G(i)["carte"].append(x)
+				_mescola(s["mazzo_corte"])
+				_log("Sorveglianti delle Gilde: %s prende %s." % [_nome(i), Dati.nome_corte(x)])
+				break
+	if D().has("corti"):
+		D()["corti"].erase(c)
 	# carte Fedeli attaccate alla carta acquisita: vanno in mano
 	var att: Dictionary = D().get("fedeli_attaccati", {})
 	if att.has(c):
@@ -774,6 +812,8 @@ func _h_fine_turno(i: int) -> void:
 					if not Dati.is_portale(id) and navi(id, i) > 0:
 						D()["rifugio"] = id
 						break
+		"sopravvissuto":
+			_costruisci_bunker(i)
 		"castellano":
 			var sg: Array = _lista("seggi")
 			if sg.size() < 5:
@@ -782,10 +822,6 @@ func _h_fine_turno(i: int) -> void:
 						sg.append(x[0])
 						_log("%s reclama un Seggio in %s." % [_nome(i), _desc_sis(x[0])])
 						break
-		"voce":
-			_metti_spora(i)
-		"naturalista":
-			_metti_spora(i)
 		"spettro":
 			var pas: Array = _lista("passaggi")
 			for id in s["mappa"]:
@@ -828,6 +864,9 @@ func _p_editti(p: Dictionary) -> void:
 		_ev({"tipo": "editti"})
 		var l: Array = C()["editti"].duplicate()
 		l.sort()
+		if C()["libretto"].has("463_13") and l.has("03"):
+			l.erase("03")
+			l.append("quorum")
 		for c in C()["libretto"]:
 			if Dati.info(c)[1] == "editto" and not c in l:
 				l.append(c)
@@ -837,6 +876,11 @@ func _p_editti(p: Dictionary) -> void:
 
 func _editto_extra(c: String) -> void:
 	var n: int = s["n"]
+	if c == "quorum":
+		_quorum()
+		return
+	if _editto_extra2(c):
+		return
 	match c:
 		"479_18":
 			# Usare le Fonderie Imperiali: l'Ammiraglio sostituisce navi Leali con navi Imperiali
@@ -1144,6 +1188,8 @@ func _feudi_di(i: int) -> Array:
 func _settore_in_pace(sett: int) -> bool:
 	if s["fuori"].has(sett):
 		return false
+	if D().has("cessate"):
+		return D()["cessate"].get(str(sett), "guerra") == "pace"
 	for id in s["mappa"]:
 		if _settore(id) != sett:
 			continue
@@ -1189,6 +1235,22 @@ func _mazzo_azioni() -> Array:
 ## attacca la prima carta Fedele della pila a una carta Gilda della Corte di un seme dei pianeti delle sue città.
 func _p_az_influenzare(p: Dictionary) -> void:
 	var i: int = p["g"]
+	# Corti Feudali: il Signore mette il segnalino Corte del suo Feudo sulla carta vuota che influenza
+	if _attiva() and _ha_r(p) and destino(i) == "castellano" and C()["libretto"].has("488_01") and p["r"] is int:
+		var k: int = p["r"]
+		if k >= 0 and k < s["corte"].size():
+			var slot: Dictionary = s["corte"][k]
+			var vuota: bool = slot["ag"].max() == 0
+			var feudi := _feudi_di(i)
+			if vuota and slot["c"] != "consiglio" and not feudi.is_empty():
+				if not D().has("corti"):
+					D()["corti"] = {}
+				var usati: Array = D()["corti"].values()
+				for f in feudi:
+					if not f in usati:
+						D()["corti"][slot["c"]] = f
+						_log("%s mette il segnalino Corte del Feudo %d su %s." % [_nome(i), f, Dati.nome_corte(slot["c"])])
+						break
 	if _attiva() and not _ha_r(p) and not p.has("insegnato") and ha_carta(i, carta("credente", 3)) and not D().get("fedeli", []).is_empty():
 		p["insegnato"] = true
 		var semi := {}
@@ -1227,9 +1289,23 @@ func _opzioni_vertice_extra(i: int, fatte: Array) -> Array:
 				tot += 1
 		if tot >= 3:
 			ops.append({"t": "Esporta nel Nucleo Galattico (scarta 3 risorse)", "v": "esporta"})
+	# Accordi di Pace: Mediare la Pace in un settore in Guerra dove controlli almeno un sistema
+	if D().has("cessate") and C()["libretto"].has("442_00"):
+		for sett in range(1, 7):
+			if D()["cessate"].get(str(sett), "") == "guerra" and not ("pace:%d" % sett) in fatte:
+				var miei := 0
+				for id in s["mappa"]:
+					if _settore(id) == sett and controllo_eventi(id) == i:
+						miei += 1
+				if miei >= 1:
+					ops.append({"t": "Media la Pace nel settore %d" % sett, "v": "pace:%d" % sett})
 	return ops
 
 func _esegui_vertice_extra(i: int, v: String) -> void:
+	if v.begins_with("pace:"):
+		D()["cessate"][v.substr(5)] = "pace"
+		_log("%s media la Pace nel settore %s." % [_nome(i), v.substr(5)])
+		return
 	if v == "esporta":
 		var q := 0
 		for k in 6:
@@ -1292,3 +1368,709 @@ func segnalini_mappa() -> Dictionary:
 	if D().get("portale", "") != "":
 		add.call(D()["portale"], "Portale")
 	return out
+
+# ================================================================ Cessate il Fuoco
+## In un settore in Pace si danneggia (tranne la Piaga e i propri pezzi) solo spendendo 1 Armi.
+func _avversari(i: int, id: String) -> Array:
+	var out: Array = super(i, id)
+	if not _attiva() or i < 0 or i >= s["n"]:
+		return out
+	if D().has("cessate") and _settore_in_pace(_settore(id)) and conta_risorsa(i, "armi") == 0:
+		out = out.filter(func(j): return j == piaga())
+	# Giorno di Festa: nei Feudi i giocatori non si danneggiano a vicenda
+	var festa := false
+	for slot in s["corte"]:
+		if VOX.get(slot["c"], "") == "festa":
+			festa = true
+	if festa and _settore(id) in _feudi_tutti():
+		out = out.filter(func(j): return j >= s["n"])
+	return out
+
+func _h_battaglia(i: int, j: int, id: String) -> void:
+	super(i, j, id)
+	if not _attiva() or i >= s["n"]:
+		return
+	var sett := _settore(id)
+	if D().has("cessate") and j != piaga() and _settore_in_pace(sett) and _togli_risorsa(i, "armi"):
+		D()["cessate"][str(sett)] = "guerra"
+		_log("%s spende 1 Armi: il settore %d entra in Guerra." % [_nome(i), sett])
+	# Legge Feudale: Signore e Vassallo che si danneggiano nel Feudo Recano Oltraggio
+	if C()["libretto"].has("488_09") and j < s["n"]:
+		var signore := in_gioco_destino("castellano")
+		if signore >= 0 and sett in _feudi_di(signore):
+			if (i == signore and _vassallo(j, sett)) or (j == signore and _vassallo(i, sett)):
+				for x in s["mappa"]:
+					if _settore(x) != sett or Dati.is_portale(x):
+						continue
+					for e in s["mappa"][x]["edifici"]:
+						if e != null and e["t"] == "citta" and not G(i)["oltraggio"].has(Dati.TIPO[x]):
+							_oltraggio(i, Dati.TIPO[x])
+	# Empatia per Tutti: chi danneggia su un pianeta di una risorsa che possiede Reca Oltraggio
+	if C()["libretto"].has("472_03") and not Dati.is_portale(id):
+		var tp: String = Dati.TIPO[id]
+		if conta_risorsa(i, tp) > 0 and not G(i)["oltraggio"].has(tp):
+			_oltraggio(i, tp)
+
+# ================================================================ Legge Marziale e Ufficiali Imperiali
+func _marziale() -> bool:
+	return _attiva() and C()["libretto"].has("479_01")
+
+## Chi può Comandare la Flotta Imperiale.
+func comanda_flotta(i: int) -> bool:
+	if not reggente(i):
+		return false
+	if not _marziale():
+		return true
+	if destino(i) == "ammiraglio" or ha_carta(i, "479_19"):
+		return true
+	for c in RINNEGATI:
+		if ha_carta(i, c):
+			return true
+	return false
+
+func controllo(id: String) -> int:
+	var c: int = super(id)
+	if not _attiva():
+		return c
+	var nave_imp: bool = s["mappa"][id]["navi"][imp()][0] > 0
+	if not nave_imp:
+		return c
+	var t: int = int(s["turno"]["g"]) if s.has("turno") and not s["turno"].is_empty() else -1
+	# Ufficiali Imperiali: nel tuo turno controlli tutti i sistemi dell'Impero
+	if t >= 0 and t < s["n"] and reggente(t) and ha_carta(t, "479_19"):
+		return t
+	if c >= 0 and c < s["n"] and not comanda_flotta(c):
+		return imp()
+	return c
+
+func controllo_eventi(id: String) -> int:
+	var c := controllo(id)
+	if c == imp():
+		return primo() if primo() >= 0 and comanda_flotta(primo()) else -1
+	return c
+
+func _ferma_fionda(i: int, y: String) -> bool:
+	# Navi Spora: la Piaga non ferma più la Fionda
+	if ha_carta(i, "436_11"):
+		var pg: Array = s["mappa"][y]["navi"][piaga()]
+		if pg[0] + pg[1] > 0:
+			var c := controllo(y)
+			if c < 0 or c == i:
+				return false
+	if _marziale() and s["mappa"][y]["navi"][imp()][0] > 0 and not comanda_flotta(i):
+		return true
+	return super(i, y)
+
+# ================================================================ Feudi e Corti Feudali
+func _feudi_tutti() -> Array:
+	var ca := in_gioco_destino("castellano")
+	return _feudi_di(ca) if ca >= 0 else []
+
+func _vassallo(j: int, sett: int) -> bool:
+	for x in citta_di(j):
+		if _settore(x[0]) == sett:
+			return true
+	var am := ammiraglia(j)
+	return am != "" and _settore(am) == sett
+
+func _corte_permessa(i: int, k: int) -> bool:
+	if not _attiva() or not C()["libretto"].has("488_01"):
+		return true
+	var c: String = s["corte"][k]["c"]
+	var corti: Dictionary = D().get("corti", {})
+	if not corti.has(c):
+		return true
+	var sett: int = int(corti[c])
+	var ca := in_gioco_destino("castellano")
+	return (i == ca and sett in _feudi_di(ca)) or _vassallo(i, sett)
+
+
+# ================================================================ Bunker del Sopravvissuto
+func _costruisci_bunker(i: int) -> void:
+	var bk: Array = _lista("bunker")
+	if G(i)["agenti"] <= 1:
+		return
+	for id in pianeti_di(i):
+		if id in bk:
+			continue
+		bk.append(id)
+		G(i)["agenti"] -= 1
+		var vittima := -1
+		for j in s["n"]:
+			if j != i and G(j)["agenti"] > 0 and (vittima < 0 or G(j)["agenti"] > G(vittima)["agenti"]):
+				vittima = j
+		if vittima >= 0:
+			G(vittima)["agenti"] -= 1
+			G(i)["prigionieri"].append(vittima)
+			_h_cattura(i, vittima)
+		_log("%s costruisce un Bunker in %s." % [_nome(i), _desc_sis(id)])
+		return
+
+## Un Bunker è distrutto quando un Rivale resta solo nel suo sistema dopo una battaglia contro il Sopravvissuto.
+func _bunker_dopo_battaglia(i: int, j: int, id: String) -> void:
+	var so := in_gioco_destino("sopravvissuto")
+	if so < 0 or j != so or i == so:
+		return
+	var bk: Array = D().get("bunker", [])
+	if id in bk and navi(id, so) == 0 and navi(id, i) > 0:
+		bk.erase(id)
+		if not G(so)["prigionieri"].is_empty():
+			G(so)["prigionieri"].pop_back()
+		_log("%s distrugge il Bunker in %s." % [_nome(i), _desc_sis(id)])
+
+func _p_battaglia(p: Dictionary) -> void:
+	var fase: String = p["fase"]
+	super(p)
+	if fase == "dopo" and _attiva():
+		_bunker_dopo_battaglia(int(p["g"]), int(p["dif"]), str(p["sis"]))
+
+# ================================================================ Dicerie sul Rifugio
+## Chi ruba al Pirata in combattimento scopre una Diceria Vera (il settore o il simbolo del Rifugio).
+func _scopri_diceria(j: int) -> void:
+	if not D().has("dicerie_note"):
+		return
+	var note: Array = D()["dicerie_note"].get(str(j), [])
+	for x in ["settore", "simbolo"]:
+		if not x in note:
+			note.append(x)
+			_log("%s scopre una Diceria sul Rifugio Pirata." % _nome(j))
+			break
+	D()["dicerie_note"][str(j)] = note
+
+## Fine dell'Atto III: i Rivali del Pirata provano a indovinare il pianeta del Rifugio.
+func _dicerie_finali() -> void:
+	var pi := in_gioco_destino("pirata")
+	var rif: String = D().get("rifugio", "")
+	if pi < 0 or rif == "" or not D().has("dicerie_note"):
+		return
+	var preso := false
+	for j in ordine_da(s["iniz"]):
+		if j == pi:
+			continue
+		var note: Array = D()["dicerie_note"].get(str(j), [])
+		var scelta := ""
+		for id in pianeti_di(j):
+			var ok := true
+			if "settore" in note and _settore(id) != _settore(rif):
+				ok = false
+			if "simbolo" in note and id.substr(1) != rif.substr(1):
+				ok = false
+			if ok and (scelta == "" or id == rif):
+				scelta = id
+		if scelta == rif and note.size() == 2:
+			G(j)["potere"] += 10
+			G(pi)["potere"] -= 10
+			_log("%s scopre il Rifugio Pirata: +10 Potere, il Pirata perde 10 Potere." % _nome(j))
+			preso = true
+	if not preso:
+		G(pi)["potere"] += 10
+		_log("Nessuno trova il Rifugio Pirata: %s ottiene 10 Potere." % _nome(pi))
+
+func _fine_campagna(i: int, perche: String) -> void:
+	if _attiva() and not D().get("dicerie_fatte", false):
+		D()["dicerie_fatte"] = true
+		_dicerie_finali()
+		# il vincitore può cambiare dopo le Dicerie
+		if perche.begins_with("ha più Potere"):
+			for j in s["n"]:
+				if G(j)["potere"] > G(i)["potere"]:
+					i = j
+	super(i, perche)
+
+# ================================================================ Editti dei Destini (seconda parte)
+func _editto_extra2(c: String) -> bool:
+	var n: int = s["n"]
+	match c:
+		"442_02":
+			var pa := in_gioco_destino("paciere")
+			if D().has("cessate") and C()["politica"] == "guerra" and pa >= 0 and not reggente(pa):
+				for sett in range(1, 7):
+					var imp_ := 0
+					for id in s["mappa"]:
+						if _settore(id) == sett and controllo(id) == imp():
+							imp_ += 1
+					if imp_ >= 2 and D()["cessate"].get(str(sett), "") == "pace":
+						D()["cessate"][str(sett)] = "guerra"
+						_log("L'Impero rifiuta la Pace: il settore %d entra in Guerra." % sett)
+						break
+		"463_03":
+			if primo() < 0:
+				return true
+			var sp := ""
+			for amb in Dati.AMBIZIONI:
+				if not dichiarata(amb) and in_testa(amb) == primo():
+					sp = amb
+					break
+			if sp == "":
+				for amb in Dati.AMBIZIONI:
+					if not dichiarata(amb):
+						sp = amb
+						break
+			D()["sponsor"] = sp
+			for r_ in G(primo())["risorse"]:
+				if r_ != "":
+					_togli_risorsa(primo(), r_)
+					C()["tesoro"].append(r_)
+					break
+			if sp != "":
+				_log("Sponsor Imperiale: %s sponsorizza l'ambizione %s." % [_nome(primo()), Dati.NOME_AMBIZIONE[sp]])
+		"449_00":
+			var gi := in_gioco_destino("giudice")
+			if gi < 0:
+				return true
+			# il Giudice dichiara un'ambizione con parità al primo posto, col segnalino che costa meno
+			var scelta := ""
+			for amb in Dati.AMBIZIONI:
+				if dichiarata(amb):
+					continue
+				var mx := 0
+				var q := 0
+				for j in n:
+					var v := punteggio_ambizione(j, amb)
+					if v > mx:
+						mx = v
+						q = 1
+					elif v == mx and v > 0:
+						q += 1
+				if q >= 2:
+					scelta = amb
+					break
+			var k_best := -1
+			for k in 3:
+				if s["segnalini"][k]["amb"] == "" and (k_best < 0 or valore_segnalino(k)[1] < valore_segnalino(k_best)[1]):
+					k_best = k
+			if scelta != "" and k_best >= 0:
+				s["segnalini"][k_best]["amb"] = scelta
+				var costo: int = valore_segnalino(k_best)[1]
+				G(gi)["potere"] -= costo
+				_log("Il Giudice fissa l'agenda: %s dichiara %s e perde %d Potere." % [_nome(gi), Dati.NOME_AMBIZIONE[scelta], costo])
+				_ev({"tipo": "dichiara", "g": gi, "amb": scelta})
+		"468_00":
+			var so := in_gioco_destino("sopravvissuto")
+			if so < 0:
+				return true
+			for j in ordine_da(s["iniz"]):
+				if j == so or G(j)["potere"] <= G(so)["potere"]:
+					continue
+				var miei: int = G(so)["prigionieri"].count(j)
+				var bunker_j := ""
+				for id in D().get("bunker", []):
+					if controllo_eventi(id) == j:
+						bunker_j = id
+				if miei == 0 or bunker_j == "":
+					continue
+				var tp: String = Dati.TIPO[bunker_j]
+				if G(so)["oltraggio"].has(tp) or miei >= 2:
+					while G(so)["prigionieri"].has(j):
+						G(so)["prigionieri"].erase(j)
+						G(j)["agenti"] += 1
+					_log("Rilascio dei Prigionieri: %s restituisce i Prigionieri a %s." % [_nome(so), _nome(j)])
+				else:
+					_oltraggio(so, tp)
+		"471_12", "471_01":
+			var membri: Array = D().get("membri", [])
+			if membri.is_empty():
+				C()["libretto"].erase(c)
+				return true
+			var gia := false
+			for slot in s["corte"]:
+				if VOX.get(slot["c"], "") == "armistizio":
+					gia = true
+			if not gia:
+				for a in ["471_10", "471_11"]:
+					if s["mazzo_corte"].has(a) or s["scarti_corte"].has(a) or _indice_corte(a) < 0:
+						s["mazzo_corte"].erase(a)
+						s["scarti_corte"].erase(a)
+						s["corte"].append({"c": a, "ag": _zeri_int(n)})
+						_log("Appello all'Armistizio: l'Armistizio entra nella Corte.")
+						break
+		"477_06":
+			var trovata := false
+			for a in ["364_12", "x12", "428_16"]:
+				if _indice_corte(a) >= 0:
+					trovata = true
+			if not trovata:
+				for a in ["x12", "428_16", "364_12"]:
+					if s["mazzo_corte"].has(a):
+						s["mazzo_corte"].erase(a)
+						s["corte"].append({"c": a, "ag": _zeri_int(n)})
+						break
+			C()["consiglio"] = "sessione"
+			_log("Le Gilde condannano il terrore: Fiasco Diplomatico entra nella Corte e il Consiglio torna In Sessione.")
+		"463_13":
+			pass
+		_:
+			return false
+	return true
+
+## Quorum Imperiale: Tributo del Primo Reggente, Azione di chi ha più spazioporti, Politica di chi ha più città.
+func _quorum() -> void:
+	var pol: String = C()["politica"]
+	if primo() >= 0:
+		_riscuoti_tributo(primo(), pol)
+	var best_p := _unico_massimo(func(j): return porti_di(j).size())
+	if best_p >= 0:
+		_azione_imperiale(best_p, pol)
+	var best_c := _unico_massimo(func(j): return citta_di(j).size())
+	if best_c >= 0:
+		_spingi({"k": "governa", "g": best_c, "solo_politica": true})
+
+func _unico_massimo(f: Callable) -> int:
+	var best := -1
+	var bv := -1
+	var pari := false
+	for j in s["n"]:
+		if not reggente(j):
+			continue
+		var v: int = f.call(j)
+		if v > bv:
+			bv = v
+			best = j
+			pari = false
+		elif v == bv:
+			pari = true
+	return -1 if pari else best
+
+# ================================================================ varianti delle azioni delle Gilde dei Destini
+const VARIANTI_DESTINI := {"sgherri": "Rapire (Combattere): cattura gli agenti Rivali da una carta della Corte",
+	"manipolare": "Manipolare (Influenzare): scambia una carta con un Rivale di cui hai un Prigioniero",
+	"spiare": "Spiare (Influenzare): scambia la carta azione più alta con un Rivale",
+	"rivolta": "Incitare alla Rivolta (Combattere): distruggi le navi danneggiate dove c'è una città Libera",
+	"seminare": "Seminare (Costruire): Piaga danneggiata nel settore tirato",
+	"generare": "Generare (Costruire): una Piaga danneggiata dove controlli Piaga integra",
+	"raccogliere": "Raccogliere (Tassare): distruggi 1 Piaga danneggiata e ottieni 1 risorsa",
+	"ricollocare": "Ricollocare (Costruire): città Libera e via l'Oltraggio",
+	"recuperare": "Recuperare (Muovere): una Gilda degli scarti torna nella Corte",
+	"contrattare": "Contrattare (Acquisire): un Rivale acquisisce, poi acquisisci tu"}
+const PROFUGHI := {"475_06": "carburante", "475_03": "psico", "475_07": "materiale", "475_05": "armi", "475_04": "reliquie"}
+
+func _varianti(i: int, a: String) -> Array:
+	var v: Array = super(i, a)
+	if not _attiva():
+		return v
+	match a:
+		"combattere":
+			if ha_carta(i, "479_12") or ha_carta(i, "479_13"): v.append("sgherri")
+			if ha_carta(i, "471_00"): v.append("rivolta")
+		"influenzare":
+			if ha_carta(i, "467_06"): v.append("manipolare")
+			if ha_carta(i, "477_23") and not s["turno"].get("spiato", false): v.append("spiare")
+		"costruire":
+			if ha_carta(i, "446_01"): v.append("seminare")
+			if ha_carta(i, "436_11"): v.append("generare")
+			for c in PROFUGHI:
+				if ha_carta(i, c) and not "ricollocare" in v: v.append("ricollocare")
+		"tassare":
+			if ha_carta(i, "436_07"): v.append("raccogliere")
+		"muovere":
+			if ha_carta(i, "428_24"): v.append("recuperare")
+		"acquisire":
+			if ha_carta(i, "463_23"): v.append("contrattare")
+	return v
+
+func _nome_variante(x: String) -> String:
+	return VARIANTI_DESTINI.get(x, super(x))
+
+func _base_azione(a: String) -> String:
+	if VARIANTI_DESTINI.has(a):
+		return a
+	return super(a)
+
+func _azione_possibile(i: int, a: String) -> bool:
+	match a:
+		"sgherri": return not _bersagli_sgherri(i).is_empty()
+		"manipolare": return not G(i)["prigionieri"].is_empty() and not G(i)["mano"].is_empty()
+		"spiare": return not G(i)["mano"].is_empty()
+		"rivolta": return not _sistemi_rivolta(i).is_empty()
+		"seminare": return G(piaga())["navi"] > 0
+		"generare": return not _sistemi_generare(i).is_empty()
+		"raccogliere": return not _sistemi_raccogliere(i).is_empty()
+		"ricollocare": return not _pianeti_ricollocare(i).is_empty()
+		"recuperare":
+			for c in s["scarti_corte"]:
+				if Dati.info(c)[1] == "gilda":
+					return true
+			return false
+		"contrattare": return not _bersagli_contrattare(i).is_empty()
+	return super(i, a)
+
+func _bersagli_sgherri(i: int) -> Array:
+	var out := []
+	var armi := simboli(i, "armi")
+	for k in s["corte"].size():
+		var r := 0
+		for j in s["n"]:
+			if j != i:
+				r += s["corte"][k]["ag"][j]
+		if r > 0 and r < armi:
+			out.append(k)
+	return out
+
+func _p_az_sgherri(p: Dictionary) -> void:
+	var i: int = p["g"]
+	if _ha_r(p):
+		var k: int = _r(p)
+		for j in s["n"]:
+			if j != i:
+				for z in s["corte"][k]["ag"][j]:
+					G(i)["prigionieri"].append(j)
+					_h_cattura(i, j)
+				s["corte"][k]["ag"][j] = 0
+		_log("Sgherri di Corte: %s cattura gli agenti Rivali da %s." % [_nome(i), Dati.nome_corte(s["corte"][k]["c"])])
+		return
+	var ops := []
+	for k in _bersagli_sgherri(i):
+		ops.append({"t": "Cattura da " + Dati.nome_corte(s["corte"][k]["c"]), "v": k, "corte": k})
+	_chiedi(p, i, "Sgherri di Corte: da quale carta catturi?", ops, "corte")
+
+func _p_az_manipolare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var j: int = G(i)["prigionieri"][0]
+	if G(j)["mano"].is_empty():
+		return
+	var sua: String = G(j)["mano"][0]
+	for c in G(j)["mano"]:
+		if Dati.punti(c) > Dati.punti(sua):
+			sua = c
+	var mia: String = G(i)["mano"][0]
+	for c in G(i)["mano"]:
+		if Dati.punti(c) < Dati.punti(mia):
+			mia = c
+	G(j)["mano"].erase(sua)
+	G(i)["mano"].erase(mia)
+	G(i)["mano"].append(sua)
+	G(j)["mano"].append(mia)
+	_log("Manipolatori Mentali: %s scambia una carta con %s." % [_nome(i), _nome(j)])
+
+func _p_az_spiare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	s["turno"]["spiato"] = true
+	var j: int = (i + 1) % s["n"]
+	if G(j)["mano"].is_empty():
+		return
+	var alta := func(m: Array) -> String:
+		var b: String = m[0]
+		for c in m:
+			if Dati.valore(c) > Dati.valore(b):
+				b = c
+		return b
+	var mia: String = alta.call(G(i)["mano"])
+	G(i)["mano"].erase(mia)
+	G(j)["mano"].append(mia)
+	var sua: String = alta.call(G(j)["mano"])
+	G(j)["mano"].erase(sua)
+	G(i)["mano"].append(sua)
+	_log("Informatori: %s scambia la carta azione più alta con %s." % [_nome(i), _nome(j)])
+
+func _sistemi_rivolta(i: int) -> Array:
+	var out := []
+	for id in s["mappa"]:
+		if not ha_pezzi(id, i):
+			continue
+		for e in s["mappa"][id]["edifici"]:
+			if e != null and e["g"] == lib() and e["t"] == "citta" and not e["danno"]:
+				out.append(id)
+				break
+	return out
+
+func _p_az_rivolta(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var best := ""
+	var bv := -1
+	for id in _sistemi_rivolta(i):
+		var d := 0
+		for j in s["mappa"][id]["navi"].size():
+			if j != i and j != piaga() and j != lib():
+				d += s["mappa"][id]["navi"][j][1]
+		if d > bv:
+			bv = d
+			best = id
+	if best == "":
+		return
+	for j in s["mappa"][best]["navi"].size():
+		if j != i and j != piaga() and j != lib():
+			var nv: Array = s["mappa"][best]["navi"][j]
+			G(j)["navi"] += nv[1]
+			nv[1] = 0
+	_log("Combattenti per la Libertà: %s distrugge le navi danneggiate in %s." % [_nome(i), _desc_sis(best)])
+
+func _p_az_seminare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var sett := _dado(6) + 1
+	for id in s["mappa"]:
+		if _settore(id) == sett and in_gioco(id) and navi(id, piaga()) == 0:
+			_metti_piaga(id, true)
+			_log("Seminare: %s mette Piaga in %s." % [_nome(i), _desc_sis(id)])
+			return
+
+func _sistemi_generare(i: int) -> Array:
+	return sistemi_di(i).filter(func(id): return s["mappa"][id]["navi"][piaga()][0] > 0)
+
+func _p_az_generare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var l := _sistemi_generare(i)
+	if l.is_empty() or G(piaga())["navi"] <= 0:
+		return
+	var id: String = l[0]
+	s["mappa"][id]["navi"][piaga()][0] -= 1
+	s["mappa"][id]["navi"][piaga()][1] += 1
+	_metti_piaga(id, true)
+	_log("Navi Spora: %s fa crescere la Piaga in %s." % [_nome(i), _desc_sis(id)])
+	if destino(i) == "voce" and atto() == 2:
+		avanza(i, 1, "Diffondere le Spore di Nuova Vita")
+
+func _sistemi_raccogliere(i: int) -> Array:
+	return sistemi_di(i).filter(func(id): return s["mappa"][id]["navi"][piaga()][1] > 0)
+
+func _p_az_raccogliere(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var l := _sistemi_raccogliere(i)
+	if l.is_empty():
+		return
+	var id: String = l[0]
+	s["mappa"][id]["navi"][piaga()][1] -= 1
+	G(piaga())["navi"] += 1
+	var tp: String = "psico" if Dati.is_portale(id) else Dati.TIPO[id]
+	_ottieni(i, tp)
+	_log("Mietitori della Piaga: %s distrugge 1 Piaga in %s." % [_nome(i), _desc_sis(id)])
+
+func _pianeti_ricollocare(i: int) -> Array:
+	var out := []
+	for c in PROFUGHI:
+		if not ha_carta(i, c):
+			continue
+		for id in pianeti_di(i):
+			if Dati.TIPO[id] == PROFUGHI[c] and _slot_libero(id) >= 0:
+				out.append([c, id])
+	return out
+
+func _p_az_ricollocare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var l := _pianeti_ricollocare(i)
+	if l.is_empty():
+		return
+	var c: String = l[0][0]
+	var id: String = l[0][1]
+	_metti_libera(id, "citta")
+	G(i)["oltraggio"].erase(PROFUGHI[c])
+	_riempi(i, PROFUGHI[c])
+	G(i)["carte"].erase(c)
+	_log("%s: %s costruisce una città Libera in %s e toglie il suo Oltraggio." % [Dati.nome_corte(c), _nome(i), _desc_sis(id)])
+
+func _p_az_recuperare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	for q in range(s["scarti_corte"].size() - 1, -1, -1):
+		var c: String = s["scarti_corte"][q]
+		if Dati.info(c)[1] == "gilda":
+			s["scarti_corte"].remove_at(q)
+			s["corte"].append({"c": c, "ag": _zeri_int(s["n"])})
+			_log("Investigatori delle Gilde: %s rimette %s nella Corte." % [_nome(i), Dati.nome_corte(c)])
+			if destino(i) == "patrocinatore" and atto() == 1:
+				avanza(i, 2, "Tenere al Potere le Gilde")
+			return
+
+func _bersagli_contrattare(i: int) -> Array:
+	var out := []
+	for j in s["n"]:
+		if j == i:
+			continue
+		for k in super_acquisibili(j):
+			out.append([j, k])
+	return out
+
+func super_acquisibili(j: int) -> Array:
+	return _carte_acquisibili(j)
+
+func _p_az_contrattare(p: Dictionary) -> void:
+	var i: int = p["g"]
+	var l := _bersagli_contrattare(i)
+	if l.is_empty():
+		return
+	var j: int = l[0][0]
+	var k: int = l[0][1]
+	# chi acquisisce non cattura: gli agenti tornano ai loro giocatori
+	var miei: int = s["corte"][k]["ag"][i]
+	for x in s["n"]:
+		if x != j:
+			G(x)["agenti"] += s["corte"][k]["ag"][x]
+			s["corte"][k]["ag"][x] = 0
+	_log("Mediatori: %s fa acquisire %s a %s." % [_nome(i), Dati.nome_corte(s["corte"][k]["c"]), _nome(j)])
+	_acquisisci(j, k, false)
+	_spingi({"k": "az_acquisire", "g": i})
+	for z in miei:
+		_spingi({"k": "az_influenzare", "g": i})
+
+# ================================================================ Ammiraglie: Gru Navale e Propulsore a Scia
+func _opzioni_costruire(i: int) -> Array:
+	var out: Array = super(i)
+	if not _attiva() or i < 0 or i >= s["n"] or G(i)["navi"] <= 0:
+		return out
+	var am := ammiraglia(i)
+	if am == "" or not "porto" in migliorie(i).values():
+		return out
+	var usate: Array = s["turno"].get("porti", []) if s.has("turno") else []
+	var volte := 2 if migliorie(i).has("gru") else 1
+	for k in volte:
+		var chiave := "%s:%d" % [am, -1 - k]
+		if not chiave in usate:
+			out.append(["nave", am, -1 - k])
+			break
+	return out
+
+func _opzioni_preludio(i: int) -> Array:
+	var ops: Array = super(i)
+	if _attiva() and migliorie(i).has("scia") and ammiraglia(i) != "" and not s["turno"].get("scia", false):
+		ops.append({"t": "Propulsore a Scia: muovi con la Fionda dall'Ammiraglia", "v": "carta:scia"})
+	if _attiva() and ha_carta(i, "428_23") and not _sul_podio(i):
+		ops = ops.filter(func(o): return not (str(o["v"]).begins_with("carta:") and Dati.info(str(o["v"]).substr(6))[1] == "gilda"))
+	return ops
+
+func _preludio_esegui(i: int, c: String) -> void:
+	if c == "scia":
+		s["turno"]["scia"] = true
+		_spingi({"k": "az_muovere", "g": i})
+		return
+	super(i, c)
+
+## Sorveglianti delle Gilde: per usare le carte Gilda bisogna essere primi o secondi in un'ambizione dichiarata.
+func _sul_podio(i: int) -> bool:
+	for amb in Dati.AMBIZIONI:
+		if not dichiarata(amb):
+			continue
+		var sopra := 0
+		var mio := punteggio_ambizione(i, amb)
+		if mio <= 0:
+			continue
+		for j in s["n"]:
+			if j != i and punteggio_ambizione(j, amb) > mio:
+				sopra += 1
+		if sopra <= 1:
+			return true
+	return false
+
+# ================================================================ Fede: limiti degli Ideali e Sottrazione Partigiana
+func _dichiarabile(i: int, amb: String, c: String) -> bool:
+	if not _attiva():
+		return super(i, amb, c)
+	var ideali: Dictionary = D().get("ideali", {}) if D().get("ideali") is Dictionary else {}
+	var dottrina: String = D().get("dottrina", "fes")
+	var lib_: Array = C()["libretto"]
+	if Dati.is_fedele(c):
+		if (lib_.has("458_08") or lib_.has("458_03") or lib_.has("458_01")) and ideali.has(amb) and ideali[amb] != dottrina:
+			return false
+		if lib_.has("458_03") and not ideali.has(amb):
+			return false
+	elif lib_.has("458_01") and ideali.has(amb):
+		return false
+	return super(i, amb, c)
+
+func _modi_sottrarre(i: int) -> Array:
+	if _attiva() and (C()["libretto"].has("477_09") or (ha_carta(i, "477_22") and destino(i) == "partigiano")):
+		return ["oltraggio"]
+	return super(i)
+
+## Sottrazione Partigiana in mano a chi non è il Partigiano: si elimina e toglie gli Oltraggi.
+func _h_acquisita_partigiana(i: int) -> void:
+	if ha_carta(i, "477_22") and destino(i) != "partigiano":
+		G(i)["carte"].erase("477_22")
+		G(i)["oltraggio"] = []

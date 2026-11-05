@@ -167,6 +167,18 @@ func _h_ruba(_i: int, _t: String) -> bool:
 func _intercetta_extra(_j: int, _id: String) -> int:
 	return 0
 
+## Limiti di dichiarazione (Ideali della campagna).
+func _dichiarabile(_i: int, _amb: String, _c: String) -> bool:
+	return true
+
+## Come si può sottrarre l'iniziativa da seguace: "carta" (una carta in più) e/o "oltraggio".
+func _modi_sottrarre(_i: int) -> Array:
+	return ["carta"]
+
+## Gancio: inizio di una battaglia (dopo la scelta del difensore).
+func _h_battaglia(_i: int, _j: int, _id: String) -> void:
+	pass
+
 ## Numero della carta per dichiarare (7 = qualsiasi ambizione).
 func _valore_dichiarazione(c: String) -> int:
 	return Dati.valore(c)
@@ -811,6 +823,11 @@ func _p_pre_segui(p: Dictionary) -> void:
 			s["sottratta"] = i
 			_log("%s sottrae l'iniziativa giocando una carta in più." % _nome(i))
 			_ev({"tipo": "sottrai", "g": i})
+		elif v is String and v.begins_with("oltraggio:"):
+			_oltraggio(i, v.substr(10))
+			s["sottratta"] = i
+			_log("%s sottrae l'iniziativa Recando Oltraggio." % _nome(i))
+			_ev({"tipo": "sottrai", "g": i})
 		elif _e(v, "bardi"):
 			var amb: String = Dati.AMBIZIONE_DI_VALORE.get(Dati.valore(p["c"]), "")
 			_dichiara(i, amb, false)
@@ -819,10 +836,16 @@ func _p_pre_segui(p: Dictionary) -> void:
 		p["fase"] = 0
 		if s["sottratta"] < 0 and s["iniz"] != i and not G(i)["mano"].is_empty():
 			var ops := [{"t": "Non sottrarre l'iniziativa", "v": "no"}]
-			for c in _ordina_mano(G(i)["mano"]):
-				if Dati.is_evento(c):
-					continue
-				ops.append({"t": "Sottrai l'iniziativa scartando %s" % Dati.nome_carta_azione(c), "v": "sottrai:" + c, "mano": c})
+			var modi := _modi_sottrarre(i)
+			if "carta" in modi:
+				for c in _ordina_mano(G(i)["mano"]):
+					if Dati.is_evento(c):
+						continue
+					ops.append({"t": "Sottrai l'iniziativa scartando %s" % Dati.nome_carta_azione(c), "v": "sottrai:" + c, "mano": c})
+			if "oltraggio" in modi:
+				for r in Dati.RISORSE:
+					if not r in G(i)["oltraggio"]:
+						ops.append({"t": "Sottrai l'iniziativa Recando Oltraggio: %s" % Dati.NOME_RISORSA[r], "v": "oltraggio:" + r, "risorsa": r})
 			_chiedi(p, i, "Vuoi sottrarre l'iniziativa giocando una carta Azione in più a faccia in giù?", ops, "sottrai")
 			return
 		p["fatto_0"] = true
@@ -894,6 +917,7 @@ func _p_dichiara(p: Dictionary) -> void:
 		possibili = Dati.AMBIZIONI.duplicate()
 	elif Dati.AMBIZIONE_DI_VALORE.has(val):
 		possibili = [Dati.AMBIZIONE_DI_VALORE[val]]
+	possibili = possibili.filter(func(a): return _dichiarabile(i, a, c))
 	if possibili.is_empty():
 		return
 	if leader(i) == "edonista" and G(i)["carte"].filter(func(x): return Dati.info(x)[1] == "gilda").is_empty():
@@ -1831,7 +1855,9 @@ func _influenza(i: int, k: int) -> void:
 func _p_az_influenzare(p: Dictionary) -> void:
 	var i: int = p["g"]
 	if _ha_r(p):
-		_influenza(i, int(_r(p)))
+		var v = _r(p)
+		if v != null:
+			_influenza(i, int(v))
 		return
 	var ops := []
 	for k in s["corte"].size():
@@ -1866,6 +1892,8 @@ func _p_az_acquisire(p: Dictionary) -> void:
 	var ops := []
 	for k in _carte_acquisibili(i):
 		ops.append({"t": "Acquisisci " + Dati.nome_corte(s["corte"][k]["c"]), "v": k, "corte": k})
+	if ops.is_empty():
+		return
 	_chiedi(p, i, "Quale carta della Corte acquisisci?", ops, "corte")
 
 ## Prende la carta k della Corte. soggiogo: gli agenti Rivali diventano Trofei.
@@ -2211,6 +2239,7 @@ func _p_battaglia(p: Dictionary) -> void:
 		"inizio":
 			_ev({"tipo": "battaglia", "sis": id, "g": i, "dif": j})
 			_log("%s combatte contro %s in %s." % [_nome(i), _nome(j), _desc_sis(id)])
+			_h_battaglia(i, j, id)
 			p["integre_inizio"] = s["mappa"][id]["navi"][i][1] == 0
 			p["fase"] = "railgun"
 			if leader(i) == "guerriero" and p["modo"] in ["copia", "cambia"] and p["da"] == "punto":

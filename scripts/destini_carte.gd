@@ -27,7 +27,7 @@ const SENZA_CRISI := ["armistizio"]
 ## Carte Gilda dei Destini con Preludio o effetti propri
 const REGGENTE_MINORE := ["463_05", "463_06", "463_15", "463_16"]
 const RINNEGATI := ["479_14", "479_15"]
-const ADULATORI := ["475_10", "450_01"]
+const ADULATORI := ["475_10", "450_01", "463_19", "479_12", "479_13"]
 const BELLICHE := ["442_05", "442_06"]
 const EMISSARI := {"472_07": "empate", "428_17": "empate", "428_20": "magnate", "428_21": "magnate", "428_19": "generale", "428_18": "custode"}
 const MAESTRI := {"428_07": ["generale", "armi"], "428_08": ["magnate", "carburante"], "428_09": ["magnate", "materiale"],
@@ -631,7 +631,7 @@ func _preludio_carta(i: int, c: String) -> Dictionary:
 	if c in RINNEGATI and reggente(i) and not _sistemi_controllati(i).is_empty() and G(imp())["navi"] > 0:
 		return {"t": "Ammiragli Rinnegati: scartali, 3 navi Imperiali in un sistema che controlli", "v": v, "carta": c}
 	if c in ADULATORI and not _sistemi_controllati(i).is_empty():
-		return {"t": "Adulatori: scartali, 3 navi in un sistema che controlli", "v": v, "carta": c}
+		return {"t": "%s: scartala, 3 navi in un sistema che controlli" % Dati.nome_corte(c), "v": v, "carta": c}
 	if c in BELLICHE and riserva("armi") > 0:
 		return {"t": "Attività Belliche: scartala, riempi gli spazi liberi di Armi", "v": v, "carta": c}
 	if c == "444_00" and not s["turno"].get("recinto", false) and _ha_risorse(i):

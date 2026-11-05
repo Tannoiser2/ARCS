@@ -104,6 +104,47 @@ func _init() -> void:
 	m.C()["libretto"].append("458_08")
 	m.D()["dottrina"] = "fez"
 	controlla(m._lati_fedeli(0) == ["fez"], "la Dottrina impone il lato")
+	# Cessate il Fuoco
+	m._spec_destino(1, "paciere", "cessate_il_fuoco")
+	var sis := ""
+	for id in m.s["mappa"]:
+		if not Dati.is_portale(id) and not m.s["fuori"].has(m._settore(id)):
+			sis = id
+			break
+	m.s["mappa"][sis]["navi"][0] = [2, 0]
+	m.s["mappa"][sis]["navi"][1] = [1, 0]
+	m.s["mappa"][sis]["navi"][m.imp()] = [0, 0]
+	m.G(0)["risorse"] = ["", "", "", "", "", ""]
+	controlla(not m._avversari(0, sis).has(1), "Cessate il Fuoco: senza Armi non si attacca in un settore in Pace")
+	m.G(0)["risorse"][0] = "armi"
+	controlla(m._avversari(0, sis).has(1), "con 1 Armi si può attaccare")
+	m._h_battaglia(0, 1, sis)
+	controlla(m.D()["cessate"][str(m._settore(sis))] == "guerra", "attaccando il settore entra in Guerra")
+	m.D().erase("cessate")
+	# Legge Marziale
+	m.C()["libretto"].append("479_01")
+	m.C()["destino"][2] = "redentore"
+	m.C()["titolo"][2] = "reggente"
+	controlla(not m.comanda_flotta(2), "Legge Marziale: un Reggente senza Ufficiali non comanda la flotta")
+	m.G(2)["carte"].append("479_19")
+	controlla(m.comanda_flotta(2), "con gli Ufficiali Imperiali si comanda la flotta")
+	m.C()["libretto"].erase("479_01")
+	# Sottrazione Partigiana
+	m.C()["libretto"].append("477_09")
+	controlla(m._modi_sottrarre(0) == ["oltraggio"], "Sottrazione Partigiana: si sottrae solo Recando Oltraggio")
+	m.C()["libretto"].erase("477_09")
+	# limiti degli Ideali
+	m.C()["libretto"].append("458_03")
+	m.D()["ideali"] = {"tiranno": "fez"}
+	m.D()["dottrina"] = "fes"
+	controlla(not m._dichiarabile(0, "tiranno", "fes3"), "Fede Repressa: niente ambizioni con l'Ideale diverso dalla Dottrina")
+	controlla(not m._dichiarabile(0, "custode", "fes3"), "Fede Repressa: niente ambizioni senza Ideale con una carta Fedele")
+	controlla(m._dichiarabile(0, "custode", "agg3"), "con una carta non Fedele si dichiara")
+	m.C()["libretto"].erase("458_03")
+	# Quorum, Sponsor, Giudice, Rilascio, Armistizio: si eseguono senza errori
+	for c in ["463_03", "449_00", "468_00", "471_12", "477_06", "442_02"]:
+		m._editto_extra(c)
+	controlla(true, "Editti della seconda parte eseguiti")
 	# Intervallo fino all'Atto II
 	m.C()["obiettivo"][0] = 0
 	m.s["pila"] = [{"k": "intervallo", "fase": 0}]

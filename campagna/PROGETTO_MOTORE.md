@@ -198,16 +198,33 @@ Catena delle classi: `Motore` → `MotoreCampagna` (campagna.gd) → `MotoreDest
 - Editti dei Destini con effetto: Fonderie Imperiali, Ottenere Monopoli, Richiesta del Patrocinatore,
   I Golem Saziano la loro Fame, Dividendi della Pace, Rimprovero degli Empati, Rimprovero dei Custodi
   (solo con Custode dichiarata), L'Orlo Rifiuta il Signore Supremo, I Signori Ottengono Potere.
-  Leggi con effetto: Protettori Imperiali, Supremazia delle Gilde, Carte Fedeli e Dottrina, Economia
-  Chiusa, Legge Feudale (il Signore tassa le città del suo Feudo). Senza effetto: Armistizi (l'Editto),
-  Cessate il Fuoco, Legge Marziale, Corti Feudali, Sottrazione Partigiana, Bunker resistenti, Dicerie,
-  Quorum Imperiale, Sponsor Imperiale, Il Giudice Fissa l'Agenda, Rilascio dei Prigionieri.
+  Leggi ed Editti con effetto anche: Protettori Imperiali, Supremazia delle Gilde, Carte Fedeli e
+  Dottrina (con i limiti degli Ideali di Fede Dottrinale, Repressa e Dominante), Fede Pluralista,
+  Economia Chiusa, Legge Feudale (tassare nel Feudo, Oltraggio fra Signore e Vassalli), Corti
+  Feudali (il Castellano mette il segnalino Corte influenzando una carta vuota), Cessate il Fuoco
+  (Pace in tutti i settori dall'Atto III; si attacca in Pace solo spendendo 1 Armi), L'Impero Rifiuta
+  la Pace, Accordi di Pace (Mediare la Pace nei Vertici dove si controlla un sistema), Legge Marziale,
+  Sottrazione Partigiana, Empatia per Tutti, Quorum Imperiale, Sponsor Imperiale, Il Giudice Fissa
+  l'Agenda, Rilascio dei Prigionieri, Appello all'Armistizio, Le Gilde Condannano il Terrore.
+- Bunker: il Sopravvissuto ne costruisce uno a fine turno su un pianeta che controlla (elimina un suo
+  agente e cattura un agente Rivale); un Bunker cade quando un Rivale vince una battaglia contro il
+  Sopravvissuto restando solo nel sistema. Non sono ancora pezzi colpibili con 2 colpi.
+- Dicerie: chi prende un Trofeo del Pirata scopre una Diceria Vera; alla fine dell'Atto III chi conosce
+  settore e simbolo e controlla il Rifugio ottiene 10 Potere (il Pirata li perde), altrimenti il
+  Pirata ne ottiene 10. Diffondere la Diceria nei Vertici non c'è.
 - Carte Vox dei set: tutte hanno Crisi e «Appena Acquisita» (scelte facoltative automatiche); Rivolta di
   Massa, L'Oltraggio Dilaga e Conflitto fra Gilde usano l'effetto della carta base. Senza effetto vero:
   Tempeste del Passaggio, Le Dicerie si Diffondono, Caos al Comando (Crisi), Giorno di Festa (divieto).
 - Carte Gilda dei set con effetto: Reggente Minore, Ammiragli Rinnegati, Adulatori, Attività Belliche,
   Recinto delle Reliquie, Emissari, Maestri della Gilda, Cartelli, Flotte da Parata, Lega dei Mercanti
   (2 risorse congelate che contano per le ambizioni), Confidenti del Consiglio, Contrabbandieri Pirati,
-  Discepoli Fedeli, Il Profeta / La Giovane Luce / Il Figliol Prodigo. Le altre Gilde dei set senza un
-  equivalente nel gioco base non hanno ancora effetto.
-- Ammiraglie: anche Sistema di Controllo (tassare nel settore quando è in un portale).
+  Discepoli Fedeli, Il Profeta / La Giovane Luce / Il Figliol Prodigo, Sgherri di Corte, Squadre di
+  Cacciatori (Preludio), Mediatori, Manipolatori Mentali, Informatori, Combattenti per la Libertà,
+  Guide delle Spore, Navi Spora, Mietitori della Piaga, Profughi, Investigatori delle Gilde,
+  Sorveglianti delle Gilde, Cercatori del Portale, Ufficiali Imperiali. Le azioni alternative
+  («Rapire (Combattere)» ecc.) si scelgono come le varianti del gioco base; il bersaglio lo sceglie il
+  motore. Senza effetto: L'Arbitro, Bibliotecari, Parlapietre, Guardia d'Onore, Esattori, Cercatori,
+  Ospiti Felici, Custodi dell'Arsenale, Flotta Pirata, Cacciatori della Piaga.
+- Ammiraglie: Raggio Traente, Sistema Difensivo, Sistema di Controllo, Propulsore a Scia (un movimento
+  in più nel Preludio), costruire navi all'Ammiraglia con uno spazioporto sulla plancia (Gru Navale:
+  due volte per turno).
