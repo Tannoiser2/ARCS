@@ -33,6 +33,9 @@ func scegli(m: Motore, a: Dictionary) -> int:
 	var bv := -INF
 	var inizio := Time.get_ticks_msec()
 	for i in ops.size():
+		# una risorsa già spesa non si spreca: si fa sempre un'azione se ce n'è una
+		if tipo == "azione" and str(ops[i].get("v", "")) == "no":
+			continue
 		# tempo massimo per decisione (nel browser il calcolo è più lento): oltre si valuta in modo rapido
 		var v := _valuta(m, me, i, profondo and Time.get_ticks_msec() - inizio < 600)
 		v += rng.randf() * (6.0 if facile else 0.05)

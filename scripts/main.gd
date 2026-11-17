@@ -279,13 +279,51 @@ var scelta_prep := -1
 var scelta_facile := false
 var scelta_campagna := false
 
+## Casella di spunta ben visibile (anche al tocco): quadrato dorato, pieno quando è attiva.
+func casella(testo: String, attiva: bool, cambia: Callable) -> CheckBox:
+	var cb := CheckBox.new()
+	cb.text = testo
+	cb.button_pressed = attiva
+	cb.add_theme_font_override("font", F_TESTO)
+	cb.add_theme_font_size_override("font_size", 17)
+	cb.custom_minimum_size = Vector2(0, 34)
+	cb.add_theme_icon_override("unchecked", _icona_casella(false))
+	cb.add_theme_icon_override("checked", _icona_casella(true))
+	cb.add_theme_constant_override("h_separation", 10)
+	cb.toggled.connect(cambia)
+	return cb
+
+static var _icone_casella := {}
+
+static func _icona_casella(piena: bool) -> Texture2D:
+	if _icone_casella.has(piena):
+		return _icone_casella[piena]
+	var d := 24
+	var img := Image.create(d, d, false, Image.FORMAT_RGBA8)
+	img.fill(Color(0, 0, 0, 0))
+	var oro := Color(0.93, 0.78, 0.45)
+	for x in d:
+		for y in d:
+			var bordo := x < 2 or y < 2 or x >= d - 2 or y >= d - 2
+			if bordo:
+				img.set_pixel(x, y, oro)
+			elif piena and x >= 6 and y >= 6 and x < d - 6 and y < d - 6:
+				img.set_pixel(x, y, oro)
+			else:
+				img.set_pixel(x, y, Color(0.08, 0.07, 0.12, 0.9))
+	var tx := ImageTexture.create_from_image(img)
+	_icone_casella[piena] = tx
+	return tx
+
 func _menu_nuova() -> void:
 	pulisci()
 	_sfondo_menu()
 	var box := pannello()
-	box.set_anchors_preset(Control.PRESET_CENTER)
-	box.custom_minimum_size = Vector2(700, 600)
-	box.position = Vector2(-350, -300)
+	# il pannello si adatta al contenuto e resta centrato
+	box.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	box.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	box.grow_vertical = Control.GROW_DIRECTION_BOTH
+	box.custom_minimum_size = Vector2(700, 0)
 	schermo.add_child(box)
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 10)
@@ -317,27 +355,9 @@ func _menu_nuova() -> void:
 		tb.custom_minimum_size = Vector2(110, 0)
 		rr.add_child(tb)
 		v.add_child(rr)
-	var lb := CheckBox.new()
-	lb.text = "Leader & Lore (poteri asimmetrici, si scelgono a inizio partita)"
-	lb.button_pressed = scelta_leader
-	lb.add_theme_font_override("font", F_TESTO)
-	lb.add_theme_font_size_override("font_size", 17)
-	lb.toggled.connect(func(x): scelta_leader = x)
-	v.add_child(lb)
-	var cb := CheckBox.new()
-	cb.text = "Campagna «L'Orlo Infestato» (Atto I: Impero, Piaga, Eventi, Consiglio Imperiale)"
-	cb.button_pressed = scelta_campagna
-	cb.add_theme_font_override("font", F_TESTO)
-	cb.add_theme_font_size_override("font_size", 17)
-	cb.toggled.connect(func(x): scelta_campagna = x)
-	v.add_child(cb)
-	var fb := CheckBox.new()
-	fb.text = "IA più indulgente"
-	fb.button_pressed = scelta_facile
-	fb.add_theme_font_override("font", F_TESTO)
-	fb.add_theme_font_size_override("font_size", 17)
-	fb.toggled.connect(func(x): scelta_facile = x)
-	v.add_child(fb)
+	v.add_child(casella("Leader & Lore (poteri asimmetrici, si scelgono a inizio partita)", scelta_leader, func(x): scelta_leader = x))
+	v.add_child(casella("Campagna «L'Orlo Infestato» (3 Atti con i Destini, Impero, Piaga, Eventi e Consiglio Imperiale)", scelta_campagna, func(x): scelta_campagna = x))
+	v.add_child(casella("IA più indulgente", scelta_facile, func(x): scelta_facile = x))
 	var rp := HBoxContainer.new()
 	rp.add_theme_constant_override("separation", 6)
 	rp.add_child(etichetta("Preparazione:", F_NERO, 18))
@@ -367,6 +387,8 @@ func _avvia_locale() -> void:
 		ia_flags.append(not scelta_umani[i])
 		posti.append(0 if scelta_umani[i] else -1)
 	var seme := int(Time.get_unix_time_from_system() * 1000.0) % 1000000007
+	if OS.get_environment("ARCS_SEME") != "":
+		seme = int(OS.get_environment("ARCS_SEME"))
 	m.nuova_partita({"n": scelta_n, "nomi": scelta_nomi.slice(0, scelta_n), "ia": ia_flags, "leader": scelta_leader,
 		"seme": seme, "prep": scelta_prep, "facile": scelta_facile, "campagna": scelta_campagna})
 	m.s["posti"] = posti.duplicate()
@@ -422,7 +444,9 @@ const REGOLE := """[b]Lo scopo.[/b] Guidate una società spaziale nell'Orlo. Ott
 
 [b]Combattimento.[/b] Dadi Incursione (sicuri), Assalto (forti ma rischiosi) e Razzia (rubano risorse e carte, colpiscono gli edifici). Distruggere una città fa Recare Oltraggio al suo proprietario e permette di Soggiogare la Corte.
 
-[b]Comandi.[/b] Trascina il tavolo per girarlo, rotella per avvicinarti, tasto destro per spostarti. Clicca i sistemi illuminati, le carte della Corte o della mano per scegliere; clicca una carta qualsiasi per ingrandirla."""
+[b]Comandi con il mouse.[/b] Trascina il tavolo per girarlo, rotella per avvicinarti, tasto destro per spostarti. Clicca i sistemi illuminati, le carte della Corte o della mano per scegliere; clicca una carta qualsiasi per ingrandirla.
+
+[b]Comandi su iPad.[/b] Trascina con un dito per spostare la mappa, pizzica con due dita per avvicinarti, ruota due dita per girare il tavolo e trascinale insieme in su o in giù per inclinarlo. Un tocco breve sceglie un sistema illuminato. VISTA riporta la mappa alla posizione iniziale."""
 
 func _menu_regole() -> void:
 	pulisci()
@@ -460,9 +484,11 @@ func _menu_online() -> void:
 	pulisci()
 	_sfondo_menu()
 	var box := pannello()
-	box.set_anchors_preset(Control.PRESET_CENTER)
-	box.custom_minimum_size = Vector2(640, 540)
-	box.position = Vector2(-320, -270)
+	# il pannello si adatta al contenuto e resta centrato
+	box.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	box.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	box.grow_vertical = Control.GROW_DIRECTION_BOTH
+	box.custom_minimum_size = Vector2(640, 0)
 	schermo.add_child(box)
 	var v := VBoxContainer.new()
 	v.add_theme_constant_override("separation", 10)
@@ -996,7 +1022,8 @@ func _mostra_scelte(a: Dictionary) -> void:
 		var o: Dictionary = ops[i]
 		if o.has("sis"):
 			sis.append(o["sis"])
-		var b := bottone(str(o["t"]), _decidi.bind(i), _colore_opzione(o), 15)
+		# le scelte lunghe (carta + azioni) usano un corpo più piccolo per stare su una riga
+		var b := bottone(str(o["t"]), _decidi.bind(i), _colore_opzione(o), 15 if str(o["t"]).length() <= 40 else 13)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 		b.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1293,7 +1320,12 @@ func _aggiorna_top() -> void:
 		barra.custom_minimum_size = Vector2(66, 4)
 		w.add_child(barra)
 		var mp := pannello(Color(0, 0, 0, 0.75), col)
-		var modo := etichetta({"guida": "GUIDA", "supera": "SUPERA", "cambia": "CAMBIA", "copia": "COPIA", "sottrai": "SOTTRAE", "evento": "EVENTO"}[gg["modo"]], F_TITOLO, 11, col.lightened(0.3))
+		var testo_modo: String = {"guida": "GUIDA", "supera": "SUPERA", "cambia": "CAMBIA", "copia": "COPIA", "sottrai": "SOTTRAE", "evento": "EVENTO"}[gg["modo"]]
+		# chi guida e dichiara un'ambizione porta la Guida a 0: lo si vede sotto la carta
+		var gdx: Dictionary = m.s.get("guida", {})
+		if gg["modo"] == "guida" and not gdx.is_empty() and gdx.get("c", "") == gg["c"] and int(gdx["valore"]) != Dati.valore(gg["c"]):
+			testo_modo = "GUIDA = %d" % int(gdx["valore"])
+		var modo := etichetta(testo_modo, F_TITOLO, 11, col.lightened(0.3))
 		modo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		mp.add_child(modo)
 		w.add_child(mp)
@@ -1622,7 +1654,9 @@ func _aggiorna_mano() -> void:
 		mano_titolo.text = "Mano nascosta"
 		return
 	var g: Dictionary = m.s["g"][me]
-	mano_titolo.text = "Mano di %s (%d carte)" % [g["nome"], g["mano"].size()]
+	var nc: int = g["mano"].size()
+	var chi: String = "La tua mano" if umani_locali() <= 1 else "Mano di %s" % g["nome"]
+	mano_titolo.text = "%s (%d %s)" % [chi, nc, "carta" if nc == 1 else "carte"]
 	var mano: Array = g["mano"].duplicate()
 	mano.sort()
 	for c in mano:
@@ -1654,13 +1688,45 @@ func _clic_mano(ev: InputEvent, c: String, path: String) -> void:
 		else:
 			_mostra_zoom(path)
 
+## Le righe del registro sul giocatore chiamato «Tu» passano alla seconda persona («Tu guidi», «è tua»).
+const VERBI_TU := {"guida": "guidi", "dichiara": "dichiari", "spende": "spendi", "costruisce": "costruisci",
+	"tassa": "tassi", "ottiene": "ottieni", "influenza": "influenzi", "muove": "muovi", "acquisisce": "acquisisci",
+	"Cambia": "Cambi", "Supera": "Superi", "Copia": "Copi", "sottrae": "sottrai", "ruba": "rubi", "combatte": "combatti",
+	"danneggia": "danneggi", "distrugge": "distruggi", "cattura": "catturi", "Reca": "Rechi", "prende": "prendi",
+	"ripara": "ripari", "razzia": "razzi", "ha": "hai", "è": "sei", "rinuncia": "rinunci", "scarta": "scarti",
+	"mette": "metti", "perde": "perdi", "restituisce": "restituisci", "abbandona": "abbandoni", "sceglie": "scegli",
+	"avanza": "avanzi", "applica": "applichi", "riceve": "ricevi", "diventa": "diventi", "torna": "torni",
+	"soggioga": "soggioghi", "giustizia": "giustizi", "passa": "passi", "gioca": "giochi", "non": "non",
+	"seppellisce": "seppellisci", "cede": "cedi", "rifiuta": "rifiuti", "realizza": "realizzi", "completa": "completi",
+	"tira": "tiri", "attacca": "attacchi", "rifonda": "rifondi", "lascia": "lasci", "sostituisce": "sostituisci",
+	"trova": "trovi", "raccoglie": "raccogli", "pianta": "pianti", "reclama": "reclami", "apre": "apri",
+	"diffonde": "diffondi", "nutre": "nutri", "risveglia": "risvegli", "esporta": "esporti", "media": "medi"}
+
+func seconda_persona(riga: String) -> String:
+	var r := riga.replace("l'iniziativa è di Tu", "l'iniziativa è tua").replace(" a Tu.", " a te.").replace(" a Tu ", " a te ")
+	r = r.replace(" da Tu.", " da te.").replace(" di Tu.", " tua.").replace("vince Tu ", "vinci tu ")
+	if not r.begins_with("Tu "):
+		return r
+	var parole := r.split(" ")
+	if parole.size() > 1:
+		var v: String = parole[1]
+		var coda := ""
+		while v.length() > 0 and v[v.length() - 1] in [".", ",", "!"]:
+			coda = v[v.length() - 1] + coda
+			v = v.substr(0, v.length() - 1)
+		if VERBI_TU.has(v):
+			parole[1] = VERBI_TU[v] + coda
+			if v == "non" and parole.size() > 2 and VERBI_TU.has(parole[2]):
+				parole[2] = VERBI_TU[parole[2]]
+	return " ".join(parole)
+
 func _aggiorna_diario() -> void:
 	var log: Array = m.s["log"]
 	if ultimo_log > log.size():
 		ultimo_log = 0
 		diario.clear()
 	for k in range(ultimo_log, log.size()):
-		var t: String = log[k]
+		var t: String = seconda_persona(log[k])
 		if t.begins_with("—"):
 			diario.append_text("[b]%s[/b]\n" % t)
 		else:
@@ -1674,16 +1740,16 @@ func _effetto_2d(e: Dictionary) -> void:
 			_mostra_banner("CAPITOLO %d" % e["n"], "Ognuno pesca 6 carte Azione", C_ORO_CHIARO)
 		"ambizione":
 			var g: Dictionary = m.s["g"][e["g"]]
-			_mostra_banner(Dati.NOME_AMBIZIONE[e["amb"]].to_upper(), "%s dichiara l'ambizione" % g["nome"], Dati.TINTA[g["colore"]], "res://assets/ui/amb_%s.png" % e["amb"])
+			_mostra_banner(Dati.NOME_AMBIZIONE[e["amb"]].to_upper(), seconda_persona("%s dichiara l'ambizione" % g["nome"]), Dati.TINTA[g["colore"]], "res://assets/ui/amb_%s.png" % e["amb"])
 		"sottrai":
 			var g: Dictionary = m.s["g"][e["g"]]
 			_mostra_banner("INIZIATIVA SOTTRATTA", g["nome"], Dati.TINTA[g["colore"]])
 		"oltraggio":
 			var g: Dictionary = m.s["g"][e["g"]]
-			_mostra_banner("OLTRAGGIO", "%s Reca Oltraggio: %s" % [g["nome"], Dati.NOME_RISORSA[e["t"]]], C_ROSSO, "res://assets/ui/ris_%s.png" % e["t"])
+			_mostra_banner("OLTRAGGIO", seconda_persona("%s Reca Oltraggio: %s" % [g["nome"], Dati.NOME_RISORSA[e["t"]]]), C_ROSSO, "res://assets/ui/ris_%s.png" % e["t"])
 		"acquisisci":
 			var g: Dictionary = m.s["g"][e["g"]]
-			_mostra_banner(Dati.nome_corte(e["c"]).to_upper(), "acquisita da %s" % g["nome"], Dati.TINTA[g["colore"]])
+			_mostra_banner(Dati.nome_corte(e["c"]).to_upper(), ("acquisita da te" if g["nome"] == "Tu" else "acquisita da %s" % g["nome"]), Dati.TINTA[g["colore"]])
 		"dadi":
 			_mostra_dadi(e)
 		"punteggio":

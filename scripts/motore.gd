@@ -753,9 +753,17 @@ func _p_turno_guida(p: Dictionary) -> void:
 	for c in _giocabili(i):
 		if Dati.is_evento(c):
 			continue
-		ops.append({"t": "Guida con " + Dati.nome_carta_azione(c), "v": c, "mano": Dati.normalizza(c)})
+		ops.append({"t": "Guida con %s: %s" % [Dati.nome_carta_azione(c), _desc_punti(c)], "v": c, "mano": Dati.normalizza(c)})
 	ops.append({"t": "Passa l'iniziativa", "v": "passa"})
 	_chiedi(p, i, "Hai l'iniziativa: gioca una carta Guida", ops, "guida")
+
+## «3 azioni (Tassare, Riparare, Influenzare)»: quante azioni dà una carta e quali.
+func _desc_punti(c: String) -> String:
+	var n := Dati.punti(c)
+	var az := []
+	for a in Dati.AZIONI_SEME.get(Dati.seme(c), []):
+		az.append(Dati.NOME_AZIONE.get(a, a))
+	return "%d %s (%s)" % [n, "azione" if n == 1 else "azioni", ", ".join(az)]
 
 ## Le carte che si possono giocare: le carte Fedeli si giocano sul lato Zelo o Saggezza.
 func _giocabili(i: int) -> Array:
@@ -815,14 +823,17 @@ func _p_turno_segui(p: Dictionary) -> void:
 			continue
 		var cs := Dati.seme(c)
 		if cs == gs and Dati.valore(c) > int(guida["valore"]):
-			ops.append({"t": "Supera con %s (%d azioni)" % [Dati.nome_carta_azione(c), Dati.punti(c)], "v": [c, "supera"], "mano": Dati.normalizza(c), "modo": "supera"})
+			ops.append({"t": "Supera con %s: %s" % [Dati.nome_carta_azione(c), _desc_punti(c)], "v": [c, "supera"], "mano": Dati.normalizza(c), "modo": "supera"})
 		if cs != gs:
 			ops.append({"t": "Cambia con %s (1 azione)" % Dati.nome_carta_azione(c), "v": [c, "cambia"], "mano": Dati.normalizza(c), "modo": "cambia"})
 	for c in _ordina_mano(G(i)["mano"]):
 		if Dati.is_evento(c):
 			continue
 		ops.append({"t": "Copia scartando coperta %s (1 azione %s)" % [Dati.nome_carta_azione(c), Dati.NOME_SEME[gs]], "v": [c, "copia"], "mano": c, "modo": "copia"})
-	_chiedi(p, i, "%s ha guidato con %s: Supera, Cambia o Copia" % [_nome(guida["g"]), Dati.nome_carta_azione(guida["c"])], ops, "segui")
+	var nota := ""
+	if int(guida["valore"]) != Dati.valore(guida["c"]):
+		nota = " (vale %d: ha dichiarato un'ambizione)" % int(guida["valore"])
+	_chiedi(p, i, "%s ha guidato con %s%s: Supera, Cambia o Copia" % [_nome(guida["g"]), Dati.nome_carta_azione(guida["c"]), nota], ops, "segui")
 
 func _inizia_turno(i: int, c: String, modo: String) -> void:
 	var seme := Dati.seme(c)
@@ -1171,6 +1182,9 @@ func _opzioni_preludio(i: int) -> Array:
 				"reliquie": "Acquisire", "psico": "1 azione della carta Guida"}[x]
 			if x == "armi" and t["armi"]:
 				continue
+			# si propone di spendere solo se poi c'è davvero un'azione da fare
+			if not _spesa_utile(i, x):
+				continue
 			var testo := "Spendi %s: %s" % [Dati.NOME_RISORSA[r], cosa]
 			if x != r:
 				testo = "Spendi %s come %s: %s" % [Dati.NOME_RISORSA[r], Dati.NOME_RISORSA[x], cosa]
@@ -1181,6 +1195,19 @@ func _opzioni_preludio(i: int) -> Array:
 		if not o.is_empty():
 			ops.append(o)
 	return ops
+
+func _spesa_utile(i: int, x: String) -> bool:
+	var azioni: Array = {"materiale": ["costruire", "riparare"], "carburante": ["muovere"], "armi": ["combattere"],
+		"reliquie": ["acquisire"]}.get(x, [])
+	if x == "psico":
+		var g: Dictionary = s.get("guida", {})
+		var c: String = str(g.get("c", s["turno"].get("c", "")))
+		azioni = Dati.AZIONI_SEME.get(Dati.seme(c), [])
+	for a in azioni:
+		for v in _varianti(i, a):
+			if _azione_possibile(i, v):
+				return true
+	return false
 
 func _preludio_carta(i: int, c: String) -> Dictionary:
 	var t: Dictionary = s["turno"]
@@ -1623,8 +1650,14 @@ func _tassa(p: Dictionary, nutrire: bool) -> void:
 				_ottieni(i, "carburante")
 		return
 	var ops := []
+	var visti := {}
 	for x in _bersagli_tassa(i, nutrire):
 		var e: Dictionary = s["mappa"][x[0]]["edifici"][x[1]]
+		# due città uguali nello stesso sistema danno lo stesso risultato: se ne propone una sola
+		var chiave := "%s|%d|%s" % [x[0], int(e["g"]), str(e.get("danno", false))]
+		if visti.has(chiave):
+			continue
+		visti[chiave] = true
 		ops.append({"t": "Tassa la città %s in %s" % [_desc_citta(e["g"], i), _desc_sis(x[0])], "v": x, "sis": x[0]})
 	_chiedi(p, i, "Quale città tassi?", ops, "sistema")
 
@@ -2134,7 +2167,7 @@ func _p_az_muovere(p: Dictionary) -> void:
 	if not p.has("orig"):
 		var ops := []
 		for id in _origini_movimento(i):
-			ops.append({"t": "Muovi da %s (%d navi)" % [_desc_sis(id), navi(id, i)], "v": id, "sis": id})
+			ops.append({"t": "Muovi da %s (%d %s)" % [_desc_sis(id), navi(id, i), "nave" if navi(id, i) == 1 else "navi"], "v": id, "sis": id})
 		_chiedi(p, i, "Da quale sistema muovi?", ops, "sistema")
 		return
 	if not p.has("dest"):

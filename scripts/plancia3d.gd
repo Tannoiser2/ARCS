@@ -203,7 +203,69 @@ func vista_alto() -> void:
 	centro = Vector3(0, 0, 0)
 	_aggiorna_camera()
 
+## Tocco (iPad): un dito trascina la mappa, due dita pizzicano per lo zoom e ruotano; un tocco breve seleziona.
+var tocchi := {}
+var tocco_mosso := 0.0
+
+func _tocco(ev: InputEvent) -> void:
+	if ev is InputEventScreenTouch:
+		var st := ev as InputEventScreenTouch
+		if st.pressed:
+			tocchi[st.index] = st.position
+			if tocchi.size() == 1:
+				tocco_mosso = 0.0
+		else:
+			var era_unico := tocchi.size() == 1
+			tocchi.erase(st.index)
+			if era_unico and tocco_mosso < 12.0:
+				_clic(st.position)
+			if tocchi.size() > 0:
+				tocco_mosso = 99.0
+	elif ev is InputEventScreenDrag:
+		var sd := ev as InputEventScreenDrag
+		if not tocchi.has(sd.index):
+			tocchi[sd.index] = sd.position
+		var prima: Dictionary = tocchi.duplicate()
+		tocchi[sd.index] = sd.position
+		tocco_mosso += sd.relative.length()
+		if tocchi.size() == 1:
+			if tocco_mosso >= 12.0:
+				_sposta(sd.relative)
+		elif tocchi.size() >= 2:
+			var ks: Array = tocchi.keys()
+			var a0: Vector2 = prima[ks[0]]
+			var b0: Vector2 = prima[ks[1]]
+			var a1: Vector2 = tocchi[ks[0]]
+			var b1: Vector2 = tocchi[ks[1]]
+			var d0 := a0.distance_to(b0)
+			var d1 := a1.distance_to(b1)
+			if d0 > 10.0 and d1 > 10.0:
+				zoom(d0 / d1)
+			var ang := rad_to_deg((b1 - a1).angle() - (b0 - a0).angle())
+			if absf(ang) < 30.0:
+				ruota(-ang, 0.0)
+			# le due dita insieme in su o in giù inclinano la vista
+			var my := ((a1 + b1) - (a0 + b0)).y * 0.5
+			ruota(0.0, my * 0.15)
+
+func _sposta(rel: Vector2) -> void:
+	var dx := rel.x * dist * 0.0012
+	var dz := rel.y * dist * 0.0012
+	var b := cam.global_transform.basis
+	var avanti := Vector3(b.z.x, 0, b.z.z).normalized()
+	var destra := Vector3(b.x.x, 0, b.x.z).normalized()
+	centro -= destra * dx + avanti * dz
+	centro.x = clampf(centro.x, -BW * 0.5, BW * 0.5)
+	centro.z = clampf(centro.z, -BH * 0.5, BH * 0.5)
+	_aggiorna_camera()
+
 func _unhandled_input(ev: InputEvent) -> void:
+	if ev is InputEventScreenTouch or ev is InputEventScreenDrag:
+		_tocco(ev)
+		return
+	# i clic simulati dal tocco li gestisce _tocco
+	if (ev is InputEventMouseButton or ev is InputEventMouseMotion) and ev.device == InputEvent.DEVICE_ID_EMULATION:
+		return
 	if ev is InputEventMouseButton:
 		var mb := ev as InputEventMouseButton
 		if mb.button_index == MOUSE_BUTTON_WHEEL_UP and mb.pressed:
@@ -229,15 +291,7 @@ func _unhandled_input(ev: InputEvent) -> void:
 			if float(get_meta("mosso", 0.0)) >= 6.0:
 				ruota(mm.relative.x * 0.3, mm.relative.y * 0.25)
 		elif sposta:
-			var dx := mm.relative.x * dist * 0.0012
-			var dz := mm.relative.y * dist * 0.0012
-			var b := cam.global_transform.basis
-			var avanti := Vector3(b.z.x, 0, b.z.z).normalized()
-			var destra := Vector3(b.x.x, 0, b.x.z).normalized()
-			centro -= destra * dx + avanti * dz
-			centro.x = clampf(centro.x, -BW * 0.5, BW * 0.5)
-			centro.z = clampf(centro.z, -BH * 0.5, BH * 0.5)
-			_aggiorna_camera()
+			_sposta(mm.relative)
 	elif ev is InputEventMagnifyGesture:
 		zoom(1.0 / (ev as InputEventMagnifyGesture).factor)
 
@@ -341,9 +395,9 @@ func _fuori(id: String) -> void:
 	d.position = pos(id) + Vector3(0, 0.02, 0)
 	pezzi.add_child(d)
 	var x := Label3D.new()
-	x.text = "FUORI DAL GIOCO"
+	x.text = "FUORI\nDAL GIOCO" if not Dati.is_portale(id) else "FUORI"
 	x.font = load("res://assets/font/Titoli.ttf")
-	x.font_size = 40
+	x.font_size = 64
 	x.pixel_size = 0.004
 	x.modulate = Color(0.75, 0.68, 0.5)
 	x.rotation_degrees = Vector3(-90, 0, 0)
@@ -476,8 +530,8 @@ func evidenzia(ids: Array) -> void:
 		selezionabili[id] = true
 		var a := MeshInstance3D.new()
 		var tor := TorusMesh.new()
-		tor.inner_radius = 0.6
-		tor.outer_radius = 0.68
+		tor.inner_radius = 0.62
+		tor.outer_radius = 0.8
 		a.mesh = tor
 		var am := StandardMaterial3D.new()
 		am.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
@@ -485,9 +539,28 @@ func evidenzia(ids: Array) -> void:
 		a.material_override = am
 		a.position = pos(id) + Vector3(0, 0.04, 0)
 		evidenze.add_child(a)
+		# un velo dorato dentro l'anello: i sistemi che si possono scegliere si vedono anche da lontano
+		var disco := MeshInstance3D.new()
+		var cy := CylinderMesh.new()
+		cy.top_radius = 0.66
+		cy.bottom_radius = 0.66
+		cy.height = 0.01
+		disco.mesh = cy
+		var dm := StandardMaterial3D.new()
+		dm.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		dm.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		dm.albedo_color = Color(1.0, 0.82, 0.3, 0.22)
+		disco.material_override = dm
+		disco.position = pos(id) + Vector3(0, 0.03, 0)
+		evidenze.add_child(disco)
 
 func _process(delta: float) -> void:
 	t += delta
+	# in verticale (iPad in piedi) la mappa si adatta alla larghezza invece che all'altezza
+	var vs := get_viewport().get_visible_rect().size
+	var ka := Camera3D.KEEP_WIDTH if vs.x < vs.y * 1.15 else Camera3D.KEEP_HEIGHT
+	if cam.keep_aspect != ka:
+		cam.keep_aspect = ka
 	var s := 1.0 + sin(t * 4.0) * 0.06
 	for c in evidenze.get_children():
 		c.scale = Vector3(s, 1, s)
